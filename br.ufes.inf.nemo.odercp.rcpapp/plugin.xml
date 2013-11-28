@@ -5,11 +5,15 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="br.ufes.inf.nemo.odercp.rcpapp"
+            name="ODERCP"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="applicationCSS"
                value="platform:/plugin/br.ufes.inf.nemo.odercp.rcpapp/css/default.css">
+         </property>
+         <property
+               name="appName"
+               value="ODERCP">
          </property>
       </product>
    </extension>
