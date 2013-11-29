@@ -8,7 +8,7 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_1oZhLVhsEeOh3I2suSt6DQ" label="Quit" command="_1oZhHFhsEeOh3I2suSt6DQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_BHs18FhtEeOh3I2suSt6DQ" elementId="" label="Project">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_K7-zcFhtEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.0" label="New Project"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_K7-zcFhtEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.new.project" label="New Project" mnemonics="P" command="_2FqSwFiWEeOh3I2suSt6DQ"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_1oZhLlhsEeOh3I2suSt6DQ" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_1oZhL1hsEeOh3I2suSt6DQ" label="About" command="_1oZhJlhsEeOh3I2suSt6DQ"/>
@@ -25,6 +25,7 @@
   <handlers xmi:id="_1oZhIVhsEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.openCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.OpenHandler" command="_1oZhIFhsEeOh3I2suSt6DQ"/>
   <handlers xmi:id="_1oZhJFhsEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.saveCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.SaveHandler" command="_1oZhI1hsEeOh3I2suSt6DQ"/>
   <handlers xmi:id="_1oZhJ1hsEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.aboutCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.AboutHandler" command="_1oZhJlhsEeOh3I2suSt6DQ"/>
+  <handlers xmi:id="_BemEcFiYEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.ew.project" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.NewProjectHandler" command="_2FqSwFiWEeOh3I2suSt6DQ"/>
   <bindingTables xmi:id="_1oZhHlhsEeOh3I2suSt6DQ" bindingContext="_1oZhGVhsEeOh3I2suSt6DQ">
     <bindings xmi:id="_1oZhH1hsEeOh3I2suSt6DQ" keySequence="M1+Q" command="_1oZhHFhsEeOh3I2suSt6DQ"/>
     <bindings xmi:id="_1oZhIlhsEeOh3I2suSt6DQ" keySequence="M1+O" command="_1oZhIFhsEeOh3I2suSt6DQ"/>
@@ -39,6 +40,7 @@
   <commands xmi:id="_1oZhIFhsEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.open" commandName="openCommand"/>
   <commands xmi:id="_1oZhI1hsEeOh3I2suSt6DQ" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_1oZhJlhsEeOh3I2suSt6DQ" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_2FqSwFiWEeOh3I2suSt6DQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.newProject" commandName="New Project"/>
   <addons xmi:id="_1oZhElhsEeOh3I2suSt6DQ" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_1oZhE1hsEeOh3I2suSt6DQ" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_1oZhFFhsEeOh3I2suSt6DQ" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
