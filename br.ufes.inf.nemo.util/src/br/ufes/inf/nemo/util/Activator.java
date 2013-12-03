@@ -16,7 +16,7 @@ import org.osgi.util.tracker.ServiceTracker;
  * Activator for the utility bundle. Among other things, this bundle (and its activator) is responsible for the logging
  * mechanism.
  * 
- * @author Danillo Ricardo Celino
+ * @author Vitor E. Silva Souza (vitorsouza@gmail.com)
  * @version 1.0
  */
 public class Activator implements BundleActivator {

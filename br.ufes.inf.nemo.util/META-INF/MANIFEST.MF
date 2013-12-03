@@ -1,21 +1,16 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Util
-Bundle-SymbolicName: br.ufes.inf.nemo.util;singleton:=true
-Require-Bundle: javax.inject;bundle-version="1.0.0",
- org.eclipse.core.runtime;bundle-version="3.9.0",
- org.eclipse.swt;bundle-version="3.102.1",
- org.eclipse.e4.ui.model.workbench;bundle-version="1.0.1",
- org.eclipse.jface;bundle-version="3.9.1",
- org.eclipse.e4.ui.services;bundle-version="1.0.1",
- org.eclipse.e4.ui.workbench;bundle-version="1.0.1",
- org.eclipse.e4.core.di;bundle-version="1.3.0",
- org.eclipse.e4.ui.di;bundle-version="1.0.0",
- org.eclipse.e4.core.contexts;bundle-version="1.3.1"
-Import-Package: javax.annotation;version="1.0.0"
-Export-Package: br.ufes.inf.nemo.util.logging
+Bundle-Name: DISI/Unitn Utility Bundle for RCP/OSGi Applications
+Bundle-SymbolicName: it.unitn.disi.unagi.util
+Bundle-Version: 1.0.0.qualifier
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.8.0",
+ org.eclipse.swt;bundle-version="3.100.0",
+ org.eclipse.ui;bundle-version="3.103.0",
+ org.eclipse.e4.core.di;bundle-version="1.1.0"
+Export-Package: br.ufes.inf.nemo.util.etc,
+ br.ufes.inf.nemo.util.gui,
+ br.ufes.inf.nemo.util.io,
+ br.ufes.inf.nemo.util.logging
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: br.ufes.inf.nemo.util.Activator
-Bundle-Version:  1.0.0.qualifier
-

@@ -17,5 +17,202 @@
          </property>
       </product>
    </extension>
+   <extension
+         point="org.eclipse.equinox.preferences.preferences">
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <category
+            id="br.ufes.inf.nemo.odercp.rcpapp"
+            name="Sample Wizards">
+      </category>
+      <wizard
+            category="br.ufes.inf.nemo.odercp.rcpapp"
+            class="br.ufes.inf.nemo.odercp.rcpapp.wizards.SampleNewWizard"
+            icon="icons/sample.gif"
+            id="br.ufes.inf.nemo.odercp.rcpapp.wizards.SampleNewWizard"
+            name="Multi-page Editor file">
+      </wizard>
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="br.ufes.inf.nemo.odercp.rcpapp.editors.MultiPageEditor"
+            contributorClass="br.ufes.inf.nemo.odercp.rcpapp.editors.MultiPageEditorContributor"
+            extensions="mpe"
+            icon="icons/sample.gif"
+            id="br.ufes.inf.nemo.odercp.rcpapp.editors.MultiPageEditor"
+            name="Sample Multi-page Editor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            id="br.ufes.inf.nemo.odercp.rcpapp.contribution1"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="br.ufes.inf.nemo.odercp.rcpapp.menu1"
+               label="New Submenu"
+               path="additions">
+            <separator
+                  name="group1">
+            </separator>
+         </menu>
+         <action
+               class="br.ufes.inf.nemo.odercp.rcpapp.popup.actions.NewAction"
+               enablesFor="1"
+               id="br.ufes.inf.nemo.odercp.rcpapp.newAction"
+               label="New Action"
+               menubarPath="br.ufes.inf.nemo.odercp.rcpapp.menu1/group1">
+         </action>
+      </objectContribution>
+   </extension>
+   <extension
+         id="sampleBuilder"
+         name="Sample Project Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="br.ufes.inf.nemo.odercp.rcpapp.builder.SampleBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="sampleNature"
+         name="Sample Project Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="br.ufes.inf.nemo.odercp.rcpapp.builder.SampleNature">
+         </run>
+      </runtime>
+      <builder
+            id="br.ufes.inf.nemo.odercp.rcpapp.sampleBuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            id="br.ufes.inf.nemo.odercp.rcpapp.sampleNature.category"
+            name="Sample Project Nature commands">
+      </category>
+      <command
+            categoryId="br.ufes.inf.nemo.odercp.rcpapp.sampleNature.category"
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.builder.AddRemoveSampleNatureHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.addRemoveSampleNature"
+            name="Add/RemoveSample Project Nature">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
+         <command
+               commandId="br.ufes.inf.nemo.odercp.rcpapp.addRemoveSampleNature"
+               label="Disable Sample builder"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <and>
+                        <instanceof
+                              value="org.eclipse.core.resources.IProject">
+                        </instanceof>
+                        <test
+                              property="org.eclipse.core.resources.projectNature"
+                              value="br.ufes.inf.nemo.odercp.rcpapp.sampleNature">
+                        </test>
+                     </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="br.ufes.inf.nemo.odercp.rcpapp.addRemoveSampleNature"
+               label="Enable Sample builder"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <and>
+                        <instanceof
+                              value="org.eclipse.core.resources.IProject">
+                        </instanceof>
+                        <not>
+                           <test
+                                 property="org.eclipse.core.resources.projectNature"
+                                 value="br.ufes.inf.nemo.odercp.rcpapp.sampleNature">
+                           </test>
+                        </not>
+                     </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         id="xmlProblem"
+         name="XML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            id="br.ufes.inf.nemo.odercp.rcpapp"
+            name="Sample Category">
+      </category>
+      <view
+            category="br.ufes.inf.nemo.odercp.rcpapp"
+            class="br.ufes.inf.nemo.odercp.rcpapp.views.SampleView"
+            icon="icons/sample.gif"
+            id="br.ufes.inf.nemo.odercp.rcpapp.views.SampleView"
+            name="Sample View">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               id="br.ufes.inf.nemo.odercp.rcpapp.views.SampleView"
+               ratio="0.5"
+               relationship="right"
+               relative="org.eclipse.ui.views.ProblemView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            class="br.ufes.inf.nemo.odercp.rcpapp.perspectives.RelEngPerspective"
+            icon="icons/releng_gears.gif"
+            id="br.ufes.inf.nemo.odercp.rcpapp.perspectives.RelEngPerspective"
+            name="Release Engineering">
+      </perspective>
+   </extension>
 
 </plugin>

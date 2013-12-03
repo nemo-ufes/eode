@@ -3,7 +3,6 @@
 	<name>br.ufes.inf.nemo.util</name>
 	<comment></comment>
 	<projects>
-		<project>br.ufes.inf.nemo.odercp.rcpapp</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
