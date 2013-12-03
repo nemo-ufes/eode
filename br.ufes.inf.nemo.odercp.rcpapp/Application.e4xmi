@@ -7,6 +7,9 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_uen-vlxhEeOPxP6KAt_xbg" label="Save" iconURI="platform:/plugin/br.ufes.inf.nemo.odercp.rcpapp/icons/save_edit.gif" command="_uen-tVxhEeOPxP6KAt_xbg"/>
         <children xsi:type="menu:HandledMenuItem" xmi:id="_uen-v1xhEeOPxP6KAt_xbg" label="Quit" command="_uenXrFxhEeOPxP6KAt_xbg"/>
       </children>
+      <children xsi:type="menu:Menu" xmi:id="_dUgfQFxlEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.0" label="Project">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gJTiIFxlEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.0" label="New Project"/>
+      </children>
       <children xsi:type="menu:Menu" xmi:id="_uen-wFxhEeOPxP6KAt_xbg" label="Help">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_uen-wVxhEeOPxP6KAt_xbg" label="About" command="_uen-uFxhEeOPxP6KAt_xbg"/>
       </children>
@@ -22,6 +25,7 @@
   <handlers xmi:id="_uen-s1xhEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.openCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.OpenHandler" command="_uen-slxhEeOPxP6KAt_xbg"/>
   <handlers xmi:id="_uen-tlxhEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.saveCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.SaveHandler" command="_uen-tVxhEeOPxP6KAt_xbg"/>
   <handlers xmi:id="_uen-uVxhEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.aboutCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.AboutHandler" command="_uen-uFxhEeOPxP6KAt_xbg"/>
+  <handlers xmi:id="_1QZQoFxlEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.newProject" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.NewProjectHandler" command="_v93nEFxlEeOPxP6KAt_xbg"/>
   <bindingTables xmi:id="_uen-sFxhEeOPxP6KAt_xbg" bindingContext="_uenXqVxhEeOPxP6KAt_xbg">
     <bindings xmi:id="_uen-sVxhEeOPxP6KAt_xbg" keySequence="M1+Q" command="_uenXrFxhEeOPxP6KAt_xbg"/>
     <bindings xmi:id="_uen-tFxhEeOPxP6KAt_xbg" keySequence="M1+O" command="_uen-slxhEeOPxP6KAt_xbg"/>
@@ -36,6 +40,7 @@
   <commands xmi:id="_uen-slxhEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.open" commandName="openCommand"/>
   <commands xmi:id="_uen-tVxhEeOPxP6KAt_xbg" elementId="org.eclipse.ui.file.save" commandName="saveCommand"/>
   <commands xmi:id="_uen-uFxhEeOPxP6KAt_xbg" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_v93nEFxlEeOPxP6KAt_xbg" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.newProject" commandName="newProjectCommand"/>
   <addons xmi:id="_uenXolxhEeOPxP6KAt_xbg" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="_uenXo1xhEeOPxP6KAt_xbg" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="_uenXpFxhEeOPxP6KAt_xbg" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
