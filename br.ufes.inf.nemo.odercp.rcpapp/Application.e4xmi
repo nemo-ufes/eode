@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="__D6owF3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ide.application" bindingContexts="__D6oyV3cEeO1o-j0vbWBLw">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="__D6owV3cEeO1o-j0vbWBLw" label="ODE RCP" width="1000" height="800">
+    <mainMenu xmi:id="__D7P2V3cEeO1o-j0vbWBLw" elementId="menu:org.eclipse.ui.main.menu">
+      <children xsi:type="menu:Menu" xmi:id="__D7P2l3cEeO1o-j0vbWBLw" label="Options">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__D7P3V3cEeO1o-j0vbWBLw" label="Quit" command="__D6ozF3cEeO1o-j0vbWBLw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_m-V6cF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.Project" label="Project">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uxkmMF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.newProject" label="New Project" command="_Vey6YF3dEeO1o-j0vbWBLw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="__D7P3l3cEeO1o-j0vbWBLw" label="Help">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__D7P313cEeO1o-j0vbWBLw" label="About" command="__D7P1l3cEeO1o-j0vbWBLw"/>
+      </children>
+      <children xsi:type="menu:Menu" xmi:id="_EvrxYF3gEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.user" label="User">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_IDFb0F3gEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.0"/>
+      </children>
+    </mainMenu>
+  </children>
+  <handlers xmi:id="__D6ozV3cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.quitCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.QuitHandler" command="__D6ozF3cEeO1o-j0vbWBLw"/>
+  <handlers xmi:id="__D7P113cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.aboutCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.AboutHandler" command="__D7P1l3cEeO1o-j0vbWBLw"/>
+  <handlers xmi:id="_TRac0F3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.newProject" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.NewProjectHandler" command="_Vey6YF3dEeO1o-j0vbWBLw"/>
+  <bindingTables xmi:id="__D6ozl3cEeO1o-j0vbWBLw" bindingContext="__D6oyV3cEeO1o-j0vbWBLw">
+    <bindings xmi:id="__D6oz13cEeO1o-j0vbWBLw" keySequence="M1+Q" command="__D6ozF3cEeO1o-j0vbWBLw"/>
+    <bindings xmi:id="__D7P0l3cEeO1o-j0vbWBLw" keySequence="M1+O"/>
+    <bindings xmi:id="__D7P1V3cEeO1o-j0vbWBLw" keySequence="M1+S"/>
+    <bindings xmi:id="__D7P2F3cEeO1o-j0vbWBLw" keySequence="M1+A" command="__D7P1l3cEeO1o-j0vbWBLw"/>
+  </bindingTables>
+  <rootContext xmi:id="__D6oyV3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.contexts.dialogAndWindow" name="In Dialog and Windows">
+    <children xmi:id="__D6oyl3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
+    <children xmi:id="__D6oy13cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
+  </rootContext>
+  <commands xmi:id="__D6ozF3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
+  <commands xmi:id="__D7P1l3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <commands xmi:id="_Vey6YF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.newProject" commandName="newProjectCommand"/>
+  <addons xmi:id="__D6owl3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="__D6ow13cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="__D6oxF3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="__D6oxV3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.workbench.commands.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="__D6oxl3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="__D6ox13cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="__D6oyF3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+</application:Application>
