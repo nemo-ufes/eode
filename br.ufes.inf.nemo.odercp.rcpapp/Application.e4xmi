@@ -15,11 +15,15 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="_IDFb0F3gEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.users" label="Users"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_--75wF3qEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.0" label="Knowlegde">
-        <children xsi:type="menu:Menu" xmi:id="_1oiDsF3tEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.resource1" label="Resources">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_8odDMF3tEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem." label="Human Resource"/>
-        </children>
         <children xsi:type="menu:Menu" xmi:id="_eymesF32EeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.processes" label="Processes">
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_wI-UoF32EeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.0"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_wI-UoF32EeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.paradigm" label="Paradigm"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_ZjZCAGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.typeofsoftware" label="Type of software"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_gVjSUGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.typeofartifact" label="Type of artifact"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_rvJn0GHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.0" label="Artifacts"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_tTK_UGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.1" label="Domain of application"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_8PIBQGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.2" label="Category of Processes"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="__2ctQGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.3" label="Activities"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_HH1QMGHgEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.4" label="Procedures"/>
         </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_XLMM8F3sEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.1" label="Tools">
