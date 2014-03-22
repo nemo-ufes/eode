@@ -2,6 +2,16 @@ package br.ufes.inf.nemo.odercp.rcpapp;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+/**
+ * Activator for the utility bundle. Among other things, this bundle (and its activator) is responsible for the logging
+ * mechanism.
+ * 
+ * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
+ * @version 1.0
+ */
+
+
+import br.ufes.inf.nemo.odercp.rcpapp.Util.WUsersUtil;
 
 public class Activator implements BundleActivator {
 
@@ -17,6 +27,7 @@ public class Activator implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
+		WUsersUtil.main(null);
 	}
 
 	/*
