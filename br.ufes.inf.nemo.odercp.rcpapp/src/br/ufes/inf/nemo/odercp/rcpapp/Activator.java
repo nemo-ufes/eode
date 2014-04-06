@@ -11,6 +11,7 @@ import org.osgi.framework.BundleContext;
  */
 
 
+
 import br.ufes.inf.nemo.odercp.rcpapp.Util.WUsersUtil;
 
 public class Activator implements BundleActivator {
@@ -28,6 +29,7 @@ public class Activator implements BundleActivator {
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
 		WUsersUtil.main(null);
+		
 	}
 
 	/*
@@ -36,6 +38,11 @@ public class Activator implements BundleActivator {
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
 		Activator.context = null;
+		
 	}
+	
+	
+	
+	
 
 }

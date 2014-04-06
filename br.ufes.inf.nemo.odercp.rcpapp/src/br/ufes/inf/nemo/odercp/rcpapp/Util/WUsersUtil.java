@@ -1,7 +1,6 @@
 package br.ufes.inf.nemo.odercp.rcpapp.Util;
 
 import org.eclipse.swt.widgets.Display;
-
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
@@ -11,6 +10,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
+
+import br.ufes.inf.nemo.odercp.rcpapp.Activator;
 
 public class WUsersUtil {
 
@@ -27,7 +28,8 @@ public class WUsersUtil {
 		try {
 			WUsersUtil window = new WUsersUtil();
 			window.open();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -82,28 +84,24 @@ public class WUsersUtil {
 				String selectedpass = password.getText();
 
 				if (selectedpass.isEmpty() || selecteduser.isEmpty()) {
-					MessageBox messageBox = new MessageBox(shlLoginOdercp,
-							SWT.OK | SWT.ICON_WARNING);
-					if (selectedpass.isEmpty() && selecteduser.isEmpty())
-						messageBox.setMessage("Enter the User and password");
-					else if (selectedpass.isEmpty())
-						messageBox.setMessage("Enter the Password");
-					else if (selecteduser.isEmpty())
-						messageBox.setMessage("Enter the User");
+					MessageBox messageBox = new MessageBox(shlLoginOdercp, SWT.OK | SWT.ICON_WARNING);
+					if (selectedpass.isEmpty() && selecteduser.isEmpty()) messageBox.setMessage("Enter the User and password");
+					else if (selectedpass.isEmpty()) messageBox.setMessage("Enter the Password");
+					else if (selecteduser.isEmpty()) messageBox.setMessage("Enter the User");
 					messageBox.open();
-				} else {
-					boolean verification = LoginODERCP.verification(
-							user.getText(), password.getText());
-					if(verification==true){
-						MessageBox messageBox = new MessageBox(shlLoginOdercp,
-								SWT.OK);
+				}
+				else {
+					boolean verification = LoginODERCP.verification(user.getText(), password.getText());
+					if (verification == true) {
+						shlLoginOdercp.close();
+					}
+					else {
+						MessageBox messageBox = new MessageBox(shlLoginOdercp, SWT.OK);
 						messageBox.setText("ODE RCP");
-						messageBox.setMessage("Welcome:" + user.getText());
+						messageBox.setMessage("Username or password wrong");
 						messageBox.open();
 					}
-						
-					
-					
+
 				}
 			}
 
@@ -112,11 +110,21 @@ public class WUsersUtil {
 		Button btnCancel = new Button(shlLoginOdercp, SWT.NONE);
 		btnCancel.setBounds(288, 209, 91, 29);
 		btnCancel.setText("Cancel");
+		btnCancel.addListener(SWT.Selection, new Listener() {
+
+			@Override
+			public void handleEvent(Event event) {
+				// TODO Auto-generated method stub
+				shlLoginOdercp.close();
+				System.exit(0);
+
+				
+			}
+		});
 
 		Label lblOdercp = new Label(shlLoginOdercp, SWT.NONE);
 		lblOdercp.setAlignment(SWT.CENTER);
-		lblOdercp.setFont(SWTResourceManager.getFont("DejaVu Sans", 14,
-				SWT.BOLD | SWT.ITALIC));
+		lblOdercp.setFont(SWTResourceManager.getFont("DejaVu Sans", 14, SWT.BOLD | SWT.ITALIC));
 		lblOdercp.setBounds(212, 31, 97, 36);
 		lblOdercp.setText("ODE-RCP");
 
