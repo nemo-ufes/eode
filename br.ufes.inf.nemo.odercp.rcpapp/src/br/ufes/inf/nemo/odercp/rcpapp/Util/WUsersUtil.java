@@ -1,5 +1,7 @@
 package br.ufes.inf.nemo.odercp.rcpapp.Util;
 
+import java.awt.event.WindowEvent;
+
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Listener;
@@ -10,8 +12,6 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
-
-import br.ufes.inf.nemo.odercp.rcpapp.Activator;
 
 public class WUsersUtil {
 
@@ -39,10 +39,16 @@ public class WUsersUtil {
 	 */
 	public void open() {
 		Display display = Display.getDefault();
-		createContents();
+		createContents(display);
 		SwtUtil.centralize(shlLoginOdercp);
 		shlLoginOdercp.open();
 		shlLoginOdercp.layout();
+	//WHen closed the window exit system
+		shlLoginOdercp.addListener(SWT.Close, new Listener() {
+			public void handleEvent(Event event) {
+				System.exit(0);
+			}
+		});
 		while (!shlLoginOdercp.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
@@ -53,8 +59,8 @@ public class WUsersUtil {
 	/**
 	 * Create contents of the window.
 	 */
-	protected void createContents() {
-		shlLoginOdercp = new Shell();
+	protected void createContents(Display display) {
+		shlLoginOdercp = new Shell(display, SWT.CLOSE);
 		shlLoginOdercp.setSize(450, 300);
 		shlLoginOdercp.setText("Login ODE-RCP");
 
@@ -116,9 +122,7 @@ public class WUsersUtil {
 			public void handleEvent(Event event) {
 				// TODO Auto-generated method stub
 				shlLoginOdercp.close();
-				System.exit(0);
 
-				
 			}
 		});
 
@@ -129,4 +133,9 @@ public class WUsersUtil {
 		lblOdercp.setText("ODE-RCP");
 
 	}
+
+	public void windowClosing(WindowEvent e) {
+		System.exit(0);
+	}
+
 }
