@@ -10,8 +10,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
-
-import br.ufes.inf.nemo.odercp.rcpapp.controluser.cmt.AplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.AplAuthenticUser;
 
 public class WindowAthenticUser {
 
@@ -109,7 +108,7 @@ public class WindowAthenticUser {
 						messageBox.setMessage("Enter the User");
 					messageBox.open();
 				} else {
-					boolean verification = AplAuthenticUser.verification(
+					boolean verification = AplAuthenticUser.verification1(
 							user.getText(), password.getText());
 					if (verification == true) {
 						setLogger(true);
@@ -118,7 +117,7 @@ public class WindowAthenticUser {
 						MessageBox messageBox = new MessageBox(shlLoginOdercp,
 								SWT.OK);
 						messageBox.setText("ODE RCP");
-						messageBox.setMessage("Username or password wrong");
+						messageBox.setMessage("Username or password wrong!");
 						messageBox.open();
 					}
 
