@@ -108,7 +108,7 @@ public class WindowAthenticUser {
 						messageBox.setMessage("Enter the User");
 					messageBox.open();
 				} else {
-					boolean verification = AplAuthenticUser.verification1(
+					boolean verification = AplAuthenticUser.verification(
 							user.getText(), password.getText());
 					if (verification == true) {
 						setLogger(true);

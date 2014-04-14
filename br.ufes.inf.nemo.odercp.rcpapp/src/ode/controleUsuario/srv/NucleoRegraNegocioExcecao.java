@@ -8,10 +8,7 @@
 package ode.controleUsuario.srv;
 
 public class NucleoRegraNegocioExcecao  extends org.apache.axis.AxisFault  implements java.io.Serializable {
-    /**
-	 * 
-	 */
-	private java.lang.String mensagem;
+    private java.lang.String mensagem;
 
     public NucleoRegraNegocioExcecao() {
     }
