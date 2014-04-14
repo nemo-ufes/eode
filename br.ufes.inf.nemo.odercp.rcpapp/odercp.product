@@ -23,12 +23,9 @@
       <plugin id="javax.servlet"/>
       <plugin id="javax.wsdl"/>
       <plugin id="javax.xml"/>
-<<<<<<< HEAD
       <plugin id="javax.xml.rpc"/>
       <plugin id="javax.xml.soap"/>
       <plugin id="org.apache.ant"/>
-=======
->>>>>>> 10b330925f79310111668533f114eea324f51378
       <plugin id="org.apache.axis"/>
       <plugin id="org.apache.batik.css"/>
       <plugin id="org.apache.batik.util"/>
