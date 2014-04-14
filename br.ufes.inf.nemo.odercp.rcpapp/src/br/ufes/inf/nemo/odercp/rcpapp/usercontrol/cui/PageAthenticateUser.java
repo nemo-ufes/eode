@@ -12,7 +12,7 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
 import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.AplAuthenticUser;
 
-public class WindowAthenticUser {
+public class PageAthenticateUser {
 
 	protected Shell shlLoginOdercp;
 	private Text user;
@@ -34,7 +34,7 @@ public class WindowAthenticUser {
 	 */
 	public static void main(String[] args) {
 		try {
-			WindowAthenticUser window = new WindowAthenticUser();
+			PageAthenticateUser window = new PageAthenticateUser();
 			window.open();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -108,7 +108,7 @@ public class WindowAthenticUser {
 						messageBox.setMessage("Enter the User");
 					messageBox.open();
 				} else {
-					boolean verification = AplAuthenticUser.verification1(
+					boolean verification = AplAuthenticUser.verification(
 							user.getText(), password.getText());
 					if (verification == true) {
 						setLogger(true);

@@ -5,7 +5,7 @@
          id="product"
          point="org.eclipse.core.runtime.products">
       <product
-            name="br.ufes.inf.nemo.odercp.rcpapp"
+            name="ODE  RCP"
             application="org.eclipse.e4.ui.workbench.swt.E4Application">
          <property
                name="applicationCSS"
@@ -13,7 +13,19 @@
          </property>
          <property
                name="appName"
-               value="br.ufes.inf.nemo.odercp.rcpapp">
+               value="ODE  RCP">
+         </property>
+      </product>
+   </extension>
+   <extension
+         id="product1"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="org.eclipse.e4.ui.workbench.swt.E4Application"
+            name="ODE  RCP">
+         <property
+               name="appName"
+               value="ODE  RCP">
          </property>
       </product>
    </extension>

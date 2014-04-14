@@ -15,17 +15,18 @@ public class AplAuthenticUser {
 		try {
 			SrvAplAutenticarUsuario srv = new SrvAplAutenticarUsuarioProxy();
 			java.lang.Long l = srv.efetuarLogin(User, password, true);
+			MessageDialog.openConfirm(null, "f", l.toString());
+
 		} catch (NucleoRegraNegocioExcecao e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (RemoteException e) {
 			// TODO Auto-generated catch block
-			MessageDialog.openConfirm(null, "f", e.toString());
 			e.printStackTrace();
 		}
-			
-			//System.exit(0);
-		
+
+		// System.exit(0);
+
 		return userODE;
 	}
 

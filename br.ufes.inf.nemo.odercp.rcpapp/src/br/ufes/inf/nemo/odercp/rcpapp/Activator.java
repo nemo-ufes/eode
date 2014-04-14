@@ -14,7 +14,7 @@ import org.osgi.framework.BundleContext;
 
 
 
-import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui.WindowAthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui.PageAthenticateUser;
 
 public class Activator implements BundleActivator {
 
@@ -30,7 +30,7 @@ public class Activator implements BundleActivator {
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
 		Activator.context = bundleContext;
-		WindowAthenticUser.main(null);
+		PageAthenticateUser.main(null);
 		
 	}
 
