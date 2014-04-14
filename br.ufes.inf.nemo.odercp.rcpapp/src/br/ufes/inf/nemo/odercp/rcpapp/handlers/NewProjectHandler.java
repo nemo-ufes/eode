@@ -14,10 +14,6 @@ public class NewProjectHandler {
 	public void execute(IWorkbench workbench, Shell shell) {
 		WizardNewProject wizardNewProject = new WizardNewProject();
 		WizardDialog wizardDialog = new WizardDialog(shell, wizardNewProject);
-		if (wizardDialog.open() == Window.OK) {
-			System.out.println("Ok pressed");
-		} else {
-			System.out.println("Cancel pressed");
-		}
+		wizardDialog.open();
 	}
 }

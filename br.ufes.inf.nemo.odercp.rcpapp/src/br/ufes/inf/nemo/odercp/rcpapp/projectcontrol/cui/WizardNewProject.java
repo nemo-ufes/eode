@@ -29,8 +29,6 @@ public class WizardNewProject extends Wizard {
 	public boolean performFinish() {
 		// Print the result to the console
 		NewProject.CreateNewProject(pagenewproject.getNamenewproject().getText());
-
-		System.out.println(pagenewproject.getNamenewproject());
 		return true;
 	}
 	

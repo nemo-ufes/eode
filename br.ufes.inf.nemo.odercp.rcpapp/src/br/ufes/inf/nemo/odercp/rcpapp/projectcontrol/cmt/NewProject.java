@@ -29,7 +29,6 @@ public class NewProject {
 	 */
 	public static void CreateNewProject(String namenewproject) {
 		// TODO Auto-generated constructor stub
-		// create a project with name "TESTJDT"
 		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
 		IProject project = root.getProject(namenewproject);
 		try {
