@@ -9,12 +9,12 @@ import ode.controleUsuario.srv.SrvAplAutenticarUsuario;
 import ode.controleUsuario.srv.SrvAplAutenticarUsuarioProxy;
 
 public class AplAuthenticUser {
-	public static boolean verification1(String User, String password) {
+	public static boolean verification1(String User, String password, boolean stayconnected) {
 		boolean userODE = false;
 
 		try {
 			SrvAplAutenticarUsuario srv = new SrvAplAutenticarUsuarioProxy();
-			java.lang.Long l = srv.efetuarLogin(User, password, true);
+			java.lang.Long l = srv.efetuarLogin(User, password, stayconnected);
 			MessageDialog.openConfirm(null, "f", l.toString());
 
 		} catch (NucleoRegraNegocioExcecao e) {
@@ -30,7 +30,7 @@ public class AplAuthenticUser {
 		return userODE;
 	}
 
-	public static boolean verification(String User, String password) {
+	public static boolean verification(String User, String password, boolean stayconnected) {
 		boolean userODE = false;
 		if (User.equals("admin") && password.equals("admin")) {
 			userODE = true;

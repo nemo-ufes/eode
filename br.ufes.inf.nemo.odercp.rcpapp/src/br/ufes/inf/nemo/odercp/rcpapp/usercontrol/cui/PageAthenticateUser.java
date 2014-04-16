@@ -11,6 +11,9 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
 import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.AplAuthenticUser;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.wb.swt.ResourceManager;
 
 public class PageAthenticateUser {
 
@@ -18,6 +21,21 @@ public class PageAthenticateUser {
 	private Text user;
 	private Text password;
 	private boolean logger;
+	private boolean stayconnected;
+
+	/**
+	 * @return the stayconnected
+	 */
+	public boolean isStayconnected() {
+		return stayconnected;
+	}
+
+	/**
+	 * @param stayconnected the stayconnected to set
+	 */
+	public void setStayconnected(boolean stayconnected) {
+		this.stayconnected = stayconnected;
+	}
 
 	public boolean isLogger() {
 		return logger;
@@ -48,6 +66,20 @@ public class PageAthenticateUser {
 		Display display = Display.getDefault();
 		createContents(display);
 		SwtUtil.centralize(shlLoginOdercp);
+		
+		Button btnStayConnected = new Button(shlLoginOdercp, SWT.CHECK);
+		btnStayConnected.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				stayconnected=true;
+			}
+		});
+		btnStayConnected.setBounds(190, 245, 151, 24);
+		btnStayConnected.setText("Stay Connected");
+		
+		Label label = new Label(shlLoginOdercp, SWT.NONE);
+		label.setImage(ResourceManager.getPluginImage("br.ufes.inf.nemo.odercp.rcpapp", "images/ode.jpg"));
+		label.setBounds(167, 24, 137, 81);
 		shlLoginOdercp.open();
 		shlLoginOdercp.layout();
 		// WHen closed the window exit system
@@ -69,25 +101,32 @@ public class PageAthenticateUser {
 	 */
 	protected void createContents(Display display) {
 		shlLoginOdercp = new Shell(display, SWT.CLOSE);
-		shlLoginOdercp.setSize(450, 300);
+		shlLoginOdercp.setSize(446, 359);
 		shlLoginOdercp.setText("Login ODE-RCP");
 
 		user = new Text(shlLoginOdercp, SWT.BORDER);
-		user.setBounds(139, 73, 240, 27);
+		user.setBounds(129, 142, 240, 27);
 
 		Label lblUser = new Label(shlLoginOdercp, SWT.NONE);
-		lblUser.setBounds(34, 83, 70, 17);
+		lblUser.setBounds(24, 152, 70, 17);
 		lblUser.setText("User:");
 
 		password = new Text(shlLoginOdercp, SWT.BORDER | SWT.PASSWORD);
-		password.setBounds(139, 127, 240, 27);
+		password.setBounds(129, 196, 240, 27);
 
 		Label lblPassword = new Label(shlLoginOdercp, SWT.NONE);
-		lblPassword.setBounds(34, 137, 70, 17);
+		lblPassword.setBounds(24, 206, 70, 17);
 		lblPassword.setText("Password:");
+		
+		stayconnected = false;
 
 		Button btnLogin = new Button(shlLoginOdercp, SWT.NONE);
-		btnLogin.setBounds(139, 209, 91, 29);
+		btnLogin.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnLogin.setBounds(135, 286, 91, 29);
 		btnLogin.setText("Login");
 		btnLogin.addListener(SWT.Selection, new Listener() {
 
@@ -109,7 +148,7 @@ public class PageAthenticateUser {
 					messageBox.open();
 				} else {
 					boolean verification = AplAuthenticUser.verification(
-							user.getText(), password.getText());
+							user.getText(), password.getText(),stayconnected);
 					if (verification == true) {
 						setLogger(true);
 						shlLoginOdercp.close();
@@ -127,7 +166,12 @@ public class PageAthenticateUser {
 		});
 
 		Button btnCancel = new Button(shlLoginOdercp, SWT.NONE);
-		btnCancel.setBounds(288, 209, 91, 29);
+		btnCancel.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnCancel.setBounds(278, 286, 91, 29);
 		btnCancel.setText("Cancel");
 		btnCancel.addListener(SWT.Selection, new Listener() {
 
@@ -140,13 +184,5 @@ public class PageAthenticateUser {
 			}
 		});
 
-		Label lblOdercp = new Label(shlLoginOdercp, SWT.NONE);
-		lblOdercp.setAlignment(SWT.CENTER);
-		lblOdercp.setFont(SWTResourceManager.getFont("DejaVu Sans", 14,
-				SWT.BOLD | SWT.ITALIC));
-		lblOdercp.setBounds(212, 31, 97, 36);
-		lblOdercp.setText("ODE-RCP");
-
 	}
-
 }

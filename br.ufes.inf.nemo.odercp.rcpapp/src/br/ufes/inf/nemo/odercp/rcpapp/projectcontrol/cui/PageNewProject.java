@@ -16,7 +16,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.NewProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.AplNewProject;
 
 public class PageNewProject extends WizardPage {
 	private Text namenewproject;

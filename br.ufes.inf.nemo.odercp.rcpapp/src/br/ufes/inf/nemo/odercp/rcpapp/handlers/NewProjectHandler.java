@@ -6,7 +6,7 @@ import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.NewProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.AplNewProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui.WizardNewProject;
 
 public class NewProjectHandler {

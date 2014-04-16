@@ -8,7 +8,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui;
  */
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.NewProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.AplNewProject;
 
 public class WizardNewProject extends Wizard {
 
@@ -28,7 +28,7 @@ public class WizardNewProject extends Wizard {
 	@Override
 	public boolean performFinish() {
 		// Print the result to the console
-		NewProject.CreateNewProject(pagenewproject.getNamenewproject().getText());
+		AplNewProject.CreateNewProject(pagenewproject.getNamenewproject().getText());
 		return true;
 	}
 	
