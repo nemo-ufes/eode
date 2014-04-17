@@ -2,17 +2,15 @@ package br.ufes.inf.nemo.odercp.rcpapp.handlers;
 
 import org.eclipse.e4.core.di.annotations.Execute;
 import org.eclipse.e4.ui.workbench.IWorkbench;
-import org.eclipse.jface.window.Window;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.AplNewProject;
-import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui.WizardNewProject;
+import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui.WizardRegisterProject;
 
-public class NewProjectHandler {
+public class RegisterProjectHandler {
 	@Execute
 	public void execute(IWorkbench workbench, Shell shell) {
-		WizardNewProject wizardNewProject = new WizardNewProject();
+		WizardRegisterProject wizardNewProject = new WizardRegisterProject();
 		WizardDialog wizardDialog = new WizardDialog(shell, wizardNewProject);
 		wizardDialog.open();
 	}

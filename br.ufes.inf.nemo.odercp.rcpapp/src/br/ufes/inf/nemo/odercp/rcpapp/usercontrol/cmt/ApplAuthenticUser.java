@@ -8,7 +8,7 @@ import ode.controleUsuario.srv.NucleoRegraNegocioExcecao;
 import ode.controleUsuario.srv.SrvAplAutenticarUsuario;
 import ode.controleUsuario.srv.SrvAplAutenticarUsuarioProxy;
 
-public class AplAuthenticUser {
+public class ApplAuthenticUser {
 	public static boolean verification1(String User, String password, boolean stayconnected) {
 		boolean userODE = false;
 

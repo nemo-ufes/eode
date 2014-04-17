@@ -28,7 +28,7 @@ import org.eclipse.jdt.launching.JavaRuntime;
 /**
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  */
-public class AplNewProject {
+public class ApplRegisterProject {
 
 	/**
 	 * 

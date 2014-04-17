@@ -10,7 +10,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
-import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.AplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.ApplAuthenticUser;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.wb.swt.ResourceManager;
@@ -147,7 +147,7 @@ public class PageAthenticateUser {
 						messageBox.setMessage("Enter the User");
 					messageBox.open();
 				} else {
-					boolean verification = AplAuthenticUser.verification(
+					boolean verification = ApplAuthenticUser.verification(
 							user.getText(), password.getText(),stayconnected);
 					if (verification == true) {
 						setLogger(true);

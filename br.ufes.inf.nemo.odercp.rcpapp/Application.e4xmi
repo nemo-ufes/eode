@@ -37,7 +37,8 @@
   </children>
   <handlers xmi:id="__D6ozV3cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.quitCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.QuitHandler" command="__D6ozF3cEeO1o-j0vbWBLw"/>
   <handlers xmi:id="__D7P113cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.aboutCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.AboutHandler" command="__D7P1l3cEeO1o-j0vbWBLw"/>
-  <handlers xmi:id="_TRac0F3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.newProject" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.NewProjectHandler" command="_Vey6YF3dEeO1o-j0vbWBLw"/>
+  <handlers xmi:id="_TRac0F3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.RegisterProject" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.RegisterProjectHandler" command="_Vey6YF3dEeO1o-j0vbWBLw"/>
+  <handlers xmi:id="_j7GH8MZAEeOAYI2OnpDKDQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.newPassword" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.NewPasswordHandler" command="_yvCdYMZAEeOAYI2OnpDKDQ"/>
   <bindingTables xmi:id="__D6ozl3cEeO1o-j0vbWBLw" bindingContext="__D6oyV3cEeO1o-j0vbWBLw">
     <bindings xmi:id="__D6oz13cEeO1o-j0vbWBLw" keySequence="M1+Q" command="__D6ozF3cEeO1o-j0vbWBLw"/>
     <bindings xmi:id="__D7P0l3cEeO1o-j0vbWBLw" keySequence="M1+O"/>
@@ -50,7 +51,8 @@
   </rootContext>
   <commands xmi:id="__D6ozF3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
   <commands xmi:id="__D7P1l3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
-  <commands xmi:id="_Vey6YF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.newProject" commandName="newProjectCommand"/>
+  <commands xmi:id="_Vey6YF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterProject" commandName="RegisterProjectCommand"/>
+  <commands xmi:id="_yvCdYMZAEeOAYI2OnpDKDQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.newPassword" commandName="NewPassword"/>
   <addons xmi:id="__D6owl3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="__D6ow13cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="__D6oxF3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
