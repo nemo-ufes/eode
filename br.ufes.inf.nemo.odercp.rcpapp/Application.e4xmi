@@ -1,29 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="__D6owF3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ide.application" bindingContexts="__D6oyV3cEeO1o-j0vbWBLw">
+<application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="__D6owF3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ide.application" bindingContexts="__D6oyV3cEeO1o-j0vbWBLw">
   <children xsi:type="basic:TrimmedWindow" xmi:id="__D6owV3cEeO1o-j0vbWBLw" label="ODE RCP" width="1000" height="800">
+    <children xsi:type="advanced:PerspectiveStack" xmi:id="_z_hw0MmhEeO1ka31hN9E0w" elementId="br.ufes.inf.nemo.odercp.rcpapp.perspectivestack.0">
+      <children xsi:type="advanced:Perspective" xmi:id="_10tJwMmhEeO1ka31hN9E0w" elementId="br.ufes.inf.nemo.odercp.rcpapp.perspective.project" accessibilityPhrase="" selectedElement="_TmE70MomEeO_6fV0H5816Q" label="Perpective Project">
+        <children xsi:type="basic:PartSashContainer" xmi:id="_TmE70MomEeO_6fV0H5816Q" horizontal="true">
+          <children xsi:type="basic:PartStack" xmi:id="_TmE70comEeO_6fV0H5816Q" containerData="3400">
+            <tags>newtablook</tags>
+            <tags>org.eclipse.e4.primaryNavigationStack</tags>
+            <children xsi:type="advanced:Placeholder" xmi:id="_TmE70somEeO_6fV0H5816Q" elementId="org.eclipse.ui.navigator.ProjectExplorer">
+              <ref xsi:type="basic:Part" href="../test.rcp/Application.e4xmi#_sS7Q8NS1EeGBn6dQ9VPexA"/>
+            </children>
+          </children>
+          <children xsi:type="basic:PartSashContainer" xmi:id="_TmE708omEeO_6fV0H5816Q" elementId="" containerData="10000">
+            <children xsi:type="advanced:Placeholder" xmi:id="_TmE71MomEeO_6fV0H5816Q" elementId="org.eclipse.ui.editorss">
+              <ref xsi:type="advanced:Area" href="../test.rcp/Application.e4xmi#_Hmg4kNSjEeGwXp2p959l3w"/>
+            </children>
+            <children xsi:type="basic:PartStack" xmi:id="_TmE71comEeO_6fV0H5816Q" elementId="org.eclipse.ui.views.PropertySheetMStack" containerData="3400" selectedElement="_TmE71somEeO_6fV0H5816Q">
+              <tags>newtablook</tags>
+              <tags>org.eclipse.e4.secondaryDataStack</tags>
+              <children xsi:type="advanced:Placeholder" xmi:id="_TmE71somEeO_6fV0H5816Q" elementId="org.eclipse.ui.views.PropertySheet">
+                <ref xsi:type="basic:Part" href="../test.rcp/Application.e4xmi#_WqRGcNS1EeGBn6dQ9VPexA"/>
+              </children>
+            </children>
+          </children>
+        </children>
+      </children>
+    </children>
+    <variables>User</variables>
     <mainMenu xmi:id="__D7P2V3cEeO1o-j0vbWBLw" elementId="menu:org.eclipse.ui.main.menu">
       <children xsi:type="menu:Menu" xmi:id="__D7P2l3cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.Options" label="Options">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_6mBYwF3qEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.changePassword" label="Change Password"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="__D7P3V3cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.quit" label="Quit" command="__D6ozF3cEeO1o-j0vbWBLw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_6mBYwF3qEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.changePassword" label="Change Password" command="_yvCdYMZAEeOAYI2OnpDKDQ"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="__D7P3V3cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.quit" accessibilityPhrase="" label="Quit" command="__D6ozF3cEeO1o-j0vbWBLw"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_m-V6cF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.Project" label="Project">
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_uxkmMF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.newProject" label="New Project" command="_Vey6YF3dEeO1o-j0vbWBLw"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_vYdesF3rEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.selectProject" label="Select Project"/>
-        <children xsi:type="menu:HandledMenuItem" xmi:id="_gaqXwF3tEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.define team" label="Define Team"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_uxkmMF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.registerProject" label="Register Project" command="_Vey6YF3dEeO1o-j0vbWBLw"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_vYdesF3rEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.selectProject" label="Select Project" command="_UYtSwMieEeOoSexrc_x8eA"/>
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_gaqXwF3tEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.defineTeam" label="Define Team"/>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_EvrxYF3gEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.user" label="Administration">
         <children xsi:type="menu:HandledMenuItem" xmi:id="_IDFb0F3gEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.users" label="Users"/>
       </children>
+      <children xsi:type="menu:Menu" xmi:id="_TQjrYMaPEeO9b9xu8uQNPg" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.2" label="Human Resources">
+        <children xsi:type="menu:HandledMenuItem" xmi:id="_SugTgMcZEeOtePewRsZoAQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.registerHumanResource" label="Register Human Resource"/>
+      </children>
       <children xsi:type="menu:Menu" xmi:id="_--75wF3qEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.0" label="Knowlegde">
-        <children xsi:type="menu:Menu" xmi:id="_eymesF32EeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.processes" label="Processes">
+        <children xsi:type="menu:Menu" xmi:id="_eymesF32EeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.prrrrrrrrrrrrrrrrrr" label="Processes">
           <children xsi:type="menu:HandledMenuItem" xmi:id="_wI-UoF32EeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.paradigm" label="Paradigm"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_ZjZCAGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.typeofsoftware" label="Type of software"/>
           <children xsi:type="menu:HandledMenuItem" xmi:id="_gVjSUGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.typeofartifact" label="Type of artifact"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_rvJn0GHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.0" label="Artifacts"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_tTK_UGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.1" label="Domain of application"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_8PIBQGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.2" label="Category of Processes"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="__2ctQGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.3" label="Activities"/>
-          <children xsi:type="menu:HandledMenuItem" xmi:id="_HH1QMGHgEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.4" label="Procedures"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_rvJn0GHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.artifacts" label="Artifacts"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_tTK_UGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.domainofApplication" label="Domain of application"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_8PIBQGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.categoryofProcesses" label="Category of Processes"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="__2ctQGHfEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.Activities" label="Activities"/>
+          <children xsi:type="menu:HandledMenuItem" xmi:id="_HH1QMGHgEeOPVYRaiogVhw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handledmenuitem.procedures" label="Procedures"/>
         </children>
       </children>
       <children xsi:type="menu:Menu" xmi:id="_XLMM8F3sEeOH07tmLsBK7g" elementId="br.ufes.inf.nemo.odercp.rcpapp.menu.1" label="Tools">
@@ -34,11 +63,49 @@
         <children xsi:type="menu:HandledMenuItem" xmi:id="__D7P313cEeO1o-j0vbWBLw" label="About" command="__D7P1l3cEeO1o-j0vbWBLw"/>
       </children>
     </mainMenu>
+    <sharedElements xsi:type="advanced:Area" xmi:id="_pY2hEMolEeO_6fV0H5816Q" elementId="org.eclipse.ui.editorss">
+      <children xsi:type="basic:PartStack" xmi:id="_pY2hEcolEeO_6fV0H5816Q" elementId="org.eclipse.e4.primaryDataStack">
+        <tags>newtablook</tags>
+        <tags>org.eclipse.e4.primaryDataStack</tags>
+        <tags>EditorStack</tags>
+      </children>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_qjGGoMolEeO_6fV0H5816Q" elementId="org.eclipse.ui.views.PropertySheet" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif" closeable="true">
+      <tags>View</tags>
+      <tags>categoryTag:General</tags>
+      <menus xmi:id="_qjGGocolEeO_6fV0H5816Q" elementId="org.eclipse.ui.views.PropertySheet">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <toolbar xmi:id="_qjGGosolEeO_6fV0H5816Q" elementId="org.eclipse.ui.views.PropertySheet"/>
+    </sharedElements>
+    <sharedElements xsi:type="basic:Part" xmi:id="_rgXAIMolEeO_6fV0H5816Q" elementId="org.eclipse.ui.navigator.ProjectExplorer" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui.PespectiveProject" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources//icons/full/eview16/resource_persp.gif">
+      <tags>View</tags>
+      <tags>categoryTag:General</tags>
+      <menus xmi:id="_rgXAIcolEeO_6fV0H5816Q" elementId="org.eclipse.ui.navigator.ProjectExplorer">
+        <tags>ViewMenu</tags>
+        <tags>menuContribution:menu</tags>
+      </menus>
+      <menus xsi:type="menu:PopupMenu" xmi:id="_rgXAIsolEeO_6fV0H5816Q" elementId="org.eclipse.ui.navigator.ProjectExplorer#PopupMenu">
+        <tags>menuContribution:popup</tags>
+        <tags>popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu</tags>
+      </menus>
+      <toolbar xmi:id="_rgXAI8olEeO_6fV0H5816Q" elementId="org.eclipse.ui.navigator.ProjectExplorer"/>
+    </sharedElements>
+    <trimBars xmi:id="_7S9WMMolEeO_6fV0H5816Q" elementId="org.eclipse.ui.main.toolbar"/>
+    <trimBars xmi:id="_8NAjoMolEeO_6fV0H5816Q" elementId="org.eclipse.ui.trim.status" side="Bottom">
+      <children xsi:type="menu:ToolControl" xmi:id="_8NAjocolEeO_6fV0H5816Q" elementId="org.eclipse.ui.StatusLine" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim">
+        <tags>stretch</tags>
+      </children>
+      <children xsi:type="menu:ToolControl" xmi:id="_8NAjosolEeO_6fV0H5816Q" elementId="org.eclipse.ui.HeapStatus" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim"/>
+      <children xsi:type="menu:ToolControl" xmi:id="_8NAjo8olEeO_6fV0H5816Q" elementId="org.eclipse.ui.ProgressBar" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.StandardTrim"/>
+    </trimBars>
   </children>
   <handlers xmi:id="__D6ozV3cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.quitCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.QuitHandler" command="__D6ozF3cEeO1o-j0vbWBLw"/>
   <handlers xmi:id="__D7P113cEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.aboutCommand" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.AboutHandler" command="__D7P1l3cEeO1o-j0vbWBLw"/>
   <handlers xmi:id="_TRac0F3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.RegisterProject" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.RegisterProjectHandler" command="_Vey6YF3dEeO1o-j0vbWBLw"/>
   <handlers xmi:id="_j7GH8MZAEeOAYI2OnpDKDQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.newPassword" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.NewPasswordHandler" command="_yvCdYMZAEeOAYI2OnpDKDQ"/>
+  <handlers xmi:id="_grdd0MieEeOoSexrc_x8eA" elementId="br.ufes.inf.nemo.odercp.rcpapp.handler.selectProject" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.handlers.SelectProjectHandler" command="_UYtSwMieEeOoSexrc_x8eA"/>
   <bindingTables xmi:id="__D6ozl3cEeO1o-j0vbWBLw" bindingContext="__D6oyV3cEeO1o-j0vbWBLw">
     <bindings xmi:id="__D6oz13cEeO1o-j0vbWBLw" keySequence="M1+Q" command="__D6ozF3cEeO1o-j0vbWBLw"/>
     <bindings xmi:id="__D7P0l3cEeO1o-j0vbWBLw" keySequence="M1+O"/>
@@ -49,10 +116,27 @@
     <children xmi:id="__D6oyl3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.contexts.window" name="In Windows"/>
     <children xmi:id="__D6oy13cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.contexts.dialog" name="In Dialogs"/>
   </rootContext>
-  <commands xmi:id="__D6ozF3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.file.exit" commandName="quitCommand"/>
-  <commands xmi:id="__D7P1l3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.help.aboutAction" commandName="aboutCommand"/>
+  <descriptors xmi:id="_ESLisMogEeO_6fV0H5816Q" elementId="org.eclipse.ui.navigator.ProjectExplorer" label="Project Explorer" iconURI="platform:/plugin/org.eclipse.ui.navigator.resources//icons/full/eview16/resource_persp.gif" category="org.eclipse.e4.primaryNavigationStack" closeable="true" contributionURI="bundleclass://br.ufes.inf.nemo.odercp.rcpapp/br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui.PespectiveProject">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_KsvD8MojEeO_6fV0H5816Q" elementId="org.eclipse.ui.console.ConsoleView" label="Console" iconURI="platform:/plugin/org.eclipse.ui.console//icons/full/cview16/console_view.gif" allowMultiple="true" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_LkytUMojEeO_6fV0H5816Q" elementId="org.eclipse.ui.views.ProgressView" label="Progress" iconURI="platform:/plugin/org.eclipse.ui.ide//icons/full/eview16/pview.gif" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <descriptors xmi:id="_MV0iI8ojEeO_6fV0H5816Q" elementId="org.eclipse.ui.views.PropertySheet" label="Properties" iconURI="platform:/plugin/org.eclipse.ui.views//icons/full/eview16/prop_ps.gif" allowMultiple="true" category="org.eclipse.e4.secondaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView">
+    <tags>View</tags>
+    <tags>categoryTag:General</tags>
+  </descriptors>
+  <commands xmi:id="__D6ozF3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.file.exit" commandName="QuitCommand"/>
+  <commands xmi:id="__D7P1l3cEeO1o-j0vbWBLw" elementId="org.eclipse.ui.help.aboutAction" commandName="AboutCommand"/>
   <commands xmi:id="_Vey6YF3dEeO1o-j0vbWBLw" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterProject" commandName="RegisterProjectCommand"/>
-  <commands xmi:id="_yvCdYMZAEeOAYI2OnpDKDQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.newPassword" commandName="NewPassword"/>
+  <commands xmi:id="_yvCdYMZAEeOAYI2OnpDKDQ" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.newPassword" commandName="NewPasswordCommand"/>
+  <commands xmi:id="_UYtSwMieEeOoSexrc_x8eA" elementId="br.ufes.inf.nemo.odercp.rcpapp.command.selectProject" commandName="SelectProjectCommand"/>
   <addons xmi:id="__D6owl3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.core.commands.service" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
   <addons xmi:id="__D6ow13cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.contexts.service" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
   <addons xmi:id="__D6oxF3cEeO1o-j0vbWBLw" elementId="org.eclipse.e4.ui.bindings.service" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>

@@ -10,7 +10,10 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
+
 import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.ApplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.util.SwtUtil;
+
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.wb.swt.ResourceManager;
@@ -50,7 +53,7 @@ public class PageAthenticateUser {
 	 * 
 	 * @param args
 	 */
-	public static void main(String[] args) {
+	public static void start() {
 		try {
 			PageAthenticateUser window = new PageAthenticateUser();
 			window.open();

@@ -7,14 +7,13 @@ package br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui;
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  */
 import org.eclipse.jface.wizard.Wizard;
+import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.ApplNewPassword;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.ApplRegisterProject;
-
-public class WizardRegisterProject extends Wizard {
+public class WizardNewPassword extends Wizard {
 
 	protected PageNewPassword pagenewpassword;
 
-	public WizardRegisterProject() {
+	public WizardNewPassword() {
 		super();
 		setNeedsProgressMonitor(true);
 	}
@@ -28,7 +27,11 @@ public class WizardRegisterProject extends Wizard {
 	@Override
 	public boolean performFinish() {
 		// Print the result to the console
-		return true;
+		
+		return ApplNewPassword.CreateNewPassword(pagenewpassword
+				.getTxtoldPassword().getText(), pagenewpassword
+				.getTxtnewPassword().getText(), pagenewpassword
+				.getTxtrepeatNewPassword().getText());
 	}
-	
+
 }
