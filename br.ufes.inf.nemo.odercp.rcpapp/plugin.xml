@@ -1,26 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
 <plugin>
 
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="br.ufes.inf.nemo.odercp.rcpapp.Application">
+         </run>
+      </application>
+   </extension>
   
+   <extension id="product" point="org.eclipse.core.runtime.products">
+  <product application="br.ufes.inf.nemo.odercp.rcpapp.application" name="ODE RCP">
+    <property name="appName" value="ODE RCP"> </property>
+    <property name="applicationXMI" value="br.ufes.inf.nemo.odercp.rcpapp/Application.e4xmi"> </property>
+  </product>
+</extension>
    <extension
-         id="product"
-         point="org.eclipse.core.runtime.products">
-      <product
-            application="org.eclipse.e4.ui.workbench.swt.E4Application"
-            name="ODE  RCP">
-         <property
-               name="appName"
-               value="ODE  RCP">
-         </property>
-      </product>
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="menu:org.eclipse.ui.main.menu">
+         <menu
+               id="OptionMenu"
+               label="Options">
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ChangePassword"
+                  label="Change Password"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.exit"
+                  label="Exit"
+                  mnemonic="CTRL+W"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Project">
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterProject"
+                  label="Register Project"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.SelectProject"
+                  label="Select Project"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DefineTeam"
+                  label="Define Team"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Administratiton">
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.Users"
+                  label="Users"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Human Resources">
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterHumanResources"
+                  label="Register Human Resources"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Tools">
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ProcessDefinition"
+                  label="Process Definition"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ResourceAllocation"
+                  label="Resource Allocation"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Help">
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.About"
+                  label="About"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
    </extension>
    <extension
-         point="org.eclipse.ui.perspectives">
-      <perspective
-            class="br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui.PespectiveProject"
-            id="br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui.PespectiveProject"
-            name="Perspective Project">
-      </perspective>
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ExitHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.exit"
+            name="Exit">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.AboutHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.About"
+            name="About">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ChangePasswordHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.ChangePassword"
+            name="Change Password">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.RegisterProjectHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterProject"
+            name="Register Project">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.SelectProjectHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.SelectProject"
+            name="Select Project">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DefineTeam"
+            name="Define Team">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.Users"
+            name="Users">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterHumanResources"
+            name="Register Human Resources">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.ProcessDefinition"
+            name="Process Definition">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.ResourceAllocation"
+            name="Resource Allocation">
+      </command>
    </extension>
-   
+
+
 </plugin>

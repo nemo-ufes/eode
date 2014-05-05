@@ -8,11 +8,7 @@
 package ode.controleProjeto.srv;
 
 public class Projeto  extends ode.controleProjeto.srv.ObjetoPersistente  implements java.io.Serializable {
-    /**
-	 * 
-	 */
-
-	private java.lang.String descricao;
+    private java.lang.String descricao;
 
     private java.lang.String nome;
 
@@ -32,6 +28,7 @@ public class Projeto  extends ode.controleProjeto.srv.ObjetoPersistente  impleme
         this.descricao = descricao;
         this.nome = nome;
     }
+
 
     /**
      * Gets the descricao value for this Projeto.
