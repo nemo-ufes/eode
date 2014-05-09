@@ -4,13 +4,15 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui.PageAthenticateUser;
+
 /**
  * The activator class controls the plug-in life cycle
  */
 public class Activator extends AbstractUIPlugin {
 
 	// The plug-in ID
-	public static final String PLUGIN_ID = "test.rcp"; //$NON-NLS-1$
+	public static final String PLUGIN_ID = "odercp.rcp"; //$NON-NLS-1$
 
 	// The shared instance
 	private static Activator plugin;
@@ -26,6 +28,7 @@ public class Activator extends AbstractUIPlugin {
 	 * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext context) throws Exception {
+		PageAthenticateUser.start();
 		super.start(context);
 		plugin = this;
 	}

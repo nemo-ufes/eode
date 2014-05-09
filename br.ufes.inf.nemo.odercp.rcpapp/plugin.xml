@@ -123,22 +123,27 @@
             name="Select Project">
       </command>
       <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.DefineTeamHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.DefineTeam"
             name="Define Team">
       </command>
       <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.UsersHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.Users"
             name="Users">
       </command>
       <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.RegisterHumanResourcesHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterHumanResources"
             name="Register Human Resources">
       </command>
       <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ProcessDefinitionHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ProcessDefinition"
             name="Process Definition">
       </command>
       <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ResourceAllocationHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ResourceAllocation"
             name="Resource Allocation">
       </command>

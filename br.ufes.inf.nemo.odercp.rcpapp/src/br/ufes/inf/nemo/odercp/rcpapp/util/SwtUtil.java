@@ -1,5 +1,6 @@
 package br.ufes.inf.nemo.odercp.rcpapp.util;
 
+import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
@@ -29,6 +30,8 @@ public class SwtUtil {
 
 	public static synchronized void centralizeparent(Shell shell, Shell parent) {
 		try {
+
+			Point pointparent = parent.getLocation();
 			if (!shell.isDisposed()) {
 				Rectangle r = parent.getBounds();
 				int sW = r.width; // largura da tela
@@ -38,8 +41,8 @@ public class SwtUtil {
 				int w = r.width; // largura da janela
 				int h = r.height; // altura da janela
 
-				int x = (sW - w) / 2; // novo ponto x
-				int y = (sH - h) / 2; // novo ponto y
+				int x = pointparent.x + (sW - w) / 2; // novo ponto x
+				int y = pointparent.y + (sH - h) / 2; // novo ponto y
 
 				shell.setLocation(x, y);
 			}
