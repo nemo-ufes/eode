@@ -15,6 +15,7 @@ import org.eclipse.wb.swt.ResourceManager;
 import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.ApplDeleteProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.ApplShowProjects;
 import br.ufes.inf.nemo.odercp.rcpapp.util.SwtUtil;
+import org.eclipse.swt.widgets.Group;
 
 /**
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
@@ -60,51 +61,18 @@ public class PageSelectProject {
 		shlparentSelectProject = parent;
 		shlSelectProject = new Shell();
 		shlSelectProject.setSize(515, 365);
-		shlSelectProject.setText("Register Project");
+		shlSelectProject.setText("Select Project");
 
-		Button btnNewProject = new Button(shlSelectProject, SWT.NONE);
-		btnNewProject.setImage(ResourceManager.getPluginImage("br.ufes.inf.nemo.odercp.rcpapp", "images/filenew.png"));
-		btnNewProject.addSelectionListener(new SelectionAdapter() {
+				
+		Button btnSelect = new Button(shlSelectProject, SWT.NONE);
+		btnSelect.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				PageCreateProject page = new PageCreateProject();
-				page.open(shlparentSelectProject);
 			}
 		});
-		btnNewProject.setBounds(10, 10, 28, 29);
-
-		Button btnOpenProject = new Button(shlSelectProject, SWT.NONE);
-		btnOpenProject.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				PageOpenProject page = new PageOpenProject();
-				for (i = 0; i < projects.length; i++) {
-					if (radios[i].getSelection()) {
-						chosenProject = radios[i].getText();
-					}
-				}
-				page.open(chosenProject, shlparentSelectProject);
-			}
-		});
-		btnOpenProject.setImage(ResourceManager.getPluginImage("br.ufes.inf.nemo.odercp.rcpapp", "images/fileopen.png"));
-		btnOpenProject.setBounds(44, 10, 28, 29);
-
-		Button btnDeleteProject = new Button(shlSelectProject, SWT.NONE);
-		btnDeleteProject.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				for (i = 0; i < projects.length; i++) {
-					if (radios[i].getSelection()) {
-						chosenProject = radios[i].getText();
-					}
-				}
-				if (MessageDialog.openConfirm(shlSelectProject, "Confirmation", "Do you want Delete " + chosenProject + " ?")) {
-					ApplDeleteProject.deleteProject(chosenProject);
-				}
-			}
-		});
-		btnDeleteProject.setImage(ResourceManager.getPluginImage("br.ufes.inf.nemo.odercp.rcpapp", "images/editdelete.png"));
-		btnDeleteProject.setBounds(78, 10, 28, 29);
+		btnSelect.setBounds(209, 288, 91, 29);
+		btnSelect.setText("Select");
+		
 		if (projects.length > 0) radios = new Button[projects.length];
 		for (i = 0; i < projects.length; i++) {
 			radios[i] = new Button(shlSelectProject, SWT.RADIO);
