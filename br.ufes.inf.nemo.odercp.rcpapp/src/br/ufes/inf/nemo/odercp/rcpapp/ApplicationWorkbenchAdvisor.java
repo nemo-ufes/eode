@@ -16,7 +16,6 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 	
 	
 
-	private static final String PERSPECTIVE_ID = "test.rcp.perspective"; //$NON-NLS-1$
 	@Override
 	public void initialize(IWorkbenchConfigurer configurer) {
 	    super.initialize(configurer);
@@ -44,6 +43,6 @@ public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
     }
 
 	public String getInitialWindowPerspectiveId() {
-		return PERSPECTIVE_ID;
+		return null;
 	}
 }
