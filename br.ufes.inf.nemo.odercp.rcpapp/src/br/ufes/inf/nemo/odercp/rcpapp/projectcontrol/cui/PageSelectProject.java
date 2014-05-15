@@ -15,6 +15,7 @@ import org.eclipse.wb.swt.ResourceManager;
 import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.ApplDeleteProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cmt.ApplShowProjects;
 import br.ufes.inf.nemo.odercp.rcpapp.util.SwtUtil;
+import org.eclipse.swt.widgets.Group;
 
 /**
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
@@ -62,11 +63,19 @@ public class PageSelectProject {
 		shlSelectProject.setSize(515, 365);
 		shlSelectProject.setText("Select Project");
 		
+
+
+
+				
 		Button btnSelect = new Button(shlSelectProject, SWT.NONE);
-		btnSelect.setBounds(212, 290, 91, 29);
+		btnSelect.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+			}
+		});
+		btnSelect.setBounds(209, 288, 91, 29);
 		btnSelect.setText("Select");
-
-
+		
 		if (projects.length > 0) radios = new Button[projects.length];
 		for (i = 0; i < projects.length; i++) {
 			radios[i] = new Button(shlSelectProject, SWT.RADIO);
