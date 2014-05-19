@@ -41,8 +41,13 @@
          <menu
                label="Project">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterProject"
-                  label="Register Project"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateProject"
+                  label="Create Project"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteProject"
+                  label="Delete Project"
                   style="push">
             </command>
             <command
@@ -57,7 +62,7 @@
             </command>
          </menu>
          <menu
-               label="Administratiton">
+               label="Administration">
             <command
                   commandId="br.ufes.inf.nemo.odercp.rcpapp.command.Users"
                   label="Users"
@@ -113,9 +118,9 @@
             name="Change Password">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.RegisterProjectHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterProject"
-            name="Register Project">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateProjectHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateProject"
+            name="Create Project">
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.SelectProjectHandler"
@@ -146,6 +151,11 @@
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ResourceAllocationHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ResourceAllocation"
             name="Resource Allocation">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.DeleteProjectHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteProject"
+            name="Delete Project">
       </command>
    </extension>
 
