@@ -5,7 +5,8 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.core.commands.AbstractHandler;
-import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui.WizardNewPassword;
+
+import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui.wizards.WizardNewPassword;
 
 /**
 * Change password of User corrent in ODE-RCP

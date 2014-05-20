@@ -5,6 +5,8 @@ import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.jface.dialogs.MessageDialog;
+import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
  * TODO: document this type.
@@ -14,7 +16,7 @@ import org.eclipse.core.runtime.CoreException;
  */
 public class ApplDeleteProject {
 
-	public static void deleteProject(String nameProject) {
+	public static boolean deleteProject(String nameProject) {
 		int i;
 		IWorkspace workspace = ResourcesPlugin.getWorkspace();
 		IWorkspaceRoot root = workspace.getRoot();
@@ -25,14 +27,21 @@ public class ApplDeleteProject {
 			if (projects[i].getName().equals(nameProject)) {
 				try {
 					projects[i].delete(true, null);
-				}
-				catch (CoreException e) {
+				} catch (CoreException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
+					return false;
 				}
-				
+				return true;
 			}
 		}
+		MessageDialog
+				.openInformation(
+						null,
+						"Don't select project",
+						"Select a project");
+
+		return false;
 
 	}
 

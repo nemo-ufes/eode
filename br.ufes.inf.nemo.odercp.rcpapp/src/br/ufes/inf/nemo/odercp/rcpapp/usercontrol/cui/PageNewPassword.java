@@ -47,7 +47,7 @@ public class PageNewPassword extends WizardPage {
 	 * Create the wizard.
 	 */
 	public PageNewPassword() {
-		super("wizardPage");
+		super("wizardPageNewPassword");
 		setTitle("New Password");
 		setDescription("");
 	}
