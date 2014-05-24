@@ -1,5 +1,6 @@
 package br.ufes.inf.nemo.odercp.rcpapp.projectcontrol.cui;
 
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
@@ -25,11 +26,18 @@ public class PageSelectProject extends WizardPage {
 		setDescription(" Select Project");
 	}
 
+	/**
+	 * Create contents of the wizard.
+	 * 
+	 * @param parent
+	 */
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
+
 		setControl(container);
 		int i;
-		if (projects.length > 0) radios = new Button[projects.length];
+		if (projects.length > 0)
+			radios = new Button[projects.length];
 		for (i = 0; i < projects.length; i++) {
 			radios[i] = new Button(this.getShell(), SWT.RADIO);
 			radios[i].setText(projects[i]);
