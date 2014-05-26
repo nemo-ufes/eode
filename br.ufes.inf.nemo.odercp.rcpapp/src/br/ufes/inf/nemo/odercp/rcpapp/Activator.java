@@ -4,7 +4,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cui.PageAthenticateUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.PageAthenticateUser;
 
 /**
  * The activator class controls the plug-in life cycle
