@@ -6,7 +6,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.humanResourceActivities.cpd;
  * @version 1.0
  */
 
-public class CompetenciaRH {
+public class HRCompetence {
 
 	private HRActivities hRActivities;
 

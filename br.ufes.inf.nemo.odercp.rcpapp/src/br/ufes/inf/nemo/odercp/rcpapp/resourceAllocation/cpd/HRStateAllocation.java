@@ -9,7 +9,8 @@ public enum HRStateAllocation {
 
 	WaitingStartActivity("Waiting Start Activity"),
 	WaitingStartParticipation("Waiting Start Participation"),
-	Ongoing("Ongoing"), OngoingAdjustments("Ongoing Adjustments"),
+	Ongoing("Ongoing"), 
+	OngoingAdjustments("Ongoing Adjustments"),
 	ReviewClosure("Review Closure"),
 	Closed("Closed"),
 	Canceled("Canceled");

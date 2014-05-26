@@ -23,7 +23,8 @@ public class HRAllocation {
 	private HRStateAllocation state;
 	private Integer dedication;
 
-	public HRAllocation() {}
+	public HRAllocation() {
+	}
 
 	public HumanResource getHumanResource() {
 		return humanResource;
