@@ -1,7 +1,7 @@
 /**
  * 
  */
-package br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt;
+package br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt;
 
 import javax.swing.JOptionPane;
 

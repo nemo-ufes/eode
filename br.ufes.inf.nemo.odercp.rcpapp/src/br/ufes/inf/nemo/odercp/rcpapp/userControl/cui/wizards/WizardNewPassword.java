@@ -2,8 +2,8 @@ package br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplNewPassword;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.PageNewPassword;
-import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.ApplNewPassword;
 
 public class WizardNewPassword extends Wizard {
 

@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import br.ufes.inf.nemo.odercp.rcpapp.usercontrol.cmt.ApplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplAuthenticUser;
 import br.ufes.inf.nemo.odercp.rcpapp.util.SwtUtil;
 
 import org.eclipse.swt.events.SelectionAdapter;
