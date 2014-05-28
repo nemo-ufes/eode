@@ -8,7 +8,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui.wizards.WizardCreateProject;
 
-public class CreateProjectHandler extends AbstractHandler {
+public class NewProjectHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
 		WizardCreateProject wizardCreateProject = new WizardCreateProject();

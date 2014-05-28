@@ -2,7 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplNewPassword;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplCRUDUser;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.PageNewPassword;
 
 public class WizardNewPassword extends Wizard {
@@ -21,10 +21,9 @@ public class WizardNewPassword extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		return ApplNewPassword.CreateNewPassword(pagenewpassword
-				.getTxtoldPassword().getText(), pagenewpassword
-				.getTxtnewPassword().getText(), pagenewpassword
-				.getTxtrepeatNewPassword().getText());
+		return ApplCRUDUser.CreateNewPassword(pagenewpassword.getTxtoldPassword().getText(), 
+				pagenewpassword.getTxtnewPassword().getText(),
+				pagenewpassword.getTxtrepeatNewPassword().getText());
 	}
 
 }

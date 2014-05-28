@@ -6,7 +6,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.wb.swt.ResourceManager;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplCreateProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplCRUDProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui.PageCreateProject;
 
 public class WizardCreateProject extends Wizard {
@@ -37,7 +37,7 @@ public class WizardCreateProject extends Wizard {
 	@Override
 	public boolean performFinish() {
 
-		return ApplCreateProject.CreateNewProject(
+		return ApplCRUDProject.CreateNewProject(
 				createProjectPage.getProjectName(),
 				pagedescription.getDescription());
 	}

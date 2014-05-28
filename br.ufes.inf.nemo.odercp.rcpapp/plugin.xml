@@ -41,8 +41,8 @@
          <menu
                label="Project">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateProject"
-                  label="Create Project"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewProject"
+                  label="New Project"
                   style="push">
             </command>
             <command
@@ -64,18 +64,141 @@
          <menu
                label="Administration">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.Users"
-                  label="Users"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewUser"
+                  label="New User"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteUser"
+                  label="Delete User"
                   style="push">
             </command>
          </menu>
          <menu
-               label="Human Resources">
+               label="Resources">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterHumanResources"
-                  label="Register Human Resources"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewHumanResource"
+                  label="New Human Resource"
                   style="push">
             </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteHumanResource"
+                  label="Delete Human Resource"
+                  style="push">
+            </command>
+         </menu>
+         <menu
+               label="Knowledge">
+            <menu
+                  label="Resources">
+               <menu
+                     label="Human Resource">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHumanResource"
+                        label="New Human Resource"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKHumanResource"
+                        label="Delete Human Resource"
+                        style="push">
+                  </command>
+               </menu>
+               <menu
+                     label="Hardware Resource">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHardwareResource"
+                        label="New Hardware Resource"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKHardwareResource"
+                        label="Delete Hardware Resource"
+                        style="push">
+                  </command>
+               </menu>
+               <menu
+                     label="Software Resource">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKSoftwareResource"
+                        label="New Software Resource"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKSoftwareResource"
+                        label="Delete Software Resource"
+                        style="push">
+                  </command>
+               </menu>
+            </menu>
+            <menu
+                  label="Processes">
+               <menu
+                     label="Activity">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKActivity"
+                        label="New Activity"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKActivity"
+                        label="Delete Activity"
+                        style="push">
+                  </command>
+               </menu>
+               <menu
+                     label="Artefact">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKArtefact"
+                        label="New Artefact"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKArtefact"
+                        label="Delete Artefact"
+                        style="push">
+                  </command>
+               </menu>
+               <menu
+                     label="Life-Cycle Model">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKLifeCycleModel"
+                        label="New Life-Cycle Model"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKLifeCycleModel"
+                        label="Delete Life Cycle Model"
+                        style="push">
+                  </command>
+               </menu>
+               <menu
+                     label="Procedure">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcedure"
+                        label="New Procedure"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKProcedure"
+                        label="Delete Procedure"
+                        style="push">
+                  </command>
+               </menu>
+               <menu
+                     label="Processes">
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcess"
+                        label="New Process"
+                        style="push">
+                  </command>
+                  <command
+                        commandId="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKProcess"
+                        label="Delete Process"
+                        style="push">
+                  </command>
+               </menu>
+            </menu>
          </menu>
          <menu
                label="Tools">
@@ -118,9 +241,9 @@
             name="Change Password">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateProjectHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateProject"
-            name="Create Project">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.NewProjectHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewProject"
+            name="New Project">
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.SelectProjectHandler"
@@ -134,13 +257,13 @@
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.UsersHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.Users"
-            name="Users">
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewUser"
+            name="New User">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.RegisterHumanResourcesHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.RegisterHumanResources"
-            name="Register Human Resources">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.NewHumanResourceHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewHumanResource"
+            name="New Human Resource">
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ProcessDefinitionHandler"
@@ -156,6 +279,78 @@
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.DeleteProjectHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteProject"
             name="Delete Project">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHumanResource"
+            name="New Human Resource">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKHumanResource"
+            name="Delete  Human Resource">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteUser"
+            name="Delete User">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKActivity"
+            name="New Activity">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKActivity"
+            name="Delete Activity">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKArtefact"
+            name="New Artefact">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKArtefact"
+            name="Delete Artefact">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKLifeCycleModel"
+            name="New Life-Cycle Model">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKLifeCycleModel"
+            name="Delete Life-Cycle Model">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcedure"
+            name="New Procedure">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKProcedure"
+            name="Delete Procedure">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcess"
+            name="New Process">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKProcess"
+            name="Delete Process">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHardwareResource"
+            name="New Hardware Resource">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKHardwareResource"
+            name="Delete Hardware Resource">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteKSoftwareResource"
+            name=" Delete Software Resource">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKSoftwareResource"
+            name="New Software Resource">
+      </command>
+      <command
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteHumanResource"
+            name="Delete Human Resource">
       </command>
    </extension>
 

@@ -10,7 +10,7 @@ import org.eclipse.core.commands.ExecutionException;
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0
  */
-public class RegisterHumanResourcesHandler extends AbstractHandler {
+public class NewHumanResourceHandler extends AbstractHandler {
 
 	/** @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent) */
 	@Override

@@ -1,15 +1,14 @@
 package br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui;
 
-
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplShowProjects;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplCRUDProject;
 
 public class PageSelectProject extends WizardPage {
-	protected String[] projects = ApplShowProjects.showProjects();
+	protected String[] projects = ApplCRUDProject.showProjects();
 	protected Button[] radios;
 	private String chosenProject;
 
