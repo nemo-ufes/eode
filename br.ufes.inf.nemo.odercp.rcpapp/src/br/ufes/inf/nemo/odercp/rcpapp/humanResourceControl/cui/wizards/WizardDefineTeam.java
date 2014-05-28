@@ -1,4 +1,4 @@
-package br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui.wizards;
+package br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 

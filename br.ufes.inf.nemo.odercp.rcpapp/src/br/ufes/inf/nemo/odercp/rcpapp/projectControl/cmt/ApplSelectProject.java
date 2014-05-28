@@ -1,9 +1,5 @@
 package br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt;
 
-
-
-
-
 /**
  * TODO: document this type.
  *
