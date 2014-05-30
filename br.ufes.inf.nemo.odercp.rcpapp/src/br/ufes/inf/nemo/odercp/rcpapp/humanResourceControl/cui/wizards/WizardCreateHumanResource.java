@@ -4,10 +4,10 @@ import org.eclipse.jface.wizard.Wizard;
 
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.PageNewHumanResource;
 
-public class WizardNewHumanResource extends Wizard {
+public class WizardCreateHumanResource extends Wizard {
 	PageNewHumanResource pageNewHumanResource = new PageNewHumanResource();
 
-	public WizardNewHumanResource() {
+	public WizardCreateHumanResource() {
 		setWindowTitle("Wizard New Human Resource");
 	}
 

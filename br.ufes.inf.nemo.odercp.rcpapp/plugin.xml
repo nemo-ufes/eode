@@ -41,8 +41,8 @@
          <menu
                label="Project">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewProject"
-                  label="New Project"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateProject"
+                  label="Create Project"
                   style="push">
             </command>
             <command
@@ -64,8 +64,8 @@
          <menu
                label="Administration">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewUser"
-                  label="New User"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateUser"
+                  label="Create User"
                   style="push">
             </command>
             <command
@@ -77,8 +77,8 @@
          <menu
                label="Resources">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewHumanResource"
-                  label="New Human Resource"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateHumanResource"
+                  label="Create Human Resource"
                   style="push">
             </command>
             <command
@@ -241,9 +241,9 @@
             name="Change Password">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.NewProjectHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewProject"
-            name="New Project">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateProjectHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateProject"
+            name="Create Project">
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.SelectProjectHandler"
@@ -257,13 +257,13 @@
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.UsersHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewUser"
-            name="New User">
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateUser"
+            name="Create User">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.NewHumanResourceHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewHumanResource"
-            name="New Human Resource">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateHumanResourceHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateHumanResource"
+            name="Create Human Resource">
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ProcessDefinitionHandler"

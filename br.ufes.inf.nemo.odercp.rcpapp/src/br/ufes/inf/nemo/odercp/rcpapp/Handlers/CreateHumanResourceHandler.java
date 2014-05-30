@@ -6,17 +6,26 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.wizards.WizardCreateHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui.wizards.WizardCreateProject;
 
-public class NewProjectHandler extends AbstractHandler {
+/**
+ * TODO: document this type.
+ *
+ * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
+ * @version 1.0
+ */
+public class CreateHumanResourceHandler extends AbstractHandler {
+
+	/** @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent) */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		WizardCreateProject wizardCreateProject = new WizardCreateProject();
+		WizardCreateHumanResource wizardCreateHR = new WizardCreateHumanResource();
 		WizardDialog wizardDialog = new WizardDialog(HandlerUtil
 				.getActiveWorkbenchWindow(event).getShell(),
-				wizardCreateProject);
+				wizardCreateHR);
 		wizardDialog.open();
 		return null;
-
 	}
+
 }

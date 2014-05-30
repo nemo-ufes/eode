@@ -1,5 +1,9 @@
 package br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui;
 
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Set;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
@@ -8,6 +12,9 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
+
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 
 public class PageNewHumanResource extends WizardPage {
 	private Text name;
@@ -83,6 +90,13 @@ public class PageNewHumanResource extends WizardPage {
 
 		comboRole = new Combo(container, SWT.NONE);
 		comboRole.setBounds(146, 218, 239, 29);
+		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
+		Set<KHumanResource> hashKHR = new HashSet<KHumanResource>();
+		for (int i = 0; i < everKHR.length; i++) {
+			comboRole.add(everKHR[i].getName());
+			hashKHR.add(everKHR[i]);
+		}
+		comboRole.getText();
 	}
 
 	/** Getter for name. */
@@ -122,7 +136,7 @@ public class PageNewHumanResource extends WizardPage {
 
 	/** Setter for phone. */
 	public void setPhone(String phone) {
-		this.phone.setText(phone); 
+		this.phone.setText(phone);
 	}
 
 	/** Getter for comboRole. */
@@ -130,8 +144,4 @@ public class PageNewHumanResource extends WizardPage {
 		return comboRole.getText();
 	}
 
-	/** Setter for comboRole. */
-	public void setComboRole(Combo comboRole) {
-		this.comboRole = comboRole;
-	}
 }
