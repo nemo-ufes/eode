@@ -1,17 +1,18 @@
 package br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui;
 
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
@@ -22,6 +23,8 @@ public class PageNewHumanResource extends WizardPage {
 	private Text email;
 	private Text phone;
 	private Combo comboRole;
+	private Button CheckActive;
+	Map<String, KHumanResource> hashKHR;
 
 	/**
 	 * Create the wizard.
@@ -50,7 +53,7 @@ public class PageNewHumanResource extends WizardPage {
 		name = new Text(container, SWT.BORDER);
 		name.setBounds(146, 20, 370, 27);
 
-		Button CheckActive = new Button(container, SWT.CHECK);
+		CheckActive = new Button(container, SWT.CHECK);
 		CheckActive.setSelection(true);
 		CheckActive.setBounds(146, 63, 115, 24);
 
@@ -88,15 +91,90 @@ public class PageNewHumanResource extends WizardPage {
 		phone = new Text(container, SWT.BORDER);
 		phone.setBounds(146, 180, 370, 27);
 
-		comboRole = new Combo(container, SWT.NONE);
+		comboRole = new Combo(container,SWT.READ_ONLY);
 		comboRole.setBounds(146, 218, 239, 29);
 		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
-		Set<KHumanResource> hashKHR = new HashSet<KHumanResource>();
+		hashKHR = new HashMap<String, KHumanResource>();
 		for (int i = 0; i < everKHR.length; i++) {
 			comboRole.add(everKHR[i].getName());
-			hashKHR.add(everKHR[i]);
+			hashKHR.put(everKHR[i].getName(), everKHR[i]);
 		}
-		comboRole.getText();
+		phone.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
+						email.getText().isEmpty() || phone.getText().isEmpty() || 
+						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		name.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
+						email.getText().isEmpty() || phone.getText().isEmpty() || 
+						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		workLoad.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
+						email.getText().isEmpty() || phone.getText().isEmpty() || 
+						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		email.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
+						email.getText().isEmpty() || phone.getText().isEmpty() || 
+						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		comboRole.addKeyListener(new KeyListener() {
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
+						email.getText().isEmpty() || phone.getText().isEmpty() || 
+						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+
+			}
+		});
+		 setPageComplete(false);
 	}
 
 	/** Getter for name. */
@@ -144,4 +222,11 @@ public class PageNewHumanResource extends WizardPage {
 		return comboRole.getText();
 	}
 
+	public Button getCheckActive() {
+		return CheckActive;
+	}
+
+	public KHumanResource getKHR() {
+		return hashKHR.get(getComboRole());
+	}
 }

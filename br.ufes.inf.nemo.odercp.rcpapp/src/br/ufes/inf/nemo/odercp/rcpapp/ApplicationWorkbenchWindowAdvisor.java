@@ -16,6 +16,8 @@ public class ApplicationWorkbenchWindowAdvisor extends WorkbenchWindowAdvisor {
     }
     
     public void preWindowOpen() {
+    	IWorkbenchWindowConfigurer configurer = getWindowConfigurer();
 
+      configurer.setShowPerspectiveBar(true);
     }
 }

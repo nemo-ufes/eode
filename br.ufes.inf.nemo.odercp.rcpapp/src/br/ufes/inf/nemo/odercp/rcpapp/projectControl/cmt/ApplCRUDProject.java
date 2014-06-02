@@ -1,8 +1,12 @@
 package br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt;
 
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IProjectDescription;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourceAttributes;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -65,7 +69,7 @@ public class ApplCRUDProject {
 				return true;
 			}
 		}
-		MessageDialog.openInformation(null, "Don't select project",
+		MessageDialog.openInformation(null, "Don't selected project",
 				"Select a project");
 
 		return false;
@@ -84,6 +88,7 @@ public class ApplCRUDProject {
 		nameprojects = new String[projects.length];
 		for (i = 0; i < projects.length; i++) {
 			nameprojects[i] = projects[i].getName();
+		
 		}
 		return nameprojects;
 	}

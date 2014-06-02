@@ -2,6 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.PageNewHumanResource;
 
 public class WizardCreateHumanResource extends Wizard {
@@ -18,7 +19,10 @@ public class WizardCreateHumanResource extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		return false;
+		System.out.println(pageNewHumanResource.getKHR().getName());
+		return ApplCRUDHumanResource.CreateHumanResource(pageNewHumanResource.getName(),
+				pageNewHumanResource.getCheckActive().getSelection(), pageNewHumanResource.getPhone(),
+				pageNewHumanResource.getWorkLoad(), pageNewHumanResource.getEmail(), pageNewHumanResource.getKHR());
 	}
 
 }

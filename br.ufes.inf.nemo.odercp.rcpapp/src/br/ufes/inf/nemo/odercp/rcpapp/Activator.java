@@ -31,6 +31,7 @@ public class Activator extends AbstractUIPlugin {
 		PageAthenticateUser.start();
 		super.start(context);
 		plugin = this;
+		
 	}
 
 	/*

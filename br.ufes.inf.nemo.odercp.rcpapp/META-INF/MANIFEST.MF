@@ -10,7 +10,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.navigator;bundle-version="3.5.300",
  org.eclipse.ui.navigator.resources;bundle-version="3.4.501",
  org.eclipse.ui.ide,
- org.eclipse.core.resources
+ org.eclipse.core.resources,
+ org.eclipse.ui.forms
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.e4.core.di.annotations,
