@@ -237,9 +237,9 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="br.ufes.inf.nemo.odercp.rcpapp.PerspectiveODERCP"
-            id="br.ufes.inf.nemo.odercp.rcpapp.PerspectiveODERCP"
-            name="PerspectiveODERCP">
+            class="br.ufes.inf.nemo.odercp.rcpapp.PerspectiveODE"
+            id="br.ufes.inf.nemo.odercp.rcpapp.PerspectiveODE"
+            name="PerspectiveODE">
       </perspective>
    </extension>
    <extension

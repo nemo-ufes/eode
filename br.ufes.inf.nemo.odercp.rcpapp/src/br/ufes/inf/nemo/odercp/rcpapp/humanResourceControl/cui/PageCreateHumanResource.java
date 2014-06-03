@@ -17,7 +17,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 
-public class PageNewHumanResource extends WizardPage {
+public class PageCreateHumanResource extends WizardPage {
 	private Text name;
 	private Text workLoad;
 	private Text email;
@@ -29,7 +29,7 @@ public class PageNewHumanResource extends WizardPage {
 	/**
 	 * Create the wizard.
 	 */
-	public PageNewHumanResource() {
+	public PageCreateHumanResource() {
 		super("wizardPageNewHumanResource");
 		setTitle("Wizard Page New Human Resource");
 		setDescription(" Basic Data  ");

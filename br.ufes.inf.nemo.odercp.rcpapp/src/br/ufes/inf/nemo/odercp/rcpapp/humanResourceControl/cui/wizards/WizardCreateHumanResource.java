@@ -3,10 +3,10 @@ package br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.wizards;
 import org.eclipse.jface.wizard.Wizard;
 
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplCRUDHumanResource;
-import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.PageNewHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.PageCreateHumanResource;
 
 public class WizardCreateHumanResource extends Wizard {
-	PageNewHumanResource pageNewHumanResource = new PageNewHumanResource();
+	PageCreateHumanResource pageNewHumanResource = new PageCreateHumanResource();
 
 	public WizardCreateHumanResource() {
 		setWindowTitle("Wizard New Human Resource");

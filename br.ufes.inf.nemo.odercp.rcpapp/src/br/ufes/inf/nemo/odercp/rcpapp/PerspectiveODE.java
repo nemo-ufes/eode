@@ -5,7 +5,7 @@ import org.eclipse.ui.IPerspectiveFactory;
 import org.eclipse.ui.IFolderLayout;
 
 
-public class PerspectiveODERCP implements IPerspectiveFactory {
+public class PerspectiveODE implements IPerspectiveFactory {
 
 	/**
 	 * Creates the initial layout for a page.

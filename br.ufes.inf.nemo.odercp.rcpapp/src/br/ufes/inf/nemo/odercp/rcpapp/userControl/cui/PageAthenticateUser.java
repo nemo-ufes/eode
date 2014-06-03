@@ -23,6 +23,7 @@ public class PageAthenticateUser {
 	protected Shell shlLoginOdercp;
 	private Text user;
 	private Text password;
+	//variable used when user looger because when page is closed ODE run
 	private boolean logger;
 	private boolean stayconnected;
 
