@@ -6,8 +6,10 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Button;
 
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplCRUDHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplDefineTeam;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cpd.HumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.PageDefineTeam;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplSelectProject;
 
 public class WizardDefineTeam extends Wizard {
 	PageDefineTeam pageDefineTeam;
@@ -26,12 +28,18 @@ public class WizardDefineTeam extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		Button[] checks = pageDefineTeam.getChecks();
-		for (int i = 0; i < checks.length; i++) {
-			if (checks[i].getSelection()) selectedHR.add(HRs[i]);
+		if (ApplSelectProject.getSelected() != null) {
+			Button[] checks = pageDefineTeam.getChecks();
+			for (int i = 0; i < checks.length; i++) {
+				if (checks[i].getSelection()) selectedHR.add(HRs[i]);
+
+			}
+			HumanResource[] vectorselectedHR = (HumanResource[]) selectedHR.toArray();
+			return ApplDefineTeam.DefineTeam(vectorselectedHR, ApplSelectProject.getSelected());
+		}
+		else {
 
 		}
-		HumanResource[] vectorselectedHR = (HumanResource[]) selectedHR.toArray();
 		return false;
 	}
 

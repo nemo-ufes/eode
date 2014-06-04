@@ -1,20 +1,18 @@
 package br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui;
 
+import java.util.HashMap;
+import java.util.Iterator;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplCRUDProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cpd.Project;
 
 public class PageDeleteProject extends WizardPage {
-	protected String[] projects = ApplCRUDProject.showProjects();
 	protected Button[] radios;
-	private String chosenProject;
-
-	public String getChosenProject() {
-		return chosenProject;
-	}
 
 	/**
 	 * Create the wizard.
@@ -23,6 +21,7 @@ public class PageDeleteProject extends WizardPage {
 		super("Page Delete Project");
 		setTitle("Page delete Project ");
 		setDescription(" Delete Project");
+
 	}
 
 	/**
@@ -32,21 +31,24 @@ public class PageDeleteProject extends WizardPage {
 	 */
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
-
+		
 		setControl(container);
 		int i;
-		if (projects.length > 0)
-			radios = new Button[projects.length];
+		String[] projects = ApplCRUDProject.getevernameProjectsWorkspace();
+		if (projects.length > 0) radios = new Button[projects.length];
 		for (i = 0; i < projects.length; i++) {
-			radios[i] = new Button(this.getShell(), SWT.RADIO);
+			radios[i] = new Button(container, SWT.RADIO);
 			radios[i].setText(projects[i]);
-			radios[i].setBounds(10, 45 + (30 * i), 750, 30);
+			radios[i].setBounds(10, 45 + (30 * i), 350, 30);
 		}
 		if (projects.length > 0) {
 			radios[0].setSelection(true);
-			chosenProject = radios[0].getText();
 		}
 
+	}
+
+	public Button[] getRadios() {
+		return radios;
 	}
 
 }

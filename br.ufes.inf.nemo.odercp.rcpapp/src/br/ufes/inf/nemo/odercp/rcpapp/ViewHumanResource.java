@@ -9,18 +9,14 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
-import org.eclipse.jface.viewers.TreeViewer;
-import org.eclipse.jface.layout.TreeColumnLayout;
+
 import org.eclipse.swt.custom.ScrolledComposite;
-import org.eclipse.swt.events.MouseAdapter;
-import org.eclipse.swt.events.MouseEvent;
+
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.events.TreeEvent;
-import org.eclipse.swt.events.TreeListener;
+
 import org.eclipse.swt.layout.GridData;
 
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplCRUDHumanResource;
@@ -33,6 +29,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.layout.GridLayout;
 
 public class ViewHumanResource extends ViewPart {
 
@@ -65,117 +62,16 @@ public class ViewHumanResource extends ViewPart {
 		Composite container = new Composite(sc, SWT.BORDER);
 
 		HRs = ApplCRUDHumanResource.getever();
+		container.setLayout(new GridLayout(3, false));
 
 		// TreeViewer treeViewer = new TreeViewer(container, SWT.BORDER);
 		Tree tree = new Tree(container, SWT.BORDER);
-
-		tree.setBounds(10, 10, 192, 440);
+		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1));
+		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 7));
 
 		TreeItem root = new TreeItem(tree, SWT.NONE, 0);
 		root.setText("Human Resource");
-		{
-			Label lblName = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
-			lblName.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-			lblName.setAlignment(SWT.CENTER);
-			lblName.setBounds(221, 10, 86, 27);
-			lblName.setText("Name:");
-		}
-		{
-			name = new Text(container, SWT.BORDER);
-			name.setBounds(317, 10, 229, 27);
-		}
-		{
-			Label lblActive = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
-			lblActive.setText("Active:");
-			lblActive.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-			lblActive.setAlignment(SWT.CENTER);
-			lblActive.setBounds(221, 63, 86, 27);
-		}
-
-		active = new Button(container, SWT.CHECK);
-		active.setBounds(317, 63, 115, 24);
-		{
-			Label lblWorkload = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
-			lblWorkload.setText("Workload:");
-			lblWorkload.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-			lblWorkload.setAlignment(SWT.CENTER);
-			lblWorkload.setBounds(221, 116, 86, 27);
-		}
-		{
-			workload = new Text(container, SWT.BORDER);
-			workload.setBounds(317, 116, 75, 27);
-		}
-		{
-			Label lblEmail = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
-			lblEmail.setText("Email:");
-			lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-			lblEmail.setAlignment(SWT.CENTER);
-			lblEmail.setBounds(221, 168, 86, 27);
-		}
-		{
-			Label lblPhone = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
-			lblPhone.setText("Phone:");
-			lblPhone.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-			lblPhone.setAlignment(SWT.CENTER);
-			lblPhone.setBounds(221, 218, 86, 27);
-		}
-		{
-			email = new Text(container, SWT.BORDER);
-			email.setBounds(317, 168, 229, 27);
-		}
-		{
-			Label lblRole = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
-			lblRole.setText("Role:");
-			lblRole.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-			lblRole.setAlignment(SWT.CENTER);
-			lblRole.setBounds(221, 268, 86, 27);
-		}
-		{
-			phone = new Text(container, SWT.BORDER);
-			phone.setBounds(317, 218, 229, 27);
-		}
-		{
-			btnDelete = new Button(container, SWT.NONE);
-			btnDelete.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					ApplCRUDHumanResource.delete(chosenHR);
-
-				}
-			});
-			btnDelete.setBounds(455, 332, 91, 29);
-			btnDelete.setText("Delete");
-		}
-		{
-			btnUpdate = new Button(container, SWT.NONE);
-			btnUpdate.addSelectionListener(new SelectionAdapter() {
-				@Override
-				public void widgetSelected(SelectionEvent e) {
-					ApplCRUDHumanResource.update(chosenHR);
-				}
-			});
-			btnUpdate.setBounds(317, 332, 91, 29);
-			btnUpdate.setText("Update");
-		}
-		container.setTabList(new Control[] { tree, name, active, workload, email, phone, btnDelete, btnUpdate });
-
-		tree.setLayoutData(new GridData(GridData.FILL_BOTH));
-
-		role = new Combo(container, SWT.READ_ONLY);
-		role.setBounds(317, 266, 229, 29);
-		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
-		//Populate Combo of Roles
-		for (int i = 0; i < everKHR.length; i++) {
-			role.add(everKHR[i].getName());
-		}
-		
-		hashindex = new HashMap<HumanResource, Integer>();
-		for (int i = 0; i < HRs.length; i++) {
-			TreeItem no = new TreeItem(root, SWT.NONE, i);
-			no.setText(HRs[i].getName());
-			hashHR.put(no, HRs[i]);
-			hashindex.put(HRs[i], new Integer(i));
-		}
+		root.setExpanded(true);
 
 		tree.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -194,6 +90,99 @@ public class ViewHumanResource extends ViewPart {
 			}
 
 		});
+		{
+			Label lblName = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			lblName.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblName.setAlignment(SWT.CENTER);
+			lblName.setText("Name:");
+		}
+		{
+			name = new Text(container, SWT.BORDER);
+			name.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		}
+		{
+			Label lblActive = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			lblActive.setText("Active:");
+			lblActive.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblActive.setAlignment(SWT.CENTER);
+		}
+
+		active = new Button(container, SWT.CHECK);
+		{
+			Label lblWorkload = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			lblWorkload.setText("Workload:");
+			lblWorkload.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblWorkload.setAlignment(SWT.CENTER);
+		}
+		{
+			workload = new Text(container, SWT.BORDER);
+			workload.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		}
+		{
+			Label lblEmail = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			lblEmail.setText("Email:");
+			lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblEmail.setAlignment(SWT.CENTER);
+		}
+		{
+			email = new Text(container, SWT.BORDER);
+			email.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		}
+		{
+			Label lblPhone = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			lblPhone.setText("Phone:");
+			lblPhone.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblPhone.setAlignment(SWT.CENTER);
+		}
+		{
+			phone = new Text(container, SWT.BORDER);
+			phone.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		}
+		{
+			Label lblRole = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			lblRole.setText("Role:");
+			lblRole.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblRole.setAlignment(SWT.CENTER);
+		}
+
+		role = new Combo(container, SWT.READ_ONLY);
+		role.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+		{
+			btnUpdate = new Button(container, SWT.NONE);
+			btnUpdate.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+			btnUpdate.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					ApplCRUDHumanResource.update(chosenHR);
+				}
+			});
+			btnUpdate.setText("Update");
+		}
+		{
+			btnDelete = new Button(container, SWT.NONE);
+			btnDelete.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+			btnDelete.addSelectionListener(new SelectionAdapter() {
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					ApplCRUDHumanResource.delete(chosenHR);
+
+				}
+			});
+			btnDelete.setText("Delete");
+		}
+		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
+		// Populate Combo of Roles
+		for (int i = 0; i < everKHR.length; i++) {
+			role.add(everKHR[i].getName());
+		}
+
+		hashindex = new HashMap<HumanResource, Integer>();
+		for (int i = 0; i < HRs.length; i++) {
+			TreeItem no = new TreeItem(root, SWT.NONE, i);
+			no.setText(HRs[i].getName());
+			hashHR.put(no, HRs[i]);
+			hashindex.put(HRs[i], new Integer(i));
+		}
 
 		createActions();
 		initializeToolBar();

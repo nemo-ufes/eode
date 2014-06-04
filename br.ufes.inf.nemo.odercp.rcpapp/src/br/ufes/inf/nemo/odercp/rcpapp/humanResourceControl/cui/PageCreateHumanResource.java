@@ -17,6 +17,9 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+
 public class PageCreateHumanResource extends WizardPage {
 	private Text name;
 	private Text workLoad;
@@ -44,68 +47,70 @@ public class PageCreateHumanResource extends WizardPage {
 		Composite container = new Composite(parent, SWT.NULL);
 
 		setControl(container);
+		container.setLayout(new GridLayout(2, false));
+		
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+
 
 		Label lblName = new Label(container, SWT.NONE);
 		lblName.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-		lblName.setBounds(10, 30, 70, 17);
 		lblName.setText("Name*:");
 
 		name = new Text(container, SWT.BORDER);
-		name.setBounds(146, 20, 370, 27);
-
-		CheckActive = new Button(container, SWT.CHECK);
-		CheckActive.setSelection(true);
-		CheckActive.setBounds(146, 63, 115, 24);
+		name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblCheckActive = new Label(container, SWT.NONE);
 		lblCheckActive.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-		lblCheckActive.setBounds(10, 70, 70, 17);
 		lblCheckActive.setText("Active*:");
+
+		CheckActive = new Button(container, SWT.CHECK);
+		CheckActive.setSelection(true);
 
 		Label lblWorkload = new Label(container, SWT.NONE);
 		lblWorkload.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-		lblWorkload.setBounds(10, 110, 94, 17);
 		lblWorkload.setText("WorkLoad*:");
 
 		workLoad = new Text(container, SWT.BORDER);
-		workLoad.setBounds(146, 100, 75, 27);
+		workLoad.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblEmail = new Label(container, SWT.NONE);
 		lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-		lblEmail.setBounds(10, 150, 101, 17);
 		lblEmail.setText("Email*:");
 
 		email = new Text(container, SWT.BORDER);
-		email.setBounds(146, 140, 370, 27);
+		email.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblPhone = new Label(container, SWT.NONE);
 		lblPhone.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-		lblPhone.setBounds(10, 190, 70, 17);
 		lblPhone.setText("Phone*:");
+
+		phone = new Text(container, SWT.BORDER);
+		phone.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblRole = new Label(container, SWT.NONE);
 		lblRole.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
-		lblRole.setBounds(10, 230, 70, 17);
 		lblRole.setText("Role*:");
 
-		phone = new Text(container, SWT.BORDER);
-		phone.setBounds(146, 180, 370, 27);
-
-		comboRole = new Combo(container,SWT.READ_ONLY);
-		comboRole.setBounds(146, 218, 239, 29);
+		comboRole = new Combo(container, SWT.READ_ONLY);
+		comboRole.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		
 		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
-		hashKHR = new HashMap<String, KHumanResource>();
+		//hashKHR = new HashMap<String, KHumanResource>();
 		for (int i = 0; i < everKHR.length; i++) {
 			comboRole.add(everKHR[i].getName());
-			hashKHR.put(everKHR[i].getName(), everKHR[i]);
+			comboRole.setData(everKHR[i].getName(), everKHR[i]);
+			//hashKHR.put(everKHR[i].getName(), everKHR[i]);
 		}
 		phone.addKeyListener(new KeyListener() {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
-						email.getText().isEmpty() || phone.getText().isEmpty() || 
-						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
 			}
 
 			@Override
@@ -118,9 +123,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
-						email.getText().isEmpty() || phone.getText().isEmpty() || 
-						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
 			}
 
 			@Override
@@ -133,9 +136,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
-						email.getText().isEmpty() || phone.getText().isEmpty() || 
-						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
 			}
 
 			@Override
@@ -148,9 +149,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
-						email.getText().isEmpty() || phone.getText().isEmpty() || 
-						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
 			}
 
 			@Override
@@ -163,9 +162,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || 
-						email.getText().isEmpty() || phone.getText().isEmpty() || 
-						comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
 			}
 
 			@Override
@@ -174,7 +171,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			}
 		});
-		 setPageComplete(false);
+		setPageComplete(false);
 	}
 
 	/** Getter for name. */
