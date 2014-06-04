@@ -1,15 +1,11 @@
 package br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui;
 
-import java.util.HashMap;
-import java.util.Iterator;
-
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplCRUDProject;
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cpd.Project;
 
 public class PageDeleteProject extends WizardPage {
 	protected Button[] radios;
@@ -31,10 +27,13 @@ public class PageDeleteProject extends WizardPage {
 	 */
 	public void createControl(Composite parent) {
 		Composite container = new Composite(parent, SWT.NULL);
-		
+
 		setControl(container);
 		int i;
 		String[] projects = ApplCRUDProject.getevernameProjectsWorkspace();
+
+		setPageComplete(false);
+
 		if (projects.length > 0) radios = new Button[projects.length];
 		for (i = 0; i < projects.length; i++) {
 			radios[i] = new Button(container, SWT.RADIO);
@@ -43,6 +42,8 @@ public class PageDeleteProject extends WizardPage {
 		}
 		if (projects.length > 0) {
 			radios[0].setSelection(true);
+			setPageComplete(true);
+
 		}
 
 	}

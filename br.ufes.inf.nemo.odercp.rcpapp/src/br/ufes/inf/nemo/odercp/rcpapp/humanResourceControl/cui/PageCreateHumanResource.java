@@ -7,6 +7,8 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
@@ -16,9 +18,6 @@ import org.eclipse.wb.swt.SWTResourceManager;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
-
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.layout.GridLayout;
 
 public class PageCreateHumanResource extends WizardPage {
 	private Text name;
@@ -48,14 +47,13 @@ public class PageCreateHumanResource extends WizardPage {
 
 		setControl(container);
 		container.setLayout(new GridLayout(2, false));
-		
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
 
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
 
 		Label lblName = new Label(container, SWT.NONE);
 		lblName.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
@@ -76,7 +74,7 @@ public class PageCreateHumanResource extends WizardPage {
 		lblWorkload.setText("WorkLoad*:");
 
 		workLoad = new Text(container, SWT.BORDER);
-		workLoad.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		workLoad.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
 
 		Label lblEmail = new Label(container, SWT.NONE);
 		lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
@@ -98,19 +96,21 @@ public class PageCreateHumanResource extends WizardPage {
 
 		comboRole = new Combo(container, SWT.READ_ONLY);
 		comboRole.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		
+
 		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
-		//hashKHR = new HashMap<String, KHumanResource>();
+		hashKHR = new HashMap<String, KHumanResource>();
 		for (int i = 0; i < everKHR.length; i++) {
 			comboRole.add(everKHR[i].getName());
 			comboRole.setData(everKHR[i].getName(), everKHR[i]);
-			//hashKHR.put(everKHR[i].getName(), everKHR[i]);
+			hashKHR.put(everKHR[i].getName(), everKHR[i]);
 		}
+		
+		System.out.println(comboRole.getText());
 		phone.addKeyListener(new KeyListener() {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
 			}
 
 			@Override
@@ -123,7 +123,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
 			}
 
 			@Override
@@ -136,7 +136,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
 			}
 
 			@Override
@@ -149,7 +149,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
 			}
 
 			@Override
@@ -158,19 +158,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			}
 		});
-		comboRole.addKeyListener(new KeyListener() {
-
-			@Override
-			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() || comboRole.getSelectionIndex() == -1)) setPageComplete(true);
-			}
-
-			@Override
-			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
-
-			}
-		});
+		comboRole.select(0);
 		setPageComplete(false);
 	}
 
