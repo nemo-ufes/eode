@@ -30,6 +30,10 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.events.MenuAdapter;
+import org.eclipse.swt.events.MenuEvent;
+import org.eclipse.swt.widgets.MenuItem;
 
 public class ViewHumanResource extends ViewPart {
 
@@ -72,6 +76,20 @@ public class ViewHumanResource extends ViewPart {
 		TreeItem root = new TreeItem(tree, SWT.NONE, 0);
 		root.setText("Human Resource");
 		root.setExpanded(true);
+		
+		Menu menu = new Menu(tree);
+		//tree.setMenu(menu);
+		
+		MenuItem mntmDelete = new MenuItem(menu, SWT.NONE);
+		mntmDelete.setText("Delete");
+		mntmDelete.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				ApplCRUDHumanResource.delete(chosenHR);
+
+			}
+		});
+		
 
 		tree.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
@@ -116,7 +134,7 @@ public class ViewHumanResource extends ViewPart {
 		}
 		{
 			workload = new Text(container, SWT.BORDER);
-			workload.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
+			workload.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
 		}
 		{
 			Label lblEmail = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);

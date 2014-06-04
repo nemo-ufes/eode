@@ -62,7 +62,7 @@ public class PageCreateUser extends WizardPage {
 		}
 
 		Label lblHumanResource = new Label(container, SWT.NONE);
-		lblHumanResource.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblHumanResource.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblHumanResource.setText("Human Resource*:");
 
 		humanResource = new Text(container, SWT.BORDER);
@@ -83,7 +83,7 @@ public class PageCreateUser extends WizardPage {
 		});
 
 		Label lblLogin = new Label(container, SWT.NONE);
-		lblLogin.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblLogin.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblLogin.setText("Login*:");
 
 		login = new Text(container, SWT.BORDER);
@@ -103,7 +103,7 @@ public class PageCreateUser extends WizardPage {
 		});
 
 		Label lblPassword = new Label(container, SWT.NONE);
-		lblPassword.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblPassword.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblPassword.setText("Password*:");
 
 		password = new Text(container, SWT.BORDER);
@@ -123,8 +123,7 @@ public class PageCreateUser extends WizardPage {
 		});
 
 		Label lblAcessProfile = new Label(container, SWT.NONE);
-		lblAcessProfile.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1));
-		lblAcessProfile.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblAcessProfile.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblAcessProfile.setText("Acess Profile*:");
 
 		combo = new Combo(container, SWT.READ_ONLY);

@@ -56,42 +56,42 @@ public class PageCreateHumanResource extends WizardPage {
 		new Label(container, SWT.NONE);
 
 		Label lblName = new Label(container, SWT.NONE);
-		lblName.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblName.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblName.setText("Name*:");
 
 		name = new Text(container, SWT.BORDER);
 		name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblCheckActive = new Label(container, SWT.NONE);
-		lblCheckActive.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblCheckActive.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblCheckActive.setText("Active*:");
 
 		CheckActive = new Button(container, SWT.CHECK);
 		CheckActive.setSelection(true);
 
 		Label lblWorkload = new Label(container, SWT.NONE);
-		lblWorkload.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblWorkload.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblWorkload.setText("WorkLoad*:");
 
 		workLoad = new Text(container, SWT.BORDER);
 		workLoad.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
 
 		Label lblEmail = new Label(container, SWT.NONE);
-		lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblEmail.setText("Email*:");
 
 		email = new Text(container, SWT.BORDER);
 		email.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblPhone = new Label(container, SWT.NONE);
-		lblPhone.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblPhone.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblPhone.setText("Phone*:");
 
 		phone = new Text(container, SWT.BORDER);
 		phone.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		Label lblRole = new Label(container, SWT.NONE);
-		lblRole.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+		lblRole.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblRole.setText("Role*:");
 
 		comboRole = new Combo(container, SWT.READ_ONLY);
