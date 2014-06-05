@@ -2,6 +2,8 @@ package br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt;
 
 import javax.swing.JOptionPane;
 
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cpd.HumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cpd.AcessProfile;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cpd.User;
 
 public class ApplCRUDUser {
@@ -26,6 +28,17 @@ public class ApplCRUDUser {
 		}
 		user.setPassword(newpassword);
 		return true;
+	}
+
+	public static boolean CreateUser(String login, String password, HumanResource humanResource, AcessProfile acessProfile) {
+		User user = new User();
+		user.setAcessProfile(acessProfile);
+		user.setHumanResource(humanResource);
+		user.setLogin(login);
+		user.setPassword(password);
+		System.out.println(user.getHumanResource().getEmail());
+		return true;
+
 	}
 
 }

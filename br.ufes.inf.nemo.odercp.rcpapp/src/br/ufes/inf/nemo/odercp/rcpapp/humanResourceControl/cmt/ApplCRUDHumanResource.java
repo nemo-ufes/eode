@@ -18,7 +18,7 @@ public class ApplCRUDHumanResource {
 	}
 
 	public static HumanResource[] getever() {
-		HumanResource[] h = new HumanResource[2];
+		HumanResource[] h = new HumanResource[3];
 		KHumanResource[] k = new KHumanResource[4];
 		k = ApplCRUDKHumanResource.getever();
 		HumanResource humanResource = new HumanResource();
@@ -38,6 +38,15 @@ public class ApplCRUDHumanResource {
 		humanResource.setRole(k[1]);
 		humanResource.setWorkLoad(40);
 		h[1] = humanResource;
+		
+		humanResource = new HumanResource();
+		humanResource.setActive(true);
+		humanResource.setEmail("fffffff");
+		humanResource.setName("Daniel Ric");
+		humanResource.setPhone("233334123");
+		humanResource.setRole(k[1]);
+		humanResource.setWorkLoad(40);
+		h[2] = humanResource;
 		
 		return h;
 

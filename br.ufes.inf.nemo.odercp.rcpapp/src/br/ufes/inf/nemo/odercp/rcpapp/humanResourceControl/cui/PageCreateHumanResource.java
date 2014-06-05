@@ -105,7 +105,6 @@ public class PageCreateHumanResource extends WizardPage {
 			hashKHR.put(everKHR[i].getName(), everKHR[i]);
 		}
 		
-		System.out.println(comboRole.getText());
 		phone.addKeyListener(new KeyListener() {
 
 			@Override

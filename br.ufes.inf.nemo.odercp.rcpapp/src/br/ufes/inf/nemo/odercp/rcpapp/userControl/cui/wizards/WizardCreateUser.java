@@ -2,6 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplCRUDUser;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.PageCreateUser;
 
 public class WizardCreateUser extends Wizard {
@@ -19,7 +20,9 @@ public class WizardCreateUser extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		return false;
+		return ApplCRUDUser.CreateUser(pageCreateUser.getLogin(),
+				pageCreateUser.getPassword(), pageCreateUser.getHumanResource(),
+				pageCreateUser.getAcessProfile());
 	}
 
 }

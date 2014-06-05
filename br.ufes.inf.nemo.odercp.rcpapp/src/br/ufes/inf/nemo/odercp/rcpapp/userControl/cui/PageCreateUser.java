@@ -25,6 +25,8 @@ public class PageCreateUser extends WizardPage {
 	private Text login;
 	private Text password;
 	private Combo combo;
+	private HashMap<String, HumanResource> hashHR;
+	private HashMap<String, AcessProfile> hashacessProfile;
 
 	/**
 	 * Create the wizard.
@@ -54,19 +56,19 @@ public class PageCreateUser extends WizardPage {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 
-		HumanResource[] HRs = ApplCRUDHumanResource.getever();
-		String[] namesHR = new String[HRs.length];
-		for (int i = 0; i < HRs.length; i++) {
-			namesHR[i] = HRs[i].getName();
-			// humanResource.setData(namesHR[i], HRs[i]);
-		}
-
 		Label lblHumanResource = new Label(container, SWT.NONE);
 		lblHumanResource.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblHumanResource.setText("Human Resource*:");
 
 		humanResource = new Text(container, SWT.BORDER);
 		humanResource.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		HumanResource[] HRs = ApplCRUDHumanResource.getever();
+		String[] namesHR = new String[HRs.length];
+		hashHR = new HashMap<String, HumanResource>();
+		for (int i = 0; i < HRs.length; i++) {
+			namesHR[i] = HRs[i].getName();
+			hashHR.put(namesHR[i], HRs[i]);
+		}
 		new AutoCompleteField(humanResource, new TextContentAdapter(), namesHR);
 		humanResource.addKeyListener(new KeyListener() {
 
@@ -106,7 +108,7 @@ public class PageCreateUser extends WizardPage {
 		lblPassword.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 		lblPassword.setText("Password*:");
 
-		password = new Text(container, SWT.BORDER);
+		password = new Text(container, SWT.BORDER | SWT.PASSWORD);
 		password.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		password.addKeyListener(new KeyListener() {
 
@@ -131,9 +133,25 @@ public class PageCreateUser extends WizardPage {
 		combo.add(AcessProfile.Administrator.getName());
 		combo.add(AcessProfile.Developer.getName());
 		combo.select(0);
-		HashMap<String, AcessProfile> hashacessProfile = new HashMap<String, AcessProfile>();
+		hashacessProfile = new HashMap<String, AcessProfile>();
 		hashacessProfile.put(AcessProfile.Administrator.getName(), AcessProfile.Administrator);
 		hashacessProfile.put(AcessProfile.Developer.getName(), AcessProfile.Developer);
 		setPageComplete(false);
+	}
+
+	public HumanResource getHumanResource() {
+		return hashHR.get(humanResource.getText());
+	}
+
+	public String getLogin() {
+		return login.getText();
+	}
+
+	public String getPassword() {
+		return password.getText();
+	}
+
+	public AcessProfile getAcessProfile() {
+		return hashacessProfile.get(combo.getText());
 	}
 }
