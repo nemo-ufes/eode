@@ -24,7 +24,7 @@ public class ApplCRUDHumanResource {
 		HumanResource humanResource = new HumanResource();
 		humanResource.setActive(true);
 		humanResource.setEmail("dfdfdfd");
-		humanResource.setName("Danillo Ric");
+		humanResource.setName("Danillo Ricardo");
 		humanResource.setPhone("2431234123");
 		humanResource.setRole(k[0]);
 		humanResource.setWorkLoad(40);
@@ -33,7 +33,7 @@ public class ApplCRUDHumanResource {
 		humanResource = new HumanResource();
 		humanResource.setActive(true);
 		humanResource.setEmail("sdfsdf");
-		humanResource.setName("Daniel Ric");
+		humanResource.setName("Daniel Ricardo");
 		humanResource.setPhone("233334123");
 		humanResource.setRole(k[1]);
 		humanResource.setWorkLoad(40);
@@ -42,7 +42,7 @@ public class ApplCRUDHumanResource {
 		humanResource = new HumanResource();
 		humanResource.setActive(true);
 		humanResource.setEmail("fffffff");
-		humanResource.setName("Daniel Ric");
+		humanResource.setName("João Ribeiro");
 		humanResource.setPhone("233334123");
 		humanResource.setRole(k[1]);
 		humanResource.setWorkLoad(40);

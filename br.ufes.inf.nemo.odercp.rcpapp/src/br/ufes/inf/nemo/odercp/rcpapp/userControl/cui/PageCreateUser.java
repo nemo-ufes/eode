@@ -26,6 +26,7 @@ public class PageCreateUser extends WizardPage {
 	private Text password;
 	private Combo combo;
 	private HashMap<String, HumanResource> hashHR;
+	private HumanResource[] HRs;
 	private HashMap<String, AcessProfile> hashacessProfile;
 
 	/**
@@ -62,14 +63,16 @@ public class PageCreateUser extends WizardPage {
 
 		humanResource = new Text(container, SWT.BORDER);
 		humanResource.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		HumanResource[] HRs = ApplCRUDHumanResource.getever();
+		HRs = ApplCRUDHumanResource.getever();
 		String[] namesHR = new String[HRs.length];
 		hashHR = new HashMap<String, HumanResource>();
 		for (int i = 0; i < HRs.length; i++) {
 			namesHR[i] = HRs[i].getName();
+			humanResource.setData(namesHR[i], HRs[i]);
 			hashHR.put(namesHR[i], HRs[i]);
 		}
 		new AutoCompleteField(humanResource, new TextContentAdapter(), namesHR);
+
 		humanResource.addKeyListener(new KeyListener() {
 
 			@Override
@@ -140,7 +143,7 @@ public class PageCreateUser extends WizardPage {
 	}
 
 	public HumanResource getHumanResource() {
-		return hashHR.get(humanResource.getText());
+		return (HumanResource) humanResource.getData(humanResource.getText());
 	}
 
 	public String getLogin() {

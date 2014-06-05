@@ -12,7 +12,9 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
@@ -75,6 +77,22 @@ public class PageCreateHumanResource extends WizardPage {
 
 		workLoad = new Text(container, SWT.BORDER);
 		workLoad.setLayoutData(new GridData(SWT.LEFT, SWT.CENTER, true, false, 1, 1));
+		workLoad.addListener(SWT.Verify, new Listener() {
+
+			@Override
+			public void handleEvent(Event e) {
+				String string = e.text;
+				char[] chars = new char[string.length()];
+				string.getChars(0, chars.length, chars, 0);
+				for (int i = 0; i < chars.length; i++) {
+					if (!('0' <= chars[i] && chars[i] <= '9')) {
+						e.doit = false;
+						return;
+					}
+				}
+			}
+
+		});
 
 		Label lblEmail = new Label(container, SWT.NONE);
 		lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
@@ -104,12 +122,12 @@ public class PageCreateHumanResource extends WizardPage {
 			comboRole.setData(everKHR[i].getName(), everKHR[i]);
 			hashKHR.put(everKHR[i].getName(), everKHR[i]);
 		}
-		
+
 		phone.addKeyListener(new KeyListener() {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty())) setPageComplete(true);
 			}
 
 			@Override
@@ -122,7 +140,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty())) setPageComplete(true);
 			}
 
 			@Override
@@ -135,7 +153,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty())) setPageComplete(true);
 			}
 
 			@Override
@@ -148,7 +166,7 @@ public class PageCreateHumanResource extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty() )) setPageComplete(true);
+				if (!(name.getText().isEmpty() || workLoad.getText().isEmpty() || email.getText().isEmpty() || phone.getText().isEmpty())) setPageComplete(true);
 			}
 
 			@Override

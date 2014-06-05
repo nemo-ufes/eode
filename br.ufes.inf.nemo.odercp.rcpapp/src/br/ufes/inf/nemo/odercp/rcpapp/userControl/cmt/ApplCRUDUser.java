@@ -36,7 +36,6 @@ public class ApplCRUDUser {
 		user.setHumanResource(humanResource);
 		user.setLogin(login);
 		user.setPassword(password);
-		System.out.println(user.getHumanResource().getEmail());
 		return true;
 
 	}
