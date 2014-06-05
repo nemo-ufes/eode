@@ -11,6 +11,7 @@ public class PerspectiveODE implements IPerspectiveFactory {
 	 * Creates the initial layout for a page.
 	 */
 	public void createInitialLayout(IPageLayout layout) {
+		@SuppressWarnings("unused")
 		String editorArea = layout.getEditorArea();
 		addFastViews(layout);
 		addViewShortcuts(layout);

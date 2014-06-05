@@ -133,9 +133,11 @@ public class PageCreateUser extends WizardPage {
 
 		combo = new Combo(container, SWT.READ_ONLY);
 		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		combo.add(AcessProfile.Administrator.getName());
+		//Developer forever first
 		combo.add(AcessProfile.Developer.getName());
+		combo.add(AcessProfile.Administrator.getName());
 		combo.select(0);
+		
 		hashacessProfile = new HashMap<String, AcessProfile>();
 		hashacessProfile.put(AcessProfile.Administrator.getName(), AcessProfile.Administrator);
 		hashacessProfile.put(AcessProfile.Developer.getName(), AcessProfile.Developer);

@@ -9,7 +9,6 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.ResourceManager;
 
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplCRUDProject;
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplSelectProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cpd.Project;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui.PageDeleteProject;
 

@@ -1,24 +1,20 @@
 package br.ufes.inf.nemo.odercp.rcpapp.userControl.cui;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.wb.swt.ResourceManager;
 
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplAuthenticUser;
 import br.ufes.inf.nemo.odercp.rcpapp.util.SwtUtil;
-
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.wb.swt.ResourceManager;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.layout.GridData;
 
 public class PageAthenticateUser {
 

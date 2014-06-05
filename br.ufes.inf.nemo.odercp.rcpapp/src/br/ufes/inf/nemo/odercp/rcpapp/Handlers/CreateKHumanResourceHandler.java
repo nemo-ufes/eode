@@ -5,26 +5,22 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
-
-import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.wizards.WizardCreateHumanResource;
-
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKHumanResource;
 /**
- * TODO: document this type.
+ * TODO: Handler to create Knowlodge Human Resource.
  *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0
  */
-public class CreateHumanResourceHandler extends AbstractHandler {
-
-	/** @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent) */
+public class CreateKHumanResourceHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		WizardCreateHumanResource wizardCreateHR = new WizardCreateHumanResource();
+		WizardCreateKHumanResource wizardCreateKHumanResource = new WizardCreateKHumanResource();
 		WizardDialog wizardDialog = new WizardDialog(HandlerUtil
 				.getActiveWorkbenchWindow(event).getShell(),
-				wizardCreateHR);
+				wizardCreateKHumanResource);
 		wizardDialog.open();
 		return null;
-	}
 
+	}
 }

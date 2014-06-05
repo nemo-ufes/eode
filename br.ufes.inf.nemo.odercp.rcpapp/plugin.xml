@@ -82,8 +82,8 @@
             <menu
                   label="Resources">
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHumanResource"
-                     label="New Human Resource"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKHumanResource"
+                     label="Create Human Resource"
                      style="push">
                </command>
                <command
@@ -100,8 +100,8 @@
             <menu
                   label="Processes">
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKActivity"
-                     label="New Activity"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKActivity"
+                     label="Create Activity"
                      style="push">
                </command>
                <command
@@ -202,16 +202,18 @@
             name="Delete Project">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHumanResource"
-            name="New Human Resource">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKHumanResourceHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKHumanResource"
+            name="Create Human Resource">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKActivity"
-            name="New Activity">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKActivityHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKActivity"
+            name="Create Activity">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKArtefact"
-            name="New Artefact">
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKArtefact"
+            name="Create Artefact">
       </command>
       <command
             id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKLifeCycleModel"

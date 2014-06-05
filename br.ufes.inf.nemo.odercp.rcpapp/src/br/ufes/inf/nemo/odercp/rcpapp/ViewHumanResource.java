@@ -6,34 +6,27 @@ import java.util.Map;
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Composite;
-import org.eclipse.ui.part.ViewPart;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Tree;
-import org.eclipse.swt.widgets.TreeItem;
-
 import org.eclipse.swt.custom.ScrolledComposite;
-
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Menu;
+import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.ui.part.ViewPart;
+import org.eclipse.wb.swt.SWTResourceManager;
 
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cpd.HumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
-
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Control;
-import org.eclipse.swt.widgets.Combo;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.events.MenuAdapter;
-import org.eclipse.swt.events.MenuEvent;
-import org.eclipse.swt.widgets.MenuItem;
 
 public class ViewHumanResource extends ViewPart {
 
@@ -222,6 +215,7 @@ public class ViewHumanResource extends ViewPart {
 	 * Initialize the toolbar.
 	 */
 	private void initializeToolBar() {
+		@SuppressWarnings("unused")
 		IToolBarManager toolbarManager = getViewSite().getActionBars().getToolBarManager();
 	}
 
@@ -229,6 +223,7 @@ public class ViewHumanResource extends ViewPart {
 	 * Initialize the menu.
 	 */
 	private void initializeMenu() {
+		@SuppressWarnings("unused")
 		IMenuManager menuManager = getViewSite().getActionBars().getMenuManager();
 	}
 

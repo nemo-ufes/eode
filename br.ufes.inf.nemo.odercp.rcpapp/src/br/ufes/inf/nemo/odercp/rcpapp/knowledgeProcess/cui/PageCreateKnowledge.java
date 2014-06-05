@@ -43,20 +43,15 @@ public class PageCreateKnowledge extends WizardPage {
 
 		name = new Text(container, SWT.BORDER);
 		name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-
-		Label lblDescription = new Label(container, SWT.NONE);
-		lblDescription.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		lblDescription.setText("Description*:");
-
-		description = new Text(container, SWT.BORDER);
-		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
+				new Label(container, SWT.NONE);
+		
+				Label lblDescription = new Label(container, SWT.NONE);
+				lblDescription.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+				lblDescription.setText("Description*:");
+				
+						description = new Text(container, SWT.BORDER);
+						description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 	}
 
 }
