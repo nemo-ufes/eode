@@ -68,6 +68,9 @@
                   label="Create User"
                   style="push">
             </command>
+            <visibleWhen
+                  checkEnabled="true">
+            </visibleWhen>
          </menu>
          <menu
                label="Resources">
@@ -87,13 +90,13 @@
                      style="push">
                </command>
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHardwareResource"
-                     label="New Hardware Resource"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKHardwareResource"
+                     label="Create Hardware Resource"
                      style="push">
                </command>
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKSoftwareResource"
-                     label="New Software Resource"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKSoftwareResource"
+                     label="Create Software Resource"
                      style="push">
                </command>
             </menu>
@@ -105,28 +108,23 @@
                      style="push">
                </command>
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKArtefact"
-                     label="New Artefact"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKArtefact"
+                     label="Create Artefact"
                      style="push">
                </command>
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcess"
-                     label="New Process"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKLifeCycleModel"
+                     label="Create Life-Cycle Model"
                      style="push">
                </command>
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKLifeCycleModel"
-                     label="New Life-Cycle Model"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKProcedure"
+                     label="Create Procedure"
                      style="push">
                </command>
                <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcedure"
-                     label="New Procedure"
-                     style="push">
-               </command>
-               <command
-                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcess"
-                     label="New Process"
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKProcess"
+                     label="Create Process"
                      style="push">
                </command>
             </menu>
@@ -182,7 +180,7 @@
             name="Define Team">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.UsersHandler"
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateUserHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateUser"
             name="Create User">
       </command>
@@ -212,28 +210,34 @@
             name="Create Activity">
       </command>
       <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKArtefactHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKArtefact"
             name="Create Artefact">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKLifeCycleModel"
-            name="New Life-Cycle Model">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKLifeCycleModelHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKLifeCycleModel"
+            name="Create Life-Cycle Model">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcedure"
-            name="New Procedure">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKProcedureHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKProcedure"
+            name="Create Procedure">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKProcess"
-            name="New Process">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKProcessHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKProcess"
+            name="Create Process">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKHardwareResource"
-            name="New Hardware Resource">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKHardwareResourceHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKHardwareResource"
+            name="Create Hardware Resource">
       </command>
       <command
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.NewKSoftwareResource"
-            name="New Software Resource">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKSoftwareResourceHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKSoftwareResource"
+            name="Create Software Resource">
       </command>
    </extension>
    <extension
@@ -250,10 +254,25 @@
             allowMultiple="true"
             class="br.ufes.inf.nemo.odercp.rcpapp.ViewHumanResource"
             id="br.ufes.inf.nemo.odercp.rcpapp.ViewHumanResource"
-            name="HumanResource"
+            name="Human Resource"
+            restorable="true">
+      </view>
+      <view
+            allowMultiple="true"
+            class="br.ufes.inf.nemo.odercp.rcpapp.ViewKnowledge"
+            id="br.ufes.inf.nemo.odercp.rcpapp.ViewKnowledge"
+            name="View Knowledge"
             restorable="true">
       </view>
      
+   </extension>
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            class="br.ufes.inf.nemo.odercp.rcpapp.ee"
+            id="br.ufes.inf.nemo.odercp.rcpapp.ee"
+            name="New EditorPart">
+      </editor>
    </extension>
 
 

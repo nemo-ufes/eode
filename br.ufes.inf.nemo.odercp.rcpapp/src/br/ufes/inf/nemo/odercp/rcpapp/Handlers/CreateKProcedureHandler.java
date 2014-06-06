@@ -6,23 +6,22 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.wizards.WizardCreateUser;
-
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKProcedure;
 /**
- * TODO: document this type.
- * 
+ * TODO: Handler to create Knowlodge Procedure.
+ *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0
  */
-public class UsersHandler extends AbstractHandler {
-
-	/** @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent) */
+public class CreateKProcedureHandler extends AbstractHandler {
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		WizardCreateUser wizardCreateUser = new WizardCreateUser();
-		WizardDialog wizardDialog = new WizardDialog(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), wizardCreateUser);
+		WizardCreateKProcedure wizardCreateKProcedure = new WizardCreateKProcedure();
+		WizardDialog wizardDialog = new WizardDialog(HandlerUtil
+				.getActiveWorkbenchWindow(event).getShell(),
+				wizardCreateKProcedure);
 		wizardDialog.open();
 		return null;
-	}
 
+	}
 }

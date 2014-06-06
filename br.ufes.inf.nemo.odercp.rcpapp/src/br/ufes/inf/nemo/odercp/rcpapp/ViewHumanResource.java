@@ -102,8 +102,8 @@ public class ViewHumanResource extends ViewPart {
 
 		});
 		{
-			Label lblName = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
-			lblName.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			Label lblName = new Label(container, SWT.SHADOW_IN | SWT.CENTER);
+			lblName.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 			lblName.setAlignment(SWT.CENTER);
 			lblName.setText("Name:");
 		}
@@ -112,17 +112,17 @@ public class ViewHumanResource extends ViewPart {
 			name.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		}
 		{
-			Label lblActive = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			Label lblActive = new Label(container, SWT.SHADOW_IN | SWT.CENTER);
 			lblActive.setText("Active:");
-			lblActive.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblActive.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 			lblActive.setAlignment(SWT.CENTER);
 		}
 
 		active = new Button(container, SWT.CHECK);
 		{
-			Label lblWorkload = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			Label lblWorkload = new Label(container, SWT.SHADOW_IN | SWT.CENTER);
 			lblWorkload.setText("Workload:");
-			lblWorkload.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblWorkload.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 			lblWorkload.setAlignment(SWT.CENTER);
 		}
 		{
@@ -130,9 +130,9 @@ public class ViewHumanResource extends ViewPart {
 			workload.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
 		}
 		{
-			Label lblEmail = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			Label lblEmail = new Label(container, SWT.SHADOW_IN | SWT.CENTER);
 			lblEmail.setText("Email:");
-			lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblEmail.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 			lblEmail.setAlignment(SWT.CENTER);
 		}
 		{
@@ -140,9 +140,9 @@ public class ViewHumanResource extends ViewPart {
 			email.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		}
 		{
-			Label lblPhone = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			Label lblPhone = new Label(container, SWT.SHADOW_IN | SWT.CENTER);
 			lblPhone.setText("Phone:");
-			lblPhone.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblPhone.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 			lblPhone.setAlignment(SWT.CENTER);
 		}
 		{
@@ -150,9 +150,9 @@ public class ViewHumanResource extends ViewPart {
 			phone.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		}
 		{
-			Label lblRole = new Label(container, SWT.BORDER | SWT.SHADOW_IN | SWT.CENTER);
+			Label lblRole = new Label(container, SWT.SHADOW_IN | SWT.CENTER);
 			lblRole.setText("Role:");
-			lblRole.setFont(SWTResourceManager.getFont("Ubuntu", 12, SWT.NORMAL));
+			lblRole.setFont(SWTResourceManager.getFont("Ubuntu", 11, SWT.NORMAL));
 			lblRole.setAlignment(SWT.CENTER);
 		}
 
@@ -160,7 +160,9 @@ public class ViewHumanResource extends ViewPart {
 		role.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		{
 			btnUpdate = new Button(container, SWT.NONE);
-			btnUpdate.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+			GridData gd_btnUpdate = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
+			gd_btnUpdate.widthHint = 70;
+			btnUpdate.setLayoutData(gd_btnUpdate);
 			btnUpdate.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
@@ -171,7 +173,9 @@ public class ViewHumanResource extends ViewPart {
 		}
 		{
 			btnDelete = new Button(container, SWT.NONE);
-			btnDelete.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+			GridData gd_btnDelete = new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1);
+			gd_btnDelete.widthHint = 62;
+			btnDelete.setLayoutData(gd_btnDelete);
 			btnDelete.addSelectionListener(new SelectionAdapter() {
 				@Override
 				public void widgetSelected(SelectionEvent e) {
