@@ -8,7 +8,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKProcedure;
 /**
- * TODO: Handler to create Knowlodge Procedure.
+ * Handler to create Knowlodge Procedure.
  *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0

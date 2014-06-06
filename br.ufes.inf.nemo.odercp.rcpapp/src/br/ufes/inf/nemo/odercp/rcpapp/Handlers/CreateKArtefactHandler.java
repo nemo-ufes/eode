@@ -8,7 +8,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKArtefact;
 /**
- * TODO: Handler to create Knowlodge Artefact.
+ *  Handler to create Knowlodge Artefact.
  *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0

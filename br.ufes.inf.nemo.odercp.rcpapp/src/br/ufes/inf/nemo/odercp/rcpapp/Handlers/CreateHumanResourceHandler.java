@@ -9,7 +9,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cui.wizards.WizardCreateHumanResource;
 
 /**
- * TODO: document this type.
+ * Handler Create Human Resource.
  *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0

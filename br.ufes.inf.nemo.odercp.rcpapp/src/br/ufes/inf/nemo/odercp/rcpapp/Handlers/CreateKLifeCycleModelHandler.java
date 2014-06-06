@@ -8,7 +8,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKLifeCycleModel;
 /**
- * TODO: Handler to create Knowlodge Life-Cycle Model.
+ * Handler to create Knowlodge Life-Cycle Model.
  *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0

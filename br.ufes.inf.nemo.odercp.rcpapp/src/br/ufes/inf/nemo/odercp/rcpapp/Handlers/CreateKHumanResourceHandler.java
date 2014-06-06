@@ -7,7 +7,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKHumanResource;
 /**
- * TODO: Handler to create Knowlodge Human Resource.
+ * Handler to create Knowlodge Human Resource.
  *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0

@@ -9,7 +9,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.wizards.WizardNewPassword;
 
 /**
-* Change password of User corrent in ODE-RCP
+* Change password of User corrent in ODE.
 * 
 * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
 * @version 1.0

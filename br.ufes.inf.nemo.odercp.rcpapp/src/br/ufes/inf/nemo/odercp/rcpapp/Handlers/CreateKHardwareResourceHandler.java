@@ -8,7 +8,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKHardwareResource;
 /**
- * TODO: Handler to create Knowlodge Hardware Resource.
+ *  Handler to create Knowlodge Hardware Resource.
  *
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0
