@@ -1,25 +1,29 @@
 package br.ufes.inf.nemo.odercp.rcpapp;
 
-import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Tree;
-import org.eclipse.swt.widgets.TreeItem;
-import org.eclipse.ui.part.ViewPart;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.Tree;
+import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IEditorSite;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.part.EditorPart;
 
-public class ViewKnowledge extends ViewPart {
+public class EditorKnowledge extends EditorPart {
 
-	public static final String ID = "br.ufes.inf.nemo.odercp.rcpapp.ViewKnowledge"; //$NON-NLS-1$
+	public static final String ID = "br.ufes.inf.nemo.odercp.rcpapp.EditorKnowledge"; //$NON-NLS-1$
 	private Text name;
 	private Text description;
+	
+	public EditorKnowledge() {}
 
-	public ViewKnowledge() {}
+
 
 	/**
 	 * Create contents of the view part.
@@ -138,39 +142,40 @@ public class ViewKnowledge extends ViewPart {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
-		createActions();
-		initializeToolBar();
-		initializeMenu();
+		
 		sc.setContent(container);
 		sc.setExpandHorizontal(true);
 		sc.setExpandVertical(true);
 		sc.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 	}
-
-	/**
-	 * Create the actions.
-	 */
-	private void createActions() {
-		// Create the actions
-	}
-
-	/**
-	 * Initialize the toolbar.
-	 */
-	private void initializeToolBar() {
-		IToolBarManager toolbarManager = getViewSite().getActionBars().getToolBarManager();
-	}
-
-	/**
-	 * Initialize the menu.
-	 */
-	private void initializeMenu() {
-		IMenuManager menuManager = getViewSite().getActionBars().getMenuManager();
-	}
-
 	@Override
 	public void setFocus() {
 		// Set the focus
+	}
+
+	@Override
+	public void doSave(IProgressMonitor monitor) {
+		// Do the Save operation
+	}
+
+	@Override
+	public void doSaveAs() {
+		// Do the Save As operation
+	}
+
+	@Override
+	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
+		// Initialize the editor part
+	}
+
+	@Override
+	public boolean isDirty() {
+		return false;
+	}
+
+	@Override
+	public boolean isSaveAsAllowed() {
+		return false;
 	}
 
 }

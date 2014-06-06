@@ -259,9 +259,9 @@
       </view>
       <view
             allowMultiple="true"
-            class="br.ufes.inf.nemo.odercp.rcpapp.ViewKnowledge"
-            id="br.ufes.inf.nemo.odercp.rcpapp.ViewKnowledge"
-            name="View Knowledge"
+            class="br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"
+            id="br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"
+            name="View Data ODE"
             restorable="true">
       </view>
      
@@ -269,9 +269,19 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="br.ufes.inf.nemo.odercp.rcpapp.ee"
-            id="br.ufes.inf.nemo.odercp.rcpapp.ee"
-            name="New EditorPart">
+            class="br.ufes.inf.nemo.odercp.rcpapp.EditorHumanResource"
+            id="br.ufes.inf.nemo.odercp.rcpapp.EditorHumanResource"
+            name="Editor Human Resource">
+      </editor>
+      <editor
+            class="br.ufes.inf.nemo.odercp.rcpapp.EditorKnowledge"
+            id="br.ufes.inf.nemo.odercp.rcpapp.EditorKnowledge"
+            name="Editor Knowledge">
+      </editor>
+      <editor
+            class="br.ufes.inf.nemo.odercp.rcpapp.MultiPageEditor"
+            id="br.ufes.inf.nemo.odercp.rcpapp.MultiPageEditor"
+            name="Multi Page Editor ODE">
       </editor>
    </extension>
 
