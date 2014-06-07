@@ -3,36 +3,37 @@ package br.ufes.inf.nemo.odercp.rcpapp;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.jface.action.IMenuManager;
-import org.eclipse.jface.action.IToolBarManager;
-import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.MenuAdapter;
 import org.eclipse.swt.events.MenuEvent;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
-import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
-import org.eclipse.ui.part.ViewPart;
+import org.eclipse.ui.forms.IManagedForm;
+import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.forms.editor.FormPage;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.wb.swt.SWTResourceManager;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.SWT;
 
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cpd.HumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 
-public class ViewHumanResource extends ViewPart {
-
-	public static final String VIEW_ID = "br.ufes.inf.nemo.odercp.rcpapp.ViewHumanResource"; //$NON-NLS-1$
+public class FormEditorHumanResource extends FormPage {
 
 	public HumanResource[] HRs;
 	private Text name;
@@ -47,21 +48,47 @@ public class ViewHumanResource extends ViewPart {
 	private Tree tree;
 	private Menu menu;
 	TreeItem root;
+	private Button btnNewButton;
 
-	public ViewHumanResource() {
+	/**
+	 * Create the form page.
+	 * @param id
+	 * @param title
+	 */
+	public FormEditorHumanResource(String id, String title) {
+		super(id, title);
 	}
 
 	/**
-	 * Create contents of the view part.
-	 * 
-	 * @param parent
+	 * Create the form page.
+	 * @param editor
+	 * @param id
+	 * @param title
+	 * @wbp.parser.constructor
+	 * @wbp.eval.method.parameter id "Some id"
+	 * @wbp.eval.method.parameter title "Some title"
+	 */
+	public FormEditorHumanResource(FormEditor editor, String id, String title) {
+		super(editor, id, title);
+	}
+
+	/**
+	 * Create contents of the form.
+	 * @param managedForm
 	 */
 	@Override
-	public void createPartControl(Composite parent) {
-		ScrolledComposite sc = new ScrolledComposite(parent, SWT.H_SCROLL
-				| SWT.V_SCROLL | SWT.BORDER);
+	protected void createFormContent(IManagedForm managedForm) {
+		FormToolkit toolkit = managedForm.getToolkit();
+		ScrolledForm form = managedForm.getForm();
+		form.setText("FormPage Human Resource");
+		Composite container = form.getBody();
+		toolkit.decorateFormHeading(form.getForm());
+		toolkit.paintBordersFor(container);
+		
+	
+		//ScrolledComposite sc = new ScrolledComposite(body, SWT.H_SCROLL	| SWT.V_SCROLL | SWT.BORDER);
 
-		Composite container = new Composite(sc, SWT.BORDER);
+		//Composite container = new Composite(sc, SWT.BORDER);
 
 		HRs = ApplCRUDHumanResource.getever();
 		container.setLayout(new GridLayout(3, false));
@@ -86,21 +113,35 @@ public class ViewHumanResource extends ViewPart {
 				}
 				MenuItem itemDelete = new MenuItem(menu, SWT.NONE);
 				itemDelete.setText("Delete...");
-				itemDelete.addSelectionListener(new SelectionAdapter() {
+				itemDelete.addSelectionListener(new SelectionListener() {
+					
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						if (tree.getSelection()[0] != root)
 							ApplCRUDHumanResource.delete(chosenHR);
 					}
+
+					@Override
+					public void widgetDefaultSelected(SelectionEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
 				});
 
 				MenuItem itemUpdate = new MenuItem(menu, SWT.NONE);
 				itemUpdate.setText("Update...");
-				itemUpdate.addSelectionListener(new SelectionAdapter() {
+				itemUpdate.addSelectionListener(new SelectionListener() {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						if (tree.getSelection()[0] != root)
 							ApplCRUDHumanResource.update(chosenHR);
+					}
+
+					@Override
+					public void widgetDefaultSelected(SelectionEvent e) {
+						// TODO Auto-generated method stub
+						
 					}
 				});
 
@@ -208,42 +249,11 @@ public class ViewHumanResource extends ViewPart {
 			hashindex.put(HRs[i], new Integer(i));
 		}
 
-		createActions();
-		initializeToolBar();
-		initializeMenu();
-		sc.setContent(container);
-		sc.setExpandHorizontal(true);
-		sc.setExpandVertical(true);
-		sc.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-	}
-
-	/**
-	 * Create the actions.
-	 */
-	private void createActions() {
-		// Create the actions
-	}
-
-	/**
-	 * Initialize the toolbar.
-	 */
-	private void initializeToolBar() {
-		@SuppressWarnings("unused")
-		IToolBarManager toolbarManager = getViewSite().getActionBars()
-				.getToolBarManager();
-	}
-
-	/**
-	 * Initialize the menu.
-	 */
-	private void initializeMenu() {
-		@SuppressWarnings("unused")
-		IMenuManager menuManager = getViewSite().getActionBars()
-				.getMenuManager();
-	}
-
-	@Override
-	public void setFocus() {
-		// Set the focus
-	}
+		//sc.setContent(container);
+		//sc.setExpandHorizontal(true);
+		//sc.setExpandVertical(true);
+		//sc.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
+		
+		
+		}
 }

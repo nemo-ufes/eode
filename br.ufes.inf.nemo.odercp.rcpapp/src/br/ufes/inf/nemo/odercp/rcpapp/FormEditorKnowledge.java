@@ -1,8 +1,6 @@
 package br.ufes.inf.nemo.odercp.rcpapp;
 
-import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -10,32 +8,54 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.IEditorSite;
-import org.eclipse.ui.PartInitException;
-import org.eclipse.ui.part.EditorPart;
+import org.eclipse.ui.forms.IManagedForm;
+import org.eclipse.ui.forms.editor.FormEditor;
+import org.eclipse.ui.forms.editor.FormPage;
+import org.eclipse.ui.forms.widgets.FormToolkit;
+import org.eclipse.ui.forms.widgets.ScrolledForm;
 
-public class EditorKnowledge extends EditorPart {
+public class FormEditorKnowledge extends FormPage {
 
-	public static final String ID = "br.ufes.inf.nemo.odercp.rcpapp.EditorKnowledge"; //$NON-NLS-1$
+	
 	private Text name;
 	private Text description;
 	
-	public EditorKnowledge() {}
-
-
+	/**
+	 * Create the form page.
+	 * @param id
+	 * @param title
+	 */
+	public FormEditorKnowledge(String id, String title) {
+		super(id, title);
+	}
 
 	/**
-	 * Create contents of the view part.
-	 * 
-	 * @param parent
+	 * Create the form page.
+	 * @param editor
+	 * @param id
+	 * @param title
+	 * @wbp.parser.constructor
+	 * @wbp.eval.method.parameter id "Some id"
+	 * @wbp.eval.method.parameter title "Some title"
+	 */
+	public FormEditorKnowledge(FormEditor editor, String id, String title) {
+		super(editor, id, title);
+	}
+
+	/**
+	 * Create contents of the form.
+	 * @param managedForm
 	 */
 	@Override
-	public void createPartControl(Composite parent) {
-		ScrolledComposite sc = new ScrolledComposite(parent, SWT.H_SCROLL | SWT.V_SCROLL | SWT.BORDER);
-
-		Composite container = new Composite(sc, SWT.BORDER);
-
+	protected void createFormContent(IManagedForm managedForm) {
+		FormToolkit toolkit = managedForm.getToolkit();
+		ScrolledForm form = managedForm.getForm();
+		form.setText("FormPage Knowledge");
+		Composite container = form.getBody();
+		toolkit.decorateFormHeading(form.getForm());
+		toolkit.paintBordersFor(container);
+		
+	
 		container.setLayout(new GridLayout(6, false));
 
 		// TreeViewer treeViewer = new TreeViewer(container, SWT.BORDER);
@@ -143,39 +163,6 @@ public class EditorKnowledge extends EditorPart {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		
-		sc.setContent(container);
-		sc.setExpandHorizontal(true);
-		sc.setExpandVertical(true);
-		sc.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
-	}
-	@Override
-	public void setFocus() {
-		// Set the focus
-	}
-
-	@Override
-	public void doSave(IProgressMonitor monitor) {
-		// Do the Save operation
-	}
-
-	@Override
-	public void doSaveAs() {
-		// Do the Save As operation
-	}
-
-	@Override
-	public void init(IEditorSite site, IEditorInput input) throws PartInitException {
-		// Initialize the editor part
-	}
-
-	@Override
-	public boolean isDirty() {
-		return false;
-	}
-
-	@Override
-	public boolean isSaveAsAllowed() {
-		return false;
-	}
-
+		
+		}
 }

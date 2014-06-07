@@ -2,6 +2,9 @@ package br.ufes.inf.nemo.odercp.rcpapp;
 
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
+import org.eclipse.jface.viewers.DoubleClickEvent;
+import org.eclipse.jface.viewers.IDoubleClickListener;
+import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.layout.GridData;
@@ -9,6 +12,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
+import org.eclipse.ui.handlers.IHandlerService;
 import org.eclipse.ui.part.ViewPart;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
@@ -16,8 +20,8 @@ import org.eclipse.swt.widgets.Text;
 public class ViewDataODE extends ViewPart {
 
 	public static final String ID = "br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"; //$NON-NLS-1$
-	private Text name;
-	private Text description;
+	
+	private TreeViewer treeViewer;
 
 	public ViewDataODE() {}
 
@@ -32,20 +36,21 @@ public class ViewDataODE extends ViewPart {
 
 		Composite container = new Composite(sc, SWT.BORDER);
 
-		container.setLayout(new GridLayout(6, false));
+		container.setLayout(new GridLayout(1, false));
+		{
+			treeViewer = new TreeViewer(container, SWT.BORDER);
+			Tree tree = treeViewer.getTree();
+			tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+			TreeItem root = new TreeItem(tree, SWT.NONE, 0);
+			root.setText("Datas ODE");
+			root.setExpanded(true);
 
-		// TreeViewer treeViewer = new TreeViewer(container, SWT.BORDER);
-		Tree tree = new Tree(container, SWT.BORDER);
-		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1));
-		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 8);
-		gd_tree.widthHint = 248;
-		tree.setLayoutData(gd_tree);
+		}
+    getSite().setSelectionProvider(treeViewer);
 
-		TreeItem root = new TreeItem(tree, SWT.NONE, 0);
-		root.setText("ODE");
-		root.setExpanded(true);
+		hookDoubleClickCommand();
+		getViewSite();
 
-		
 		createActions();
 		initializeToolBar();
 		initializeMenu();
@@ -79,6 +84,23 @@ public class ViewDataODE extends ViewPart {
 	@Override
 	public void setFocus() {
 		// Set the focus
+		treeViewer.getControl().setFocus();
 	}
+
+	private void hookDoubleClickCommand() {
+		treeViewer.addDoubleClickListener(new IDoubleClickListener() {
+      public void doubleClick(DoubleClickEvent event) {
+        IHandlerService handlerService = (IHandlerService) getSite()
+            .getService(IHandlerService.class);
+        try {
+          handlerService.executeCommand("br.ufes.inf.nemo.odercp.rcpapp.command.ViewDataODE", null);
+        } catch (Exception ex) {
+          throw new RuntimeException("Editor not found");
+        }
+      }
+    });
+	}
+	
+	
 
 }

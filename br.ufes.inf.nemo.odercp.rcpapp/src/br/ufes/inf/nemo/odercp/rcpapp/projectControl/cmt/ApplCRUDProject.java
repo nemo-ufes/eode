@@ -1,12 +1,19 @@
 package br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt;
 
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.InputStream;
 import java.util.HashMap;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IWorkspace;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cpd.Project;
@@ -21,6 +28,8 @@ public class ApplCRUDProject {
 			project.setName(namenewproject);
 			project.setDescription(descriptionproject);
 			IProject iProject = root.getProject(project.getName());
+			IFolder folder = iProject.getFolder(".DatasODE");
+			IFile file = folder.getFile("DatasODE");
 			/*
 			 * SrvAplCadastrarProjeto srv = new SrvAplCadastrarProjetoProxy(); ode.controleProjeto.srv.Projeto projeto = new
 			 * ode.controleProjeto.srv.Projeto("uuid", 1144168960171946495L, 1144168960171946495L, namenewproject,
@@ -31,7 +40,13 @@ public class ApplCRUDProject {
 			try {
 				iProject.create(null);
 				iProject.open(null);
+				folder.create(IResource.NONE, true, null);
+				if (!file.exists()) {
+					byte[] bytes = "File contents".getBytes();
+					InputStream source = new ByteArrayInputStream(bytes);
+					file.create(source, IResource.NONE, null);
 
+				}
 			}
 			catch (CoreException e) {
 				// TODO Auto-generated catch block
@@ -103,7 +118,7 @@ public class ApplCRUDProject {
 		// Loop over all projects
 		nameprojects = new String[projects.length];
 		for (i = 0; i < projects.length; i++) {
-			nameprojects[i]= projects[i].getName();
+			nameprojects[i] = projects[i].getName();
 		}
 		return nameprojects;
 	}

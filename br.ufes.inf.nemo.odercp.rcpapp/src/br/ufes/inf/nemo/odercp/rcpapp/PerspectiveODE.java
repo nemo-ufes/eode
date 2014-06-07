@@ -26,8 +26,9 @@ public class PerspectiveODE implements IPerspectiveFactory {
 			IFolderLayout folderLayout = layout.createFolder("folderODE", IPageLayout.BOTTOM, 0.75f, "org.eclipse.ui.editorss");
 			folderLayout.addView("org.eclipse.ui.views.PropertySheet");
 			folderLayout.addView("org.eclipse.ui.views.ProblemView");
-			folderLayout.addView("br.ufes.inf.nemo.odercp.rcpapp.ViewHumanResource");
-			folderLayout.addView("br.ufes.inf.nemo.odercp.rcpapp.ViewKnowledge");
+			folderLayout.addView("br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE");
+
+		
 
 
 		}

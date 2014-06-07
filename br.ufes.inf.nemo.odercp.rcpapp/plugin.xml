@@ -239,6 +239,11 @@
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKSoftwareResource"
             name="Create Software Resource">
       </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CallEditorODE"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.ViewDataODE"
+            name="Datas ODE">
+      </command>
    </extension>
    <extension
          point="org.eclipse.ui.perspectives">
@@ -252,13 +257,6 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="true"
-            class="br.ufes.inf.nemo.odercp.rcpapp.ViewHumanResource"
-            id="br.ufes.inf.nemo.odercp.rcpapp.ViewHumanResource"
-            name="Human Resource"
-            restorable="true">
-      </view>
-      <view
-            allowMultiple="true"
             class="br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"
             id="br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"
             name="View Data ODE"
@@ -269,19 +267,10 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="br.ufes.inf.nemo.odercp.rcpapp.EditorHumanResource"
-            id="br.ufes.inf.nemo.odercp.rcpapp.EditorHumanResource"
-            name="Editor Human Resource">
-      </editor>
-      <editor
-            class="br.ufes.inf.nemo.odercp.rcpapp.EditorKnowledge"
-            id="br.ufes.inf.nemo.odercp.rcpapp.EditorKnowledge"
-            name="Editor Knowledge">
-      </editor>
-      <editor
-            class="br.ufes.inf.nemo.odercp.rcpapp.MultiPageEditor"
-            id="br.ufes.inf.nemo.odercp.rcpapp.MultiPageEditor"
-            name="Multi Page Editor ODE">
+            class="br.ufes.inf.nemo.odercp.rcpapp.EditorODE"
+            default="false"
+            id="br.ufes.inf.nemo.odercp.rcpapp.editor.ODE"
+            name="Datas ODE Editor">
       </editor>
    </extension>
 
