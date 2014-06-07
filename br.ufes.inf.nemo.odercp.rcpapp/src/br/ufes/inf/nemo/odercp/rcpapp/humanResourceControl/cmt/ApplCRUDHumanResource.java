@@ -49,28 +49,28 @@ public class ApplCRUDHumanResource {
 		k = ApplCRUDKHumanResource.getever();
 		HumanResource humanResource = new HumanResource();
 		humanResource.setActive(true);
-		humanResource.setEmail("dfdfdfd");
-		humanResource.setName("Danillo Ricardo");
-		humanResource.setPhone("2431234123");
+		humanResource.setEmail("danillo@ode.com");
+		humanResource.setName("Danillo Ricardo Celino");
+		humanResource.setPhone("33332222");
 		humanResource.setRole(k[0]);
 		humanResource.setWorkLoad(40);
 		h[0] = humanResource;
 
 		humanResource = new HumanResource();
 		humanResource.setActive(true);
-		humanResource.setEmail("sdfsdf");
-		humanResource.setName("Daniel Ricardo");
-		humanResource.setPhone("233334123");
+		humanResource.setEmail("joao@ode.com");
+		humanResource.setName("Joao Ribeiro");
+		humanResource.setPhone("11112222");
 		humanResource.setRole(k[1]);
 		humanResource.setWorkLoad(40);
 		h[1] = humanResource;
 
 		humanResource = new HumanResource();
 		humanResource.setActive(true);
-		humanResource.setEmail("fffffff");
-		humanResource.setName("João Ribeiro");
-		humanResource.setPhone("233334123");
-		humanResource.setRole(k[1]);
+		humanResource.setEmail("ricardo@ode.com");
+		humanResource.setName("Ricardo de Almeida Falbo ");
+		humanResource.setPhone("44445555");
+		humanResource.setRole(k[3]);
 		humanResource.setWorkLoad(40);
 		h[2] = humanResource;
 

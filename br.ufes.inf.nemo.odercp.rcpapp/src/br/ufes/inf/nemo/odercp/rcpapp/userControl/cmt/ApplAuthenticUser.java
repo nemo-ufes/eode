@@ -1,5 +1,8 @@
 package br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cpd.User;
 
 /*import java.rmi.RemoteException;
@@ -9,6 +12,17 @@ import br.ufes.inf.nemo.odercp.rcpapp.userControl.cpd.User;
  import ode.controleUsuario.srv.SrvAplAutenticarUsuarioProxy;
  */
 public class ApplAuthenticUser {
+
+	protected static User correntUser;
+
+	public static User getCorrentUser() {
+		return correntUser;
+	}
+
+	public static void setCorrentUser(User correntUser) {
+		ApplAuthenticUser.correntUser = correntUser;
+	}
+
 	public static boolean verification1(String login, String password, boolean stayconnected) {
 		boolean userODE = false;
 		User user = new User();
@@ -26,11 +40,14 @@ public class ApplAuthenticUser {
 
 	public static boolean verification(String login, String password, boolean stayconnected) {
 		boolean userODE = false;
-		User user = new User();
-		user.setLogin(login);
-		user.setPassword(password);
-		if (user.getLogin().equals("admin") && user.getPassword().equals("admin")) {
+		try{
+		User user = ApplCRUDUser.hashUsers.get(login);
+		if (user != null && user.getPassword().equals(password)) {
+			ApplAuthenticUser.correntUser = user;
 			userODE = true;
+		}
+		}catch(Exception e){
+			System.exit(0);
 		}
 		return userODE;
 	}

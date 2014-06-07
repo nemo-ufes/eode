@@ -14,6 +14,7 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplCRUDUser;
 import br.ufes.inf.nemo.odercp.rcpapp.util.SwtUtil;
 
 public class PageAthenticateUser {
@@ -48,6 +49,7 @@ public class PageAthenticateUser {
 	public static void start() {
 		try {
 			PageAthenticateUser window = new PageAthenticateUser();
+			ApplCRUDUser.init();
 			window.open();
 		}
 		catch (Exception e) {
@@ -77,12 +79,12 @@ public class PageAthenticateUser {
 	 */
 	protected void createContents(Display display) {
 		shlLoginOdercp = new Shell(display, SWT.CLOSE);
-		shlLoginOdercp.setSize(446, 359);
+		shlLoginOdercp.setSize(487, 359);
 		shlLoginOdercp.setText("Login ODE-RCP");
-		shlLoginOdercp.setLayout(new GridLayout(3, false));
+		shlLoginOdercp.setLayout(new GridLayout(4, false));
 
 		Label label = new Label(shlLoginOdercp, SWT.NONE);
-		GridData gd_label = new GridData(SWT.CENTER, SWT.CENTER, true, true, 3, 1);
+		GridData gd_label = new GridData(SWT.CENTER, SWT.CENTER, true, true, 4, 1);
 		gd_label.heightHint = 90;
 		gd_label.widthHint = 126;
 		label.setLayoutData(gd_label);
@@ -92,27 +94,32 @@ public class PageAthenticateUser {
 		lblUser.setText("User:");
 
 		user = new Text(shlLoginOdercp, SWT.BORDER);
-		user.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 2, 1));
-
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
+		user.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
 
 		Label lblPassword = new Label(shlLoginOdercp, SWT.NONE);
 		lblPassword.setText("Password:");
 
 		password = new Text(shlLoginOdercp, SWT.BORDER | SWT.PASSWORD);
-		password.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 2, 1));
-		
+		password.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
+		new Label(shlLoginOdercp, SWT.NONE);
 		new Label(shlLoginOdercp, SWT.NONE);
 		new Label(shlLoginOdercp, SWT.NONE);
 		new Label(shlLoginOdercp, SWT.NONE);
 
 		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
 		btnStayConnected = new Button(shlLoginOdercp, SWT.CHECK);
-		btnStayConnected.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, false, false, 2, 1));
+		GridData gd_btnStayConnected = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+		gd_btnStayConnected.widthHint = 131;
+		btnStayConnected.setLayoutData(gd_btnStayConnected);
 		btnStayConnected.setSelection(true);
 		btnStayConnected.setText("Stay Connected");
+		new Label(shlLoginOdercp, SWT.NONE);
+
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
 		new Label(shlLoginOdercp, SWT.NONE);
 
 		Button btnLogin = new Button(shlLoginOdercp, SWT.NONE);
@@ -154,10 +161,11 @@ public class PageAthenticateUser {
 		});
 
 		Button btnCancel = new Button(shlLoginOdercp, SWT.NONE);
-		GridData gd_btnCancel = new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1);
+		GridData gd_btnCancel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_btnCancel.widthHint = 125;
 		btnCancel.setLayoutData(gd_btnCancel);
 		btnCancel.setText("Cancel");
+		new Label(shlLoginOdercp, SWT.NONE);
 		btnCancel.addListener(SWT.Selection, new Listener() {
 
 			@Override

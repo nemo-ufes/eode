@@ -1,7 +1,5 @@
 package br.ufes.inf.nemo.odercp.rcpapp.Handlers;
 
-import java.io.File;
-
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -18,15 +16,14 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.ui.part.FileEditorInput;
 
-import br.ufes.inf.nemo.odercp.rcpapp.EditorODE;
-import br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE;
+import br.ufes.inf.nemo.odercp.rcpapp.editors.EditorODE;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cmt.ApplSelectProject;
+import br.ufes.inf.nemo.odercp.rcpapp.views.ViewDataODE;
 
 public class CallEditorODE extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		System.out.println("called");
 		// get the view
 		IWorkbenchWindow window = HandlerUtil.getActiveWorkbenchWindow(event);
 		IWorkbenchPage page = window.getActivePage();
@@ -34,10 +31,8 @@ public class CallEditorODE extends AbstractHandler {
 		// get the selection
 		ISelection selection = view.getSite().getSelectionProvider().getSelection();
 		if (selection != null && selection instanceof IStructuredSelection) {
-			// Object obj = ((IStructuredSelection) selection).getFirstElement();
 			IWorkspace workspace = ResourcesPlugin.getWorkspace();
 			IWorkspaceRoot root = workspace.getRoot();
-
 			IProject[] projects = root.getProjects();
 			// Loop over all projects
 			IFile file = null;

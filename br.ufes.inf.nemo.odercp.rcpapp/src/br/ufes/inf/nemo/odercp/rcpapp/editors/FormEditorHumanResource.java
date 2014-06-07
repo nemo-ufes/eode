@@ -1,4 +1,4 @@
-package br.ufes.inf.nemo.odercp.rcpapp;
+package br.ufes.inf.nemo.odercp.rcpapp.editors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -80,20 +80,15 @@ public class FormEditorHumanResource extends FormPage {
 	protected void createFormContent(IManagedForm managedForm) {
 		FormToolkit toolkit = managedForm.getToolkit();
 		ScrolledForm form = managedForm.getForm();
-		form.setText("FormPage Human Resource");
+		form.setText("Page Human Resource");
 		Composite container = form.getBody();
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(container);
 		
-	
-		//ScrolledComposite sc = new ScrolledComposite(body, SWT.H_SCROLL	| SWT.V_SCROLL | SWT.BORDER);
-
-		//Composite container = new Composite(sc, SWT.BORDER);
 
 		HRs = ApplCRUDHumanResource.getever();
 		container.setLayout(new GridLayout(3, false));
 
-		// TreeViewer treeViewer = new TreeViewer(container, SWT.BORDER);
 		tree = new Tree(container, SWT.BORDER);
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1));
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 7));
@@ -249,10 +244,6 @@ public class FormEditorHumanResource extends FormPage {
 			hashindex.put(HRs[i], new Integer(i));
 		}
 
-		//sc.setContent(container);
-		//sc.setExpandHorizontal(true);
-		//sc.setExpandVertical(true);
-		//sc.setMinSize(container.computeSize(SWT.DEFAULT, SWT.DEFAULT));
 		
 		
 		}

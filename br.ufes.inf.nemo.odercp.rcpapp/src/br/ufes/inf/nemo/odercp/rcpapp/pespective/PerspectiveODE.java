@@ -1,9 +1,11 @@
-package br.ufes.inf.nemo.odercp.rcpapp;
+package br.ufes.inf.nemo.odercp.rcpapp.pespective;
 
 import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 import org.eclipse.ui.IFolderLayout;
 
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt.ApplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.cpd.AcessProfile;
 
 public class PerspectiveODE implements IPerspectiveFactory {
 
@@ -21,18 +23,17 @@ public class PerspectiveODE implements IPerspectiveFactory {
 			folderLayout.addView("org.eclipse.ui.navigator.ProjectExplorer");
 
 		}
-	
+
 		{
 			IFolderLayout folderLayout = layout.createFolder("folderODE", IPageLayout.BOTTOM, 0.75f, "org.eclipse.ui.editorss");
 			folderLayout.addView("org.eclipse.ui.views.PropertySheet");
 			folderLayout.addView("org.eclipse.ui.views.ProblemView");
-			folderLayout.addView("br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE");
-
-		
-
+			if (ApplAuthenticUser.getCorrentUser().getAcessProfile() == AcessProfile.Administrator) {
+				folderLayout.addView("br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE");
+			}
 
 		}
-		
+
 	}
 
 	/**

@@ -1,4 +1,4 @@
-package br.ufes.inf.nemo.odercp.rcpapp;
+package br.ufes.inf.nemo.odercp.rcpapp.views;
 
 import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.jface.action.IToolBarManager;
@@ -19,7 +19,7 @@ import org.eclipse.swt.widgets.Text;
 
 public class ViewDataODE extends ViewPart {
 
-	public static final String ID = "br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"; //$NON-NLS-1$
+	public static final String ID = "br.ufes.inf.nemo.odercp.rcpapp.views.ViewDataODE"; //$NON-NLS-1$
 	
 	private TreeViewer treeViewer;
 
@@ -95,7 +95,7 @@ public class ViewDataODE extends ViewPart {
         try {
           handlerService.executeCommand("br.ufes.inf.nemo.odercp.rcpapp.command.ViewDataODE", null);
         } catch (Exception ex) {
-          throw new RuntimeException("Editor not found");
+          throw new RuntimeException("Please Choise a Project. If not exist create a project.");
         }
       }
     });

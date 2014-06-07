@@ -60,6 +60,15 @@
                   label="Define Team"
                   style="push">
             </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active">
+                  <equals
+                        value="ENABLED">
+                  </equals>
+               </with>
+            </visibleWhen>
          </menu>
          <menu
                label="Administration">
@@ -69,7 +78,13 @@
                   style="push">
             </command>
             <visibleWhen
-                  checkEnabled="true">
+                  checkEnabled="false">
+               <with
+                     variable="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active">
+                  <equals
+                        value="ENABLED">
+                  </equals>
+               </with>
             </visibleWhen>
          </menu>
          <menu
@@ -79,6 +94,15 @@
                   label="Create Human Resource"
                   style="push">
             </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active">
+                  <equals
+                        value="ENABLED">
+                  </equals>
+               </with>
+            </visibleWhen>
          </menu>
          <menu
                label="Knowledge">
@@ -128,6 +152,15 @@
                      style="push">
                </command>
             </menu>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active">
+                  <equals
+                        value="ENABLED">
+                  </equals>
+               </with>
+            </visibleWhen>
          </menu>
          <menu
                label="Tools">
@@ -136,6 +169,15 @@
                   label="Process Definition"
                   style="push">
             </command>
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active">
+                  <equals
+                        value="ENABLED">
+                  </equals>
+               </with>
+            </visibleWhen>
          </menu>
          <menu
                label="Help">
@@ -248,8 +290,8 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="br.ufes.inf.nemo.odercp.rcpapp.PerspectiveODE"
-            id="br.ufes.inf.nemo.odercp.rcpapp.PerspectiveODE"
+            class="br.ufes.inf.nemo.odercp.rcpapp.pespective.PerspectiveODE"
+            id="br.ufes.inf.nemo.odercp.rcpapp.perspective.PerspectiveODE"
             name="PerspectiveODE">
       </perspective>
    </extension>
@@ -257,9 +299,9 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="true"
-            class="br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"
-            id="br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE"
-            name="View Data ODE"
+            class="br.ufes.inf.nemo.odercp.rcpapp.views.ViewDataODE"
+            id="br.ufes.inf.nemo.odercp.rcpapp.views.ViewDataODE"
+            name="Datas ODE"
             restorable="true">
       </view>
      
@@ -267,11 +309,21 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="br.ufes.inf.nemo.odercp.rcpapp.EditorODE"
+            class="br.ufes.inf.nemo.odercp.rcpapp.editors.EditorODE"
             default="false"
-            id="br.ufes.inf.nemo.odercp.rcpapp.editor.ODE"
+            id="br.ufes.inf.nemo.odercp.rcpapp.editors.EditorODE"
             name="Datas ODE Editor">
       </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.services">
+      <sourceProvider
+            provider="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.MenuState">
+         <variable
+               name="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active"
+               priorityLevel="workbench">
+         </variable>
+      </sourceProvider>
    </extension>
 
 

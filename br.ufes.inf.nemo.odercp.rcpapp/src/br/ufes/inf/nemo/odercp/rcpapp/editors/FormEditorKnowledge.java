@@ -1,4 +1,4 @@
-package br.ufes.inf.nemo.odercp.rcpapp;
+package br.ufes.inf.nemo.odercp.rcpapp.editors;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -50,7 +50,7 @@ public class FormEditorKnowledge extends FormPage {
 	protected void createFormContent(IManagedForm managedForm) {
 		FormToolkit toolkit = managedForm.getToolkit();
 		ScrolledForm form = managedForm.getForm();
-		form.setText("FormPage Knowledge");
+		form.setText("Page Knowledge");
 		Composite container = form.getBody();
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(container);

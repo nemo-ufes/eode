@@ -15,7 +15,7 @@ import org.eclipse.ui.application.WorkbenchWindowAdvisor;
 @SuppressWarnings("restriction")
 public class ApplicationWorkbenchAdvisor extends WorkbenchAdvisor {
 
-	private static final String PERSPECTIVE_ID = "br.ufes.inf.nemo.odercp.rcpapp.PerspectiveODE";
+	private static final String PERSPECTIVE_ID = "br.ufes.inf.nemo.odercp.rcpapp.perspective.PerspectiveODE";
 
 	@Override
 	public void initialize(IWorkbenchConfigurer configurer) {
