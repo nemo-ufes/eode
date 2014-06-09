@@ -28,8 +28,7 @@ public class ApplCRUDProject {
 			project.setName(namenewproject);
 			project.setDescription(descriptionproject);
 			IProject iProject = root.getProject(project.getName());
-			IFolder folder = iProject.getFolder(".DatasODE");
-			IFile file = folder.getFile("DatasODE");
+
 			/*
 			 * SrvAplCadastrarProjeto srv = new SrvAplCadastrarProjetoProxy(); ode.controleProjeto.srv.Projeto projeto = new
 			 * ode.controleProjeto.srv.Projeto("uuid", 1144168960171946495L, 1144168960171946495L, namenewproject,
@@ -40,13 +39,8 @@ public class ApplCRUDProject {
 			try {
 				iProject.create(null);
 				iProject.open(null);
-				folder.create(IResource.NONE, true, null);
-				if (!file.exists()) {
-					byte[] bytes = "File contents".getBytes();
-					InputStream source = new ByteArrayInputStream(bytes);
-					file.create(source, IResource.NONE, null);
-
-				}
+				
+			
 			}
 			catch (CoreException e) {
 				// TODO Auto-generated catch block

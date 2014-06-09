@@ -81,90 +81,140 @@ public class PageAthenticateUser {
 		shlLoginOdercp = new Shell(display, SWT.CLOSE);
 		shlLoginOdercp.setSize(487, 359);
 		shlLoginOdercp.setText("Login ODE-RCP");
-		shlLoginOdercp.setLayout(new GridLayout(4, false));
+		shlLoginOdercp.setLayout(new GridLayout(16, false));
 
 		Label label = new Label(shlLoginOdercp, SWT.NONE);
-		GridData gd_label = new GridData(SWT.CENTER, SWT.CENTER, true, true, 4, 1);
+		GridData gd_label = new GridData(SWT.CENTER, SWT.FILL, true, true, 16, 1);
 		gd_label.heightHint = 90;
 		gd_label.widthHint = 126;
 		label.setLayoutData(gd_label);
 		label.setImage(ResourceManager.getPluginImage("br.ufes.inf.nemo.odercp.rcpapp", "images/ode.jpg"));
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+						new Label(shlLoginOdercp, SWT.NONE);
+				
+						Label lblUser = new Label(shlLoginOdercp, SWT.NONE);
+						lblUser.setText("User:");
+				
+						user = new Text(shlLoginOdercp, SWT.BORDER);
+						user.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 15, 1));
+		
+				Label lblPassword = new Label(shlLoginOdercp, SWT.NONE);
+				lblPassword.setText("Password:");
+		
+				password = new Text(shlLoginOdercp, SWT.BORDER | SWT.PASSWORD);
+				password.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 15, 1));
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+				
+						btnStayConnected = new Button(shlLoginOdercp, SWT.CHECK);
+						GridData gd_btnStayConnected = new GridData(SWT.CENTER, SWT.CENTER, false, false, 16, 1);
+						gd_btnStayConnected.widthHint = 131;
+						btnStayConnected.setLayoutData(gd_btnStayConnected);
+						btnStayConnected.setSelection(true);
+						btnStayConnected.setText("Stay Connected");
+		new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+				new Label(shlLoginOdercp, SWT.NONE);
+			
+		
+				Button btnLogin = new Button(shlLoginOdercp, SWT.NONE);
+				GridData gd_btnLogin = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
+				gd_btnLogin.widthHint = 125;
+				btnLogin.setLayoutData(gd_btnLogin);
+				btnLogin.setText("Login");
+				btnLogin.addListener(SWT.Selection, new Listener() {
 
-		Label lblUser = new Label(shlLoginOdercp, SWT.NONE);
-		lblUser.setText("User:");
+					@Override
+					public void handleEvent(Event event) {
+						// TODO Auto-generated method stub
+						String selecteduser = user.getText();
+						String selectedpass = password.getText();
 
-		user = new Text(shlLoginOdercp, SWT.BORDER);
-		user.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
+						if (selectedpass.isEmpty() || selecteduser.isEmpty()) {
+							MessageBox messageBox = new MessageBox(shlLoginOdercp, SWT.OK | SWT.ICON_WARNING);
+							if (selectedpass.isEmpty() && selecteduser.isEmpty()) messageBox.setMessage("Enter the User and password");
+							else if (selectedpass.isEmpty()) messageBox.setMessage("Enter the Password");
+							else if (selecteduser.isEmpty()) messageBox.setMessage("Enter the User");
+							messageBox.open();
+						}
+						else {
+							boolean verification = ApplAuthenticUser.verification(user.getText(), password.getText(), btnStayConnected.getSelection());
+							if (verification == true) {
+								setLogger(true);
+								shlLoginOdercp.close();
+							}
+							else {
+								MessageBox messageBox = new MessageBox(shlLoginOdercp, SWT.OK);
+								messageBox.setText("ODE RCP");
+								messageBox.setMessage("Username or password wrong!");
+								messageBox.open();
+							}
 
-		Label lblPassword = new Label(shlLoginOdercp, SWT.NONE);
-		lblPassword.setText("Password:");
-
-		password = new Text(shlLoginOdercp, SWT.BORDER | SWT.PASSWORD);
-		password.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-		btnStayConnected = new Button(shlLoginOdercp, SWT.CHECK);
-		GridData gd_btnStayConnected = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_btnStayConnected.widthHint = 131;
-		btnStayConnected.setLayoutData(gd_btnStayConnected);
-		btnStayConnected.setSelection(true);
-		btnStayConnected.setText("Stay Connected");
-		new Label(shlLoginOdercp, SWT.NONE);
-
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-		new Label(shlLoginOdercp, SWT.NONE);
-
-		Button btnLogin = new Button(shlLoginOdercp, SWT.NONE);
-		GridData gd_btnLogin = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
-		gd_btnLogin.widthHint = 125;
-		btnLogin.setLayoutData(gd_btnLogin);
-		btnLogin.setText("Login");
-		btnLogin.addListener(SWT.Selection, new Listener() {
-
-			@Override
-			public void handleEvent(Event event) {
-				// TODO Auto-generated method stub
-				String selecteduser = user.getText();
-				String selectedpass = password.getText();
-
-				if (selectedpass.isEmpty() || selecteduser.isEmpty()) {
-					MessageBox messageBox = new MessageBox(shlLoginOdercp, SWT.OK | SWT.ICON_WARNING);
-					if (selectedpass.isEmpty() && selecteduser.isEmpty()) messageBox.setMessage("Enter the User and password");
-					else if (selectedpass.isEmpty()) messageBox.setMessage("Enter the Password");
-					else if (selecteduser.isEmpty()) messageBox.setMessage("Enter the User");
-					messageBox.open();
-				}
-				else {
-					boolean verification = ApplAuthenticUser.verification(user.getText(), password.getText(), btnStayConnected.getSelection());
-					if (verification == true) {
-						setLogger(true);
-						shlLoginOdercp.close();
+						}
 					}
-					else {
-						MessageBox messageBox = new MessageBox(shlLoginOdercp, SWT.OK);
-						messageBox.setText("ODE RCP");
-						messageBox.setMessage("Username or password wrong!");
-						messageBox.open();
-					}
 
-				}
-			}
-
-		});
+				});
 
 		Button btnCancel = new Button(shlLoginOdercp, SWT.NONE);
 		GridData gd_btnCancel = new GridData(SWT.LEFT, SWT.CENTER, false, false, 1, 1);
 		gd_btnCancel.widthHint = 125;
 		btnCancel.setLayoutData(gd_btnCancel);
 		btnCancel.setText("Cancel");
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
+		new Label(shlLoginOdercp, SWT.NONE);
 		new Label(shlLoginOdercp, SWT.NONE);
 		btnCancel.addListener(SWT.Selection, new Listener() {
 
@@ -176,6 +226,7 @@ public class PageAthenticateUser {
 
 			}
 		});
+
 		shlLoginOdercp.open();
 		shlLoginOdercp.layout();
 		// WHen closed the window exit system

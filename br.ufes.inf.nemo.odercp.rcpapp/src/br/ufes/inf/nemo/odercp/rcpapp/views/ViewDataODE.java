@@ -95,7 +95,7 @@ public class ViewDataODE extends ViewPart {
         try {
           handlerService.executeCommand("br.ufes.inf.nemo.odercp.rcpapp.command.ViewDataODE", null);
         } catch (Exception ex) {
-          throw new RuntimeException("Please Choise a Project. If not exist create a project.");
+          throw new RuntimeException("Command not found.");
         }
       }
     });

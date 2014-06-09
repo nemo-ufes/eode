@@ -29,7 +29,7 @@ public class PerspectiveODE implements IPerspectiveFactory {
 			folderLayout.addView("org.eclipse.ui.views.PropertySheet");
 			folderLayout.addView("org.eclipse.ui.views.ProblemView");
 			if (ApplAuthenticUser.getCorrentUser().getAcessProfile() == AcessProfile.Administrator) {
-				folderLayout.addView("br.ufes.inf.nemo.odercp.rcpapp.ViewDataODE");
+				folderLayout.addView("br.ufes.inf.nemo.odercp.rcpapp.views.ViewDataODE");
 			}
 
 		}
