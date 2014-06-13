@@ -37,15 +37,15 @@ public class PageCreateProject extends WizardPage {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
-				new Label(container, SWT.NONE);
-		
-				Label lblDescription = new Label(container, SWT.NONE);
-				lblDescription.setText("Description:");
-				
-						textDescription = new Text(container, SWT.BORDER | SWT.MULTI);
-						GridData gd_textDescription = new GridData(SWT.FILL, SWT.FILL, true, true,1 , 1);
-						gd_textDescription.heightHint = 104;
-						textDescription.setLayoutData(gd_textDescription);
+		new Label(container, SWT.NONE);
+
+		Label lblDescription = new Label(container, SWT.NONE);
+		lblDescription.setText("Description:");
+
+		textDescription = new Text(container, SWT.BORDER | SWT.MULTI);
+		GridData gd_textDescription = new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1);
+		gd_textDescription.heightHint = 104;
+		textDescription.setLayoutData(gd_textDescription);
 	}
 
 	public String getTextDescription() {

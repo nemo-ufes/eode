@@ -66,7 +66,7 @@ public class PageCreateKnowledge extends WizardPage {
 		lblDescription.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblDescription.setText("Description*:");
 
-		description = new Text(container, SWT.BORDER);
+		description = new Text(container, SWT.BORDER|SWT.MULTI);
 		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
 		description.addKeyListener(new KeyListener() {
 
