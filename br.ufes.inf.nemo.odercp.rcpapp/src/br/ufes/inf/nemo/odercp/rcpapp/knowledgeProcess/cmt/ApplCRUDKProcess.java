@@ -10,10 +10,26 @@ public class ApplCRUDKProcess {
 		aux = new KProcess();
 		aux.setName("kProcess1");
 		aux.setDescription("kProcess1");
+		aux.setEngineering(true);
 		everKProcess[0] = aux;
 
-		
-		
 		return everKProcess;
 	}
+
+	public static boolean createKProcess(String name, String description, boolean isEngineering) {
+		KProcess kProcess = new KProcess();
+		kProcess.setName(name);
+		kProcess.setDescription(description);
+		kProcess.setEngineering(isEngineering);
+		return true;
+	}
+
+	public static boolean deleteKProcess(KProcess kProcess) {
+		return true;
+	}
+
+	public static boolean updateKProcess(KProcess kProcess) {
+		return true;
+	}
+
 }

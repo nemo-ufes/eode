@@ -1,5 +1,8 @@
 package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -21,6 +24,7 @@ public class PageCreateKActivityChoiceKProcedures extends WizardPage {
 
 	Button checks[];
 	KProcedure kprocedures[];
+	Map<String, KProcedure> hashkProcedures;
 
 	/**
 	 * Create the wizard.
@@ -30,6 +34,7 @@ public class PageCreateKActivityChoiceKProcedures extends WizardPage {
 		setTitle("Page Create KActivity");
 		setDescription("Choice Kprocedures");
 		kprocedures = ApplCRUDKProcedure.getever();
+		hashkProcedures = new HashMap<String, KProcedure>();
 	}
 
 	/**
@@ -45,23 +50,24 @@ public class PageCreateKActivityChoiceKProcedures extends WizardPage {
 		int i;
 		if (kprocedures.length > 0) {
 			checks = new Button[kprocedures.length];
-			//setPageComplete(true);
+			// setPageComplete(true);
 		}
 		for (i = 0; i < kprocedures.length; i++) {
 			checks[i] = new Button(container, SWT.CHECK);
 			checks[i].setText(kprocedures[i].getName());
-			checks[i].addSelectionListener(new SelectionListener(){
+			hashkProcedures.put(kprocedures[i].getName(), kprocedures[i]);
+			checks[i].addSelectionListener(new SelectionListener() {
 
 				@Override
 				public void widgetSelected(SelectionEvent e) {
 					setPageComplete(true);
-					
+
 				}
 
 				@Override
 				public void widgetDefaultSelected(SelectionEvent e) {
 					// TODO Auto-generated method stub
-					
+
 				}
 
 			});
@@ -74,6 +80,11 @@ public class PageCreateKActivityChoiceKProcedures extends WizardPage {
 	/** Getter for checks. */
 	public Button[] getChecks() {
 		return checks;
+	}
+
+	/** Getter for hashkProcedures. */
+	public Map<String, KProcedure> getHashkProcedures() {
+		return hashkProcedures;
 	}
 
 }

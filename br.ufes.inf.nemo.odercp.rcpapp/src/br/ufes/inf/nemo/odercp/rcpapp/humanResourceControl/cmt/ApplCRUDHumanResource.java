@@ -70,7 +70,7 @@ public class ApplCRUDHumanResource {
 		humanResource.setEmail("ricardo@ode.com");
 		humanResource.setName("Ricardo de Almeida Falbo ");
 		humanResource.setPhone("44445555");
-		humanResource.setRole(k[3]);
+		humanResource.setRole(k[2]);
 		humanResource.setWorkLoad(40);
 		h[2] = humanResource;
 

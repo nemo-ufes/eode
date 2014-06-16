@@ -9,24 +9,31 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeMain.cpd.Knowledge;
 public class KArtefact extends Knowledge {
 
 	private Set<KArtefact> subArtefacts;
-	private Set<KArtefact> dependes;
+	private Set<KArtefact> depends;
 
-	public KArtefact() {}
+	/** Constructor. */
+	public KArtefact() {
+		super();
+	}
 
+	/** Getter for subArtefacts. */
 	public Set<KArtefact> getSubArtefacts() {
 		return subArtefacts;
 	}
 
+	/** Setter for subArtefacts. */
 	public void setSubArtefacts(Set<KArtefact> subArtefacts) {
 		this.subArtefacts = subArtefacts;
 	}
 
-	public Set<KArtefact> getDependes() {
-		return dependes;
+	/** Getter for depends. */
+	public Set<KArtefact> getDepends() {
+		return depends;
 	}
 
-	public void setDependes(Set<KArtefact> dependes) {
-		this.dependes = dependes;
+	/** Setter for depends. */
+	public void setDepends(Set<KArtefact> depends) {
+		this.depends = depends;
 	}
 
 }

@@ -3,13 +3,13 @@ package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd;
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  */
 
-public class ConbinationLCM {
+public class CombinationLCM {
 
 	private TypeCombination typeCombination;
 
 	private KLifeCycleModel kLifeCycleModel;
 
-	public ConbinationLCM() {}
+	public CombinationLCM() {}
 
 	public TypeCombination getTypeCombination() {
 		return typeCombination;

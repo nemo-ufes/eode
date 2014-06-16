@@ -14,4 +14,19 @@ public class ApplCRUDKHardwareResource {
 
 		return everKHardwareResource;
 	}
+	public static boolean createKHardwareResource(String name, String description) {
+		KHardwareResource kHardwareResource = new KHardwareResource();
+		kHardwareResource.setName(name);
+		kHardwareResource.setDescription(description);
+		return true;
+	}
+
+	public static boolean deleteKHardwareResource(KHardwareResource kHardwareResource) {
+		return true;
+	}
+
+	public static boolean updateKHardwareResource(KHardwareResource kHardwareResource) {
+		return true;
+	}
+
 }

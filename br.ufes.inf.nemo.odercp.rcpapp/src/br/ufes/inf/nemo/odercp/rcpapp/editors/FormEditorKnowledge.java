@@ -1,6 +1,11 @@
 package br.ufes.inf.nemo.odercp.rcpapp.editors;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -14,14 +19,39 @@ import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeMain.cpd.Knowledge;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKLifeCycleModel;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKSoftwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KLifeCycleModel;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KSoftwareResource;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.TabFolder;
+import org.eclipse.swt.widgets.TabItem;
+import org.eclipse.ui.forms.widgets.Form;
+
 public class FormEditorKnowledge extends FormPage {
 
-	
 	private Text name;
 	private Text description;
-	
+	private Button btnMandatory;
+	private Button btnIsengineering;
+	Map<TreeItem, Knowledge> hashKnowledge;
+
 	/**
 	 * Create the form page.
+	 * 
 	 * @param id
 	 * @param title
 	 */
@@ -31,6 +61,7 @@ public class FormEditorKnowledge extends FormPage {
 
 	/**
 	 * Create the form page.
+	 * 
 	 * @param editor
 	 * @param id
 	 * @param title
@@ -44,6 +75,7 @@ public class FormEditorKnowledge extends FormPage {
 
 	/**
 	 * Create contents of the form.
+	 * 
 	 * @param managedForm
 	 */
 	@Override
@@ -54,20 +86,21 @@ public class FormEditorKnowledge extends FormPage {
 		Composite container = form.getBody();
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(container);
-		
-	
+
 		container.setLayout(new GridLayout(6, false));
 
 		// TreeViewer treeViewer = new TreeViewer(container, SWT.BORDER);
 		Tree tree = new Tree(container, SWT.BORDER);
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1));
-		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 8);
+		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 9);
 		gd_tree.widthHint = 248;
 		tree.setLayoutData(gd_tree);
 
 		TreeItem root = new TreeItem(tree, SWT.NONE, 0);
 		root.setText("Knowledge");
 		root.setExpanded(true);
+		// inicialize hashKnowledge
+		hashKnowledge = new HashMap<TreeItem, Knowledge>();
 
 		TreeItem rootProcess = new TreeItem(root, SWT.NONE, 0);
 		rootProcess.setText("Process");
@@ -78,21 +111,64 @@ public class FormEditorKnowledge extends FormPage {
 			rootPProcess.setText("Process");
 			rootPProcess.setExpanded(true);
 
+			KProcess[] kProcesses = ApplCRUDKProcess.getever();
+
+			for (int i = 0; i < kProcesses.length; i++) {
+				TreeItem no = new TreeItem(rootPProcess, SWT.NONE, i);
+				no.setText(kProcesses[i].getName());
+				hashKnowledge.put(no, kProcesses[i]);
+
+			}
+
 			TreeItem rootProcedure = new TreeItem(rootProcess, SWT.NONE, 0);
 			rootProcedure.setText("Procedure");
 			rootProcedure.setExpanded(true);
+
+			KProcedure[] kProcedures = ApplCRUDKProcedure.getever();
+
+			for (int i = 0; i < kProcedures.length; i++) {
+				TreeItem no = new TreeItem(rootProcedure, SWT.NONE, i);
+				no.setText(kProcedures[i].getName());
+				hashKnowledge.put(no, kProcedures[i]);
+
+			}
 
 			TreeItem rootLifeCycleModel = new TreeItem(rootProcess, SWT.NONE, 0);
 			rootLifeCycleModel.setText("Life-Cycle Model");
 			rootLifeCycleModel.setExpanded(true);
 
+			KLifeCycleModel[] kLifeCycleModels = ApplCRUDKLifeCycleModel.getever();
+
+			for (int i = 0; i < kLifeCycleModels.length; i++) {
+				TreeItem no = new TreeItem(rootLifeCycleModel, SWT.NONE, i);
+				no.setText(kLifeCycleModels[i].getName());
+				hashKnowledge.put(no, kLifeCycleModels[i]);
+
+			}
+
 			TreeItem rootArtefact = new TreeItem(rootProcess, SWT.NONE, 0);
 			rootArtefact.setText("Artefact");
 			rootArtefact.setExpanded(true);
 
+			KArtefact[] kArtefacts = ApplCRUDKArtefact.getever();
+			for (int i = 0; i < kArtefacts.length; i++) {
+				TreeItem no = new TreeItem(rootArtefact, SWT.NONE, i);
+				no.setText(kArtefacts[i].getName());
+				hashKnowledge.put(no, kArtefacts[i]);
+
+			}
+
 			TreeItem rootActivity = new TreeItem(rootProcess, SWT.NONE, 0);
 			rootActivity.setText("Activity");
 			rootActivity.setExpanded(true);
+
+			KActivity[] kActivities = ApplCRUDKActivity.getever();
+			for (int i = 0; i < kActivities.length; i++) {
+				TreeItem no = new TreeItem(rootActivity, SWT.NONE, i);
+				no.setText(kActivities[i].getName());
+				hashKnowledge.put(no, kActivities[i]);
+
+			}
 
 		}
 
@@ -100,21 +176,69 @@ public class FormEditorKnowledge extends FormPage {
 		rootResource.setText("Resource");
 		rootResource.setExpanded(true);
 		{
-			TreeItem rootHaResource = new TreeItem(rootResource, SWT.NONE, 0);
-			rootHaResource.setText("Hardware Resource");
-			rootHaResource.setExpanded(true);
 
-			TreeItem rootSResource = new TreeItem(rootResource, SWT.NONE, 0);
-			rootSResource.setText("Software Resource");
-			rootSResource.setExpanded(true);
+			TreeItem rootHadwareResource = new TreeItem(rootResource, SWT.NONE, 0);
+			rootHadwareResource.setText("Hardware Resource");
+			rootHadwareResource.setExpanded(true);
 
-			TreeItem rootHResource = new TreeItem(rootResource, SWT.NONE, 0);
-			rootHResource.setText("Human Resource");
-			rootHResource.setExpanded(true);
+			KHardwareResource[] kHardwareResource = ApplCRUDKHardwareResource.getever();
 
+			for (int i = 0; i < kHardwareResource.length; i++) {
+				TreeItem no = new TreeItem(rootHadwareResource, SWT.NONE, i);
+				no.setText(kHardwareResource[i].getName());
+				hashKnowledge.put(no, kHardwareResource[i]);
+
+			}
+
+			TreeItem rootSoftwareResource = new TreeItem(rootResource, SWT.NONE, 0);
+			rootSoftwareResource.setText("Software Resource");
+			rootSoftwareResource.setExpanded(true);
+
+			KSoftwareResource[] kSoftwareResource = ApplCRUDKSoftwareResource.getever();
+			for (int i = 0; i < kSoftwareResource.length; i++) {
+				TreeItem no = new TreeItem(rootSoftwareResource, SWT.NONE, i);
+				no.setText(kSoftwareResource[i].getName());
+				hashKnowledge.put(no, kSoftwareResource[i]);
+
+			}
+
+			TreeItem rootHumanResource = new TreeItem(rootResource, SWT.NONE, 0);
+			rootHumanResource.setText("Human Resource");
+			rootHumanResource.setExpanded(true);
+
+			KHumanResource[] kHumanResource = ApplCRUDKHumanResource.getever();
+			for (int i = 0; i < kHumanResource.length; i++) {
+				TreeItem no = new TreeItem(rootHumanResource, SWT.NONE, i);
+				no.setText(kHumanResource[i].getName());
+				hashKnowledge.put(no, kHumanResource[i]);
+
+			}
 
 		}
 
+		// selection to Knowledge
+		tree.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				TreeItem ti = (TreeItem) e.item;
+				if (hashKnowledge.get(ti) != null) populateKnowledge(hashKnowledge.get(ti));
+			}
+
+			private void populateKnowledge(Knowledge k) {
+				name.setText(k.getName());
+				description.setText(k.getDescription());
+				if (k instanceof KActivity) {
+					btnMandatory.setVisible(true);
+					btnMandatory.setSelection(((KActivity) k).isMandatory());
+				}
+				if (k instanceof KProcess) {
+					btnIsengineering.setVisible(true);
+					btnIsengineering.setSelection(((KProcess) k).isEngineering());
+				}
+
+			}
+
+		});
+
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
@@ -134,8 +258,9 @@ public class FormEditorKnowledge extends FormPage {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 
-		Label lblName = new Label(container, SWT.NONE);
+		Label lblName = new Label(container, SWT.SHADOW_IN);
 		lblName.setText("Name:");
+		managedForm.getToolkit().adapt(lblName, true, true);
 
 		name = new Text(container, SWT.BORDER);
 		name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -146,23 +271,50 @@ public class FormEditorKnowledge extends FormPage {
 
 		description = new Text(container, SWT.BORDER);
 		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 3));
+		managedForm.getToolkit().adapt(description, true, true);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 
 		Label lblDescription = new Label(container, SWT.NONE);
-		lblDescription.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
 		lblDescription.setText("Description:");
+		managedForm.getToolkit().adapt(lblDescription, true, true);
+
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+
+		btnMandatory = new Button(managedForm.getForm().getBody(), SWT.CHECK);
+		managedForm.getToolkit().adapt(btnMandatory, true, true);
+		btnMandatory.setText("Mandatory");
+		btnMandatory.setVisible(false);
+
+		btnIsengineering = new Button(managedForm.getForm().getBody(), SWT.CHECK);
+		managedForm.getToolkit().adapt(btnIsengineering, true, true);
+		btnIsengineering.setText("isEngineering");
+		btnIsengineering.setVisible(false);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
+
+		TabFolder tabFolder = new TabFolder(managedForm.getForm().getBody(), SWT.NONE);
+		tabFolder.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		managedForm.getToolkit().adapt(tabFolder);
+		managedForm.getToolkit().paintBordersFor(tabFolder);
+
+		TabItem tabItem = new TabItem(tabFolder, SWT.NONE);
+		tabItem.setText("New Item");
 		
+		TabItem tabItem_1 = new TabItem(tabFolder, SWT.NONE);
+		tabItem_1.setText("New Item");
 		
-		}
+		Button btnCheckButton = new Button(tabFolder, SWT.CHECK);
+		tabItem_1.setControl(btnCheckButton);
+		btnCheckButton.setText("Check Button");
+
+	}
 }

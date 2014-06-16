@@ -1,5 +1,8 @@
 package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -11,6 +14,7 @@ import org.eclipse.swt.widgets.Composite;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHardwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKSoftwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KSoftwareResource;
 
 /**
@@ -24,6 +28,7 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 	Button checks[];
 	KHardwareResource kHardwareResources[];
 	KSoftwareResource kSoftwareResources[];
+	Map<String, KResource> hashkResources;
 
 	/**
 	 * Create the wizard.
@@ -34,6 +39,7 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 		setDescription("Choice Kprocedures");
 		kHardwareResources = ApplCRUDKHardwareResource.getever();
 		kSoftwareResources = ApplCRUDKSoftwareResource.getever();
+		hashkResources = new HashMap<String, KResource>();
 	}
 
 	/**
@@ -51,6 +57,7 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 		for (i = 0; i < kHardwareResources.length; i++) {
 			checks[i] = new Button(container, SWT.CHECK);
 			checks[i].setText(kHardwareResources[i].getName());
+			hashkResources.put(kHardwareResources[i].getName(), kHardwareResources[i]);
 			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
 			checks[i].addSelectionListener(new SelectionListener() {
 
@@ -72,6 +79,7 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 		for (; i < kHardwareResources.length + kSoftwareResources.length; i++) {
 			checks[i] = new Button(container, SWT.CHECK);
 			checks[i].setText(kSoftwareResources[i - kHardwareResources.length].getName());
+			hashkResources.put(kSoftwareResources[i - kHardwareResources.length].getName(), kSoftwareResources[i - kHardwareResources.length]);
 			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
 			checks[i].addSelectionListener(new SelectionListener() {
 
@@ -98,6 +106,11 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 	/** Getter for checks. */
 	public Button[] getChecks() {
 		return checks;
+	}
+
+	/** Getter for hashkResources. */
+	public Map<String, KResource> getHashkResources() {
+		return hashkResources;
 	}
 
 }

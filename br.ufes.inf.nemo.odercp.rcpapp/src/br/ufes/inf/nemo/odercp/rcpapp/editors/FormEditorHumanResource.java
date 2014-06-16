@@ -3,7 +3,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.editors;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.eclipse.swt.custom.ScrolledComposite;
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MenuAdapter;
 import org.eclipse.swt.events.MenuEvent;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -14,6 +14,7 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Text;
@@ -25,8 +26,6 @@ import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 import org.eclipse.wb.swt.SWTResourceManager;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.SWT;
 
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cmt.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.cpd.HumanResource;
@@ -42,14 +41,12 @@ public class FormEditorHumanResource extends FormPage {
 	private Text phone;
 	private Button active;
 	Map<TreeItem, HumanResource> hashHR = new HashMap<TreeItem, HumanResource>();
-	Map<HumanResource, Integer> hashindex;
+	Map<KHumanResource, Integer> hashindex;
 	private HumanResource chosenHR;
 	private Combo role;
 	private Tree tree;
 	private Menu menu;
 	TreeItem root;
-	private Button btnNewButton;
-
 	/**
 	 * Create the form page.
 	 * @param id
@@ -96,6 +93,32 @@ public class FormEditorHumanResource extends FormPage {
 		root = new TreeItem(tree, SWT.NONE, 0);
 		root.setText("Human Resource");
 		root.setExpanded(true);
+		
+		for (int i = 0; i < HRs.length; i++) {
+			TreeItem no = new TreeItem(root, SWT.NONE, i);
+			no.setText(HRs[i].getName());
+			hashHR.put(no, HRs[i]);
+			
+		}
+
+		tree.addSelectionListener(new SelectionAdapter() {
+			public void widgetSelected(SelectionEvent e) {
+				TreeItem ti = (TreeItem) e.item;
+				if (!ti.getText().equals("Human Resource"))
+					populateHR(hashHR.get(ti));
+			}
+
+			private void populateHR(HumanResource hr) {
+				name.setText(hr.getName());
+				active.setSelection(hr.isActive());
+				workload.setText(hr.getWorkLoad().toString());
+				email.setText(hr.getEmail());
+				phone.setText(hr.getPhone());
+				role.select(hashindex.get(hr.getRole()));
+				chosenHR = hr;
+			}
+
+		});
 
 		menu = new Menu(tree);
 		tree.setMenu(menu);
@@ -143,24 +166,6 @@ public class FormEditorHumanResource extends FormPage {
 			}
 		});
 
-		tree.addSelectionListener(new SelectionAdapter() {
-			public void widgetSelected(SelectionEvent e) {
-				TreeItem ti = (TreeItem) e.item;
-				if (!ti.getText().equals("Human Resource"))
-					populateHR(hashHR.get(ti));
-			}
-
-			private void populateHR(HumanResource hr) {
-				name.setText(hr.getName());
-				active.setSelection(hr.isActive());
-				workload.setText(hr.getWorkLoad().toString());
-				email.setText(hr.getEmail());
-				phone.setText(hr.getPhone());
-				role.select(hashindex.get(hr));
-				chosenHR = hr;
-			}
-
-		});
 		{
 			Label lblName = new Label(container, SWT.SHADOW_IN | SWT.CENTER);
 			lblName.setFont(SWTResourceManager
@@ -232,18 +237,13 @@ public class FormEditorHumanResource extends FormPage {
 		new Label(container, SWT.NONE);
 		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
 		// Populate Combo of Roles
+		hashindex = new HashMap<KHumanResource, Integer>();
 		for (int i = 0; i < everKHR.length; i++) {
 			role.add(everKHR[i].getName());
+			hashindex.put(everKHR[i], new Integer(i));
 		}
 
-		hashindex = new HashMap<HumanResource, Integer>();
-		for (int i = 0; i < HRs.length; i++) {
-			TreeItem no = new TreeItem(root, SWT.NONE, i);
-			no.setText(HRs[i].getName());
-			hashHR.put(no, HRs[i]);
-			hashindex.put(HRs[i], new Integer(i));
-		}
-
+		
 		
 		
 		}

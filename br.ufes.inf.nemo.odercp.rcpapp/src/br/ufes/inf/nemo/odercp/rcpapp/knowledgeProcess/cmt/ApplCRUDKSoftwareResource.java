@@ -14,4 +14,20 @@ public class ApplCRUDKSoftwareResource {
 
 		return everKSoftwareResource;
 	}
+
+	public static boolean createKSoftwareResource(String name, String description) {
+		KSoftwareResource kSoftwareResource = new KSoftwareResource();
+		kSoftwareResource.setName(name);
+		kSoftwareResource.setDescription(description);
+		return true;
+	}
+
+	public static boolean deleteKSoftwareResource(KSoftwareResource kSoftwareResource) {
+		return true;
+	}
+
+	public static boolean updateKSoftwareResource(KSoftwareResource kSoftwareResource) {
+		return true;
+	}
+
 }

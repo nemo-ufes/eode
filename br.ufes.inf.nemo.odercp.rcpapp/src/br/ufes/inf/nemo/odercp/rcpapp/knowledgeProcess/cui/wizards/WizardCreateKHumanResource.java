@@ -2,6 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.PageCreateKnowledge;
 
 public class WizardCreateKHumanResource extends Wizard {
@@ -19,7 +20,9 @@ public class WizardCreateKHumanResource extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		return false;
+
+		return ApplCRUDKHumanResource.createKHumanResource(pageCreateKnowledge.getName(), 
+				pageCreateKnowledge.getDescription());
 	}
 
 }

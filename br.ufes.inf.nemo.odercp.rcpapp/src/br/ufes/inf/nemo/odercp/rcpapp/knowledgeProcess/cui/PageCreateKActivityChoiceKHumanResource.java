@@ -1,5 +1,8 @@
 package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -21,6 +24,7 @@ public class PageCreateKActivityChoiceKHumanResource extends WizardPage {
 
 	Button checks[];
 	KHumanResource kHumanResources[];
+	Map<String, KHumanResource> hashKhumanResources;
 
 	/**
 	 * Create the wizard.
@@ -30,6 +34,7 @@ public class PageCreateKActivityChoiceKHumanResource extends WizardPage {
 		setTitle("Page Create KActivity");
 		setDescription("Choice Knowledge Human Resource");
 		kHumanResources = ApplCRUDKHumanResource.getever();
+		hashKhumanResources = new HashMap<String, KHumanResource>();
 	}
 
 	/**
@@ -47,6 +52,7 @@ public class PageCreateKActivityChoiceKHumanResource extends WizardPage {
 		for (i = 0; i < kHumanResources.length; i++) {
 			checks[i] = new Button(container, SWT.CHECK);
 			checks[i].setText(kHumanResources[i].getName());
+			hashKhumanResources.put(kHumanResources[i].getName(), kHumanResources[i]);
 			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
 			checks[i].addSelectionListener(new SelectionListener() {
 
@@ -73,6 +79,11 @@ public class PageCreateKActivityChoiceKHumanResource extends WizardPage {
 	/** Getter for checks. */
 	public Button[] getChecks() {
 		return checks;
+	}
+
+	/** Getter for hashKhumanResources. */
+	public Map<String, KHumanResource> getHashKhumanResources() {
+		return hashKhumanResources;
 	}
 
 }

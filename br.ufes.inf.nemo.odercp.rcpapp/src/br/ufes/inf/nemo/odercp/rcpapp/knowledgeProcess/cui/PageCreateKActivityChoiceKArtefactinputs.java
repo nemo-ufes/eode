@@ -1,5 +1,8 @@
 package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionEvent;
@@ -21,6 +24,7 @@ public class PageCreateKActivityChoiceKArtefactinputs extends WizardPage {
 
 	Button checks[];
 	KArtefact kArtefacts[];
+	Map<String, KArtefact> hashinputs;
 
 	/**
 	 * Create the wizard.
@@ -30,6 +34,7 @@ public class PageCreateKActivityChoiceKArtefactinputs extends WizardPage {
 		setTitle("Page Create KActivity");
 		setDescription("Choice KArtefacts Inputs");
 		kArtefacts = ApplCRUDKArtefact.getever();
+		hashinputs = new HashMap<String, KArtefact>();
 	}
 
 	/**
@@ -47,6 +52,7 @@ public class PageCreateKActivityChoiceKArtefactinputs extends WizardPage {
 		for (i = 0; i < kArtefacts.length; i++) {
 			checks[i] = new Button(container, SWT.CHECK);
 			checks[i].setText(kArtefacts[i].getName());
+			hashinputs.put(kArtefacts[i].getName(), kArtefacts[i]);
 			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
 			checks[i].addSelectionListener(new SelectionListener() {
 
@@ -71,6 +77,11 @@ public class PageCreateKActivityChoiceKArtefactinputs extends WizardPage {
 	/** Getter for checks. */
 	public Button[] getChecks() {
 		return checks;
+	}
+
+	/** Getter for hashinputs. */
+	public Map<String, KArtefact> getHashinputs() {
+		return hashinputs;
 	}
 
 }

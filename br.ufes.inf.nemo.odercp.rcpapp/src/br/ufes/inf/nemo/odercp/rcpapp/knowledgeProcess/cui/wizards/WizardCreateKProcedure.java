@@ -2,6 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKProcedure;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.PageCreateKnowledge;
 
 public class WizardCreateKProcedure extends Wizard {
@@ -19,7 +20,9 @@ public class WizardCreateKProcedure extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		return false;
+
+		return ApplCRUDKProcedure.createKProcedure(pageCreateKnowledge.getName(),
+				pageCreateKnowledge.getDescription());
 	}
 
 }

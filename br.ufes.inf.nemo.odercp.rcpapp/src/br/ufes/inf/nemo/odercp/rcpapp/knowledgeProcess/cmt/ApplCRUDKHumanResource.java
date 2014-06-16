@@ -5,7 +5,7 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 public class ApplCRUDKHumanResource {
 
 	public static KHumanResource[] getever() {
-		KHumanResource[] everKHumanResource = new KHumanResource[4];
+		KHumanResource[] everKHumanResource = new KHumanResource[3];
 		KHumanResource aux;
 		aux = new KHumanResource();
 		aux.setName("Analyst");
@@ -18,15 +18,27 @@ public class ApplCRUDKHumanResource {
 		everKHumanResource[1] = aux;
 
 		aux = new KHumanResource();
-		aux.setName("Designer");
-		aux.setDescription("Designer");
-		everKHumanResource[2] = aux;
-
-		aux = new KHumanResource();
 		aux.setName("Project Manager");
 		aux.setDescription("Project Manager");
-		everKHumanResource[3] = aux;
-		
+		everKHumanResource[2] = aux;
+
 		return everKHumanResource;
 	}
+
+	public static boolean createKHumanResource(String name, String description) {
+		KHumanResource kHumanResource = new KHumanResource();
+		kHumanResource.setName(name);
+		kHumanResource.setDescription(description);
+
+		return true;
+	}
+
+	public static boolean deleteKProcess(KHumanResource kHumanResource) {
+		return true;
+	}
+
+	public static boolean updateKProcess(KHumanResource kHumanResource) {
+		return true;
+	}
+
 }

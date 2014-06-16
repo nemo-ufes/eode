@@ -5,36 +5,36 @@ import java.util.Map;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKActivity;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KArtefact;
 
 /**
- * Page Create KActivity to choice ksubActivities
+ * Page Create KArtefact to choice kArtefacts dependes 
  * 
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0
  */
-public class PageCreateKActivityChoicesubKActivity extends WizardPage {
+public class PageCreateKArtefactChoiceDepends extends WizardPage {
 
 	Button checks[];
-	KActivity subkActivities[];
-	Map<String, KActivity> hashsubActivities;
+	KArtefact kArtefacts[];
+	Map<String, KArtefact> hashdepends;
 
 	/**
 	 * Create the wizard.
 	 */
-	public PageCreateKActivityChoicesubKActivity() {
-		super("Page Create KActivity");
-		setTitle("Page Create KActivity");
-		setDescription("Choice subKActivities");
-		subkActivities = ApplCRUDKActivity.getever();
-		hashsubActivities = new HashMap<String, KActivity>();
+	public PageCreateKArtefactChoiceDepends() {
+		super("Page Create KArtefact");
+		setTitle("Page Create KArtefact");
+		setDescription("Choice KArtefacts Dependes");
+		kArtefacts = ApplCRUDKArtefact.getever();
+		hashdepends = new HashMap<String, KArtefact>();
 	}
 
 	/**
@@ -48,11 +48,11 @@ public class PageCreateKActivityChoicesubKActivity extends WizardPage {
 		setControl(container);
 		container.setLayout(new GridLayout(1, false));
 		int i;
-		if (subkActivities.length > 0) checks = new Button[subkActivities.length];
-		for (i = 0; i < subkActivities.length; i++) {
+		if (kArtefacts.length > 0) checks = new Button[kArtefacts.length];
+		for (i = 0; i < kArtefacts.length; i++) {
 			checks[i] = new Button(container, SWT.CHECK);
-			checks[i].setText(subkActivities[i].getName());
-			hashsubActivities.put(subkActivities[i].getName(), subkActivities[i]);
+			checks[i].setText(kArtefacts[i].getName());
+			hashdepends.put(kArtefacts[i].getName(), kArtefacts[i]);
 			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
 			checks[i].addSelectionListener(new SelectionListener() {
 
@@ -64,7 +64,6 @@ public class PageCreateKActivityChoicesubKActivity extends WizardPage {
 
 				@Override
 				public void widgetDefaultSelected(SelectionEvent e) {
-					// TODO Auto-generated method stub
 
 				}
 
@@ -73,7 +72,6 @@ public class PageCreateKActivityChoicesubKActivity extends WizardPage {
 			setPageComplete(false);
 
 		}
-
 	}
 
 	/** Getter for checks. */
@@ -81,9 +79,9 @@ public class PageCreateKActivityChoicesubKActivity extends WizardPage {
 		return checks;
 	}
 
-	/** Getter for hashsubActivities. */
-	public Map<String, KActivity> getHashsubActivities() {
-		return hashsubActivities;
+	/** Getter for hashdepends. */
+	public Map<String, KArtefact> getHashdepends() {
+		return hashdepends;
 	}
 
 }

@@ -2,6 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKLifeCycleModel;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.PageCreateKnowledge;
 
 public class WizardCreateKLifeCycleModel extends Wizard {
@@ -19,7 +20,8 @@ public class WizardCreateKLifeCycleModel extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		return false;
+
+		return ApplCRUDKLifeCycleModel.createKLifeCycleModel(pageCreateKnowledge.getName(), pageCreateKnowledge.getDescription());
 	}
 
 }

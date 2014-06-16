@@ -1,8 +1,5 @@
 package br.ufes.inf.nemo.odercp.rcpapp.userControl.cmt;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cpd.User;
 
 /*import java.rmi.RemoteException;

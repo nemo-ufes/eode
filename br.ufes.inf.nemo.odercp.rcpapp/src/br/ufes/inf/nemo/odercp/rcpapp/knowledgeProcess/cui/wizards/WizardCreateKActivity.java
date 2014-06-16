@@ -1,7 +1,17 @@
 package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.PageCreateKActivityChoiceKArtefactinputs;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.PageCreateKActivityChoiceKArtefactproducts;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.PageCreateKActivityChoiceKHumanResource;
@@ -52,7 +62,74 @@ public class WizardCreateKActivity extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		return false;
-	}
+		Set<KProcedure> kprocedures = new HashSet<KProcedure>();
+		Set<KResource> kresources = new HashSet<KResource>();
+		Set<KArtefact> inputs = new HashSet<KArtefact>();
+		Set<KArtefact> products = new HashSet<KArtefact>();
+		Set<KActivity> preKActivities = new HashSet<KActivity>();
+		Set<KActivity> subKActivities = new HashSet<KActivity>();
+		KProcess kProcess = new KProcess();
+		Set<KHumanResource> kHumanResources = new HashSet<KHumanResource>();
 
+		/** to kProcedures */
+		for (int i = 0; i < pageCreateKActivityChoiceKProcedures.getChecks().length; i++) {
+			if (pageCreateKActivityChoiceKProcedures.getChecks()[i].getSelection() == true) {
+				kprocedures.add(pageCreateKActivityChoiceKProcedures.getHashkProcedures().get(pageCreateKActivityChoiceKProcedures.getChecks()[i].getText()));
+			}
+		}
+
+		/** to kResources */
+		for (int i = 0; i < pageCreateKActivityChoiceKResources.getChecks().length; i++) {
+			if (pageCreateKActivityChoiceKResources.getChecks()[i].getSelection() == true) {
+				kresources.add(pageCreateKActivityChoiceKResources.getHashkResources().get(pageCreateKActivityChoiceKResources.getChecks()[i].getText()));
+			}
+		}
+
+		/** to kArtefacts inputs */
+		for (int i = 0; i < pageCreateKActivityChoiceKArtefactinputs.getChecks().length; i++) {
+			if (pageCreateKActivityChoiceKArtefactinputs.getChecks()[i].getSelection() == true) {
+				inputs.add(pageCreateKActivityChoiceKArtefactinputs.getHashinputs().get(pageCreateKActivityChoiceKArtefactinputs.getChecks()[i].getText()));
+			}
+		}
+
+		/** to kArtefacts products */
+		for (int i = 0; i < pageCreateKActivityChoiceKArtefactproducts.getChecks().length; i++) {
+			if (pageCreateKActivityChoiceKArtefactproducts.getChecks()[i].getSelection() == true) {
+				products.add(pageCreateKActivityChoiceKArtefactproducts.getHashproducts().get(pageCreateKActivityChoiceKArtefactproducts.getChecks()[i].getText()));
+			}
+		}
+
+		/** to preKActivities */
+		for (int i = 0; i < pageCreateKActivityChoicepreKActivity.getChecks().length; i++) {
+			if (pageCreateKActivityChoicepreKActivity.getChecks()[i].getSelection() == true) {
+				preKActivities.add(pageCreateKActivityChoicepreKActivity.getHashpreKactivities().get(pageCreateKActivityChoicepreKActivity.getChecks()[i].getText()));
+			}
+		}
+
+		/** to subKActivities */
+		for (int i = 0; i < pageCreateKActivityChoicesubKActivity.getChecks().length; i++) {
+			if (pageCreateKActivityChoicesubKActivity.getChecks()[i].getSelection() == true) {
+				subKActivities.add(pageCreateKActivityChoicesubKActivity.getHashsubActivities().get(pageCreateKActivityChoicesubKActivity.getChecks()[i].getText()));
+			}
+		}
+
+		/** to KHumanResources */
+		for (int i = 0; i < pageCreateKActivityChoiceKHumanResource.getChecks().length; i++) {
+			if (pageCreateKActivityChoiceKHumanResource.getChecks()[i].getSelection() == true) {
+				kHumanResources.add(pageCreateKActivityChoiceKHumanResource.getHashKhumanResources().get(pageCreateKActivityChoiceKHumanResource.getChecks()[i].getText()));
+			}
+		}
+
+		/** to KProcess */
+		boolean found = false;
+		for (int i = 0; i < pageCreateKActivityChoiceKProcess.getRadios().length && found == false; i++) {
+			if (pageCreateKActivityChoiceKProcess.getRadios()[i].getSelection() == true) {
+				kProcess = pageCreateKActivityChoiceKProcess.getHashKprocesses().get(pageCreateKActivityChoiceKProcess.getRadios()[i].getText());
+				found = true;
+			}
+		}
+
+		return ApplCRUDKActivity.createKActivity(pageCreateKnowledge.getName(), pageCreateKnowledge.getDescription(), kHumanResources, inputs, kprocedures, kProcess, kresources, preKActivities, subKActivities, pageCreateKnowledge.getBtnMandatory().getSelection(), products);
+
+	}
 }
