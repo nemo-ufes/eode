@@ -30,6 +30,7 @@ public class ApplCRUDKArtefact {
 		return true;
 	}
 
+
 	public static boolean deleteKArtefact(KArtefact kArtefact) {
 		return true;
 	}

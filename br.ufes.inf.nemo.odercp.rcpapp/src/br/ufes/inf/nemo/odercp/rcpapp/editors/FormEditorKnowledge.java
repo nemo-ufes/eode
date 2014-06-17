@@ -48,6 +48,18 @@ public class FormEditorKnowledge extends FormPage {
 	private Button btnMandatory;
 	private Button btnIsengineering;
 	Map<TreeItem, Knowledge> hashKnowledge;
+	private TabItem subKactivites;
+	private TabItem kHumanResources;
+	private TabItem preKactivites;
+	private TabItem inputs;
+	private TabItem products;
+	private TabItem kProcedures;
+	Button checksubKactivies[];
+	Button checkHumanResources[];
+	Button checkprekActivities[];
+	Button checkinputs[];
+	Button checkproducts[];	
+	Button checkkprocedures[];	
 
 	/**
 	 * Create the form page.
@@ -230,9 +242,12 @@ public class FormEditorKnowledge extends FormPage {
 					btnMandatory.setVisible(true);
 					btnMandatory.setSelection(((KActivity) k).isMandatory());
 				}
-				if (k instanceof KProcess) {
+				else if (k instanceof KProcess) {
 					btnIsengineering.setVisible(true);
 					btnIsengineering.setSelection(((KProcess) k).isEngineering());
+				}
+				else {
+					hidetopfolder();
 				}
 
 			}
@@ -306,15 +321,118 @@ public class FormEditorKnowledge extends FormPage {
 		managedForm.getToolkit().adapt(tabFolder);
 		managedForm.getToolkit().paintBordersFor(tabFolder);
 
-		TabItem tabItem = new TabItem(tabFolder, SWT.NONE);
-		tabItem.setText("New Item");
+		subKactivites = new TabItem(tabFolder, SWT.NONE);
+		subKactivites.setText("subKActivities");
+		KActivity vsubKActivities[] = ApplCRUDKActivity.getever();
+
+		Form frmsubkActivities = managedForm.getToolkit().createForm(tabFolder);
+		subKactivites.setControl(frmsubkActivities);
+		managedForm.getToolkit().paintBordersFor(frmsubkActivities);
+		frmsubkActivities.setText("subKActivities");
+
+		if (vsubKActivities.length > 0) checksubKactivies = new Button[vsubKActivities.length];
+		for (int i = 0; i < vsubKActivities.length; i++) {
+			checksubKactivies[i] = new Button(frmsubkActivities.getBody(), SWT.CHECK);
+			checksubKactivies[i].setBounds(10, 20 + 20 * i, 355, 24);
+			managedForm.getToolkit().adapt(checksubKactivies[i], true, true);
+			checksubKactivies[i].setText(vsubKActivities[i].getName());
+		}
+
+		preKactivites = new TabItem(tabFolder, SWT.NONE);
+		preKactivites.setText("preKActivities");
 		
-		TabItem tabItem_1 = new TabItem(tabFolder, SWT.NONE);
-		tabItem_1.setText("New Item");
+		Form frmprekActivities = managedForm.getToolkit().createForm(tabFolder);
+		preKactivites.setControl(frmprekActivities);
+		managedForm.getToolkit().paintBordersFor(frmprekActivities);
+		frmprekActivities.setText("preKActivities");
+
+		KActivity vprekActivities[] = ApplCRUDKActivity.getever();
+		if (vprekActivities.length > 0) checkprekActivities = new Button[vprekActivities.length];
+		for (int i = 0; i < vprekActivities.length; i++) {
+			checkprekActivities[i] = new Button(frmprekActivities.getBody(), SWT.CHECK);
+			checkprekActivities[i].setBounds(10, 20 + 20 * i, 355, 24);
+			managedForm.getToolkit().adapt(checkprekActivities[i], true, true);
+			checkprekActivities[i].setText(vprekActivities[i].getName());
+		}
+
+		inputs = new TabItem(tabFolder, SWT.NONE);
+		inputs.setText("Inputs");
 		
-		Button btnCheckButton = new Button(tabFolder, SWT.CHECK);
-		tabItem_1.setControl(btnCheckButton);
-		btnCheckButton.setText("Check Button");
+		Form frminputs = managedForm.getToolkit().createForm(tabFolder);
+		inputs.setControl(frminputs);
+		managedForm.getToolkit().paintBordersFor(frminputs);
+		frminputs.setText("Inputs");
+
+		KArtefact vinputs[] = ApplCRUDKArtefact.getever();
+		if (vinputs.length > 0) checkinputs = new Button[vinputs.length];
+		for (int i = 0; i < vinputs.length; i++) {
+			checkinputs[i] = new Button(frminputs.getBody(), SWT.CHECK);
+			checkinputs[i].setBounds(10, 20 + 20 * i, 355, 24);
+			managedForm.getToolkit().adapt(checkinputs[i], true, true);
+			checkinputs[i].setText(vinputs[i].getName());
+		}
+
+		products = new TabItem(tabFolder, SWT.NONE);
+		products.setText("products");
+
+		Form frmproducts = managedForm.getToolkit().createForm(tabFolder);
+		products.setControl(frmproducts);
+		managedForm.getToolkit().paintBordersFor(frmproducts);
+		frmproducts.setText("Products");
+
+		KArtefact vproducts[] = ApplCRUDKArtefact.getever();
+		if (vproducts.length > 0) checkproducts = new Button[vproducts.length];
+		for (int i = 0; i < vproducts.length; i++) {
+			checkproducts[i] = new Button(frmproducts.getBody(), SWT.CHECK);
+			checkproducts[i].setBounds(10, 20 + 20 * i, 355, 24);
+			managedForm.getToolkit().adapt(checkproducts[i], true, true);
+			checkproducts[i].setText(vproducts[i].getName());
+		}
+
+		kProcedures = new TabItem(tabFolder, SWT.NONE);
+		kProcedures.setText("kProcedures");
+
+		Form frmkprocedures = managedForm.getToolkit().createForm(tabFolder);
+		kProcedures.setControl(frmkprocedures);
+		managedForm.getToolkit().paintBordersFor(frmkprocedures);
+		frmkprocedures.setText("KProcedures");
+
+		KProcedure vkprocedures[] = ApplCRUDKProcedure.getever();
+		if (vkprocedures.length > 0) checkkprocedures = new Button[vkprocedures.length];
+		for (int i = 0; i < vkprocedures.length; i++) {
+			checkkprocedures[i] = new Button(frmkprocedures.getBody(), SWT.CHECK);
+			checkkprocedures[i].setBounds(10, 20 + 20 * i, 355, 24);
+			managedForm.getToolkit().adapt(checkkprocedures[i], true, true);
+			checkkprocedures[i].setText(vkprocedures[i].getName());
+		}
+//TODO
+		TabItem kProcess = new TabItem(tabFolder, SWT.NONE);
+		kProcess.setText("kProcess");
+		
+		kHumanResources = new TabItem(tabFolder, SWT.NONE);
+		kHumanResources.setText("kHumanResources");
+
+		Form frmkHumanResources = managedForm.getToolkit().createForm(tabFolder);
+		kHumanResources.setControl(frmkHumanResources);
+		managedForm.getToolkit().paintBordersFor(frmkHumanResources);
+		frmkHumanResources.setText("KHumanResources");
+
+		KHumanResource vkHumanResources[] = ApplCRUDKHumanResource.getever();
+		if (vkHumanResources.length > 0) checkHumanResources = new Button[vkHumanResources.length];
+		for (int i = 0; i < vkHumanResources.length; i++) {
+			checkHumanResources[i] = new Button(frmkHumanResources.getBody(), SWT.CHECK);
+			checkHumanResources[i].setBounds(10, 20 + 20 * i, 355, 24);
+			managedForm.getToolkit().adapt(checkHumanResources[i], true, true);
+			checkHumanResources[i].setText(vkHumanResources[i].getName());
+		}
+
+		TabItem kResources = new TabItem(tabFolder, SWT.NONE);
+		kResources.setText("kResources");
+
+	}
+
+	protected void hidetopfolder() {
+		// TODO Auto-generated method stub
 
 	}
 }
