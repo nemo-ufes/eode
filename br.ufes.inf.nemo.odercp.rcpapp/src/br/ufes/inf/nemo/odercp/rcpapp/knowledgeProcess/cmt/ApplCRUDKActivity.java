@@ -19,7 +19,7 @@ public class ApplCRUDKActivity {
 		aux = new KActivity();
 		aux.setName("kActivity1");
 		aux.setDescription("kActivity1");
-		aux.setHumanResources(new HashSet<KHumanResource>(Arrays.asList(ApplCRUDKHumanResource.getever())));
+		aux.setKHumanResources(new HashSet<KHumanResource>(Arrays.asList(ApplCRUDKHumanResource.getever())));
 		aux.setInputs(null);
 		aux.setkProcedures(new HashSet<KProcedure>(Arrays.asList(ApplCRUDKProcedure.getever())));
 		aux.setkProcess(ApplCRUDKProcess.getever()[0]);
@@ -36,7 +36,7 @@ public class ApplCRUDKActivity {
 	public static boolean createKActivity(String name, String description, Set<KHumanResource> humanResources, Set<KArtefact> inputs, Set<KProcedure> procedures, KProcess kProcess, Set<KResource> resources, Set<KActivity> preActivities, Set<KActivity> subActivities, boolean mandatory, Set<KArtefact> products) {
 		KActivity activity = new KActivity();
 		activity.setDescription(description);
-		activity.setHumanResources(humanResources);
+		activity.setKHumanResources(humanResources);
 		activity.setInputs(inputs);
 		activity.setkProcedures(procedures);
 		activity.setkProcess(kProcess);

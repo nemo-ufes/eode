@@ -1,12 +1,13 @@
 package br.ufes.inf.nemo.odercp.rcpapp.editors;
 
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
-import org.apache.axis.transport.jms.TopicConnector;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
@@ -20,7 +21,6 @@ import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.forms.IManagedForm;
 import org.eclipse.ui.forms.editor.FormEditor;
 import org.eclipse.ui.forms.editor.FormPage;
-import org.eclipse.ui.forms.widgets.Form;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
@@ -40,6 +40,7 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KLifeCycleModel;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcedure;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KSoftwareResource;
 
 public class FormEditorKnowledge extends FormPage {
@@ -50,8 +51,9 @@ public class FormEditorKnowledge extends FormPage {
 	private Text description;
 	private Button btnMandatory;
 	private Button btnIsengineering;
-	Map<TreeItem, Knowledge> hashKnowledge;
-	TabFolder tabFolder;
+	private Map<TreeItem, Knowledge> hashKnowledge;
+	private TabFolder tabFolderKActivity;
+	private TabFolder tabFolderKArtefact;
 	private TabItem subKactivites;
 	private TabItem kHumanResources;
 	private TabItem preKactivites;
@@ -62,16 +64,30 @@ public class FormEditorKnowledge extends FormPage {
 	private TabItem kResources;
 	private TabItem subkArtefacts;
 	private TabItem depends;
-	Button checksubKactivies[];
-	Button checkHumanResources[];
-	Button checkprekActivities[];
-	Button checkinputs[];
-	Button checkproducts[];
-	Button checkkprocedures[];
-	Button radioskprocesses[];
-	Button checkResources[];
-	Button checksubartefacts[];
-	Button checkdepends[];
+	private Button checksubKactivies[];
+	private Button checkHumanResources[];
+	private Button checkprekActivities[];
+	private Button checkinputs[];
+	private Button checkproducts[];
+	private Button checkkprocedures[];
+	private Button radioskprocesses[];
+	private Button checkResources[];
+	private Button checksubartefacts[];
+	private Button checkdepends[];
+	private Button btnUpdate;
+	private Tree tree;
+	private TreeItem root;
+	private Button btnDelete;
+	private Knowledge chosenKnowledge;
+
+	/** Hashs */
+	Map<String, Integer> hashKActivity;
+	Map<String, Integer> hashKArtefact;
+	Map<String, Integer> hashKProcess;
+	Map<String, Integer> hashKProcedure;
+	Map<String, Integer> hashKLifeCycleModel;
+	Map<String, Integer> hashKResource;
+	Map<String, Integer> hashKHumanResources;
 
 	/**
 	 * Create the form page.
@@ -111,16 +127,16 @@ public class FormEditorKnowledge extends FormPage {
 		toolkit.decorateFormHeading(form.getForm());
 		toolkit.paintBordersFor(container);
 
-		container.setLayout(new GridLayout(6, false));
+		container.setLayout(new GridLayout(3, false));
 
 		// TreeViewer treeViewer = new TreeViewer(container, SWT.BORDER);
-		Tree tree = new Tree(container, SWT.BORDER);
+		tree = new Tree(container, SWT.BORDER);
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1));
-		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 9);
+		GridData gd_tree = new GridData(SWT.FILL, SWT.FILL, false, true, 1, 13);
 		gd_tree.widthHint = 248;
 		tree.setLayoutData(gd_tree);
 
-		TreeItem root = new TreeItem(tree, SWT.NONE, 0);
+		root = new TreeItem(tree, SWT.NONE, 0);
 		root.setText("Knowledge");
 		root.setExpanded(true);
 
@@ -249,6 +265,7 @@ public class FormEditorKnowledge extends FormPage {
 			}
 
 			private void populateKnowledge(Knowledge k) {
+				chosenKnowledge = k;
 				name.setText(k.getName());
 				description.setText(k.getDescription());
 				if (k instanceof KActivity) {
@@ -256,8 +273,76 @@ public class FormEditorKnowledge extends FormPage {
 
 					btnMandatory.setVisible(true);
 					btnMandatory.setSelection(((KActivity) k).isMandatory());
-					// folderkActivity();
-					tabFolder.setVisible(true);
+					tabFolderKActivity.setVisible(true);
+					/** complete the tabfolderKActivity */
+
+					if (((KActivity) k).getSubKActivities() != null) {
+						Iterator<KActivity> itsubkActivities = ((KActivity) k).getSubKActivities().iterator();
+						while (itsubkActivities.hasNext()) {
+
+							Integer i = hashKActivity.get(itsubkActivities.next().getName());
+							checkprekActivities[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KActivity) k).getPreKActivities() != null) {
+						Iterator<KActivity> itprekActivities = ((KActivity) k).getPreKActivities().iterator();
+						while (itprekActivities.hasNext()) {
+
+							Integer i = hashKActivity.get(itprekActivities.next().getName());
+							checkprekActivities[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KActivity) k).getInputs() != null) {
+						Iterator<KArtefact> itinputs = ((KActivity) k).getInputs().iterator();
+						while (itinputs.hasNext()) {
+
+							Integer i = hashKArtefact.get(itinputs.next().getName());
+							checkinputs[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KActivity) k).getProducts() != null) {
+						Iterator<KArtefact> itproducts = ((KActivity) k).getProducts().iterator();
+						while (itproducts.hasNext()) {
+
+							Integer i = hashKArtefact.get(itproducts.next().getName());
+							checkproducts[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KActivity) k).getkProcedures() != null) {
+						Iterator<KProcedure> itprocedures = ((KActivity) k).getkProcedures().iterator();
+						while (itprocedures.hasNext()) {
+
+							Integer i = hashKProcedure.get(itprocedures.next().getName());
+							checkkprocedures[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KActivity) k).getKHumanResources() != null) {
+						Iterator<KHumanResource> itkhumanResources = ((KActivity) k).getKHumanResources().iterator();
+						while (itkhumanResources.hasNext()) {
+
+							Integer i = hashKHumanResources.get(itkhumanResources.next().getName());
+							checkHumanResources[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KActivity) k).getkResources() != null) {
+						Iterator<KResource> itkResources = ((KActivity) k).getkResources().iterator();
+						while (itkResources.hasNext()) {
+
+							Integer i = hashKResource.get(itkResources.next().getName());
+							checkResources[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KActivity) k).getkProcess() != null) {
+						Integer i = hashKProcess.get(((KActivity) k).getkProcess().getName());
+						radioskprocesses[i.intValue()].setSelection(true);
+					}
 				}
 				else if (k instanceof KProcess) {
 					hideelements();
@@ -267,75 +352,194 @@ public class FormEditorKnowledge extends FormPage {
 				}
 				else if (k instanceof KArtefact) {
 					hideelements();
-					// folderkArtefact();
-					tabFolder.setVisible(true);
-					hideTabItemKActivity();
+					tabFolderKArtefact.setVisible(true);
+
+					// hashs
+					if (((KArtefact) k).getDepends() != null) {
+						Iterator<KArtefact> itdepends = ((KArtefact) k).getDepends().iterator();
+						while (itdepends.hasNext()) {
+
+							Integer i = hashKArtefact.get(itdepends.next().getName());
+							checkdepends[i.intValue()].setSelection(true);
+						}
+					}
+
+					if (((KArtefact) k).getSubArtefacts() != null) {
+						Iterator<KArtefact> itsubkArtefacts = ((KArtefact) k).getSubArtefacts().iterator();
+						while (itsubkArtefacts.hasNext()) {
+
+							Integer i = hashKArtefact.get(itsubkArtefacts.next().getName());
+							checksubartefacts[i.intValue()].setSelection(true);
+						}
+					}
+
+				}
+				else {
+					hideelements();
 				}
 
 			}
 
 		});
-		/** to stay rendering in layout */
-		for (int i = 0; i < 18; i++) {
-			new Label(container, SWT.NONE);
-		}
 
-		Label lblName = new Label(container, SWT.SHADOW_IN);
+		/** to stay rendering in layout */
+
+		Label lblName = new Label(container, SWT.NONE);
 		lblName.setText("Name:");
 		managedForm.getToolkit().adapt(lblName, true, true);
 
-		name = new Text(container, SWT.BORDER);
-		name.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
+		name = new Text(container, SWT.NONE);
+		name.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
 
-		description = new Text(container, SWT.BORDER);
-		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 3));
+		description = new Text(container, SWT.NONE);
+		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 3));
 		managedForm.getToolkit().adapt(description, true, true);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
 
 		Label lblDescription = new Label(container, SWT.NONE);
+		lblDescription.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		lblDescription.setText("Description:");
 		managedForm.getToolkit().adapt(lblDescription, true, true);
-
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(managedForm.getForm().getBody(), SWT.NONE);
-		new Label(managedForm.getForm().getBody(), SWT.NONE);
 		new Label(managedForm.getForm().getBody(), SWT.NONE);
 
 		btnMandatory = new Button(managedForm.getForm().getBody(), SWT.CHECK);
 		managedForm.getToolkit().adapt(btnMandatory, true, true);
 		btnMandatory.setText("Mandatory");
-		btnMandatory.setVisible(false);
 
 		btnIsengineering = new Button(managedForm.getForm().getBody(), SWT.CHECK);
 		managedForm.getToolkit().adapt(btnIsengineering, true, true);
 		btnIsengineering.setText("isEngineering");
-		btnIsengineering.setVisible(false);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
 
-		tabFolder = new TabFolder(managedForm.getForm().getBody(), SWT.NONE);
-		tabFolder.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
-		managedForm.getToolkit().adapt(tabFolder);
-		managedForm.getToolkit().paintBordersFor(tabFolder);
+		tabFolderKArtefact = new TabFolder(managedForm.getForm().getBody(), SWT.NONE);
+		tabFolderKArtefact.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		managedForm.getToolkit().adapt(tabFolderKArtefact);
+		managedForm.getToolkit().paintBordersFor(tabFolderKArtefact);
+
+		tabFolderKActivity = new TabFolder(managedForm.getForm().getBody(), SWT.NONE);
+		tabFolderKActivity.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
+		managedForm.getToolkit().adapt(tabFolderKActivity);
+		managedForm.getToolkit().paintBordersFor(tabFolderKActivity);
+
+		{
+			btnUpdate = new Button(managedForm.getForm().getBody(), SWT.NONE);
+			managedForm.getToolkit().adapt(btnUpdate, true, true);
+			btnUpdate.setText("update...");
+			btnUpdate.addSelectionListener(new SelectionListener() {
+
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					if (chosenKnowledge != null) {
+						if (chosenKnowledge instanceof KActivity) {
+							ApplCRUDKActivity.updateKActivity((KActivity) chosenKnowledge);
+						}
+						else if (chosenKnowledge instanceof KArtefact) {
+							ApplCRUDKArtefact.updateKArtefact((KArtefact) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KHumanResource) {
+							ApplCRUDKHumanResource.updateKHumanResource((KHumanResource) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KHardwareResource) {
+							ApplCRUDKHardwareResource.updateKHardwareResource((KHardwareResource) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KSoftwareResource) {
+							ApplCRUDKSoftwareResource.updateKSoftwareResource((KSoftwareResource) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KProcess) {
+							ApplCRUDKProcess.updateKProcess((KProcess) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KProcedure) {
+							ApplCRUDKProcedure.updateKProcedure((KProcedure) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KLifeCycleModel) {
+							ApplCRUDKLifeCycleModel.updateKLifeCycleModel((KLifeCycleModel) chosenKnowledge);
+
+						}
+
+					}// end if
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+			});
+
+		}
+		{
+			btnDelete = new Button(managedForm.getForm().getBody(), SWT.NONE);
+			managedForm.getToolkit().adapt(btnDelete, true, true);
+			btnDelete.setText("delete...");
+			btnDelete.addSelectionListener(new SelectionListener() {
+
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					if (chosenKnowledge != null) {
+						if (chosenKnowledge instanceof KActivity) {
+							ApplCRUDKActivity.deleteKActivity((KActivity) chosenKnowledge);
+						}
+						else if (chosenKnowledge instanceof KArtefact) {
+							ApplCRUDKArtefact.deleteKArtefact((KArtefact) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KHumanResource) {
+							ApplCRUDKHumanResource.deleteKHumanResource((KHumanResource) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KHardwareResource) {
+							ApplCRUDKHardwareResource.deleteKHardwareResource((KHardwareResource) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KSoftwareResource) {
+							ApplCRUDKSoftwareResource.deleteKSoftwareResource((KSoftwareResource) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KProcess) {
+							ApplCRUDKProcess.deleteKProcess((KProcess) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KProcedure) {
+							ApplCRUDKProcedure.deleteKProcedure((KProcedure) chosenKnowledge);
+
+						}
+						else if (chosenKnowledge instanceof KLifeCycleModel) {
+							ApplCRUDKLifeCycleModel.deleteKLifeCycleModel((KLifeCycleModel) chosenKnowledge);
+
+						}
+
+					}// end if
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+			});
+
+		}
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
 
 		folderkActivity();
 		folderkArtefact();
 		hideelements();
+		chosenKnowledge = null;
 
 	}
 
 	protected void hideelements() {
-		tabFolder.setVisible(false);
+
+		tabFolderKArtefact.setVisible(false);
+		tabFolderKActivity.setVisible(false);
 		btnMandatory.setVisible(false);
 		btnIsengineering.setVisible(false);
 
@@ -344,14 +548,12 @@ public class FormEditorKnowledge extends FormPage {
 	/** create TabItem to KActivity */
 	protected void folderkActivity() {
 
-		toolkit.adapt(tabFolder);
-		toolkit.paintBordersFor(tabFolder);
-
-		subKactivites = new TabItem(tabFolder, SWT.NONE);
+		subKactivites = new TabItem(tabFolderKActivity, SWT.NONE);
 		subKactivites.setText("subKActivities");
 		KActivity vsubKActivities[] = ApplCRUDKActivity.getever();
+		hashKActivity = new HashMap<String, Integer>();
 
-		ScrolledForm frmsubkActivities = toolkit.createScrolledForm(tabFolder);
+		ScrolledForm frmsubkActivities = toolkit.createScrolledForm(tabFolderKActivity);
 		subKactivites.setControl(frmsubkActivities);
 		toolkit.paintBordersFor(frmsubkActivities);
 		frmsubkActivities.setText("subKActivities");
@@ -362,12 +564,13 @@ public class FormEditorKnowledge extends FormPage {
 			checksubKactivies[i].setBounds(10, 20 + 20 * i, 355, 24);
 			toolkit.adapt(checksubKactivies[i], true, true);
 			checksubKactivies[i].setText(vsubKActivities[i].getName());
+			hashKActivity.put(vsubKActivities[i].getName(), Integer.valueOf(i));
 		}
 
-		preKactivites = new TabItem(tabFolder, SWT.NONE);
+		preKactivites = new TabItem(tabFolderKActivity, SWT.NONE);
 		preKactivites.setText("preKActivities");
 
-		ScrolledForm frmprekActivities = toolkit.createScrolledForm(tabFolder);
+		ScrolledForm frmprekActivities = toolkit.createScrolledForm(tabFolderKActivity);
 		preKactivites.setControl(frmprekActivities);
 		toolkit.paintBordersFor(frmprekActivities);
 		frmprekActivities.setText("preKActivities");
@@ -381,10 +584,11 @@ public class FormEditorKnowledge extends FormPage {
 			checkprekActivities[i].setText(vprekActivities[i].getName());
 		}
 
-		inputs = new TabItem(tabFolder, SWT.NONE);
+		inputs = new TabItem(tabFolderKActivity, SWT.NONE);
 		inputs.setText("Inputs");
+		hashKArtefact = new HashMap<String, Integer>();
 
-		ScrolledForm frminputs = toolkit.createScrolledForm(tabFolder);
+		ScrolledForm frminputs = toolkit.createScrolledForm(tabFolderKActivity);
 		inputs.setControl(frminputs);
 		toolkit.paintBordersFor(frminputs);
 		frminputs.setText("Inputs");
@@ -396,12 +600,13 @@ public class FormEditorKnowledge extends FormPage {
 			checkinputs[i].setBounds(10, 20 + 20 * i, 355, 24);
 			toolkit.adapt(checkinputs[i], true, true);
 			checkinputs[i].setText(vinputs[i].getName());
+			hashKArtefact.put(vinputs[i].getName(), Integer.valueOf(i));
 		}
 
-		products = new TabItem(tabFolder, SWT.NONE);
+		products = new TabItem(tabFolderKActivity, SWT.NONE);
 		products.setText("products");
 
-		ScrolledForm frmproducts = toolkit.createScrolledForm(tabFolder);
+		ScrolledForm frmproducts = toolkit.createScrolledForm(tabFolderKActivity);
 		products.setControl(frmproducts);
 		toolkit.paintBordersFor(frmproducts);
 		frmproducts.setText("Products");
@@ -415,10 +620,11 @@ public class FormEditorKnowledge extends FormPage {
 			checkproducts[i].setText(vproducts[i].getName());
 		}
 
-		kProcedures = new TabItem(tabFolder, SWT.NONE);
+		kProcedures = new TabItem(tabFolderKActivity, SWT.NONE);
 		kProcedures.setText("kProcedures");
+		hashKProcedure = new HashMap<String, Integer>();
 
-		Form frmkprocedures = toolkit.createForm(tabFolder);
+		ScrolledForm frmkprocedures = toolkit.createScrolledForm(tabFolderKActivity);
 		kProcedures.setControl(frmkprocedures);
 		toolkit.paintBordersFor(frmkprocedures);
 		frmkprocedures.setText("KProcedures");
@@ -430,12 +636,14 @@ public class FormEditorKnowledge extends FormPage {
 			checkkprocedures[i].setBounds(10, 20 + 20 * i, 355, 24);
 			toolkit.adapt(checkkprocedures[i], true, true);
 			checkkprocedures[i].setText(vkprocedures[i].getName());
+			hashKProcedure.put(vkprocedures[i].getName(), Integer.valueOf(i));
 		}
 
-		kProcess = new TabItem(tabFolder, SWT.NONE);
+		kProcess = new TabItem(tabFolderKActivity, SWT.NONE);
 		kProcess.setText("kProcess");
+		hashKProcess = new HashMap<String, Integer>();
 
-		Form frmkprocess = toolkit.createForm(tabFolder);
+		ScrolledForm frmkprocess = toolkit.createScrolledForm(tabFolderKActivity);
 		kProcess.setControl(frmkprocess);
 		toolkit.paintBordersFor(frmkprocess);
 		frmkprocess.setText("KProcess");
@@ -447,12 +655,14 @@ public class FormEditorKnowledge extends FormPage {
 			radioskprocesses[i].setBounds(10, 20 + 20 * i, 355, 24);
 			toolkit.adapt(radioskprocesses[i], true, true);
 			radioskprocesses[i].setText(vkProcess[i].getName());
+			hashKProcess.put(vkProcess[i].getName(), Integer.valueOf(i));
 		}
 
-		kHumanResources = new TabItem(tabFolder, SWT.NONE);
+		kHumanResources = new TabItem(tabFolderKActivity, SWT.NONE);
 		kHumanResources.setText("kHumanResources");
+		hashKHumanResources = new HashMap<String, Integer>();
 
-		Form frmkHumanResources = toolkit.createForm(tabFolder);
+		ScrolledForm frmkHumanResources = toolkit.createScrolledForm(tabFolderKActivity);
 		kHumanResources.setControl(frmkHumanResources);
 		toolkit.paintBordersFor(frmkHumanResources);
 		frmkHumanResources.setText("KHumanResources");
@@ -464,12 +674,14 @@ public class FormEditorKnowledge extends FormPage {
 			checkHumanResources[i].setBounds(10, 20 + 20 * i, 355, 24);
 			toolkit.adapt(checkHumanResources[i], true, true);
 			checkHumanResources[i].setText(vkHumanResources[i].getName());
+			hashKHumanResources.put(vkHumanResources[i].getName(), Integer.valueOf(i));
 		}
 
-		kResources = new TabItem(tabFolder, SWT.NONE);
+		kResources = new TabItem(tabFolderKActivity, SWT.NONE);
 		kResources.setText("kResources");
+		hashKResource = new HashMap<String, Integer>();
 
-		Form frmkResources = toolkit.createForm(tabFolder);
+		ScrolledForm frmkResources = toolkit.createScrolledForm(tabFolderKActivity);
 		kResources.setControl(frmkResources);
 		toolkit.paintBordersFor(frmkResources);
 		frmkResources.setText("KResources");
@@ -485,12 +697,14 @@ public class FormEditorKnowledge extends FormPage {
 			checkResources[iR].setBounds(10, 20 + 20 * iR, 355, 24);
 			toolkit.adapt(checkResources[iR], true, true);
 			checkResources[iR].setText(vkHardwareResources[iR].getName());
+			hashKResource.put(vkHardwareResources[iR].getName(), Integer.valueOf(iR));
 		}
 		for (; iR < vkHardwareResources.length + vkSoftwareResources.length; iR++) {
 			checkResources[iR] = new Button(frmkResources.getBody(), SWT.CHECK);
 			checkResources[iR].setBounds(10, 20 + 20 * iR, 355, 24);
 			toolkit.adapt(checkResources[iR], true, true);
 			checkResources[iR].setText(vkSoftwareResources[iR - vkHardwareResources.length].getName());
+			hashKResource.put(vkSoftwareResources[iR - vkHardwareResources.length].getName(), Integer.valueOf(iR));
 
 		}
 
@@ -499,13 +713,10 @@ public class FormEditorKnowledge extends FormPage {
 	/** create TabItem to KArtefact */
 	protected void folderkArtefact() {
 
-		toolkit.adapt(tabFolder);
-		toolkit.paintBordersFor(tabFolder);
-
-		subkArtefacts = new TabItem(tabFolder, SWT.NONE);
+		subkArtefacts = new TabItem(tabFolderKArtefact, SWT.NONE);
 		subkArtefacts.setText("subkArtefacts");
 
-		Form frmksubArtefacts = toolkit.createForm(tabFolder);
+		ScrolledForm frmksubArtefacts = toolkit.createScrolledForm(tabFolderKArtefact);
 		subkArtefacts.setControl(frmksubArtefacts);
 		toolkit.paintBordersFor(frmksubArtefacts);
 		frmksubArtefacts.setText("subkArtefacts");
@@ -519,10 +730,10 @@ public class FormEditorKnowledge extends FormPage {
 			checksubartefacts[i].setText(vsubkArtefacts[i].getName());
 		}
 
-		depends = new TabItem(tabFolder, SWT.NONE);
+		depends = new TabItem(tabFolderKArtefact, SWT.NONE);
 		depends.setText("depends");
 
-		Form frmkdepends = toolkit.createForm(tabFolder);
+		ScrolledForm frmkdepends = toolkit.createScrolledForm(tabFolderKArtefact);
 		depends.setControl(frmkdepends);
 		toolkit.paintBordersFor(frmkdepends);
 		frmkdepends.setText("depends");
@@ -536,13 +747,5 @@ public class FormEditorKnowledge extends FormPage {
 			checkdepends[i].setText(vdepends[i].getName());
 		}
 
-	}
-
-	
-	protected void hideTabItemKActivity() {
-		for (int i = 0; i < 8; i++) {
-			tabFolder.getTabList()[i].setVisible(false);
-
-		}
 	}
 }

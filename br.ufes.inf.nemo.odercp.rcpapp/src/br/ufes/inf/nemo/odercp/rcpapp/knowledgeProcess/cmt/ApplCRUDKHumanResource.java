@@ -33,11 +33,11 @@ public class ApplCRUDKHumanResource {
 		return true;
 	}
 
-	public static boolean deleteKProcess(KHumanResource kHumanResource) {
+	public static boolean deleteKHumanResource(KHumanResource kHumanResource) {
 		return true;
 	}
 
-	public static boolean updateKProcess(KHumanResource kHumanResource) {
+	public static boolean updateKHumanResource(KHumanResource kHumanResource) {
 		return true;
 	}
 

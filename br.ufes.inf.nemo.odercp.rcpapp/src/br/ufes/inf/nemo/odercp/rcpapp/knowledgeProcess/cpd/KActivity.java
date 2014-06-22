@@ -30,7 +30,7 @@ public class KActivity extends Knowledge {
 
 	private KProcess kProcess;
 
-	private Set<KHumanResource> humanResources;
+	private Set<KHumanResource> khumanResources;
 
 	/** Constructor. */
 	public KActivity() {
@@ -117,14 +117,14 @@ public class KActivity extends Knowledge {
 		this.kProcess = kProcess;
 	}
 
-	/** Getter for humanResources. */
-	public Set<KHumanResource> getHumanResources() {
-		return humanResources;
+	/** Getter for khumanResources. */
+	public Set<KHumanResource> getKHumanResources() {
+		return khumanResources;
 	}
 
-	/** Setter for humanResources. */
-	public void setHumanResources(Set<KHumanResource> humanResources) {
-		this.humanResources = humanResources;
+	/** Setter for khumanResources. */
+	public void setKHumanResources(Set<KHumanResource> humanResources) {
+		this.khumanResources = humanResources;
 	}
 
 }

@@ -25,8 +25,8 @@ public class EditorODE extends FormEditor {
 
 		try {
 			// add form pages
-			addPage(new FormEditorHumanResource(this, "1", "Human Resource"));
-			addPage(new FormEditorKnowledge(this, "2", "Knowledge"));
+			addPage(new FormEditorKnowledge(this, "1", "Knowledge"));
+			addPage(new FormEditorHumanResource(this, "2", "Human Resource"));
 		
 		}
 		catch (final PartInitException e) {

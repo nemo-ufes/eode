@@ -227,6 +227,7 @@ public class PageAthenticateUser {
 			}
 		});
 
+		shlLoginOdercp.setDefaultButton(btnLogin);
 		shlLoginOdercp.open();
 		shlLoginOdercp.layout();
 		// WHen closed the window exit system
