@@ -1,49 +1,62 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui;
 
-import org.eclipse.swt.widgets.Display;
+import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.widgets.Button;
 
-public class PageCreateStandardProcess {
+public class PageCreateStandardProcess extends WizardPage {
 
-	protected Shell shell;
+	private Text txtname;
+	private Text txtDescription;
+	private Label lblDescription;
+	private Text txtName;
 
 	/**
-	 * Launch the application.
-	 * @param args
+	 * Create the wizard.
 	 */
-	public static void main(String[] args) {
-		try {
-			PageCreateStandardProcess window = new PageCreateStandardProcess();
-			window.open();
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-		}
+	public PageCreateStandardProcess() {
+		super("wizardPage");
+		setTitle("Page Create Standard Process");
 	}
 
 	/**
-	 * Open the window.
+	 * Create contents of the wizard.
+	 * 
+	 * @param parent
 	 */
-	public void open() {
-		Display display = Display.getDefault();
-		createContents();
-		shell.open();
-		shell.layout();
-		while (!shell.isDisposed()) {
-			if (!display.readAndDispatch()) {
-				display.sleep();
-			}
-		}
+	public void createControl(Composite parent) {
+		Composite container = new Composite(parent, SWT.NULL);
+		setControl(container);
+		container.setLayout(new GridLayout(2, false));
+		new Label(container.getShell(), SWT.NONE);
+		new Label(container.getShell(), SWT.NONE);
+		new Label(container.getShell(), SWT.NONE);
+		new Label(container.getShell(), SWT.NONE);
+		new Label(container.getShell(), SWT.NONE);
+
+		new Label(container, SWT.NONE);
+		new Label(container, SWT.NONE);
+		
+		Label lblName = new Label(container, SWT.NONE);
+		lblName.setText("Name:");
+		
+		txtName = new Text(container, SWT.BORDER);
+		txtName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+		new Label(container, SWT.NONE);
+		
+		txtDescription = new Text(container, SWT.BORDER);
+		txtDescription.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 3));
+		
+		Label lblDescription_1 = new Label(container, SWT.NONE);
+		lblDescription_1.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+		lblDescription_1.setText("Description:");
+		new Label(container, SWT.NONE);
+		
 	}
-
-	/**
-	 * Create contents of the window.
-	 */
-	protected void createContents() {
-		shell = new Shell();
-		shell.setSize(450, 300);
-		shell.setText("SWT Application");
-
-	}
-
 }
