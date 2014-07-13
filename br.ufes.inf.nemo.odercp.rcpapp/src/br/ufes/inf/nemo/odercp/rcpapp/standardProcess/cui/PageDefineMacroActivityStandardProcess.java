@@ -4,20 +4,22 @@ import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
-import org.eclipse.swt.widgets.Combo;
-import org.eclipse.swt.widgets.List;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.TreeItem;
+
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.SpecificStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.StandardProcess;
 
 public class PageDefineMacroActivityStandardProcess extends WizardPage {
 
 	Shell shell;
+	Tree tree;
+	SpecificStandardProcess specificStandardProcess;
 
 	/**
 	 * Create the wizard.
@@ -34,23 +36,24 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	 * @param shell
 	 */
 	public void createControl(Composite parent) {
+
 		Composite container = new Composite(parent, SWT.NULL);
-		//	parent.getShell().setSize(800, 600);
+		// parent.getShell().setSize(800, 600);
 
 		setControl(container);
 		container.setLayout(new GridLayout(5, false));
 
-		Tree tree = new Tree(container, SWT.BORDER);
+		tree = new Tree(container, SWT.BORDER);
 		GridData gd_tree = new GridData(SWT.LEFT, SWT.FILL, false, true, 1, 9);
 		gd_tree.widthHint = 297;
 		tree.setLayoutData(gd_tree);
+
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 
-	
 		Label lblAvaliable = new Label(container, SWT.NONE);
 		lblAvaliable.setText("Activity Avaliable:");
 		new Label(container, SWT.NONE);
@@ -95,6 +98,23 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
+		
+		setPageComplete(false);
 
 	}
+
+	
+
+	/** Getter for specificStandardProcess. */
+	public SpecificStandardProcess getSpecificStandardProcess() {
+		return specificStandardProcess;
+	}
+
+	/** Setter for specificStandardProcess. */
+	public void setSpecificStandardProcess(SpecificStandardProcess specificStandardProcess) {
+		//root.setText(specificStandardProcess.getName());
+		this.specificStandardProcess = specificStandardProcess;
+	}
+
+	
 }

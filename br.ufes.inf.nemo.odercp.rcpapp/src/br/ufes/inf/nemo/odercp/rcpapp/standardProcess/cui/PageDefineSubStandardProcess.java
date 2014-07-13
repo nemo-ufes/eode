@@ -1,23 +1,44 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Combo;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Menu;
-import org.eclipse.swt.widgets.MenuItem;
+import org.eclipse.swt.widgets.List;
+import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
-import org.eclipse.swt.widgets.Combo;
-import org.eclipse.swt.widgets.List;
-import org.eclipse.swt.widgets.Button;
-import org.eclipse.swt.widgets.Text;
+import org.eclipse.swt.widgets.TreeItem;
+
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.SpecificStandardProcess;
 
 public class PageDefineSubStandardProcess extends WizardPage {
 
 	Shell shell;
+	Tree tree;
+	TreeItem root;
+	SpecificStandardProcess specificStandardProcess;
+	Combo combo;
+	LinkedList<KProcess> subkprocesses;
+	LinkedList<KProcess> subkprocessesSelections;
+	KProcess processEnginnering;
+	KProcess selectAvaliable;
+	KProcess selected;
+	HashMap<String, KProcess> hashKprocess;
+	List listavaliables;
+	List listselections;
 
 	/**
 	 * Create the wizard.
@@ -25,6 +46,13 @@ public class PageDefineSubStandardProcess extends WizardPage {
 	public PageDefineSubStandardProcess() {
 		super("wizardPage");
 		setTitle("Page Define subProcess");
+		subkprocesses = new LinkedList<KProcess>();
+		subkprocessesSelections = new LinkedList<KProcess>();
+		hashKprocess = new HashMap<String, KProcess>();
+		for (int i = 0; i < ApplCRUDKProcess.getever().length; i++) {
+			subkprocesses.add(ApplCRUDKProcess.getever()[i]);
+			hashKprocess.put(ApplCRUDKProcess.getever()[i].getName(), ApplCRUDKProcess.getever()[i]);
+		}
 	}
 
 	/**
@@ -34,77 +62,261 @@ public class PageDefineSubStandardProcess extends WizardPage {
 	 * @param shell
 	 */
 	public void createControl(Composite parent) {
-		Composite container = new Composite(parent, SWT.NULL);
-		//	parent.getShell().setSize(800, 600);
+		try {
+			Composite container = new Composite(parent, SWT.NULL);
 
-		setControl(container);
-		container.setLayout(new GridLayout(5, false));
+			setControl(container);
+			container.setLayout(new GridLayout(5, false));
 
-		Tree tree = new Tree(container, SWT.BORDER);
-		GridData gd_tree = new GridData(SWT.LEFT, SWT.FILL, false, true, 1, 9);
-		gd_tree.widthHint = 297;
-		tree.setLayoutData(gd_tree);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
+			tree = new Tree(container, SWT.BORDER);
+			GridData gd_tree = new GridData(SWT.LEFT, SWT.FILL, false, true, 1, 9);
+			gd_tree.widthHint = 297;
+			tree.setLayoutData(gd_tree);
 
-		Label lblProcessOfEnginnering = new Label(container, SWT.NONE);
-		lblProcessOfEnginnering.setText("Process of Enginnering:");
+			root = new TreeItem(tree, SWT.NONE, 0);
+			root.setText(specificStandardProcess.getName());
+			root.setExpanded(true);
 
-		Combo combo = new Combo(container, SWT.READ_ONLY);
-		combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
 
-		Label lblOthersProcess = new Label(container, SWT.NONE);
-		lblOthersProcess.setText("Others Process:");
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
-		new Label(container, SWT.NONE);
+			Label lblProcessOfEnginnering = new Label(container, SWT.NONE);
+			lblProcessOfEnginnering.setText("Process of Enginnering:");
 
-		Label lblAvaliable = new Label(container, SWT.NONE);
-		lblAvaliable.setText("Avaliable:");
-		new Label(container, SWT.NONE);
+			combo = new Combo(container, SWT.READ_ONLY);
+			combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 2, 1));
+			for (int i = 0; i < subkprocesses.size(); i++) {
+				if (subkprocesses.get(i).isEngineering()) {
+					combo.add(subkprocesses.get(i).getName());
+					combo.addSelectionListener(new SelectionListener() {
 
-		Label lblSelections = new Label(container, SWT.NONE);
-		lblSelections.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
-		lblSelections.setText("Selected:");
-		new Label(container, SWT.NONE);
+						@Override
+						public void widgetSelected(SelectionEvent e) {
+							processEnginnering = hashKprocess.get(combo.getItem(combo.getSelectionIndex()));
+						}
 
-		List list = new List(container, SWT.BORDER);
-		GridData gd_list = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 4);
-		list.setLayoutData(gd_list);
-		gd_list.widthHint = 300;
+						@Override
+						public void widgetDefaultSelected(SelectionEvent e) {
+							// TODO Auto-generated method stub
 
-		Button button = new Button(container, SWT.NONE);
-		GridData gd_button = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
-		gd_button.widthHint = 25;
-		button.setLayoutData(gd_button);
-		button.setText(">");
+						}
+					});
+				}
+			}
+			if (subkprocesses.size() > 0) {
+				combo.select(0);
+				processEnginnering = hashKprocess.get(combo.getItem(0));
+			}
 
-		List list_1 = new List(container, SWT.BORDER);
-		GridData gd_list_1 = new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 4);
-		list_1.setLayoutData(gd_list_1);
-		gd_list_1.widthHint = 300;
-		new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
 
-		Button button_1 = new Button(container, SWT.NONE);
-		button_1.setText(">>");
-		new Label(container, SWT.NONE);
+			Label lblOthersProcess = new Label(container, SWT.NONE);
+			lblOthersProcess.setText("Others Process:");
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
+			new Label(container, SWT.NONE);
 
-		Button button_2 = new Button(container, SWT.NONE);
-		button_2.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
-		button_2.setText("<");
-		new Label(container, SWT.NONE);
+			Label lblAvaliable = new Label(container, SWT.NONE);
+			lblAvaliable.setText("Avaliable:");
+			new Label(container, SWT.NONE);
 
-		Button button_3 = new Button(container, SWT.NONE);
-		button_3.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
-		button_3.setText("<<");
+			Label lblSelections = new Label(container, SWT.NONE);
+			lblSelections.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+			lblSelections.setText("Selected:");
+			new Label(container, SWT.NONE);
 
+			listavaliables = new List(container, SWT.BORDER);
+			GridData gd_list = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 4);
+			listavaliables.setLayoutData(gd_list);
+			gd_list.widthHint = 300;
+			for (int i = 0; i < subkprocesses.size(); i++) {
+				if (!subkprocesses.get(i).isEngineering()) listavaliables.add(subkprocesses.get(i).getName());
+			}
+
+			Button select_one = new Button(container, SWT.NONE);
+			GridData gd_button = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+			gd_button.widthHint = 25;
+			select_one.setLayoutData(gd_button);
+			select_one.setText(">");
+			select_one.addSelectionListener(new SelectionListener() {
+
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					String[] selections = listavaliables.getSelection();
+
+					for (int i = 0; i < selections.length; i++) {
+						listselections.add(selections[i]);
+						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+						listavaliables.remove(selections[i]);
+					}
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent e) {
+					String[] selections = listavaliables.getSelection();
+
+					for (int i = 0; i < selections.length; i++) {
+						listselections.add(selections[i]);
+						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+						listavaliables.remove(selections[i]);
+
+					}
+				}
+
+			});
+
+			listselections = new List(container, SWT.BORDER);
+			GridData gd_list_1 = new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 4);
+			listselections.setLayoutData(gd_list_1);
+			gd_list_1.widthHint = 300;
+			new Label(container, SWT.NONE);
+
+			Button select_all = new Button(container, SWT.NONE);
+			select_all.setText(">>");
+			select_all.addSelectionListener(new SelectionListener() {
+
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					String[] selections = listavaliables.getItems();
+
+					for (int i = 0; i < selections.length; i++) {
+						listselections.add(selections[i]);
+						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+
+					}
+					listavaliables.removeAll();
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent e) {
+					String[] selections = listavaliables.getItems();
+
+					for (int i = 0; i < selections.length; i++) {
+						listselections.add(selections[i]);
+						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+
+					}
+					listavaliables.removeAll();
+				}
+
+			});
+
+			new Label(container, SWT.NONE);
+
+			Button deselect_one = new Button(container, SWT.NONE);
+			deselect_one.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+			deselect_one.setText("<");
+			deselect_one.addSelectionListener(new SelectionListener() {
+
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					String[] selections = listselections.getSelection();
+
+					for (int i = 0; i < selections.length; i++) {
+						listavaliables.add(selections[i]);
+						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+						listselections.remove(selections[i]);
+
+					}
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent e) {
+					String[] selections = listselections.getSelection();
+
+					for (int i = 0; i < selections.length; i++) {
+						listavaliables.add(selections[i]);
+						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+						listselections.remove(selections[i]);
+
+					}
+				}
+
+			});
+
+			new Label(container, SWT.NONE);
+
+			Button deselect_all = new Button(container, SWT.NONE);
+			deselect_all.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+			deselect_all.setText("<<");
+			deselect_all.addSelectionListener(new SelectionListener() {
+
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					String[] selections = listselections.getItems();
+
+					for (int i = 0; i < selections.length; i++) {
+						listavaliables.add(selections[i]);
+						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+
+					}
+					listselections.removeAll();
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent e) {
+					String[] selections = listselections.getItems();
+
+					for (int i = 0; i < selections.length; i++) {
+						listavaliables.add(selections[i]);
+						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+
+					}
+					listselections.removeAll();
+				}
+
+			});
+
+		}
+		catch (Exception e) {
+
+		}
+	}
+
+	/** Getter for shell. */
+	public Shell getShell() {
+		return shell;
+	}
+
+	/** Setter for shell. */
+	public void setShell(Shell shell) {
+		this.shell = shell;
+	}
+
+	/** Getter for tree. */
+	public Tree getTree() {
+		return tree;
+	}
+
+	/** Setter for tree. */
+	public void setTree(Tree tree) {
+		this.tree = tree;
+	}
+
+	/** Getter for root. */
+	public TreeItem getRoot() {
+		return root;
+	}
+
+	/** Setter for root. */
+	public void setRoot(TreeItem root) {
+		this.root = root;
+	}
+
+	/** Getter for specificStandardProcess. */
+	public SpecificStandardProcess getSpecificStandardProcess() {
+		return specificStandardProcess;
+	}
+
+	/** Setter for specificStandardProcess. */
+	public void setSpecificStandardProcess(SpecificStandardProcess specificStandardProcess) {
+		this.specificStandardProcess = specificStandardProcess;
 	}
 }
