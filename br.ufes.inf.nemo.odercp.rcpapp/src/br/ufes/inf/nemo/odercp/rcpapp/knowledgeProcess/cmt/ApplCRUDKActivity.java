@@ -13,7 +13,7 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
 public class ApplCRUDKActivity {
 
 	public static KActivity[] getever() {
-		KActivity[] everKActivity = new KActivity[3];
+		KActivity[] everKActivity = new KActivity[5];
 		KActivity aux;
 		aux = new KActivity();
 		aux.setName("Elicitacion");
@@ -59,6 +59,51 @@ public class ApplCRUDKActivity {
 		aux.setProducts(new HashSet<KArtefact>());
 		aux.setSubKActivities(null);
 		everKActivity[2] = aux;
+
+		aux = new KActivity();
+		aux.setName("Coding");
+		aux.setDescription("Coding");
+		
+		aux.setKHumanResources(new HashSet<KHumanResource>());
+		aux.setInputs(null);
+		aux.setkProcedures(new HashSet<KProcedure>());
+		aux.setkProcess(null);
+		aux.setkResources(new HashSet<KResource>());
+		aux.setMandatory(true);
+		aux.setPreKActivities(null);
+		aux.setProducts(new HashSet<KArtefact>());
+		aux.setSubKActivities(null);
+		everKActivity[3] = aux;
+		
+		aux = new KActivity();
+		aux.setName("Design");
+		aux.setDescription("Design");
+		
+		aux.setKHumanResources(new HashSet<KHumanResource>());
+		aux.setInputs(null);
+		aux.setkProcedures(new HashSet<KProcedure>());
+		aux.setkProcess(null);
+		aux.setkResources(new HashSet<KResource>());
+		aux.setMandatory(true);
+		aux.setPreKActivities(null);
+		aux.setProducts(new HashSet<KArtefact>());
+		aux.setSubKActivities(null);
+		everKActivity[4] = aux;
+
+		aux = new KActivity();
+		aux.setName("Test");
+		aux.setDescription("Test");
+		
+		aux.setKHumanResources(new HashSet<KHumanResource>());
+		aux.setInputs(null);
+		aux.setkProcedures(new HashSet<KProcedure>());
+		aux.setkProcess(null);
+		aux.setkResources(new HashSet<KResource>());
+		aux.setMandatory(true);
+		aux.setPreKActivities(null);
+		aux.setProducts(new HashSet<KArtefact>());
+		aux.setSubKActivities(null);
+		everKActivity[4] = aux;
 
 		return everKActivity;
 	}

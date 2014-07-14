@@ -1,5 +1,8 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui;
 
+import java.util.HashSet;
+import java.util.Iterator;
+
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.layout.GridData;
@@ -12,7 +15,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDSpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.SpecificStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.StandardProcess;
 
 public class PageDefineMacroActivityStandardProcess extends WizardPage {
 
@@ -26,6 +31,7 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	public PageDefineMacroActivityStandardProcess() {
 		super("wizardPage");
 		setTitle("Page Define Macro-Activity in Process");
+
 	}
 
 	/**
@@ -35,7 +41,29 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	 * @param shell
 	 */
 	public void createControl(Composite parent) {
+		{//pegando da outra pagina
+			PageDefineSubStandardProcess pageDefineSubStandardProcess = null;
+			for (int i = 0; i < getWizard().getPages().length; i++) {
+				if (getWizard().getPages()[i] instanceof PageDefineSubStandardProcess) {
+					pageDefineSubStandardProcess = (PageDefineSubStandardProcess) getWizard().getPages()[i];
+				}
+			}
+			setSpecificStandardProcess(pageDefineSubStandardProcess.specificStandardProcess);
+			HashSet<StandardProcess> subprocess = new HashSet<StandardProcess>();
+			SpecificStandardProcess[] specificStandardProcesses = ApplCRUDSpecificStandardProcess.getever();
+			int i = 0;
+			while (i < pageDefineSubStandardProcess.subkprocessesSelections.size()) {
+				for (int j = 0; j < specificStandardProcesses.length; j++) {
+					//TODO erro aqui
+					if (pageDefineSubStandardProcess.subkprocessesSelections.get(j).getName().equals(specificStandardProcesses[i].getName())) {
+						subprocess.add(specificStandardProcesses[j]);
+					}
+				}
+				i++;
+			}
+			specificStandardProcess.setSpecialization(subprocess);
 
+		}//fim do pegando
 		Composite container = new Composite(parent, SWT.NULL);
 
 		setControl(container);
@@ -45,6 +73,17 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		GridData gd_tree = new GridData(SWT.LEFT, SWT.FILL, false, true, 1, 9);
 		gd_tree.widthHint = 297;
 		tree.setLayoutData(gd_tree);
+
+		TreeItem root = new TreeItem(tree, SWT.NONE, 0);
+		root.setText(specificStandardProcess.getName());
+		root.setExpanded(true);
+
+		TreeItem item;
+		Iterator<StandardProcess> it = specificStandardProcess.getSpecialization().iterator();
+		while (it.hasNext()) {
+			item = new TreeItem(root, SWT.NONE, 0);
+			item.setText(it.next().getName());
+		}
 
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
@@ -96,12 +135,10 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
-		
+
 		setPageComplete(false);
 
 	}
-
-	
 
 	/** Getter for specificStandardProcess. */
 	public SpecificStandardProcess getSpecificStandardProcess() {
@@ -110,9 +147,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 
 	/** Setter for specificStandardProcess. */
 	public void setSpecificStandardProcess(SpecificStandardProcess specificStandardProcess) {
-		//root.setText(specificStandardProcess.getName());
+		// root.setText(specificStandardProcess.getName());
 		this.specificStandardProcess = specificStandardProcess;
 	}
 
-	
 }

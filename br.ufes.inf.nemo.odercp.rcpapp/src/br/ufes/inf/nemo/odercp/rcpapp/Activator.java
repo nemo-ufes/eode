@@ -4,6 +4,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDActivityStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDSpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.PageAthenticateUser;
 
 /**
@@ -30,7 +32,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		try{
 		PageAthenticateUser.start();
-		
+		ApplCRUDSpecificStandardProcess.processos();
 		
 		
 		}catch(Exception e){

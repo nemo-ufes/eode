@@ -58,6 +58,7 @@ public class PageChoiceStardardProcess extends WizardPage {
 			radios = new Button[specificStandardProcesses.length];
 			for (int i = 0; i < specificStandardProcesses.length; i++) {
 				if (!specificStandardProcesses[i].isDefine()) {
+					
 					radios[i] = new Button(container, SWT.RADIO);
 					radios[i].setText(specificStandardProcesses[i].getName());
 					hashstandardProcesses.put(specificStandardProcesses[i].getName(), specificStandardProcesses[i]);
