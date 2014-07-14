@@ -273,12 +273,12 @@ public class PageDefineSubStandardProcess extends WizardPage {
 				}
 
 			});
-
 		}
 		catch (Exception e) {
 
 		}
 	}
+
 
 	/** Getter for shell. */
 	public Shell getShell() {

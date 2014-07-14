@@ -13,7 +13,6 @@ import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.SpecificStandardProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.StandardProcess;
 
 public class PageDefineMacroActivityStandardProcess extends WizardPage {
 
@@ -38,7 +37,6 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	public void createControl(Composite parent) {
 
 		Composite container = new Composite(parent, SWT.NULL);
-		// parent.getShell().setSize(800, 600);
 
 		setControl(container);
 		container.setLayout(new GridLayout(5, false));

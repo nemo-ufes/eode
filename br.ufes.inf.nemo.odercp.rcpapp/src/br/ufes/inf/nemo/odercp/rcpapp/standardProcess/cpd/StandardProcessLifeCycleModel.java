@@ -1,5 +1,6 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KLifeCycleModel;
@@ -13,6 +14,7 @@ public class StandardProcessLifeCycleModel {
 	/** Constructor. */
 	public StandardProcessLifeCycleModel() {
 		super();
+		combinations = new HashSet<Combination>();
 	}
 	/** Getter for specificStandardProcess. */
 	public SpecificStandardProcess getSpecificStandardProcess() {

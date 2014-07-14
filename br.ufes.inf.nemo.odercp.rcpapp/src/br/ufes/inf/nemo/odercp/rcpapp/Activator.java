@@ -31,6 +31,8 @@ public class Activator extends AbstractUIPlugin {
 		try{
 		PageAthenticateUser.start();
 		
+		
+		
 		}catch(Exception e){
 			System.exit(0);
 		}

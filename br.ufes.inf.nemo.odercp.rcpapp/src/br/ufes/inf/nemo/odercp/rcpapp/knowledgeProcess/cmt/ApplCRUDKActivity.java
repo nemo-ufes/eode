@@ -1,6 +1,5 @@
 package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -14,21 +13,52 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
 public class ApplCRUDKActivity {
 
 	public static KActivity[] getever() {
-		KActivity[] everKActivity = new KActivity[1];
+		KActivity[] everKActivity = new KActivity[3];
 		KActivity aux;
 		aux = new KActivity();
-		aux.setName("kActivity1");
-		aux.setDescription("kActivity1");
-		aux.setKHumanResources(new HashSet<KHumanResource>(Arrays.asList(ApplCRUDKHumanResource.getever())));
+		aux.setName("Elicitacion");
+		aux.setDescription("Elicitacion");
+		
+		aux.setKHumanResources(new HashSet<KHumanResource>());
 		aux.setInputs(null);
-		aux.setkProcedures(new HashSet<KProcedure>(Arrays.asList(ApplCRUDKProcedure.getever())));
-		aux.setkProcess(ApplCRUDKProcess.getever()[0]);
-		aux.setkResources(new HashSet<KResource>(Arrays.asList(ApplCRUDKHardwareResource.getever())));
+		aux.setkProcedures(new HashSet<KProcedure>());
+		aux.setkProcess(null);
+		aux.setkResources(new HashSet<KResource>());
 		aux.setMandatory(true);
 		aux.setPreKActivities(null);
-		aux.setProducts(new HashSet<KArtefact>(Arrays.asList(ApplCRUDKArtefact.getever())));
+		aux.setProducts(new HashSet<KArtefact>());
 		aux.setSubKActivities(null);
 		everKActivity[0] = aux;
+
+		aux = new KActivity();
+		aux.setName("Modeling");
+		aux.setDescription("Modeling");
+		
+		aux.setKHumanResources(new HashSet<KHumanResource>());
+		aux.setInputs(null);
+		aux.setkProcedures(new HashSet<KProcedure>());
+		aux.setkProcess(null);
+		aux.setkResources(new HashSet<KResource>());
+		aux.setMandatory(true);
+		aux.setPreKActivities(null);
+		aux.setProducts(new HashSet<KArtefact>());
+		aux.setSubKActivities(null);
+		everKActivity[1] = aux;
+
+		aux = new KActivity();
+		aux.setName("Documetation");
+		aux.setDescription("Documetation");
+		
+		aux.setKHumanResources(new HashSet<KHumanResource>());
+		aux.setInputs(null);
+		aux.setkProcedures(new HashSet<KProcedure>());
+		aux.setkProcess(null);
+		aux.setkResources(new HashSet<KResource>());
+		aux.setMandatory(true);
+		aux.setPreKActivities(null);
+		aux.setProducts(new HashSet<KArtefact>());
+		aux.setSubKActivities(null);
+		everKActivity[2] = aux;
 
 		return everKActivity;
 	}

@@ -5,7 +5,7 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 public class ApplCRUDKHumanResource {
 
 	public static KHumanResource[] getever() {
-		KHumanResource[] everKHumanResource = new KHumanResource[3];
+		KHumanResource[] everKHumanResource = new KHumanResource[4];
 		KHumanResource aux;
 		aux = new KHumanResource();
 		aux.setName("Analyst");
@@ -21,6 +21,11 @@ public class ApplCRUDKHumanResource {
 		aux.setName("Project Manager");
 		aux.setDescription("Project Manager");
 		everKHumanResource[2] = aux;
+
+		aux = new KHumanResource();
+		aux.setName("Client");
+		aux.setDescription("Client");
+		everKHumanResource[3] = aux;
 
 		return everKHumanResource;
 	}

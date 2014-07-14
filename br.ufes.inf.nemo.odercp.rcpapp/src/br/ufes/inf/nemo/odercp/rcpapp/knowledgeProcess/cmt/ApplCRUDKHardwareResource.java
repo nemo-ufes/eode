@@ -8,8 +8,8 @@ public class ApplCRUDKHardwareResource {
 		KHardwareResource[] everKHardwareResource = new KHardwareResource[1];
 		KHardwareResource aux;
 		aux = new KHardwareResource();
-		aux.setName("khardware1");
-		aux.setDescription("khardware1");
+		aux.setName("PC");
+		aux.setDescription("PC");
 		everKHardwareResource[0] = aux;
 
 		return everKHardwareResource;

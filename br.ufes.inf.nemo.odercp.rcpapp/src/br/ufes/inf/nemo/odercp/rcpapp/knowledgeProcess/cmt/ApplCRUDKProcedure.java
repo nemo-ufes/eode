@@ -5,12 +5,17 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcedure;
 public class ApplCRUDKProcedure {
 
 	public static KProcedure[] getever() {
-		KProcedure[] everKProcedure = new KProcedure[1];
+		KProcedure[] everKProcedure = new KProcedure[2];
 		KProcedure aux;
 		aux = new KProcedure();
-		aux.setName("kprocedure1");
-		aux.setDescription("kprocedure1");
+		aux.setName("Use Case Modeling");
+		aux.setDescription("Use Case Modeling");
 		everKProcedure[0] = aux;
+
+		aux = new KProcedure();
+		aux.setName("Class Modeling");
+		aux.setDescription("Class Modeling");
+		everKProcedure[1] = aux;
 
 		return everKProcedure;
 	}
