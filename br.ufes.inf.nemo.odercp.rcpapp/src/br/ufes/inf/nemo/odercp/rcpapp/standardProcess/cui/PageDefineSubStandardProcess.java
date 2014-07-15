@@ -30,13 +30,10 @@ public class PageDefineSubStandardProcess extends WizardPage {
 	SpecificStandardProcess specificStandardProcess;
 	Combo combo;
 	LinkedList<KProcess> subkprocesses;
-	LinkedList<KProcess> subkprocessesSelections;
-	KProcess processEnginnering;
-	KProcess selectAvaliable;
-	KProcess selected;
 	HashMap<String, KProcess> hashKprocess;
 	List listavaliables;
 	List listselections;
+	PageDefineMacroActivityStandardProcess pageDefineMacroActivityStandardProcess;
 
 	/**
 	 * Create the wizard.
@@ -45,7 +42,6 @@ public class PageDefineSubStandardProcess extends WizardPage {
 		super("wizardPage");
 		setTitle("Page Define subProcess");
 		subkprocesses = new LinkedList<KProcess>();
-		subkprocessesSelections = new LinkedList<KProcess>();
 		hashKprocess = new HashMap<String, KProcess>();
 		for (int i = 0; i < ApplCRUDKProcess.getever().length; i++) {
 			subkprocesses.add(ApplCRUDKProcess.getever()[i]);
@@ -59,8 +55,17 @@ public class PageDefineSubStandardProcess extends WizardPage {
 	 * @param parent
 	 * @param shell
 	 */
-	public void createControl(Composite parent) {
-		try {
+	public void createControl(final Composite parent) {
+//		try {
+
+			
+			//for (int i = 0; i < getWizard().getPages().length; i++) {
+				if (getNextPage() instanceof PageDefineMacroActivityStandardProcess) {
+					pageDefineMacroActivityStandardProcess = (PageDefineMacroActivityStandardProcess) getNextPage();
+				}
+			//}
+			pageDefineMacroActivityStandardProcess.setSpecificStandardProcess(specificStandardProcess);
+		
 			Composite container = new Composite(parent, SWT.NULL);
 
 			setControl(container);
@@ -93,7 +98,7 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 						@Override
 						public void widgetSelected(SelectionEvent e) {
-							processEnginnering = hashKprocess.get(combo.getItem(combo.getSelectionIndex()));
+							pageDefineMacroActivityStandardProcess.processEnginnering = hashKprocess.get(combo.getItem(combo.getSelectionIndex()));
 						}
 
 						@Override
@@ -104,9 +109,10 @@ public class PageDefineSubStandardProcess extends WizardPage {
 					});
 				}
 			}
+			
 			if (subkprocesses.size() > 0) {
 				combo.select(0);
-				processEnginnering = hashKprocess.get(combo.getItem(0));
+				pageDefineMacroActivityStandardProcess.processEnginnering = hashKprocess.get(combo.getItem(0));
 			}
 
 			new Label(container, SWT.NONE);
@@ -151,9 +157,11 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listselections.add(selections[i]);
-						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.add(hashKprocess.get(selections[i]));
 						listavaliables.remove(selections[i]);
 					}
+				pageDefineMacroActivityStandardProcess.createControl(parent);
+				pageDefineMacroActivityStandardProcess.getControl().pack();
 				}
 
 				@Override
@@ -162,10 +170,13 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listselections.add(selections[i]);
-						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.add(hashKprocess.get(selections[i]));
 						listavaliables.remove(selections[i]);
 
 					}
+					pageDefineMacroActivityStandardProcess.createControl(parent);
+					pageDefineMacroActivityStandardProcess.getControl().pack();
+				
 				}
 
 			});
@@ -186,10 +197,13 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listselections.add(selections[i]);
-						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.add(hashKprocess.get(selections[i]));
 
 					}
 					listavaliables.removeAll();
+					pageDefineMacroActivityStandardProcess.createControl(parent);
+					pageDefineMacroActivityStandardProcess.getControl().pack();
+				
 				}
 
 				@Override
@@ -198,10 +212,13 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listselections.add(selections[i]);
-						subkprocessesSelections.add(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.add(hashKprocess.get(selections[i]));
 
 					}
 					listavaliables.removeAll();
+					pageDefineMacroActivityStandardProcess.createControl(parent);
+					pageDefineMacroActivityStandardProcess.getControl().pack();
+				
 				}
 
 			});
@@ -219,10 +236,13 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listavaliables.add(selections[i]);
-						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.remove(hashKprocess.get(selections[i]));
 						listselections.remove(selections[i]);
 
 					}
+					pageDefineMacroActivityStandardProcess.createControl(parent);
+					pageDefineMacroActivityStandardProcess.getControl().pack();
+				
 				}
 
 				@Override
@@ -231,10 +251,13 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listavaliables.add(selections[i]);
-						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.remove(hashKprocess.get(selections[i]));
 						listselections.remove(selections[i]);
 
 					}
+					pageDefineMacroActivityStandardProcess.createControl(parent);
+					pageDefineMacroActivityStandardProcess.getControl().pack();
+				
 				}
 
 			});
@@ -252,10 +275,13 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listavaliables.add(selections[i]);
-						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.remove(hashKprocess.get(selections[i]));
 
 					}
 					listselections.removeAll();
+					pageDefineMacroActivityStandardProcess.createControl(parent);
+					pageDefineMacroActivityStandardProcess.getControl().pack();
+				
 				}
 
 				@Override
@@ -264,17 +290,20 @@ public class PageDefineSubStandardProcess extends WizardPage {
 
 					for (int i = 0; i < selections.length; i++) {
 						listavaliables.add(selections[i]);
-						subkprocessesSelections.remove(hashKprocess.get(selections[i]));
+						pageDefineMacroActivityStandardProcess.subkprocessesSelections.remove(hashKprocess.get(selections[i]));
 
 					}
 					listselections.removeAll();
+					pageDefineMacroActivityStandardProcess.createControl(parent);
+					pageDefineMacroActivityStandardProcess.getControl().pack();
+				
 				}
 
 			});
-		}
-		catch (Exception e) {
+	//	}
+	//	catch (Exception e) {
 
-		}
+		//}
 	}
 
 

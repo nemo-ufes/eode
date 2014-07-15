@@ -35,18 +35,18 @@ public class ApplCRUDSpecificStandardProcess {
 			}
 			return vectorsProcess;
 		}
-		else {
-		//	processos();
-			vectorsProcess = new SpecificStandardProcess[specificStandardProcesses.size()];
-			Iterator<SpecificStandardProcess> it = specificStandardProcesses.iterator();
-			int i = 0;
-			while (it.hasNext()) {
-				vectorsProcess[i] = it.next();
-				i++;
-			}
-			return vectorsProcess;
-		}
-
+		// else {
+		// processos();
+		// vectorsProcess = new SpecificStandardProcess[specificStandardProcesses.size()];
+		// Iterator<SpecificStandardProcess> it = specificStandardProcesses.iterator();
+		// int i = 0;
+		// while (it.hasNext()) {
+		// vectorsProcess[i] = it.next();
+		// i++;
+		// }
+		// return vectorsProcess;
+		// }
+		return null;
 	}
 
 	public static boolean create(SpecificStandardProcess standardProcess) {
@@ -67,7 +67,7 @@ public class ApplCRUDSpecificStandardProcess {
 			specificStandardProcess.setIsDefine(true);
 			specificStandardProcess.setStandardProcessLifeCycleModels(ApplCRUDStandardProcessLifeCycleModel.standardProcessLifeCycleModels);
 			if (kProcesses[i].getName().equals("Software Development")) {
-				
+
 				HashSet<ActivityStandardProcess> macroActivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 
 				ActivityStandardProcess activityStandardProcess;
@@ -161,7 +161,6 @@ public class ApplCRUDSpecificStandardProcess {
 				// activityStandardProcesses.add(activityStandardProcess);
 				ActivityStandardProcess preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
-				
 
 				// Analysis
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -477,7 +476,7 @@ public class ApplCRUDSpecificStandardProcess {
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
-				
+
 				specificStandardProcess.setActivityStandardProcesses(macroActivityStandardProcesses);
 
 			}

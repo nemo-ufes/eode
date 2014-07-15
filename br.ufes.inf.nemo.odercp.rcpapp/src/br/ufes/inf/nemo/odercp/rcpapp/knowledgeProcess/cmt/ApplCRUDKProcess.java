@@ -8,8 +8,8 @@ public class ApplCRUDKProcess {
 		KProcess[] everKProcess = new KProcess[6];
 		KProcess aux;
 		aux = new KProcess();
-		aux.setName("Sofwtare Development");
-		aux.setDescription("Sofwtare Development");
+		aux.setName("Software Development");
+		aux.setDescription("Software Development");
 		aux.setEngineering(true);
 		everKProcess[0] = aux;
 

@@ -44,7 +44,7 @@ public class PageChoiceStardardProcess extends WizardPage {
 	 * 
 	 * @param parent
 	 */
-	public void createControl(Composite parent) {
+	public void createControl(final Composite parent) {
 
 		Composite container = new Composite(parent, SWT.NULL);
 
@@ -54,16 +54,21 @@ public class PageChoiceStardardProcess extends WizardPage {
 		setPageComplete(false);
 
 		if (specificStandardProcesses != null && specificStandardProcesses.length > 0) {
-
-			radios = new Button[specificStandardProcesses.length];
+			int tam = 0, j = 0;
 			for (int i = 0; i < specificStandardProcesses.length; i++) {
 				if (!specificStandardProcesses[i].isDefine()) {
-					
-					radios[i] = new Button(container, SWT.RADIO);
-					radios[i].setText(specificStandardProcesses[i].getName());
+					tam++;
+				}
+			}
+
+			radios = new Button[tam];
+			for (int i = 0; i < specificStandardProcesses.length; i++) {
+				if (!specificStandardProcesses[i].isDefine()) {
+					radios[j] = new Button(container, SWT.RADIO);
+					radios[j].setText(specificStandardProcesses[i].getName());
 					hashstandardProcesses.put(specificStandardProcesses[i].getName(), specificStandardProcesses[i]);
-					radios[i].setBounds(10, 45 + (30 * i), 350, 24);
-					radios[i].addSelectionListener(new SelectionListener() {
+					radios[j].setBounds(10, 45 + (30 * j), 350, 24);
+					radios[j].addSelectionListener(new SelectionListener() {
 
 						@Override
 						public void widgetSelected(SelectionEvent e) {
@@ -76,6 +81,9 @@ public class PageChoiceStardardProcess extends WizardPage {
 									pageDefineSubStandardProcess.setSpecificStandardProcess(specificStandardProcess);
 								}
 							}
+							pageDefineSubStandardProcess.createControl(parent);
+							pageDefineSubStandardProcess.getControl().pack();
+						
 						}
 
 						@Override
@@ -83,15 +91,18 @@ public class PageChoiceStardardProcess extends WizardPage {
 
 						}
 					});
+					j++;
 				}
 			}
+
 			if (specificStandardProcesses.length > 0) {
-				if (radios[0] != null) {
+				if (tam > 0) {
 					radios[0].setSelection(true);
 					specificStandardProcess = hashstandardProcesses.get(radios[0].getText());
-					// pega a pagina anterior
+					// pega a prox page
 					for (int i = 0; i < getWizard().getPages().length; i++) {
 						if (getWizard().getPages()[i] instanceof PageDefineSubStandardProcess) {
+
 							pageDefineSubStandardProcess = (PageDefineSubStandardProcess) getWizard().getPages()[i];
 							pageDefineSubStandardProcess.setSpecificStandardProcess(specificStandardProcess);
 						}

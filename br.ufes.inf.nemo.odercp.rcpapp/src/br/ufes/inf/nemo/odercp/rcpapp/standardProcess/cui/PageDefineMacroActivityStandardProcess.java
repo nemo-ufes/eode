@@ -2,6 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui;
 
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.LinkedList;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.SWT;
@@ -15,6 +16,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDSpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.SpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.StandardProcess;
@@ -24,6 +26,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	Shell shell;
 	Tree tree;
 	SpecificStandardProcess specificStandardProcess;
+	LinkedList<KProcess> subkprocessesSelections;
+	KProcess processEnginnering;
 
 	/**
 	 * Create the wizard.
@@ -31,7 +35,7 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	public PageDefineMacroActivityStandardProcess() {
 		super("wizardPage");
 		setTitle("Page Define Macro-Activity in Process");
-
+		subkprocessesSelections = new LinkedList<KProcess>();
 	}
 
 	/**
@@ -41,29 +45,27 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	 * @param shell
 	 */
 	public void createControl(Composite parent) {
-		{//pegando da outra pagina
-			PageDefineSubStandardProcess pageDefineSubStandardProcess = null;
-			for (int i = 0; i < getWizard().getPages().length; i++) {
-				if (getWizard().getPages()[i] instanceof PageDefineSubStandardProcess) {
-					pageDefineSubStandardProcess = (PageDefineSubStandardProcess) getWizard().getPages()[i];
-				}
-			}
-			setSpecificStandardProcess(pageDefineSubStandardProcess.specificStandardProcess);
+		{// pegando da outra pagina
+
 			HashSet<StandardProcess> subprocess = new HashSet<StandardProcess>();
 			SpecificStandardProcess[] specificStandardProcesses = ApplCRUDSpecificStandardProcess.getever();
-			int i = 0;
-			while (i < pageDefineSubStandardProcess.subkprocessesSelections.size()) {
-				for (int j = 0; j < specificStandardProcesses.length; j++) {
-					//TODO erro aqui
-					if (pageDefineSubStandardProcess.subkprocessesSelections.get(j).getName().equals(specificStandardProcesses[i].getName())) {
-						subprocess.add(specificStandardProcesses[j]);
-					}
+
+			int j;
+			for (j = 0; j < specificStandardProcesses.length; j++) {
+				if (processEnginnering.getName().equals(specificStandardProcesses[j].getName())) {
+					subprocess.add(specificStandardProcesses[j]);
 				}
-				i++;
+				int k = 0;
+				while (k < subkprocessesSelections.size()) {
+					if (subkprocessesSelections.get(k).getName().equals(specificStandardProcesses[j].getName())) {
+						subprocess.add(specificStandardProcesses[j]);
+						k = subkprocessesSelections.size();
+					}
+					k++;
+				}
 			}
 			specificStandardProcess.setSpecialization(subprocess);
-
-		}//fim do pegando
+		}// fim do pegando
 		Composite container = new Composite(parent, SWT.NULL);
 
 		setControl(container);

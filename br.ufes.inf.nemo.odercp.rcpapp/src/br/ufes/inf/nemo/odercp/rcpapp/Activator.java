@@ -34,7 +34,6 @@ public class Activator extends AbstractUIPlugin {
 		PageAthenticateUser.start();
 		ApplCRUDSpecificStandardProcess.processos();
 		
-		
 		}catch(Exception e){
 			System.exit(0);
 		}
