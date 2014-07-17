@@ -56,6 +56,7 @@ public class ApplCRUDSpecificStandardProcess {
 	}
 
 	public static void processos() {
+
 		if (specificStandardProcesses == null) specificStandardProcesses = new HashSet<SpecificStandardProcess>();
 		KProcess kProcesses[] = ApplCRUDKProcess.getever();
 		SpecificStandardProcess specificStandardProcess;
@@ -96,6 +97,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("requirements modeling");
@@ -115,6 +117,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Requirements documentation");
@@ -134,6 +137,7 @@ public class ApplCRUDSpecificStandardProcess {
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[0]);
 				activityStandardProcess.setkHumanResources(kHumanResources);
 				activityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Requirements Elicitation");
@@ -161,6 +165,7 @@ public class ApplCRUDSpecificStandardProcess {
 				// activityStandardProcesses.add(activityStandardProcess);
 				ActivityStandardProcess preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Analysis
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -189,6 +194,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("modeling documentation");
@@ -218,6 +224,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Analysis");
@@ -247,6 +254,7 @@ public class ApplCRUDSpecificStandardProcess {
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Design
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -275,6 +283,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Detailed design");
@@ -300,6 +309,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Documentation design");
@@ -327,6 +337,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Design");
@@ -356,6 +367,7 @@ public class ApplCRUDSpecificStandardProcess {
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Implematiton
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -387,6 +399,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Implementation");
@@ -417,6 +430,7 @@ public class ApplCRUDSpecificStandardProcess {
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Test
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -447,6 +461,7 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Test");
@@ -476,8 +491,9 @@ public class ApplCRUDSpecificStandardProcess {
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
+				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
-				specificStandardProcess.setActivityStandardProcesses(macroActivityStandardProcesses);
+				// specificStandardProcess.setActivityStandardProcesses(macroActivityStandardProcesses);
 
 			}
 			specificStandardProcesses.add(specificStandardProcess);

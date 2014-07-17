@@ -1,5 +1,6 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KActivity;
@@ -28,6 +29,8 @@ public class ActivityStandardProcess {
 	/** Constructor. */
 	public ActivityStandardProcess() {
 		super();
+		kHumanResources = new HashSet<KHumanResource>();
+		//TODO continuar
 	}
 
 	/** Getter for name. */
