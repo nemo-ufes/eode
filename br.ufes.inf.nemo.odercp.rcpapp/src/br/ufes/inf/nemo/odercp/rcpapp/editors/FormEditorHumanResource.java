@@ -41,7 +41,7 @@ public class FormEditorHumanResource extends FormPage {
 	private Text phone;
 	private Button active;
 	Map<TreeItem, HumanResource> hashHR = new HashMap<TreeItem, HumanResource>();
-	Map<KHumanResource, Integer> hashindex;
+	Map<String, Integer> hashindex;
 	private HumanResource chosenHR;
 	private Combo role;
 	private Tree tree;
@@ -58,6 +58,8 @@ public class FormEditorHumanResource extends FormPage {
 	 */
 	public FormEditorHumanResource(String id, String title) {
 		super(id, title);
+		hashindex = new HashMap<String, Integer>();
+
 	}
 
 	/**
@@ -72,6 +74,8 @@ public class FormEditorHumanResource extends FormPage {
 	 */
 	public FormEditorHumanResource(FormEditor editor, String id, String title) {
 		super(editor, id, title);
+		hashindex = new HashMap<String, Integer>();
+
 	}
 
 	/**
@@ -118,7 +122,8 @@ public class FormEditorHumanResource extends FormPage {
 				workload.setText(hr.getWorkLoad().toString());
 				email.setText(hr.getEmail());
 				phone.setText(hr.getPhone());
-				role.select(hashindex.get(hr.getRole()));
+				//System.out.println(hashindex.get(hr.getRole()).intValue());
+				role.select(hashindex.get(hr.getRole().getName()).intValue());
 				chosenHR = hr;
 			}
 
@@ -229,13 +234,6 @@ public class FormEditorHumanResource extends FormPage {
 			phone = new Text(container, SWT.NONE);
 			phone.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		}
-		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
-		// Populate Combo of Roles
-		hashindex = new HashMap<KHumanResource, Integer>();
-		for (int i = 0; i < everKHR.length; i++) {
-			role.add(everKHR[i].getName());
-			hashindex.put(everKHR[i], new Integer(i));
-		}
 		{
 			Label lblRole = new Label(container, SWT.NONE);
 			lblRole.setText("Role:");
@@ -248,6 +246,16 @@ public class FormEditorHumanResource extends FormPage {
 		role = new Combo(container, SWT.READ_ONLY);
 		role.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 
+		KHumanResource[] everKHR = ApplCRUDKHumanResource.getever();
+		// Populate Combo of Roles
+		for (int i = 0; i < everKHR.length; i++) {
+			
+			role.add(everKHR[i].getName());
+			hashindex.put(everKHR[i].getName(), new Integer(i));
+			
+		}
+		
+		
 		{
 			btnUpdate = new Button(managedForm.getForm().getBody(), SWT.NONE);
 			managedForm.getToolkit().adapt(btnUpdate, true, true);

@@ -30,7 +30,14 @@ public class ActivityStandardProcess {
 	public ActivityStandardProcess() {
 		super();
 		kHumanResources = new HashSet<KHumanResource>();
-		//TODO continuar
+		preActivityStandardProcesses = new HashSet<ActivityStandardProcess>();
+		subActivityStandardProcesses = new HashSet<ActivityStandardProcess>();
+		kProcedures = new HashSet<KProcedure>();
+		products = new HashSet<KArtefact>();
+		inputs = new HashSet<KArtefact>();
+		kResources = new HashSet<KResource>();
+
+		// TODO continuar
 	}
 
 	/** Getter for name. */
@@ -89,7 +96,8 @@ public class ActivityStandardProcess {
 	}
 
 	/** Setter for preActivityStandardProcesses. */
-	public void setPreActivityStandardProcesses(Set<ActivityStandardProcess> preActivityStandardProcesses) {
+	public void setPreActivityStandardProcesses(
+			Set<ActivityStandardProcess> preActivityStandardProcesses) {
 		this.preActivityStandardProcesses = preActivityStandardProcesses;
 	}
 
@@ -99,7 +107,8 @@ public class ActivityStandardProcess {
 	}
 
 	/** Setter for subActivityStandardProcesses. */
-	public void setSubActivityStandardProcesses(Set<ActivityStandardProcess> subActivityStandardProcesses) {
+	public void setSubActivityStandardProcesses(
+			Set<ActivityStandardProcess> subActivityStandardProcesses) {
 		this.subActivityStandardProcesses = subActivityStandardProcesses;
 	}
 

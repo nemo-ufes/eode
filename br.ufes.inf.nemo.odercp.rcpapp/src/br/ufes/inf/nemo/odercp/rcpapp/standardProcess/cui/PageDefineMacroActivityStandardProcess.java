@@ -40,7 +40,7 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	ActivityStandardProcess activitiesStandardProcess[];
 	List list_avaliables;
 	List list_selected;
-	HashMap<String, SpecificStandardProcess> hashStandardProcesses;
+	HashMap<TreeItem, SpecificStandardProcess> hashStandardProcesses;
 	HashMap<String, ActivityStandardProcess> hashActivies;
 
 	/**
@@ -52,7 +52,7 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		subkprocessesSelections = new LinkedList<KProcess>();
 		macroActivitiesStandardProcess = new LinkedList<ActivityStandardProcess>();
 		activitiesStandardProcess = ApplCRUDActivityStandardProcess.getever();
-		hashStandardProcesses = new HashMap<String, SpecificStandardProcess>();
+		hashStandardProcesses = new HashMap<TreeItem, SpecificStandardProcess>();
 		hashActivies = new HashMap<String, ActivityStandardProcess>();
 	}
 
@@ -105,13 +105,13 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		item = new TreeItem(root, SWT.NONE, 0);
 		item.setText(specificStandardProcess.getName());
 		tree.select(item);
-		hashStandardProcesses.put(specificStandardProcess.getName(), specificStandardProcess);
+		hashStandardProcesses.put(item, specificStandardProcess);
 
 		while (it.hasNext()) {
 			specificStandardProcess = (SpecificStandardProcess) it.next();
 			item = new TreeItem(root, SWT.NONE, 0);
 			item.setText(specificStandardProcess.getName());
-			hashStandardProcesses.put(specificStandardProcess.getName(), specificStandardProcess);
+			hashStandardProcesses.put(item, specificStandardProcess);
 
 		}
 
