@@ -1,6 +1,8 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd;
 
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcess;
@@ -10,14 +12,14 @@ public class SpecificStandardProcess extends StandardProcess {
 	private Set<GeneralStandardProcess> generalStandardProcesses;
 	private KProcess kProcess;
 	private Set<StandardProcessLifeCycleModel> standardProcessLifeCycleModels;
-	private Set<ActivityStandardProcess> activityStandardProcesses;
+	private List<ActivityStandardProcess> activitiesStandardProcess;
 
 	/** Constructor. */
 	public SpecificStandardProcess() {
 		super();
 		generalStandardProcesses = new HashSet<GeneralStandardProcess>();
 		standardProcessLifeCycleModels = new HashSet<StandardProcessLifeCycleModel>();
-		activityStandardProcesses = new HashSet<ActivityStandardProcess>();
+		activitiesStandardProcess = new LinkedList<ActivityStandardProcess>();
 	}
 
 	/** Getter for generalStandardProcesses. */
@@ -51,13 +53,13 @@ public class SpecificStandardProcess extends StandardProcess {
 	}
 
 	/** Getter for activityStandardProcesses. */
-	public Set<ActivityStandardProcess> getActivityStandardProcesses() {
-		return activityStandardProcesses;
+	public List<ActivityStandardProcess> getActivityStandardProcesses() {
+		return activitiesStandardProcess;
 	}
 
 	/** Setter for activityStandardProcesses. */
-	public void setActivityStandardProcesses(Set<ActivityStandardProcess> activityStandardProcesses) {
-		this.activityStandardProcesses = activityStandardProcesses;
+	public void setActivityStandardProcesses(List<ActivityStandardProcess> activityStandardProcesses) {
+		this.activitiesStandardProcess = activityStandardProcesses;
 	}
 
 }

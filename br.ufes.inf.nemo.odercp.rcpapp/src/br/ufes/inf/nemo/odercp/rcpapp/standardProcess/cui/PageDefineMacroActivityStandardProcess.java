@@ -208,8 +208,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_avaliables.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+					pageStandardActivityProcess.createControl(parent);
+					pageStandardActivityProcess.getControl().pack();
 				}
 			}
 
@@ -224,8 +224,9 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_avaliables.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+
+					pageStandardActivityProcess.createControl(parent);
+					pageStandardActivityProcess.getControl().pack();
 				}
 			}
 
@@ -253,8 +254,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_avaliables.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+					pageStandardActivityProcess.createControl(parent);
+					pageStandardActivityProcess.getControl().pack();
 				}
 			}
 
@@ -269,8 +270,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_avaliables.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+					pageStandardActivityProcess.createControl(parent);
+					pageStandardActivityProcess.getControl().pack();
 				}
 			}
 
@@ -295,8 +296,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_selected.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+					//pageStandardActivityProcess.createControl(parent);
+					//pageStandardActivityProcess.getControl().pack();
 				}
 			}
 
@@ -311,8 +312,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_selected.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+					//pageStandardActivityProcess.createControl(parent);
+					//pageStandardActivityProcess.getControl().pack();
 				}
 			}
 
@@ -338,8 +339,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_selected.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+					pageStandardActivityProcess.createControl(parent);
+					pageStandardActivityProcess.getControl().pack();
 				}
 			}
 
@@ -354,8 +355,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 										hashActivies.get(selections[i]));
 						list_selected.remove(selections[i]);
 					}
-					 pageStandardActivityProcess.createControl(parent);
-					 pageStandardActivityProcess.getControl().pack();
+					pageStandardActivityProcess.createControl(parent);
+					pageStandardActivityProcess.getControl().pack();
 				}
 			}
 

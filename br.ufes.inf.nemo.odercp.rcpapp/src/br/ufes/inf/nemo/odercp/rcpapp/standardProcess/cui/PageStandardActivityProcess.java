@@ -56,12 +56,12 @@ public class PageStandardActivityProcess extends WizardPage {
 		setControl(container);
 		container.setLayout(new GridLayout(3, false));
 
-		tree = new Tree(container, SWT.BORDER);
+		tree = new Tree(container, SWT.BORDER | SWT.MULTI);
 		GridData gd_tree = new GridData(SWT.LEFT, SWT.FILL, false, true, 1, 9);
 		gd_tree.widthHint = 297;
 		tree.setLayoutData(gd_tree);
 
-		root = new TreeItem(tree, SWT.NONE, 0);
+		root = new TreeItem(tree, SWT.BORDER | SWT.MULTI, 0);
 		root.setText(specificStandardProcess.getName());
 		root.setExpanded(true);
 
@@ -83,6 +83,7 @@ public class PageStandardActivityProcess extends WizardPage {
 		it = specificStandardProcess.getSpecialization().iterator();
 
 		while (it.hasNext()) {
+
 			auxspecificStandardProcess = (SpecificStandardProcess) it.next();
 			if (auxspecificStandardProcess.getName().equals(
 					processEnginnering.getName())) {
@@ -99,8 +100,8 @@ public class PageStandardActivityProcess extends WizardPage {
 		lblName.setText("Name:");
 
 		txtName = new Text(container, SWT.BORDER);
-		txtName.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false,
-				1, 1));
+		txtName.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1,
+				1));
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
@@ -141,12 +142,20 @@ public class PageStandardActivityProcess extends WizardPage {
 					.getActivityStandardProcesses().iterator();
 			ActivityStandardProcess auxActivityStandardProcess;
 			TreeItem auxitem;
-			while (itActivities.hasNext()) {
-				auxActivityStandardProcess = itActivities.next();
+			//TODO usar recursividade
+			for (int i = 0; i < auxspecificStandardProcess
+					.getActivityStandardProcesses().size(); i++) {
 
 				auxitem = new TreeItem(item, SWT.NONE, 0);
-				auxitem.setText(auxActivityStandardProcess.getName());
-				populateactivity(auxitem, auxActivityStandardProcess);
+				auxActivityStandardProcess = auxspecificStandardProcess
+						.getActivityStandardProcesses().get(i);
+				auxitem.setText(auxspecificStandardProcess
+						.getActivityStandardProcesses().get(i).getName());
+
+				System.out.println(auxitem.getText() + " " + item.getText());
+
+				populateactivity(auxitem, auxspecificStandardProcess
+						.getActivityStandardProcesses().get(i));
 				// TODO colocar na hash
 			}
 		}
