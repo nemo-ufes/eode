@@ -42,6 +42,7 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	List list_selected;
 	HashMap<TreeItem, SpecificStandardProcess> hashStandardProcesses;
 	HashMap<String, ActivityStandardProcess> hashActivies;
+	PageStandardActivityProcess pageStandardActivityProcess;
 
 	/**
 	 * Create the wizard.
@@ -62,20 +63,28 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	 * @param parent
 	 * @param shell
 	 */
-	public void createControl(Composite parent) {
+	public void createControl(final Composite parent) {
 		{// pegando da outra pagina
 
 			HashSet<StandardProcess> subprocess = new HashSet<StandardProcess>();
-			SpecificStandardProcess[] specificStandardProcesses = ApplCRUDSpecificStandardProcess.getever();
+			SpecificStandardProcess[] specificStandardProcesses = ApplCRUDSpecificStandardProcess
+					.getever();
+
+			pageStandardActivityProcess = (PageStandardActivityProcess) getNextPage();
+			pageStandardActivityProcess.specificStandardProcess = specificStandardProcess;
+			pageStandardActivityProcess.processEnginnering = processEnginnering;
 
 			int j;
 			for (j = 0; j < specificStandardProcesses.length; j++) {
-				if (processEnginnering.getName().equals(specificStandardProcesses[j].getName())) {
+				if (processEnginnering.getName().equals(
+						specificStandardProcesses[j].getName())) {
 					subprocess.add(specificStandardProcesses[j]);
+					specificStandardProcessSelected = specificStandardProcesses[j];
 				}
 				int k = 0;
 				while (k < subkprocessesSelections.size()) {
-					if (subkprocessesSelections.get(k).getName().equals(specificStandardProcesses[j].getName())) {
+					if (subkprocessesSelections.get(k).getName()
+							.equals(specificStandardProcesses[j].getName())) {
 						subprocess.add(specificStandardProcesses[j]);
 						k = subkprocessesSelections.size();
 					}
@@ -99,40 +108,54 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		root.setExpanded(true);
 
 		TreeItem item;
-		Iterator<StandardProcess> it = specificStandardProcess.getSpecialization().iterator();
-		SpecificStandardProcess specificStandardProcess;
-		specificStandardProcess = (SpecificStandardProcess) it.next();
-		item = new TreeItem(root, SWT.NONE, 0);
-		item.setText(specificStandardProcess.getName());
-		tree.select(item);
-		hashStandardProcesses.put(item, specificStandardProcess);
+		Iterator<StandardProcess> it = specificStandardProcess
+				.getSpecialization().iterator();
+		SpecificStandardProcess auxspecificStandardProcess;
+		while (it.hasNext()) {
+
+			auxspecificStandardProcess = (SpecificStandardProcess) it.next();
+			if (!auxspecificStandardProcess.getName().equals(
+					processEnginnering.getName())) {
+				item = new TreeItem(root, SWT.NONE, 0);
+				item.setText(auxspecificStandardProcess.getName());
+				hashStandardProcesses.put(item, auxspecificStandardProcess);
+			}
+
+		}
+		it = specificStandardProcess.getSpecialization().iterator();
 
 		while (it.hasNext()) {
-			specificStandardProcess = (SpecificStandardProcess) it.next();
-			item = new TreeItem(root, SWT.NONE, 0);
-			item.setText(specificStandardProcess.getName());
-			hashStandardProcesses.put(item, specificStandardProcess);
-
+			auxspecificStandardProcess = (SpecificStandardProcess) it.next();
+			if (auxspecificStandardProcess.getName().equals(
+					processEnginnering.getName())) {
+				item = new TreeItem(root, SWT.NONE, 0);
+				item.setText(auxspecificStandardProcess.getName());
+				hashStandardProcesses.put(item, auxspecificStandardProcess);
+			}
 		}
 
 		tree.addSelectionListener(new SelectionAdapter() {
 			public void widgetSelected(SelectionEvent e) {
 				TreeItem ti = (TreeItem) e.item;
 				if (!ti.equals(root)) {
-					specificStandardProcessSelected = hashStandardProcesses.get(ti);
+					specificStandardProcessSelected = hashStandardProcesses
+							.get(ti);
 					populateMacro(hashStandardProcesses.get(ti));
 				}
 			}
 
-			private void populateMacro(SpecificStandardProcess specificStandardProcess) {
+			private void populateMacro(
+					SpecificStandardProcess specificStandardProcess) {
 				list_avaliables.removeAll();
 				list_selected.removeAll();
 				for (int i = 0; i < activitiesStandardProcess.length; i++) {
-					if (specificStandardProcess.getActivityStandardProcesses().contains(activitiesStandardProcess[i])) {
-						list_selected.add(activitiesStandardProcess[i].getName());
-					}
-					else {
-						list_avaliables.add(activitiesStandardProcess[i].getName());
+					if (specificStandardProcess.getActivityStandardProcesses()
+							.contains(activitiesStandardProcess[i])) {
+						list_selected.add(activitiesStandardProcess[i]
+								.getName());
+					} else {
+						list_avaliables.add(activitiesStandardProcess[i]
+								.getName());
 					}
 
 				}
@@ -151,7 +174,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		new Label(container, SWT.NONE);
 
 		Label lblSelections = new Label(container, SWT.NONE);
-		lblSelections.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		lblSelections.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false,
+				false, 1, 1));
 		lblSelections.setText("Activity Selected:");
 		new Label(container, SWT.NONE);
 
@@ -161,11 +185,13 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		gd_list.widthHint = 300;
 		for (int i = 0; i < activitiesStandardProcess.length; i++) {
 			list_avaliables.add(activitiesStandardProcess[i].getName());
-			hashActivies.put(activitiesStandardProcess[i].getName(), activitiesStandardProcess[i]);
+			hashActivies.put(activitiesStandardProcess[i].getName(),
+					activitiesStandardProcess[i]);
 		}
 
 		Button select_one = new Button(container, SWT.NONE);
-		GridData gd_button = new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1);
+		GridData gd_button = new GridData(SWT.FILL, SWT.FILL, false, false, 1,
+				1);
 		gd_button.widthHint = 25;
 		select_one.setLayoutData(gd_button);
 		select_one.setText(">");
@@ -174,33 +200,40 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String[] selections = list_avaliables.getSelection();
-
-				for (int i = 0; i < selections.length; i++) {
-					list_selected.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().add(hashActivies.get(selections[i]));
-					list_avaliables.remove(selections[i]);
+				if (specificStandardProcessSelected != null) {
+					for (int i = 0; i < selections.length; i++) {
+						list_selected.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().add(
+										hashActivies.get(selections[i]));
+						list_avaliables.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				String[] selections = list_avaliables.getSelection();
-
-				for (int i = 0; i < selections.length; i++) {
-					list_selected.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().add(hashActivies.get(selections[i]));
-					list_avaliables.remove(selections[i]);
+				if (specificStandardProcessSelected != null) {
+					for (int i = 0; i < selections.length; i++) {
+						list_selected.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().add(
+										hashActivies.get(selections[i]));
+						list_avaliables.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 		});
 
 		list_selected = new List(container, SWT.BORDER);
-		GridData gd_list_1 = new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 7);
+		GridData gd_list_1 = new GridData(SWT.LEFT, SWT.FILL, false, false, 1,
+				7);
 		list_selected.setLayoutData(gd_list_1);
 		gd_list_1.widthHint = 300;
 		new Label(container, SWT.NONE);
@@ -212,27 +245,33 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String[] selections = list_avaliables.getItems();
-
-				for (int i = 0; i < selections.length; i++) {
-					list_selected.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().add(hashActivies.get(selections[i]));
-					list_avaliables.remove(selections[i]);
+				if (specificStandardProcessSelected != null) {
+					for (int i = 0; i < selections.length; i++) {
+						list_selected.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().add(
+										hashActivies.get(selections[i]));
+						list_avaliables.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				String[] selections = list_avaliables.getItems();
-
-				for (int i = 0; i < selections.length; i++) {
-					list_selected.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().add(hashActivies.get(selections[i]));
-					list_avaliables.remove(selections[i]);
+				if (specificStandardProcessSelected != null) {
+					for (int i = 0; i < selections.length; i++) {
+						list_selected.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().add(
+										hashActivies.get(selections[i]));
+						list_avaliables.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 		});
@@ -240,34 +279,41 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		new Label(container, SWT.NONE);
 
 		Button deselect_one = new Button(container, SWT.NONE);
-		deselect_one.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		deselect_one.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false,
+				false, 1, 1));
 		deselect_one.setText("<");
 		deselect_one.addSelectionListener(new SelectionListener() {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				String[] selections = list_selected.getSelection();
-
-				for (int i = 0; i < selections.length; i++) {
-					list_avaliables.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().remove(hashActivies.get(selections[i]));
-					list_selected.remove(selections[i]);
+				if (specificStandardProcessSelected != null) {
+					for (int i = 0; i < selections.length; i++) {
+						list_avaliables.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().remove(
+										hashActivies.get(selections[i]));
+						list_selected.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				String[] selections = list_selected.getSelection();
-
-				for (int i = 0; i < selections.length; i++) {
-					list_avaliables.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().remove(hashActivies.get(selections[i]));
-					list_selected.remove(selections[i]);
+				if (specificStandardProcessSelected != null) {
+					for (int i = 0; i < selections.length; i++) {
+						list_avaliables.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().remove(
+										hashActivies.get(selections[i]));
+						list_selected.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 		});
@@ -275,34 +321,42 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		new Label(container, SWT.NONE);
 
 		Button deselect_ever = new Button(container, SWT.NONE);
-		deselect_ever.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false, false, 1, 1));
+		deselect_ever.setLayoutData(new GridData(SWT.LEFT, SWT.TOP, false,
+				false, 1, 1));
 		deselect_ever.setText("<<");
 		deselect_ever.addSelectionListener(new SelectionListener() {
 
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				String[] selections = list_selected.getItems();;
+				String[] selections = list_selected.getItems();
+				if (specificStandardProcessSelected != null) {
 
-				for (int i = 0; i < selections.length; i++) {
-					list_avaliables.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().remove(hashActivies.get(selections[i]));
-					list_selected.remove(selections[i]);
+					for (int i = 0; i < selections.length; i++) {
+						list_avaliables.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().remove(
+										hashActivies.get(selections[i]));
+						list_selected.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 			@Override
 			public void widgetDefaultSelected(SelectionEvent e) {
 				String[] selections = list_selected.getItems();
-
-				for (int i = 0; i < selections.length; i++) {
-					list_avaliables.add(selections[i]);
-					specificStandardProcessSelected.getActivityStandardProcesses().remove(hashActivies.get(selections[i]));
-					list_selected.remove(selections[i]);
+				if (specificStandardProcessSelected != null) {
+					for (int i = 0; i < selections.length; i++) {
+						list_avaliables.add(selections[i]);
+						specificStandardProcessSelected
+								.getActivityStandardProcesses().remove(
+										hashActivies.get(selections[i]));
+						list_selected.remove(selections[i]);
+					}
+					 pageStandardActivityProcess.createControl(parent);
+					 pageStandardActivityProcess.getControl().pack();
 				}
-				// pageDefineMacroActivityStandardProcess.createControl(parent);
-				// pageDefineMacroActivityStandardProcess.getControl().pack();
 			}
 
 		});
@@ -313,6 +367,7 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
 		new Label(container, SWT.NONE);
+		tree.getItems()[0].setExpanded(true);
 
 	}
 
@@ -322,7 +377,8 @@ public class PageDefineMacroActivityStandardProcess extends WizardPage {
 	}
 
 	/** Setter for specificStandardProcess. */
-	public void setSpecificStandardProcess(SpecificStandardProcess specificStandardProcess) {
+	public void setSpecificStandardProcess(
+			SpecificStandardProcess specificStandardProcess) {
 		// root.setText(specificStandardProcess.getName());
 		this.specificStandardProcess = specificStandardProcess;
 	}

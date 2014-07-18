@@ -96,6 +96,8 @@ public class PageDefineSubStandardProcess extends WizardPage {
 					@Override
 					public void widgetSelected(SelectionEvent e) {
 						pageDefineMacroActivityStandardProcess.processEnginnering = hashKprocess.get(combo.getItem(combo.getSelectionIndex()));
+						pageDefineMacroActivityStandardProcess.createControl(parent);
+						pageDefineMacroActivityStandardProcess.getControl().pack();
 					}
 
 					@Override
