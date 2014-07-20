@@ -493,7 +493,6 @@ public class ApplCRUDSpecificStandardProcess {
 				macroActivityStandardProcesses.add(activityStandardProcess);
 				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
 
-				// specificStandardProcess.setActivityStandardProcesses(macroActivityStandardProcesses);
 
 			}
 			specificStandardProcesses.add(specificStandardProcess);

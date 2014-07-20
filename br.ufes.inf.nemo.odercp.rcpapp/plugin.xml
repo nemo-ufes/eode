@@ -165,11 +165,6 @@
          <menu
                label="Tools">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.createStandarProcess"
-                  label="Create Standard Process"
-                  style="push">
-            </command>
-            <command
                   commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ProcessDefinition"
                   label="Process Definition"
                   style="push">
@@ -290,11 +285,6 @@
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CallEditorODE"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ViewDataODE"
             name="Datas ODE">
-      </command>
-      <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateStandardProcessHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.createStandarProcess"
-            name="Create Standard Process">
       </command>
    </extension>
    <extension
