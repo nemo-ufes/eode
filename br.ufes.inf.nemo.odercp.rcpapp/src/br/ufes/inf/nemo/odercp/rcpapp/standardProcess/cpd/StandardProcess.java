@@ -8,7 +8,6 @@ public abstract class StandardProcess {
 	private String name;
 	private boolean isDefine;
 	private String description;
-	private Organization organization;
 	private Set<StandardProcess> specialization;
 
 	/** Constructor. */
@@ -45,16 +44,6 @@ public abstract class StandardProcess {
 	/** Setter for description. */
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	/** Getter for organization. */
-	public Organization getOrganization() {
-		return organization;
-	}
-
-	/** Setter for organization. */
-	public void setOrganization(Organization organization) {
-		this.organization = organization;
 	}
 
 	/** Getter for specialization. */

@@ -1,21 +1,20 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui;
 
-import org.eclipse.swt.widgets.Display;
-import org.eclipse.swt.widgets.Event;
-import org.eclipse.swt.widgets.Listener;
-import org.eclipse.swt.widgets.Shell;
-
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDSpecificStandardProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.SpecificStandardProcess;
-
+import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
+
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDGeneralStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.GeneralStandardProcess;
 
 public class PageCreateStandardProcess {
 	private Text txtName;
@@ -81,10 +80,10 @@ public class PageCreateStandardProcess {
 
 			@Override
 			public void handleEvent(Event event) {
-				SpecificStandardProcess standardProcess = new SpecificStandardProcess();
+				GeneralStandardProcess standardProcess = new GeneralStandardProcess();
 				standardProcess.setName(txtName.getText());
 				standardProcess.setDescription(txtDescription.getText());
-				ApplCRUDSpecificStandardProcess.create(standardProcess);
+				ApplCRUDGeneralStandardProcess.create(standardProcess);
 				shell.close();
 			}
 

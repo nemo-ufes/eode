@@ -5,7 +5,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
 
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui.PageProcessDefine;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui.PageStandardProcessDefine;
 
 /**
  * 
@@ -13,12 +13,12 @@ import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui.PageProcessDefine;
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0
  */
-public class ProcessDefinitionHandler extends AbstractHandler {
+public class ProjectProcessDefinitionHandler extends AbstractHandler {
 
 	/** @see org.eclipse.core.commands.IHandler#execute(org.eclipse.core.commands.ExecutionEvent) */
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		PageProcessDefine pageProcessDefine = new PageProcessDefine();
+		PageStandardProcessDefine pageProcessDefine = new PageStandardProcessDefine();
 		pageProcessDefine.main();
 		return null;
 	}

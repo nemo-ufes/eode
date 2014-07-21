@@ -1,4 +1,4 @@
-package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui;
+package br.ufes.inf.nemo.odercp.rcpapp.processControl.cui;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -25,6 +25,7 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Menu;
 import org.eclipse.swt.widgets.MenuItem;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Tree;
 import org.eclipse.swt.widgets.TreeItem;
 import org.eclipse.ui.forms.widgets.Form;
@@ -40,9 +41,8 @@ import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDSpecificStanda
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.ActivityStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.SpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd.StandardProcess;
-import org.eclipse.swt.widgets.Text;
 
-public class PageProcessDefine {
+public class PageProjectProcessDefine {
 	Shell shell;
 	SpecificStandardProcess specificStandardProcess;
 	SpecificStandardProcess specificStandardProcessselected;
@@ -59,7 +59,7 @@ public class PageProcessDefine {
 	SpecificStandardProcess processEngineering;
 	Combo combo;
 	CTabFolder tabFolder;
-	PageProcessDefine pageProcessDefine;
+	PageProjectProcessDefine pageProcessDefine;
 	List listAvaliablesMA;
 	List listSelectionsMA;
 	HashMap<String, ActivityStandardProcess> hashActivies;
@@ -91,15 +91,6 @@ public class PageProcessDefine {
 		Menu standardMenu = new Menu(shell, SWT.DROP_DOWN);
 		cascadeStandardMenu.setMenu(standardMenu);
 
-		MenuItem createItem = new MenuItem(standardMenu, SWT.PUSH);
-		createItem.setText("&Create Standard Process");
-		createItem.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				PageCreateStandardProcess pageCreateStandardProcess = new PageCreateStandardProcess();
-				pageCreateStandardProcess.main();
-			}
-		});
 
 		MenuItem choiceItem = new MenuItem(standardMenu, SWT.PUSH);
 		choiceItem.setText("&Choice Standard Process");
@@ -124,11 +115,7 @@ public class PageProcessDefine {
 
 			}
 		});
-
-		MenuItem createActvityStandardProcessItem = new MenuItem(standardMenu,
-				SWT.PUSH);
-		createActvityStandardProcessItem
-				.setText("&Create Activity Standard Process");
+		
 
 		shell.setMenuBar(menuBar);
 
@@ -857,7 +844,9 @@ public class PageProcessDefine {
 	private void populateProcess(TreeItem item,
 			SpecificStandardProcess auxspecificStandardProcess) {
 
-		if (auxspecificStandardProcess.getActivityStandardProcesses() != null) {
+		if (auxspecificStandardProcess.getActivityStandardProcesses() != null
+				&& !auxspecificStandardProcess.getActivityStandardProcesses()
+						.isEmpty()) {
 
 			TreeItem auxitem;
 			int size = auxspecificStandardProcess
@@ -866,14 +855,15 @@ public class PageProcessDefine {
 			ActivityStandardProcess[] activitiesStandardProcess = auxspecificStandardProcess
 					.getActivityStandardProcesses().toArray(
 							new ActivityStandardProcess[size]);
-
-			for (int i = size - 1; i >= 0; i--) {
+			int j = size - 1;
+			for (int i = j; i >= 0; i--) {
 
 				auxitem = new TreeItem(item, SWT.NONE, 0);
 				auxitem.setText(activitiesStandardProcess[i].getName());
 
 				populateactivity(auxitem, activitiesStandardProcess[i]);
 			}
+
 		}
 
 	}
@@ -965,6 +955,7 @@ public class PageProcessDefine {
 			Iterator<ActivityStandardProcess> itpreactivities = activityStandardProcess
 					.getPreActivityStandardProcesses().iterator();
 			ActivityStandardProcess preactivity;
+
 			while (itpreactivities.hasNext()) {
 				preactivity = itpreactivities.next();
 				auxItem = new TreeItem(itemPreActivies, SWT.NONE, 0);

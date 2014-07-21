@@ -1,27 +1,27 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd;
 
+import java.util.LinkedHashSet;
 import java.util.Set;
 
+public class GeneralStandardProcess extends StandardProcess {
 
+	private Set<SpecificStandardProcess> specificStandardProcesses;
 
-public class GeneralStandardProcess extends StandardProcess{
-    
-    private Set<SpecificStandardProcess> specificStandardProcesses;
+	/** Constructor. */
+	public GeneralStandardProcess() {
+		super();
+		specificStandardProcesses = new LinkedHashSet<SpecificStandardProcess>();
+	}
 
-		/** Constructor. */
-		public GeneralStandardProcess() {
-			super();
-		}
+	/** Getter for specificStandardProcesses. */
+	public Set<SpecificStandardProcess> getSpecificStandardProcesses() {
+		return specificStandardProcesses;
+	}
 
-		/** Getter for specificStandardProcesses. */
-		public Set<SpecificStandardProcess> getSpecificStandardProcesses() {
-			return specificStandardProcesses;
-		}
+	/** Setter for specificStandardProcesses. */
+	public void setSpecificStandardProcesses(
+			Set<SpecificStandardProcess> specificStandardProcesses) {
+		this.specificStandardProcesses = specificStandardProcesses;
+	}
 
-		/** Setter for specificStandardProcesses. */
-		public void setSpecificStandardProcesses(Set<SpecificStandardProcess> specificStandardProcesses) {
-			this.specificStandardProcesses = specificStandardProcesses;
-		}
-    
-       
 }

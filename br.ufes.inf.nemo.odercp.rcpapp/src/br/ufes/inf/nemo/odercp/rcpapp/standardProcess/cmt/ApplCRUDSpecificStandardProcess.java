@@ -24,10 +24,13 @@ public class ApplCRUDSpecificStandardProcess {
 
 	public static SpecificStandardProcess[] getever() {
 
-		if (specificStandardProcesses == null) specificStandardProcesses = new HashSet<SpecificStandardProcess>();
+		if (specificStandardProcesses == null)
+			specificStandardProcesses = new HashSet<SpecificStandardProcess>();
 		if (!specificStandardProcesses.isEmpty()) {
-			vectorsProcess = new SpecificStandardProcess[specificStandardProcesses.size()];
-			Iterator<SpecificStandardProcess> it = specificStandardProcesses.iterator();
+			vectorsProcess = new SpecificStandardProcess[specificStandardProcesses
+					.size()];
+			Iterator<SpecificStandardProcess> it = specificStandardProcesses
+					.iterator();
 			int i = 0;
 			while (it.hasNext()) {
 				vectorsProcess[i] = it.next();
@@ -37,8 +40,10 @@ public class ApplCRUDSpecificStandardProcess {
 		}
 		// else {
 		// processos();
-		// vectorsProcess = new SpecificStandardProcess[specificStandardProcesses.size()];
-		// Iterator<SpecificStandardProcess> it = specificStandardProcesses.iterator();
+		// vectorsProcess = new
+		// SpecificStandardProcess[specificStandardProcesses.size()];
+		// Iterator<SpecificStandardProcess> it =
+		// specificStandardProcesses.iterator();
 		// int i = 0;
 		// while (it.hasNext()) {
 		// vectorsProcess[i] = it.next();
@@ -50,25 +55,29 @@ public class ApplCRUDSpecificStandardProcess {
 	}
 
 	public static boolean create(SpecificStandardProcess standardProcess) {
-		if (specificStandardProcesses == null) specificStandardProcesses = new HashSet<SpecificStandardProcess>();
+		if (specificStandardProcesses == null)
+			specificStandardProcesses = new HashSet<SpecificStandardProcess>();
 		specificStandardProcesses.add(standardProcess);
 		return true;
 	}
 
 	public static void processos() {
 
-		if (specificStandardProcesses == null) specificStandardProcesses = new HashSet<SpecificStandardProcess>();
+		if (specificStandardProcesses == null)
+			specificStandardProcesses = new HashSet<SpecificStandardProcess>();
 		KProcess kProcesses[] = ApplCRUDKProcess.getever();
 		SpecificStandardProcess specificStandardProcess;
 		for (int i = 0; i < kProcesses.length; i++) {
 			specificStandardProcess = new SpecificStandardProcess();
 			specificStandardProcess.setkProcess(kProcesses[i]);
 			specificStandardProcess.setName(kProcesses[i].getName());
-			specificStandardProcess.setDescription(kProcesses[i].getDescription());
+			specificStandardProcess.setDescription(kProcesses[i]
+					.getDescription());
 			specificStandardProcess.setIsDefine(true);
-			specificStandardProcess.setStandardProcessLifeCycleModels(ApplCRUDStandardProcessLifeCycleModel.standardProcessLifeCycleModels);
-			if (kProcesses[i].getName().equals("Software Development")) {
 
+			if (kProcesses[i].getName().equals("Software Development")) {
+				specificStandardProcess
+						.setStandardProcessLifeCycleModels(ApplCRUDStandardProcessLifeCycleModel.standardProcessLifeCycleModels);
 				HashSet<ActivityStandardProcess> macroActivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 
 				ActivityStandardProcess activityStandardProcess;
@@ -82,9 +91,11 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcess.setName("capture requirements");
 				activityStandardProcess.setDescription("capture requirements");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[0]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[0]);
 				activityStandardProcess.setInputs(null);
 				activityStandardProcess.setProducts(null);
 				activityStandardProcess.setPreActivityStandardProcesses(null);
@@ -97,18 +108,22 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("requirements modeling");
 				activityStandardProcess.setDescription("requirements modeling");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[0]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[0]);
 				activityStandardProcess.setInputs(null);
 				activityStandardProcess.setProducts(null);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				activityStandardProcess.setkResources(null);
 				activityStandardProcess.setkProcedures(null);
 				kHumanResources = new HashSet<KHumanResource>();
@@ -117,35 +132,44 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Requirements documentation");
-				activityStandardProcess.setDescription("Requirements documentation");
+				activityStandardProcess
+						.setDescription("Requirements documentation");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[0]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[0]);
 				activityStandardProcess.setInputs(null);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[0]);
 				activityStandardProcess.setProducts(kArtefacts);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				activityStandardProcess.setkResources(null);
 				activityStandardProcess.setkProcedures(null);
 				kHumanResources = new HashSet<KHumanResource>();
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[0]);
 				activityStandardProcess.setkHumanResources(kHumanResources);
 				activityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Requirements Elicitation");
-				activityStandardProcess.setDescription("Requirements Elicitation");
+				activityStandardProcess
+						.setDescription("Requirements Elicitation");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[0]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[0]);
 				activityStandardProcess.setInputs(null);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[0]);
@@ -161,11 +185,13 @@ public class ApplCRUDSpecificStandardProcess {
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[0]);
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[3]);
 				activityStandardProcess.setkHumanResources(kHumanResources);
-				activityStandardProcess.setSubActivityStandardProcesses(activityStandardProcesses);
+				activityStandardProcess
+						.setSubActivityStandardProcesses(activityStandardProcesses);
 				// activityStandardProcesses.add(activityStandardProcess);
 				ActivityStandardProcess preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Analysis
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -174,14 +200,17 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcess.setName("requirements modeling");
 				activityStandardProcess.setDescription("requirements modeling");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[1]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[1]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[0]);
 				activityStandardProcess.setInputs(kArtefacts);
 				activityStandardProcess.setProducts(null);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				kResources = new HashSet<KResource>();
 				kResources.add(ApplCRUDKHardwareResource.getever()[0]);
 				activityStandardProcess.setkResources(kResources);
@@ -194,15 +223,19 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("modeling documentation");
-				activityStandardProcess.setDescription("modeling documentation");
+				activityStandardProcess
+						.setDescription("modeling documentation");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[2]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[2]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[0]);
 				activityStandardProcess.setInputs(kArtefacts);
@@ -211,7 +244,8 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcess.setProducts(kArtefacts);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(preActivityStandardProcess);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				kResources = new HashSet<KResource>();
 				kResources.add(ApplCRUDKHardwareResource.getever()[0]);
 				activityStandardProcess.setkResources(kResources);
@@ -224,15 +258,18 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Analysis");
 				activityStandardProcess.setDescription("Analysis");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[1]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[1]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[0]);
 				activityStandardProcess.setInputs(kArtefacts);
@@ -247,14 +284,17 @@ public class ApplCRUDSpecificStandardProcess {
 				kHumanResources = new HashSet<KHumanResource>();
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[0]);
 				activityStandardProcess.setkHumanResources(kHumanResources);
-				activityStandardProcess.setSubActivityStandardProcesses(activityStandardProcesses);
+				activityStandardProcess
+						.setSubActivityStandardProcesses(activityStandardProcesses);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(preActivityStandardProcess);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Design
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -263,14 +303,17 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcess.setName("Architeture design");
 				activityStandardProcess.setDescription("Architeture design");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[4]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[4]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[1]);
 				activityStandardProcess.setInputs(kArtefacts);
 				activityStandardProcess.setProducts(null);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				kResources = new HashSet<KResource>();
 				kResources.add(ApplCRUDKHardwareResource.getever()[0]);
 				activityStandardProcess.setkResources(kResources);
@@ -283,20 +326,24 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Detailed design");
 				activityStandardProcess.setDescription("Detailed design");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[4]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[4]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[1]);
 				activityStandardProcess.setInputs(kArtefacts);
 				activityStandardProcess.setProducts(null);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				kResources = new HashSet<KResource>();
 				kResources.add(ApplCRUDKHardwareResource.getever()[0]);
 				activityStandardProcess.setkResources(kResources);
@@ -309,22 +356,26 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Documentation design");
 				activityStandardProcess.setDescription("Documentation design");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[2]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[2]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[1]);
 				activityStandardProcess.setInputs(kArtefacts);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[2]);
 				activityStandardProcess.setProducts(kArtefacts);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				kResources = new HashSet<KResource>();
 				kResources.add(ApplCRUDKHardwareResource.getever()[0]);
 				activityStandardProcess.setkResources(kResources);
@@ -337,15 +388,18 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Design");
 				activityStandardProcess.setDescription("Design");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[2]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[2]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[1]);
 				activityStandardProcess.setInputs(kArtefacts);
@@ -360,14 +414,17 @@ public class ApplCRUDSpecificStandardProcess {
 				kHumanResources = new HashSet<KHumanResource>();
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[0]);
 				activityStandardProcess.setkHumanResources(kHumanResources);
-				activityStandardProcess.setSubActivityStandardProcesses(activityStandardProcesses);
+				activityStandardProcess
+						.setSubActivityStandardProcesses(activityStandardProcesses);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(preActivityStandardProcess);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Implematiton
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -376,9 +433,11 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcess.setName("Coding Sofware");
 				activityStandardProcess.setDescription("Coding Sofware");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[3]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[3]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[1]);
 				kArtefacts.add(ApplCRUDKArtefact.getever()[2]);
@@ -386,7 +445,8 @@ public class ApplCRUDSpecificStandardProcess {
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[3]);
 				activityStandardProcess.setProducts(kArtefacts);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				kResources = new HashSet<KResource>();
 				kResources.add(ApplCRUDKHardwareResource.getever()[0]);
 				activityStandardProcess.setkResources(kResources);
@@ -399,15 +459,18 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Implementation");
 				activityStandardProcess.setDescription("Implementation");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[3]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[3]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[1]);
 				kArtefacts.add(ApplCRUDKArtefact.getever()[2]);
@@ -423,14 +486,17 @@ public class ApplCRUDSpecificStandardProcess {
 				kHumanResources = new HashSet<KHumanResource>();
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[1]);
 				activityStandardProcess.setkHumanResources(kHumanResources);
-				activityStandardProcess.setSubActivityStandardProcesses(activityStandardProcesses);
+				activityStandardProcess
+						.setSubActivityStandardProcesses(activityStandardProcesses);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(preActivityStandardProcess);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				// Test
 				activityStandardProcesses = new HashSet<ActivityStandardProcess>();
@@ -439,16 +505,19 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcess.setName("Testing Sofware");
 				activityStandardProcess.setDescription("Testing Sofware");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[4]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[4]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[2]);
 				activityStandardProcess.setInputs(kArtefacts);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[3]);
 				activityStandardProcess.setProducts(kArtefacts);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				kResources = new HashSet<KResource>();
 				kResources.add(ApplCRUDKHardwareResource.getever()[0]);
 				activityStandardProcess.setkResources(kResources);
@@ -461,15 +530,18 @@ public class ApplCRUDSpecificStandardProcess {
 				activityStandardProcesses.add(activityStandardProcess);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 				activityStandardProcess = new ActivityStandardProcess();
 				activityStandardProcess.setName("Test");
 				activityStandardProcess.setDescription("Test");
 				activityStandardProcess.setMandatory(true);
-				activityStandardProcess.setStandardProcess(specificStandardProcess);
+				activityStandardProcess
+						.setStandardProcess(specificStandardProcess);
 				// tipo de atividade elecitation
-				activityStandardProcess.setkActivity(ApplCRUDKActivity.getever()[4]);
+				activityStandardProcess.setkActivity(ApplCRUDKActivity
+						.getever()[4]);
 				kArtefacts = new HashSet<KArtefact>();
 				kArtefacts.add(ApplCRUDKArtefact.getever()[2]);
 				activityStandardProcess.setInputs(kArtefacts);
@@ -484,15 +556,17 @@ public class ApplCRUDSpecificStandardProcess {
 				kHumanResources = new HashSet<KHumanResource>();
 				kHumanResources.add(ApplCRUDKHumanResource.getever()[1]);
 				activityStandardProcess.setkHumanResources(kHumanResources);
-				activityStandardProcess.setSubActivityStandardProcesses(activityStandardProcesses);
+				activityStandardProcess
+						.setSubActivityStandardProcesses(activityStandardProcesses);
 				preactivityStandardProcesses = new HashSet<ActivityStandardProcess>();
 				preactivityStandardProcesses.add(preActivityStandardProcess);
-				activityStandardProcess.setPreActivityStandardProcesses(preactivityStandardProcesses);
+				activityStandardProcess
+						.setPreActivityStandardProcesses(preactivityStandardProcesses);
 				// activityStandardProcesses.add(activityStandardProcess);
 				preActivityStandardProcess = activityStandardProcess;
 				macroActivityStandardProcesses.add(activityStandardProcess);
-				ApplCRUDActivityStandardProcess.CreateActivityStandardProcess(activityStandardProcess);
-
+				ApplCRUDActivityStandardProcess
+						.CreateActivityStandardProcess(activityStandardProcess);
 
 			}
 			specificStandardProcesses.add(specificStandardProcess);

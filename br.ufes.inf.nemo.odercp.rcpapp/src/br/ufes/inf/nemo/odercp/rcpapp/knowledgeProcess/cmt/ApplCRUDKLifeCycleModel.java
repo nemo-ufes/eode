@@ -13,8 +13,8 @@ public class ApplCRUDKLifeCycleModel {
 		KLifeCycleModel[] everKLifeCycleModel = new KLifeCycleModel[1];
 		KLifeCycleModel aux;
 		aux = new KLifeCycleModel();
-		aux.setName("Model in V");
-		aux.setDescription("Model in V");
+		aux.setName("Cascade");
+		aux.setDescription("Cascade");
 		CombinationLCM combinationLCM = new CombinationLCM();
 		combinationLCM.setkLifeCycleModel(aux);
 		combinationLCM.setTypeCombination(TypeCombination.Sequential);

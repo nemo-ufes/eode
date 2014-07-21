@@ -163,10 +163,30 @@
             </visibleWhen>
          </menu>
          <menu
-               label="Tools">
+               label="Process">
             <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ProcessDefinition"
-                  label="Process Definition"
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.StandardProcessDefinition"
+                  label="Standard Process Definition"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateActivityStandardProcess"
+                  label="Create Activity Standard Process"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateArtefact"
+                  label="Create Artefact"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateResource"
+                  label="Create Resource"
+                  style="push">
+            </command>
+            <command
+                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ProjectProcessDefinition"
+                  label="Project Process Definition"
                   style="push">
             </command>
             <visibleWhen
@@ -232,9 +252,9 @@
             name="Create Human Resource">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ProcessDefinitionHandler"
-            id="br.ufes.inf.nemo.odercp.rcpapp.command.ProcessDefinition"
-            name="Process Definition">
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.StandardProcessDefinitionHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.StandardProcessDefinition"
+            name="Standard Process Definition">
       </command>
       <command
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.DeleteProjectHandler"
@@ -285,6 +305,26 @@
             defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CallEditorODE"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ViewDataODE"
             name="Datas ODE">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateActivityStandardProcessHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateActivityStandardProcess"
+            name="Create Activity Standard Process">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ProjectProcessDefinitionHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.ProjectProcessDefinition"
+            name="Project Process Definition">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateArtefactHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateArtefact"
+            name="Create Artefact">
+      </command>
+      <command
+            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateResourceHandler"
+            id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateResource"
+            name="Create Resource ">
       </command>
    </extension>
    <extension

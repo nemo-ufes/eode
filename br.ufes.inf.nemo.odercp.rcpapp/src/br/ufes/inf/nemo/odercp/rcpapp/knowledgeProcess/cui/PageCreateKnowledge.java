@@ -55,7 +55,9 @@ public class PageCreateKnowledge extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || description.getText().isEmpty())) setPageComplete(true);
+				if (!(name.getText().isEmpty() || description.getText()
+						.isEmpty()))
+					setPageComplete(true);
 			}
 
 			@Override
@@ -72,7 +74,8 @@ public class PageCreateKnowledge extends WizardPage {
 		lblDescription.setText("Description*:");
 
 		description = new Text(container, SWT.BORDER | SWT.MULTI);
-		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 1, 1));
+		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true,
+				1, 1));
 
 		btnMandatory = new Button(container, SWT.CHECK);
 		btnMandatory.setText("Mandatory");
@@ -89,7 +92,9 @@ public class PageCreateKnowledge extends WizardPage {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				if (!(name.getText().isEmpty() || description.getText().isEmpty())) setPageComplete(true);
+				if (!(name.getText().isEmpty() || description.getText()
+						.isEmpty()))
+					setPageComplete(true);
 			}
 
 			@Override
@@ -109,6 +114,36 @@ public class PageCreateKnowledge extends WizardPage {
 	/** Getter for btnIsEng. */
 	public Button getBtnIsEng() {
 		return btnIsEng;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name.getText();
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(Text name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the description
+	 */
+	public String getDescription() {
+		return description.getText();
+	}
+
+	/**
+	 * @param description
+	 *            the description to set
+	 */
+	public void setDescription(Text description) {
+		this.description = description;
 	}
 
 }

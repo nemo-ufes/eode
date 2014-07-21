@@ -1,4 +1,4 @@
-package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui;
+package br.ufes.inf.nemo.odercp.rcpapp.processControl.cui;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,14 +18,14 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KSoftwareResource;
 
 /**
- * Page Create KActivity to choice Kresources
+ * Page Create
  * 
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
  * @version 1.0
  */
-public class PageCreateKActivityChoiceKResources extends WizardPage {
+public class PageCreateResourceChoiceKResources extends WizardPage {
 
-	Button checks[];
+	Button radios[];
 	KHardwareResource kHardwareResources[];
 	KSoftwareResource kSoftwareResources[];
 	Map<String, KResource> hashkResources;
@@ -33,10 +33,10 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 	/**
 	 * Create the wizard.
 	 */
-	public PageCreateKActivityChoiceKResources() {
-		super("Page Create KActivity");
-		setTitle("Page Create KActivity");
-		setDescription("Choice KResources");
+	public PageCreateResourceChoiceKResources() {
+		super("Page Create Resource");
+		setTitle("Page Create Resource");
+		setDescription("Choice KResource");
 		kHardwareResources = ApplCRUDKHardwareResource.getever();
 		kSoftwareResources = ApplCRUDKSoftwareResource.getever();
 		hashkResources = new HashMap<String, KResource>();
@@ -53,13 +53,16 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 		setControl(container);
 		container.setLayout(new GridLayout(1, false));
 		int i;
-		if (kHardwareResources.length > 0 || kSoftwareResources.length > 0) checks = new Button[kHardwareResources.length + kSoftwareResources.length];
+		if (kHardwareResources.length > 0 || kSoftwareResources.length > 0)
+			radios = new Button[kHardwareResources.length
+					+ kSoftwareResources.length];
 		for (i = 0; i < kHardwareResources.length; i++) {
-			checks[i] = new Button(container, SWT.CHECK);
-			checks[i].setText(kHardwareResources[i].getName());
-			hashkResources.put(kHardwareResources[i].getName(), kHardwareResources[i]);
-			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
-			checks[i].addSelectionListener(new SelectionListener() {
+			radios[i] = new Button(container, SWT.RADIO);
+			radios[i].setText(kHardwareResources[i].getName());
+			hashkResources.put(kHardwareResources[i].getName(),
+					kHardwareResources[i]);
+			radios[i].setBounds(10, 45 + (30 * i), 350, 24);
+			radios[i].addSelectionListener(new SelectionListener() {
 
 				@Override
 				public void widgetSelected(SelectionEvent e) {
@@ -77,11 +80,15 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 
 		}
 		for (; i < kHardwareResources.length + kSoftwareResources.length; i++) {
-			checks[i] = new Button(container, SWT.CHECK);
-			checks[i].setText(kSoftwareResources[i - kHardwareResources.length].getName());
-			hashkResources.put(kSoftwareResources[i - kHardwareResources.length].getName(), kSoftwareResources[i - kHardwareResources.length]);
-			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
-			checks[i].addSelectionListener(new SelectionListener() {
+			radios[i] = new Button(container, SWT.RADIO);
+			radios[i].setText(kSoftwareResources[i - kHardwareResources.length]
+					.getName());
+			hashkResources
+					.put(kSoftwareResources[i - kHardwareResources.length]
+							.getName(), kSoftwareResources[i
+							- kHardwareResources.length]);
+			radios[i].setBounds(10, 45 + (30 * i), 350, 24);
+			radios[i].addSelectionListener(new SelectionListener() {
 
 				@Override
 				public void widgetSelected(SelectionEvent e) {
@@ -103,9 +110,8 @@ public class PageCreateKActivityChoiceKResources extends WizardPage {
 
 	}
 
-	/** Getter for checks. */
-	public Button[] getChecks() {
-		return checks;
+	public Button[] getRadios() {
+		return radios;
 	}
 
 	/** Getter for hashkResources. */
