@@ -164,31 +164,37 @@
          </menu>
          <menu
                label="Process">
-            <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.StandardProcessDefinition"
-                  label="Standard Process Definition"
-                  style="push">
-            </command>
-            <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateActivityStandardProcess"
-                  label="Create Activity Standard Process"
-                  style="push">
-            </command>
-            <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateArtefact"
-                  label="Create Artefact"
-                  style="push">
-            </command>
-            <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateResource"
-                  label="Create Resource"
-                  style="push">
-            </command>
-            <command
-                  commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ProjectProcessDefinition"
-                  label="Project Process Definition"
-                  style="push">
-            </command>
+            <menu
+                  label="Standard Process">
+               <command
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateActivityStandardProcess"
+                     label="Create Activity Standard Process"
+                     style="push">
+               </command>
+               <command
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.StandardProcessDefinition"
+                     label="Standard Process Definition"
+                     style="push">
+               </command>
+            </menu>
+            <menu
+                  label="Project Process">
+               <command
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateArtefact"
+                     label="Create Artefact"
+                     style="push">
+               </command>
+               <command
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.CreateResource"
+                     label="Create Resource"
+                     style="push">
+               </command>
+               <command
+                     commandId="br.ufes.inf.nemo.odercp.rcpapp.command.ProjectProcessDefinition"
+                     label="Project Process Definition"
+                     style="push">
+               </command>
+            </menu>
             <visibleWhen
                   checkEnabled="false">
                <with

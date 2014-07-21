@@ -95,7 +95,7 @@ public class FormEditorHumanResource extends FormPage {
 		HRs = ApplCRUDHumanResource.getever();
 		container.setLayout(new GridLayout(3, false));
 
-		tree = new Tree(container, SWT.NONE);
+		tree = new Tree(container, SWT.BORDER);
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 1));
 		tree.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, true, 1, 8));
 
@@ -183,7 +183,8 @@ public class FormEditorHumanResource extends FormPage {
 		}
 
 		{
-			name = new Text(container, SWT.NONE);
+			name = new Text(container, SWT.BORDER);
+			name.setBackground(SWTResourceManager.getColor(255, 255, 255));
 			name.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		}
 		{
@@ -207,7 +208,7 @@ public class FormEditorHumanResource extends FormPage {
 
 		}
 		{
-			workload = new Text(container, SWT.NONE);
+			workload = new Text(container, SWT.BORDER);
 			workload.setLayoutData(new GridData(SWT.LEFT, SWT.FILL, false, false, 1, 1));
 		}
 		{
@@ -219,7 +220,7 @@ public class FormEditorHumanResource extends FormPage {
 
 		}
 		{
-			email = new Text(container, SWT.NONE);
+			email = new Text(container, SWT.BORDER);
 			email.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		}
 		{
@@ -231,7 +232,7 @@ public class FormEditorHumanResource extends FormPage {
 
 		}
 		{
-			phone = new Text(container, SWT.NONE);
+			phone = new Text(container, SWT.BORDER);
 			phone.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 1));
 		}
 		{

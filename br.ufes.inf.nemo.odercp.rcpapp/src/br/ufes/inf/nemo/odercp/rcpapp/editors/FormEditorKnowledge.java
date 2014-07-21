@@ -388,11 +388,11 @@ public class FormEditorKnowledge extends FormPage {
 		lblName.setText("Name:");
 		managedForm.getToolkit().adapt(lblName, true, true);
 
-		name = new Text(container, SWT.NONE);
+		name = new Text(container, SWT.BORDER);
 		name.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false, 1, 1));
 		new Label(managedForm.getForm().getBody(), SWT.NONE);
 
-		description = new Text(container, SWT.NONE);
+		description = new Text(container, SWT.BORDER);
 		description.setLayoutData(new GridData(SWT.FILL, SWT.FILL, false, false, 1, 3));
 		managedForm.getToolkit().adapt(description, true, true);
 
@@ -402,20 +402,20 @@ public class FormEditorKnowledge extends FormPage {
 		managedForm.getToolkit().adapt(lblDescription, true, true);
 		new Label(managedForm.getForm().getBody(), SWT.NONE);
 
-		btnMandatory = new Button(managedForm.getForm().getBody(), SWT.CHECK);
+		btnMandatory = new Button(managedForm.getForm().getBody(), SWT.BORDER | SWT.CHECK);
 		managedForm.getToolkit().adapt(btnMandatory, true, true);
 		btnMandatory.setText("Mandatory");
 
-		btnIsengineering = new Button(managedForm.getForm().getBody(), SWT.CHECK);
+		btnIsengineering = new Button(managedForm.getForm().getBody(), SWT.BORDER | SWT.CHECK);
 		managedForm.getToolkit().adapt(btnIsengineering, true, true);
 		btnIsengineering.setText("isEngineering");
 
-		tabFolderKArtefact = new TabFolder(managedForm.getForm().getBody(), SWT.NONE);
+		tabFolderKArtefact = new TabFolder(managedForm.getForm().getBody(), SWT.BORDER);
 		tabFolderKArtefact.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		managedForm.getToolkit().adapt(tabFolderKArtefact);
 		managedForm.getToolkit().paintBordersFor(tabFolderKArtefact);
 
-		tabFolderKActivity = new TabFolder(managedForm.getForm().getBody(), SWT.NONE);
+		tabFolderKActivity = new TabFolder(managedForm.getForm().getBody(), SWT.BORDER);
 		tabFolderKActivity.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true, 2, 1));
 		managedForm.getToolkit().adapt(tabFolderKActivity);
 		managedForm.getToolkit().paintBordersFor(tabFolderKActivity);
@@ -526,6 +526,14 @@ public class FormEditorKnowledge extends FormPage {
 			});
 
 		}
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
+		new Label(managedForm.getForm().getBody(), SWT.NONE);
 		new Label(managedForm.getForm().getBody(), SWT.NONE);
 		new Label(managedForm.getForm().getBody(), SWT.NONE);
 
