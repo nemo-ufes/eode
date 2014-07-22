@@ -71,6 +71,7 @@ public class PageStandardProcessDefine {
 	private Text txtDescription;
 	private Button btnMandatory;
 	private ActivityStandardProcess activityStandardProcessSelected;
+	private boolean firsttime;
 
 	/**
 	 * Launch the application.
@@ -795,6 +796,8 @@ public class PageStandardProcessDefine {
 
 		tabFolder.setVisible(false);
 		tree.setVisible(false);
+		tabFolder.setSelection(0);
+		firsttime = false;
 
 		shell.open();
 		shell.layout();
@@ -809,23 +812,31 @@ public class PageStandardProcessDefine {
 	 * @wbp.parser.entryPoint
 	 */
 	protected void createtree() {
-		generalStandardProcess
-				.setSpecificStandardProcesses(new LinkedHashSet<SpecificStandardProcess>());
-		if (!generalStandardProcess.getSpecialization().isEmpty()) {
-			Iterator<StandardProcess> it = generalStandardProcess
-					.getSpecialization().iterator();
-			StandardProcess standardProcess;
-			SpecificStandardProcess specificStandardProcess;
-			while (it.hasNext()) {
-				standardProcess = it.next();
-				if (standardProcess instanceof SpecificStandardProcess) {
-					specificStandardProcess = (SpecificStandardProcess) standardProcess;
-					generalStandardProcess.getSpecificStandardProcesses().add(
-							specificStandardProcess);
+
+		if (generalStandardProcess != null) {
+			if (!firsttime) {
+
+				if (!generalStandardProcess.getSpecialization().isEmpty()) {
+					generalStandardProcess
+							.setSpecificStandardProcesses(new LinkedHashSet<SpecificStandardProcess>());
+
+					Iterator<StandardProcess> it = generalStandardProcess
+							.getSpecialization().iterator();
+					StandardProcess standardProcess;
+					SpecificStandardProcess specificStandardProcess;
+					while (it.hasNext()) {
+						standardProcess = it.next();
+						if (standardProcess instanceof SpecificStandardProcess) {
+							specificStandardProcess = (SpecificStandardProcess) standardProcess;
+							generalStandardProcess
+									.getSpecificStandardProcesses().add(
+											specificStandardProcess);
+						}
+					}
+					firsttime = true;
 				}
 			}
-		}
-		if (generalStandardProcess != null) {
+
 			tree.removeAll();
 
 			tree.setVisible(true);
@@ -833,7 +844,6 @@ public class PageStandardProcessDefine {
 			root.setText(generalStandardProcess.getName());
 
 			tabFolder.setVisible(true);
-			tabFolder.setSelection(0);
 
 			TreeItem item;
 			// specificStandardProcess.getSpecialization().add(processEngineering);
@@ -905,7 +915,7 @@ public class PageStandardProcessDefine {
 		TreeItem itemKprocedure;
 		itemKprocedure = new TreeItem(item, SWT.NONE, 0);
 		itemKprocedure.setText("Procedures");
-		if (activityStandardProcess.getkProcedures() != null) {
+		if (activityStandardProcess.getkProcedures() != null && !activityStandardProcess.getkProcedures().isEmpty()) {
 			Iterator<KProcedure> itKProcedures = activityStandardProcess
 					.getkProcedures().iterator();
 			KProcedure kProcedure;
@@ -920,7 +930,7 @@ public class PageStandardProcessDefine {
 		TreeItem itemKHumanResource;
 		itemKHumanResource = new TreeItem(item, SWT.NONE, 0);
 		itemKHumanResource.setText("Human Resources");
-		if (activityStandardProcess.getkHumanResources() != null) {
+		if (activityStandardProcess.getkHumanResources() != null && !activityStandardProcess.getkHumanResources().isEmpty()) {
 			Iterator<KHumanResource> itKHumanResources = activityStandardProcess
 					.getkHumanResources().iterator();
 			KHumanResource kHumanResource;
@@ -934,7 +944,7 @@ public class PageStandardProcessDefine {
 		TreeItem itemKResource;
 		itemKResource = new TreeItem(item, SWT.NONE, 0);
 		itemKResource.setText("Resources");
-		if (activityStandardProcess.getkResources() != null) {
+		if (activityStandardProcess.getkResources() != null && !activityStandardProcess.getkResources().isEmpty()) {
 			Iterator<KResource> itKResources = activityStandardProcess
 					.getkResources().iterator();
 			KResource kResource;
@@ -952,7 +962,7 @@ public class PageStandardProcessDefine {
 		TreeItem iteminputs;
 		iteminputs = new TreeItem(itemKArtefacts, SWT.NONE, 0);
 		iteminputs.setText("Inputs");
-		if (activityStandardProcess.getInputs() != null) {
+		if (activityStandardProcess.getInputs() != null && !activityStandardProcess.getInputs().isEmpty()) {
 			Iterator<KArtefact> itInputs = activityStandardProcess.getInputs()
 					.iterator();
 			KArtefact input;
@@ -966,7 +976,7 @@ public class PageStandardProcessDefine {
 		TreeItem itemproducts;
 		itemproducts = new TreeItem(itemKArtefacts, SWT.NONE, 0);
 		itemproducts.setText("Products");
-		if (activityStandardProcess.getProducts() != null) {
+		if (activityStandardProcess.getProducts() != null && !activityStandardProcess.getProducts().isEmpty()) {
 			Iterator<KArtefact> itproducts = activityStandardProcess
 					.getProducts().iterator();
 			KArtefact product;
@@ -980,7 +990,7 @@ public class PageStandardProcessDefine {
 		TreeItem itemPreActivies;
 		itemPreActivies = new TreeItem(item, SWT.NONE, 0);
 		itemPreActivies.setText("PreActivities");
-		if (activityStandardProcess.getPreActivityStandardProcesses() != null) {
+		if (activityStandardProcess.getPreActivityStandardProcesses() != null && !activityStandardProcess.getPreActivityStandardProcesses().isEmpty()) {
 			Iterator<ActivityStandardProcess> itpreactivities = activityStandardProcess
 					.getPreActivityStandardProcesses().iterator();
 			ActivityStandardProcess preactivity;
@@ -990,7 +1000,7 @@ public class PageStandardProcessDefine {
 				auxItem = new TreeItem(itemPreActivies, SWT.NONE, 0);
 				auxItem.setText(preactivity.getName());
 
-				populateactivity(auxItem, preactivity);
+				//populateactivity(auxItem, preactivity);
 
 			}
 		}
@@ -999,7 +1009,7 @@ public class PageStandardProcessDefine {
 		TreeItem itemSubActivies;
 		itemSubActivies = new TreeItem(item, SWT.NONE, 0);
 		itemSubActivies.setText("SubActivities");
-		if (activityStandardProcess.getSubActivityStandardProcesses() != null) {
+		if (activityStandardProcess.getSubActivityStandardProcesses() != null && !activityStandardProcess.getSubActivityStandardProcesses().isEmpty()) {
 			Iterator<ActivityStandardProcess> itSubactivities = activityStandardProcess
 					.getSubActivityStandardProcesses().iterator();
 			ActivityStandardProcess subactivity;

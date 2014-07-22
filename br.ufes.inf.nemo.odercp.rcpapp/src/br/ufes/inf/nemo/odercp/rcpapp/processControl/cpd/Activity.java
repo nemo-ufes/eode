@@ -16,8 +16,8 @@ public class Activity {
 	private String name;
 	private Set<KHumanResource> kHumanResources;
 	private Set<KResource> kResources;
-	private Set<Activity> preActivityStandardProcesses;
-	private Set<Activity> subActivityStandardProcesses;
+	private Set<Activity> preActivities;
+	private Set<Activity> subActivities;
 	private Set<KProcedure> kProcedures;
 	private KActivity kActivity;
 	private Set<KArtefact> kproducts;
@@ -32,8 +32,8 @@ public class Activity {
 	public Activity() {
 		super();
 		kHumanResources = new LinkedHashSet<KHumanResource>();
-		preActivityStandardProcesses = new LinkedHashSet<Activity>();
-		subActivityStandardProcesses = new LinkedHashSet<Activity>();
+		preActivities = new LinkedHashSet<Activity>();
+		subActivities = new LinkedHashSet<Activity>();
 		kProcedures = new LinkedHashSet<KProcedure>();
 		kproducts = new LinkedHashSet<KArtefact>();
 		kinputs = new LinkedHashSet<KArtefact>();
@@ -87,35 +87,6 @@ public class Activity {
 		this.kResources = kResources;
 	}
 
-	/**
-	 * @return the preActivityStandardProcesses
-	 */
-	public Set<Activity> getPreActivityStandardProcesses() {
-		return preActivityStandardProcesses;
-	}
-
-	/**
-	 * @param preActivityStandardProcesses the preActivityStandardProcesses to set
-	 */
-	public void setPreActivityStandardProcesses(
-			Set<Activity> preActivityStandardProcesses) {
-		this.preActivityStandardProcesses = preActivityStandardProcesses;
-	}
-
-	/**
-	 * @return the subActivityStandardProcesses
-	 */
-	public Set<Activity> getSubActivityStandardProcesses() {
-		return subActivityStandardProcesses;
-	}
-
-	/**
-	 * @param subActivityStandardProcesses the subActivityStandardProcesses to set
-	 */
-	public void setSubActivityStandardProcesses(
-			Set<Activity> subActivityStandardProcesses) {
-		this.subActivityStandardProcesses = subActivityStandardProcesses;
-	}
 
 	/**
 	 * @return the kProcedures
@@ -244,6 +215,34 @@ public class Activity {
 	public void setActivityStandardProcess(
 			ActivityStandardProcess activityStandardProcess) {
 		this.activityStandardProcess = activityStandardProcess;
+	}
+
+	/**
+	 * @return the preActivities
+	 */
+	public Set<Activity> getPreActivities() {
+		return preActivities;
+	}
+
+	/**
+	 * @return the subActivities
+	 */
+	public Set<Activity> getSubActivities() {
+		return subActivities;
+	}
+
+	/**
+	 * @param preActivities the preActivities to set
+	 */
+	public void setPreActivities(Set<Activity> preActivities) {
+		this.preActivities = preActivities;
+	}
+
+	/**
+	 * @param subActivities the subActivities to set
+	 */
+	public void setSubActivities(Set<Activity> subActivities) {
+		this.subActivities = subActivities;
 	}
 
 }

@@ -94,7 +94,7 @@ public class PageChoiceStandardProcess {
 				radios = new Button[size];
 
 				for (i = 0; i < generalStandardProcesses.length; i++) {
-					if (!generalStandardProcesses[i].isDefine()) {
+					if (generalStandardProcesses[i].isDefine()) {
 						radios[j] = new Button(composite, SWT.RADIO);
 						radios[j]
 								.setText(generalStandardProcesses[i].getName());

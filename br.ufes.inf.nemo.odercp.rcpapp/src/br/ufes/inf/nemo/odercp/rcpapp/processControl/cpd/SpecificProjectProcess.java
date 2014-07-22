@@ -10,7 +10,7 @@ public class SpecificProjectProcess extends ProjectProcess {
 	private StandardProcessLifeCycleModel standardProcessLifeCycleModel;
 	private Set<Activity> activities;
 
-	SpecificProjectProcess() {
+	public SpecificProjectProcess() {
 		super();
 		activities = new LinkedHashSet<Activity>();
 	}

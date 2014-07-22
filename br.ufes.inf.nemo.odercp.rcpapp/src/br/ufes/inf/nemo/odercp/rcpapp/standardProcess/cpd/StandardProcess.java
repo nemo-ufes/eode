@@ -1,6 +1,7 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public abstract class StandardProcess {
@@ -13,7 +14,7 @@ public abstract class StandardProcess {
 	/** Constructor. */
 	public StandardProcess() {
 		super();
-		specialization = new HashSet<StandardProcess>();
+		specialization = new LinkedHashSet<StandardProcess>();
 	}
 
 	/** Getter for name. */

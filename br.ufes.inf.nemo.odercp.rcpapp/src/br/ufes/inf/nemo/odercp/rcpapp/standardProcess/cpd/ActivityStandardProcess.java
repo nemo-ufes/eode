@@ -1,6 +1,7 @@
 package br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cpd;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KActivity;
@@ -29,15 +30,14 @@ public class ActivityStandardProcess {
 	/** Constructor. */
 	public ActivityStandardProcess() {
 		super();
-		kHumanResources = new HashSet<KHumanResource>();
-		preActivityStandardProcesses = new HashSet<ActivityStandardProcess>();
-		subActivityStandardProcesses = new HashSet<ActivityStandardProcess>();
-		kProcedures = new HashSet<KProcedure>();
-		products = new HashSet<KArtefact>();
-		inputs = new HashSet<KArtefact>();
-		kResources = new HashSet<KResource>();
+		kHumanResources = new LinkedHashSet<KHumanResource>();
+		preActivityStandardProcesses = new LinkedHashSet<ActivityStandardProcess>();
+		subActivityStandardProcesses = new LinkedHashSet<ActivityStandardProcess>();
+		kProcedures = new LinkedHashSet<KProcedure>();
+		products = new LinkedHashSet<KArtefact>();
+		inputs = new LinkedHashSet<KArtefact>();
+		kResources = new LinkedHashSet<KResource>();
 
-		// TODO continuar
 	}
 
 	/** Getter for name. */
