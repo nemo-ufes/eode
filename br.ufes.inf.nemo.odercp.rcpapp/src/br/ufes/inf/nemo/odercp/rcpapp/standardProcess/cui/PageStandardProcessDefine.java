@@ -662,7 +662,7 @@ public class PageStandardProcessDefine {
 			}
 
 		});
-
+		// Activity Standard
 		CTabItem tabItemActivityProcess = new CTabItem(tabFolder, SWT.NONE);
 		tabItemActivityProcess.setText("Activity Standard Process");
 
@@ -915,7 +915,8 @@ public class PageStandardProcessDefine {
 		TreeItem itemKprocedure;
 		itemKprocedure = new TreeItem(item, SWT.NONE, 0);
 		itemKprocedure.setText("Procedures");
-		if (activityStandardProcess.getkProcedures() != null && !activityStandardProcess.getkProcedures().isEmpty()) {
+		if (activityStandardProcess.getkProcedures() != null
+				&& !activityStandardProcess.getkProcedures().isEmpty()) {
 			Iterator<KProcedure> itKProcedures = activityStandardProcess
 					.getkProcedures().iterator();
 			KProcedure kProcedure;
@@ -930,7 +931,8 @@ public class PageStandardProcessDefine {
 		TreeItem itemKHumanResource;
 		itemKHumanResource = new TreeItem(item, SWT.NONE, 0);
 		itemKHumanResource.setText("Human Resources");
-		if (activityStandardProcess.getkHumanResources() != null && !activityStandardProcess.getkHumanResources().isEmpty()) {
+		if (activityStandardProcess.getkHumanResources() != null
+				&& !activityStandardProcess.getkHumanResources().isEmpty()) {
 			Iterator<KHumanResource> itKHumanResources = activityStandardProcess
 					.getkHumanResources().iterator();
 			KHumanResource kHumanResource;
@@ -944,7 +946,8 @@ public class PageStandardProcessDefine {
 		TreeItem itemKResource;
 		itemKResource = new TreeItem(item, SWT.NONE, 0);
 		itemKResource.setText("Resources");
-		if (activityStandardProcess.getkResources() != null && !activityStandardProcess.getkResources().isEmpty()) {
+		if (activityStandardProcess.getkResources() != null
+				&& !activityStandardProcess.getkResources().isEmpty()) {
 			Iterator<KResource> itKResources = activityStandardProcess
 					.getkResources().iterator();
 			KResource kResource;
@@ -962,7 +965,8 @@ public class PageStandardProcessDefine {
 		TreeItem iteminputs;
 		iteminputs = new TreeItem(itemKArtefacts, SWT.NONE, 0);
 		iteminputs.setText("Inputs");
-		if (activityStandardProcess.getInputs() != null && !activityStandardProcess.getInputs().isEmpty()) {
+		if (activityStandardProcess.getInputs() != null
+				&& !activityStandardProcess.getInputs().isEmpty()) {
 			Iterator<KArtefact> itInputs = activityStandardProcess.getInputs()
 					.iterator();
 			KArtefact input;
@@ -976,7 +980,8 @@ public class PageStandardProcessDefine {
 		TreeItem itemproducts;
 		itemproducts = new TreeItem(itemKArtefacts, SWT.NONE, 0);
 		itemproducts.setText("Products");
-		if (activityStandardProcess.getProducts() != null && !activityStandardProcess.getProducts().isEmpty()) {
+		if (activityStandardProcess.getProducts() != null
+				&& !activityStandardProcess.getProducts().isEmpty()) {
 			Iterator<KArtefact> itproducts = activityStandardProcess
 					.getProducts().iterator();
 			KArtefact product;
@@ -990,7 +995,9 @@ public class PageStandardProcessDefine {
 		TreeItem itemPreActivies;
 		itemPreActivies = new TreeItem(item, SWT.NONE, 0);
 		itemPreActivies.setText("PreActivities");
-		if (activityStandardProcess.getPreActivityStandardProcesses() != null && !activityStandardProcess.getPreActivityStandardProcesses().isEmpty()) {
+		if (activityStandardProcess.getPreActivityStandardProcesses() != null
+				&& !activityStandardProcess.getPreActivityStandardProcesses()
+						.isEmpty()) {
 			Iterator<ActivityStandardProcess> itpreactivities = activityStandardProcess
 					.getPreActivityStandardProcesses().iterator();
 			ActivityStandardProcess preactivity;
@@ -1000,7 +1007,7 @@ public class PageStandardProcessDefine {
 				auxItem = new TreeItem(itemPreActivies, SWT.NONE, 0);
 				auxItem.setText(preactivity.getName());
 
-				//populateactivity(auxItem, preactivity);
+				// populateactivity(auxItem, preactivity);
 
 			}
 		}
@@ -1009,7 +1016,9 @@ public class PageStandardProcessDefine {
 		TreeItem itemSubActivies;
 		itemSubActivies = new TreeItem(item, SWT.NONE, 0);
 		itemSubActivies.setText("SubActivities");
-		if (activityStandardProcess.getSubActivityStandardProcesses() != null && !activityStandardProcess.getSubActivityStandardProcesses().isEmpty()) {
+		if (activityStandardProcess.getSubActivityStandardProcesses() != null
+				&& !activityStandardProcess.getSubActivityStandardProcesses()
+						.isEmpty()) {
 			Iterator<ActivityStandardProcess> itSubactivities = activityStandardProcess
 					.getSubActivityStandardProcesses().iterator();
 			ActivityStandardProcess subactivity;

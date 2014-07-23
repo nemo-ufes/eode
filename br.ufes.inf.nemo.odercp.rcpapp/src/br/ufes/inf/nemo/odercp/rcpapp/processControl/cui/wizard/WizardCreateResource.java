@@ -2,6 +2,8 @@ package br.ufes.inf.nemo.odercp.rcpapp.processControl.cui.wizard;
 
 import org.eclipse.jface.wizard.Wizard;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KSoftwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cmt.ApplCRUDHardwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cmt.ApplCRUDSoftwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cpd.HardwareResource;
@@ -29,7 +31,7 @@ public class WizardCreateResource extends Wizard {
 
 	@Override
 	public boolean performFinish() {
-		Resource resource = null;
+		Resource resource = new Resource();
 
 		for (int i = 0; i < pageCreateResourceChoiceKResources.getRadios().length; i++) {
 			if (pageCreateResourceChoiceKResources.getRadios()[i]
@@ -40,17 +42,18 @@ public class WizardCreateResource extends Wizard {
 						.get(pageCreateResourceChoiceKResources.getRadios()[i]
 								.getText()));
 
-				continue;
 			}
 		}
 
-		if (resource instanceof HardwareResource) {
-			HardwareResource hardwareResource = (HardwareResource) resource;
+		if (resource.getkResource() instanceof KHardwareResource) {
+			HardwareResource hardwareResource = new HardwareResource();
 			hardwareResource.setName(pageCreateResource.getTxtname().getText());
+			hardwareResource.setkResource(resource.getkResource());
 			return ApplCRUDHardwareResource.Create(hardwareResource);
-		} else if (resource instanceof SoftwareResource) {
-			SoftwareResource softwareResource = (SoftwareResource) resource;
+		} else if (resource.getkResource() instanceof KSoftwareResource) {
+			SoftwareResource softwareResource = new SoftwareResource();
 			softwareResource.setName(pageCreateResource.getTxtname().getText());
+			softwareResource.setkResource(resource.getkResource());
 			return ApplCRUDSoftwareResource.Create(softwareResource);
 
 		}

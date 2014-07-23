@@ -3,6 +3,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.processControl.cmt;
 import java.util.LinkedList;
 import java.util.List;
 
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKSoftwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cpd.SoftwareResource;
 
 public class ApplCRUDSoftwareResource {
@@ -11,8 +12,14 @@ public class ApplCRUDSoftwareResource {
 	static SoftwareResource vectorsoftResources[];
 
 	public static SoftwareResource[] getever() {
-		if (softwareResources == null)
+		if (softwareResources == null) {
 			softwareResources = new LinkedList<SoftwareResource>();
+			SoftwareResource softwareResource = new SoftwareResource();
+			softwareResource.setName("so1");
+			softwareResource
+					.setkResource(ApplCRUDKSoftwareResource.getever()[0]);
+			softwareResources.add(softwareResource);
+		}
 		if (!softwareResources.isEmpty()) {
 			vectorsoftResources = softwareResources
 					.toArray(new SoftwareResource[softwareResources.size()]);
@@ -22,8 +29,15 @@ public class ApplCRUDSoftwareResource {
 	}
 
 	public static boolean Create(SoftwareResource soft) {
-		if (softwareResources == null)
+		if (softwareResources == null) {
 			softwareResources = new LinkedList<SoftwareResource>();
+			SoftwareResource softwareResource = new SoftwareResource();
+			softwareResource.setName("so1");
+			softwareResource
+					.setkResource(ApplCRUDKSoftwareResource.getever()[0]);
+			softwareResources.add(softwareResource);
+
+		}
 		softwareResources.add(soft);
 		return true;
 	}
