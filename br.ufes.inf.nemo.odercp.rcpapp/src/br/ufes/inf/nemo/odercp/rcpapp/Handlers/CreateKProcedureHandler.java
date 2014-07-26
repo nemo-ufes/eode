@@ -6,7 +6,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cui.wizards.WizardCreateKProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.wizards.WizardCreateKProcedure;
 /**
  * Handler to create Knowlodge Procedure.
  *

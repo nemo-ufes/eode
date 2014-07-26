@@ -6,7 +6,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.cui.wizards.WizardCreateProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.uil.wizards.WizardCreateProject;
 
 public class CreateProjectHandler extends AbstractHandler {
 	@Override

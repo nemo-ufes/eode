@@ -1,0 +1,90 @@
+package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import org.eclipse.jface.wizard.WizardPage;
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionEvent;
+import org.eclipse.swt.events.SelectionListener;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcedure;
+
+/**
+ * Page Create KActivity to choice kprocedures
+ * 
+ * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)
+ * @version 1.0
+ */
+public class PageCreateKActivityChoiceKProcedures extends WizardPage {
+
+	Button checks[];
+	KProcedure kprocedures[];
+	Map<String, KProcedure> hashkProcedures;
+
+	/**
+	 * Create the wizard.
+	 */
+	public PageCreateKActivityChoiceKProcedures() {
+		super("Page Create KActivity");
+		setTitle("Page Create KActivity");
+		setDescription("Choice Kprocedures");
+		kprocedures = ApplCRUDKProcedure.getever();
+		hashkProcedures = new HashMap<String, KProcedure>();
+	}
+
+	/**
+	 * Create contents of the wizard.
+	 * 
+	 * @param parent
+	 */
+	public void createControl(Composite parent) {
+		Composite container = new Composite(parent, SWT.NULL);
+
+		setControl(container);
+		container.setLayout(new GridLayout(1, false));
+		int i;
+		if (kprocedures.length > 0) {
+			checks = new Button[kprocedures.length];
+			// setPageComplete(true);
+		}
+		for (i = 0; i < kprocedures.length; i++) {
+			checks[i] = new Button(container, SWT.CHECK);
+			checks[i].setText(kprocedures[i].getName());
+			hashkProcedures.put(kprocedures[i].getName(), kprocedures[i]);
+			checks[i].addSelectionListener(new SelectionListener() {
+
+				@Override
+				public void widgetSelected(SelectionEvent e) {
+					setPageComplete(true);
+
+				}
+
+				@Override
+				public void widgetDefaultSelected(SelectionEvent e) {
+					// TODO Auto-generated method stub
+
+				}
+
+			});
+			checks[i].setBounds(10, 45 + (30 * i), 350, 24);
+
+		}
+		setPageComplete(false);
+	}
+
+	/** Getter for checks. */
+	public Button[] getChecks() {
+		return checks;
+	}
+
+	/** Getter for hashkProcedures. */
+	public Map<String, KProcedure> getHashkProcedures() {
+		return hashkProcedures;
+	}
+
+}

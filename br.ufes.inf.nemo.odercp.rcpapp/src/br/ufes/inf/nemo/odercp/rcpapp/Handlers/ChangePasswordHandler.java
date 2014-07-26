@@ -6,7 +6,7 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.core.commands.AbstractHandler;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.wizards.WizardNewPassword;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.uil.wizards.WizardNewPassword;
 
 /**
 * Change password of User corrent in ODE.

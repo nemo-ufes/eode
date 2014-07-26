@@ -4,9 +4,9 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDActivityStandardProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cmt.ApplCRUDSpecificStandardProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.PageAthenticateUser;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDActivityStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDSpecificStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.uil.PageAthenticateUser;
 
 /**
  * The activator class controls the plug-in life cycle

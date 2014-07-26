@@ -6,7 +6,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.cui.wizards.WizardCreateUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.uil.wizards.WizardCreateUser;
 
 /**
  * TODO: document this type.

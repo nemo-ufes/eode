@@ -24,24 +24,24 @@ import org.eclipse.ui.forms.editor.FormPage;
 import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeMain.cpd.Knowledge;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKActivity;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKArtefact;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHardwareResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKHumanResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKLifeCycleModel;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKProcedure;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cmt.ApplCRUDKSoftwareResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KActivity;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KArtefact;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHardwareResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KLifeCycleModel;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcedure;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KSoftwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeMain.pdl.Knowledge;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKLifeCycleModel;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKSoftwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KLifeCycleModel;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KSoftwareResource;
 
 public class FormEditorKnowledge extends FormPage {
 

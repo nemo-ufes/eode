@@ -4,8 +4,7 @@ import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 
-
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.cui.PageStandardProcessDefine;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.uil.PageStandardProcessDefine;
 
 /**
  * 
