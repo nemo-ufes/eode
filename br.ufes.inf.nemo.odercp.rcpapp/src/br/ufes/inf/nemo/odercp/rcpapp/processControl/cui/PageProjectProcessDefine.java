@@ -32,6 +32,7 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KProcedure;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.cpd.KResource;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cmt.ApplCRUDArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.processControl.cmt.ApplCRUDGeneralProjectProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cmt.ApplCRUDHardwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cmt.ApplCRUDSoftwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.cpd.Activity;
@@ -1111,10 +1112,11 @@ public class PageProjectProcessDefine {
 
 	private void createGeneralProcess() {
 		generalProjectProcess = new GeneralProjectProcess();
-		generalProjectProcess.setName(generalStandardProcess.getName() + "::"
-				+ project.getName());
+		generalProjectProcess.setName(project.getName() + "::"
+				+ generalStandardProcess.getName());
 		generalProjectProcess.setProject(project);
 		generalProjectProcess.setStandardProcess(generalStandardProcess);
+		ApplCRUDGeneralProjectProcess.Create(generalProjectProcess);
 
 		SpecificStandardProcess[] specificStandardProcesses;
 		int sizeact, size = generalStandardProcess
@@ -1208,8 +1210,8 @@ public class PageProjectProcessDefine {
 
 			tree.setVisible(true);
 			root = new TreeItem(tree, SWT.NONE);
-			root.setText(generalStandardProcess.getName() + "::"
-					+ project.getName());
+			root.setText(project.getName() + "::"
+					+ generalStandardProcess.getName());
 			if (!firsttime) {
 				createGeneralProcess();
 				firsttime = true;
@@ -1304,8 +1306,7 @@ public class PageProjectProcessDefine {
 				// hr
 				if (activity.getHumanResources() != null
 						&& !activity.getHumanResources().isEmpty()) {
-					populateHResources(auxItem, activity,
-							kHumanResource);
+					populateHResources(auxItem, activity, kHumanResource);
 				}
 			}
 		}
@@ -1346,8 +1347,8 @@ public class PageProjectProcessDefine {
 				auxItem = new TreeItem(iteminputs, SWT.NONE, 0);
 				auxItem.setText(input.getName());
 				hashitemKArtefacts.put(auxItem, input);
-				if (activity.getInputs()!=null && !activity.getInputs().isEmpty()) {
-
+				if (activity.getInputs() != null
+						&& !activity.getInputs().isEmpty()) {
 
 					populateInputs(auxItem, activity, input);
 				}
@@ -1366,7 +1367,8 @@ public class PageProjectProcessDefine {
 				auxItem = new TreeItem(itemproducts, SWT.NONE, 0);
 				auxItem.setText(product.getName());
 				hashitemKArtefacts.put(auxItem, product);
-				if (activity.getProducts()!=null && !activity.getProducts().isEmpty()) {
+				if (activity.getProducts() != null
+						&& !activity.getProducts().isEmpty()) {
 
 					populateProducts(auxItem, activity, product);
 				}

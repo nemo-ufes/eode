@@ -21,7 +21,7 @@ public class ApplCRUDGeneralProjectProcess {
 		return null;
 	}
 
-	public boolean Create(GeneralProjectProcess generalProjectProcess) {
+	public static boolean Create(GeneralProjectProcess generalProjectProcess) {
 		if (generalProjectProcesses == null)
 			generalProjectProcesses = new LinkedList<GeneralProjectProcess>();
 		generalProjectProcesses.add(generalProjectProcess);
