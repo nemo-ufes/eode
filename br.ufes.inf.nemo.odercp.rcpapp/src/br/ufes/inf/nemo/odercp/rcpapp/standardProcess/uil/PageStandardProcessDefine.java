@@ -37,12 +37,12 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KArtefact;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcedure;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KResource;
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDActivityStandardProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDSpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.pdl.ActivityStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.pdl.GeneralStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.pdl.SpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.pdl.StandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.tml.ApplCRUDActivityStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.tml.ApplCRUDSpecificStandardProcess;
 
 public class PageStandardProcessDefine {
 	Shell shell;

@@ -4,8 +4,8 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Button;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KActivity;
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDActivityStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.pdl.ActivityStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.tml.ApplCRUDActivityStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.uil.PageCreateStandardActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.uil.PageCreateStandardActivityChoiceKActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.uil.PageCreateStandardActivityChoicepreActivity;

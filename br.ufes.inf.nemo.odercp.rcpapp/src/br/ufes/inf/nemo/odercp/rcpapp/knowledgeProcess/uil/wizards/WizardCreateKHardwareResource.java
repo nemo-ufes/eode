@@ -2,7 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKHardwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKnowledge;
 
 public class WizardCreateKHardwareResource extends Wizard {

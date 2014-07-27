@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Button;
 
-import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.mtl.ApplCRUDHumanResource;
-import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.mtl.ApplDefineTeam;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.pdl.HumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.tml.ApplCRUDHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.tml.ApplDefineTeam;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.uil.PageDefineTeam;
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplSelectProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplSelectProject;
 
 public class WizardDefineTeam extends Wizard {
 	PageDefineTeam pageDefineTeam;

@@ -11,8 +11,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKArtefact;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKArtefact;
 
 /**
  * Page Create KActivity to choice kArtefacts inputs

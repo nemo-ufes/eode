@@ -11,8 +11,8 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.events.SelectionListener;
 import org.eclipse.swt.layout.GridLayout;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKActivity;
 
 /**
  * Page Create KActivity to choice ksubActivities

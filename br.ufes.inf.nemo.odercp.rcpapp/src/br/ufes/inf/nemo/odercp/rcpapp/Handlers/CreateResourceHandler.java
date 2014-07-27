@@ -6,7 +6,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.ui.handlers.HandlerUtil;
 
-import br.ufes.inf.nemo.odercp.rcpapp.processControl.uil.wizard.WizardCreateResource;
+import br.ufes.inf.nemo.odercp.rcpapp.processControl.uil.wizards.WizardCreateResource;
 /**
  * Handlers
  *

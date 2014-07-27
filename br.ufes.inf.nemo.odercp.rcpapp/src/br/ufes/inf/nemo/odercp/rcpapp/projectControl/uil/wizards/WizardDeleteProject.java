@@ -8,8 +8,8 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.wb.swt.ResourceManager;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplCRUDProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.pdl.Project;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplCRUDProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.uil.PageDeleteProject;
 
 public class WizardDeleteProject extends Wizard {

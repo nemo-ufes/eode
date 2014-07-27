@@ -5,9 +5,9 @@ import java.util.HashMap;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Button;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplCRUDProject;
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplSelectProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.pdl.Project;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplCRUDProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplSelectProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.uil.PageSelectProject;
 
 public class WizardSelectProject extends Wizard {

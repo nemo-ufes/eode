@@ -11,8 +11,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKProcess;
 
 /**
  * Page Create KActivity to choice kProcess

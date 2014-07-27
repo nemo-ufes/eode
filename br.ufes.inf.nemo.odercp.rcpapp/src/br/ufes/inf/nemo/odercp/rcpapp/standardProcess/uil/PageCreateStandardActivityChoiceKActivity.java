@@ -11,8 +11,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKActivity;
 
 /**
  * Page s

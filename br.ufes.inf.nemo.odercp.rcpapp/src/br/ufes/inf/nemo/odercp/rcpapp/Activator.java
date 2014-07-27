@@ -4,8 +4,8 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDActivityStandardProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDSpecificStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.tml.ApplCRUDActivityStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.tml.ApplCRUDSpecificStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.uil.PageAthenticateUser;
 
 /**

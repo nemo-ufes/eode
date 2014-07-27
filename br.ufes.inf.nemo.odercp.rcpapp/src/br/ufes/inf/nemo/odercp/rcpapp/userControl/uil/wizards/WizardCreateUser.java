@@ -2,7 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.userControl.uil.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.mtl.ApplCRUDUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.tml.ApplCRUDUser;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.uil.PageCreateUser;
 
 public class WizardCreateUser extends Wizard {

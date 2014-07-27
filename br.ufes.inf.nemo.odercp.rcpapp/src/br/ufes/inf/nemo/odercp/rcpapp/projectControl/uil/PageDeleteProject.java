@@ -5,7 +5,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplCRUDProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplCRUDProject;
 
 public class PageDeleteProject extends WizardPage {
 	protected Button[] radios;

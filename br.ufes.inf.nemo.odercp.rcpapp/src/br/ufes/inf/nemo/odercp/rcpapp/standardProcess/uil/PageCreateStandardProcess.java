@@ -13,8 +13,8 @@ import org.eclipse.swt.widgets.Listener;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 
-import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.mtl.ApplCRUDGeneralStandardProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.pdl.GeneralStandardProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.standardProcess.tml.ApplCRUDGeneralStandardProcess;
 
 public class PageCreateStandardProcess {
 	private Text txtName;

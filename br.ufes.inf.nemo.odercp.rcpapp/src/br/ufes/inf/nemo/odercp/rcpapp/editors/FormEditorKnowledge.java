@@ -25,14 +25,6 @@ import org.eclipse.ui.forms.widgets.FormToolkit;
 import org.eclipse.ui.forms.widgets.ScrolledForm;
 
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeMain.pdl.Knowledge;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKActivity;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKArtefact;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKHardwareResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKHumanResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKLifeCycleModel;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKProcedure;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKProcess;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKSoftwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KArtefact;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KHardwareResource;
@@ -42,6 +34,14 @@ import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcedure;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KSoftwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKActivity;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKLifeCycleModel;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKProcess;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKSoftwareResource;
 
 public class FormEditorKnowledge extends FormPage {
 

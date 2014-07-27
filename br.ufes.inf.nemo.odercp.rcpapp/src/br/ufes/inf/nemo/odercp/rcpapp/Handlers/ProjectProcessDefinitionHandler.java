@@ -6,7 +6,7 @@ import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.jface.dialogs.MessageDialog;
 
 import br.ufes.inf.nemo.odercp.rcpapp.processControl.uil.PageProjectProcessDefine;
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplSelectProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplSelectProject;
 
 /**
  * 

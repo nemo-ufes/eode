@@ -16,8 +16,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.mtl.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.pdl.HumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.tml.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.pdl.AcessProfile;
 
 public class PageCreateUser extends WizardPage {

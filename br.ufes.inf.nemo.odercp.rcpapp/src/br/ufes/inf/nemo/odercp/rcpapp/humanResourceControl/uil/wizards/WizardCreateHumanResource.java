@@ -2,7 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.uil.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.mtl.ApplCRUDHumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.tml.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.uil.PageCreateHumanResource;
 
 public class WizardCreateHumanResource extends Wizard {

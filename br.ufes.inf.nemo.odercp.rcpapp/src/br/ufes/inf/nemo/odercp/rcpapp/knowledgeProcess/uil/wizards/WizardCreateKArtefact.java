@@ -5,8 +5,8 @@ import java.util.Set;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKArtefact;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KArtefact;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKArtefact;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKArtefactChoiceDepends;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKArtefactChoicesubArtefacts;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKnowledge;

@@ -5,13 +5,13 @@ import java.util.Set;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KArtefact;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcedure;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KProcess;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKActivity;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKActivityChoiceKArtefactinputs;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKActivityChoiceKArtefactproducts;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKActivityChoiceKHumanResource;

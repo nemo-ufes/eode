@@ -2,7 +2,7 @@ package br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.wizards;
 
 import org.eclipse.jface.wizard.Wizard;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKProcedure;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKProcedure;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.uil.PageCreateKnowledge;
 
 public class WizardCreateKProcedure extends Wizard {

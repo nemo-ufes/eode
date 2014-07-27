@@ -14,7 +14,7 @@ import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.layout.GridData;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.mtl.ApplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.tml.ApplAuthenticUser;
 
 /**
  * @author Danillo Ricardo Celino (drcelino@inf.ufes.br)

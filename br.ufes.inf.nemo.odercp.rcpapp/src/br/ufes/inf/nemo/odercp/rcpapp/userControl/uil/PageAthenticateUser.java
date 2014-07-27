@@ -13,8 +13,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.ResourceManager;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.mtl.ApplAuthenticUser;
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.mtl.ApplCRUDUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.tml.ApplAuthenticUser;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.tml.ApplCRUDUser;
 import br.ufes.inf.nemo.odercp.rcpapp.util.SwtUtil;
 
 public class PageAthenticateUser {
@@ -189,7 +189,7 @@ public class PageAthenticateUser {
 							messageBox.open();
 						}
 						else {
-							boolean verification = ApplAuthenticUser.verification(user.getText(), password.getText(), btnStayConnected.getSelection());
+							boolean verification = ApplAuthenticUser.makeLogin(user.getText(), password.getText(), btnStayConnected.getSelection());
 							if (verification == true) {
 								setLogger(true);
 								shlLoginOdercp.close();

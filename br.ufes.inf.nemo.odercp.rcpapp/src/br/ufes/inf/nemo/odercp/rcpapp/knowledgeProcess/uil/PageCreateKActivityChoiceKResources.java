@@ -11,11 +11,11 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKHardwareResource;
-import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.mtl.ApplCRUDKSoftwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KHardwareResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KResource;
 import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.pdl.KSoftwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKHardwareResource;
+import br.ufes.inf.nemo.odercp.rcpapp.knowledgeProcess.tml.ApplCRUDKSoftwareResource;
 
 /**
  * Page Create KActivity to choice Kresources

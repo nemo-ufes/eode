@@ -6,7 +6,7 @@ import org.eclipse.swt.graphics.Image;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.wb.swt.ResourceManager;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplCRUDProject;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplCRUDProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.uil.PageCreateProject;
 
 public class WizardCreateProject extends Wizard {

@@ -5,8 +5,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.mtl.ApplCRUDHumanResource;
 import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.pdl.HumanResource;
+import br.ufes.inf.nemo.odercp.rcpapp.humanResourceControl.tml.ApplCRUDHumanResource;
 
 public class PageDefineTeam extends WizardPage {
 	protected HumanResource[] HRs = ApplCRUDHumanResource.getever();

@@ -4,8 +4,8 @@ import org.eclipse.ui.IPageLayout;
 import org.eclipse.ui.IPerspectiveFactory;
 import org.eclipse.ui.IFolderLayout;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.mtl.ApplAuthenticUser;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.pdl.AcessProfile;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.tml.ApplAuthenticUser;
 
 public class PerspectiveODE implements IPerspectiveFactory {
 

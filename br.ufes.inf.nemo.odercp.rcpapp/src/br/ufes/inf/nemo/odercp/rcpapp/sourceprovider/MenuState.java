@@ -6,8 +6,8 @@ import java.util.Map;
 import org.eclipse.ui.AbstractSourceProvider;
 import org.eclipse.ui.ISources;
 
-import br.ufes.inf.nemo.odercp.rcpapp.userControl.mtl.ApplAuthenticUser;
 import br.ufes.inf.nemo.odercp.rcpapp.userControl.pdl.AcessProfile;
+import br.ufes.inf.nemo.odercp.rcpapp.userControl.tml.ApplAuthenticUser;
 
 public class MenuState extends AbstractSourceProvider {
 	public final static String MY_STATE = "br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active";

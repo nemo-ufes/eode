@@ -7,8 +7,8 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Composite;
 
-import br.ufes.inf.nemo.odercp.rcpapp.projectControl.mtl.ApplCRUDProject;
 import br.ufes.inf.nemo.odercp.rcpapp.projectControl.pdl.Project;
+import br.ufes.inf.nemo.odercp.rcpapp.projectControl.tml.ApplCRUDProject;
 
 public class PageSelectProject extends WizardPage {
 	protected HashMap<String, Project> hashprojects;
