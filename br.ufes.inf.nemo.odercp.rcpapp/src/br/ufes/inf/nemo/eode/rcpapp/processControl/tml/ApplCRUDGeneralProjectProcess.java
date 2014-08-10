@@ -1,0 +1,30 @@
+package br.ufes.inf.nemo.eode.rcpapp.processControl.tml;
+
+import java.util.LinkedList;
+import java.util.List;
+
+import br.ufes.inf.nemo.eode.rcpapp.processControl.pdl.GeneralProjectProcess;
+
+public class ApplCRUDGeneralProjectProcess {
+	static List<GeneralProjectProcess> generalProjectProcesses;
+
+	static GeneralProjectProcess vectorgeneralProjectProcesses[];
+
+	public static GeneralProjectProcess[] getever() {
+		if (generalProjectProcesses == null)
+			generalProjectProcesses = new LinkedList<GeneralProjectProcess>();
+		if (!generalProjectProcesses.isEmpty()) {
+			vectorgeneralProjectProcesses = generalProjectProcesses
+					.toArray(new GeneralProjectProcess[generalProjectProcesses.size()]);
+			return vectorgeneralProjectProcesses;
+		}
+		return null;
+	}
+
+	public static boolean Create(GeneralProjectProcess generalProjectProcess) {
+		if (generalProjectProcesses == null)
+			generalProjectProcesses = new LinkedList<GeneralProjectProcess>();
+		generalProjectProcesses.add(generalProjectProcess);
+		return true;
+	}
+}

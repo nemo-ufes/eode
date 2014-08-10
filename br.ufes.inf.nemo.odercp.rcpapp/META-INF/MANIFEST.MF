@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Rcp
-Bundle-SymbolicName: br.ufes.inf.nemo.odercp.rcpapp;singleton:=true
+Bundle-SymbolicName: br.ufes.inf.nemo.eode.rcpapp;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: br.ufes.inf.nemo.odercp.rcpapp.Activator
+Bundle-Activator: br.ufes.inf.nemo.eode.rcpapp.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.ui.views;bundle-version="3.6.100",

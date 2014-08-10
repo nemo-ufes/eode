@@ -7,15 +7,15 @@
          point="org.eclipse.core.runtime.applications">
       <application>
          <run
-               class="br.ufes.inf.nemo.odercp.rcpapp.Application">
+               class="br.ufes.inf.nemo.eode.rcpapp.Application">
          </run>
       </application>
    </extension>
   
    <extension id="product" point="org.eclipse.core.runtime.products">
-  <product application="br.ufes.inf.nemo.odercp.rcpapp.application" name="ODE RCP">
-    <property name="appName" value="ODE RCP"> </property>
-    <property name="applicationXMI" value="br.ufes.inf.nemo.odercp.rcpapp/Application.e4xmi"> </property>
+  <product application="br.ufes.inf.nemo.eode.rcpapp.application" name="EODE">
+    <property name="appName" value="EODE"> </property>
+    <property name="applicationXMI" value="br.ufes.inf.nemo.eode.rcpapp/Application.e4xmi"> </property>
   </product>
 </extension>
    <extension
@@ -218,117 +218,117 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ExitHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.ExitHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.exit"
             name="Exit">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.AboutHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.AboutHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.About"
             name="About">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ChangePasswordHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.ChangePasswordHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ChangePassword"
             name="Change Password">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateProjectHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateProjectHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateProject"
             name="Create Project">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.SelectProjectHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.SelectProjectHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.SelectProject"
             name="Select Project">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.DefineTeamHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.DefineTeamHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.DefineTeam"
             name="Define Team">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateUserHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateUserHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateUser"
             name="Create User">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateHumanResourceHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateHumanResourceHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateHumanResource"
             name="Create Human Resource">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.StandardProcessDefinitionHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.StandardProcessDefinitionHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.StandardProcessDefinition"
             name="Standard Process Definition">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.DeleteProjectHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.DeleteProjectHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.DeleteProject"
             name="Delete Project">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKHumanResourceHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKHumanResourceHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKHumanResource"
             name="Create Human Resource">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKActivityHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKActivityHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKActivity"
             name="Create Activity">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKArtefactHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKArtefactHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKArtefact"
             name="Create Artefact">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKLifeCycleModelHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKLifeCycleModelHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKLifeCycleModel"
             name="Create Life-Cycle Model">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKProcedureHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKProcedureHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKProcedure"
             name="Create Procedure">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKProcessHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKProcessHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKProcess"
             name="Create Process">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKHardwareResourceHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKHardwareResourceHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKHardwareResource"
             name="Create Hardware Resource">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateKSoftwareResourceHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateKSoftwareResourceHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateKSoftwareResource"
             name="Create Software Resource">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CallEditorODE"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CallEditorODE"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ViewDataODE"
             name="Datas ODE">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateActivityStandardProcessHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateActivityStandardProcessHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateActivityStandardProcess"
             name="Create Activity Standard Process">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.ProjectProcessDefinitionHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.ProjectProcessDefinitionHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.ProjectProcessDefinition"
             name="Project Process Definition">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateArtefactHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateArtefactHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateArtefact"
             name="Create Artefact">
       </command>
       <command
-            defaultHandler="br.ufes.inf.nemo.odercp.rcpapp.Handlers.CreateResourceHandler"
+            defaultHandler="br.ufes.inf.nemo.eode.rcpapp.Handlers.CreateResourceHandler"
             id="br.ufes.inf.nemo.odercp.rcpapp.command.CreateResource"
             name="Create Resource ">
       </command>
@@ -336,7 +336,7 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="br.ufes.inf.nemo.odercp.rcpapp.pespective.PerspectiveODE"
+            class="br.ufes.inf.nemo.eode.rcpapp.pespective.PerspectiveODE"
             id="br.ufes.inf.nemo.odercp.rcpapp.perspective.PerspectiveODE"
             name="PerspectiveODE">
       </perspective>
@@ -345,7 +345,7 @@
          point="org.eclipse.ui.views">
       <view
             allowMultiple="true"
-            class="br.ufes.inf.nemo.odercp.rcpapp.views.ViewDataODE"
+            class="br.ufes.inf.nemo.eode.rcpapp.views.ViewDataODE"
             id="br.ufes.inf.nemo.odercp.rcpapp.views.ViewDataODE"
             name="Datas ODE"
             restorable="true">
@@ -355,7 +355,7 @@
    <extension
          point="org.eclipse.ui.editors">
       <editor
-            class="br.ufes.inf.nemo.odercp.rcpapp.editors.EditorODE"
+            class="br.ufes.inf.nemo.eode.rcpapp.editors.EditorODE"
             default="false"
             id="br.ufes.inf.nemo.odercp.rcpapp.editors.EditorODE"
             name="Datas ODE Editor">
@@ -364,7 +364,7 @@
    <extension
          point="org.eclipse.ui.services">
       <sourceProvider
-            provider="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.MenuState">
+            provider="br.ufes.inf.nemo.eode.rcpapp.sourceprovider.MenuState">
          <variable
                name="br.ufes.inf.nemo.odercp.rcpapp.sourceprovider.active"
                priorityLevel="workbench">
